@@ -3,8 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .hidden_box input {
+            display: none;
+        }
+
+        /*中身を非表示にしておく*/
+        .hidden_box .hidden_show {
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.8s;
+        }
+
+        /*クリックで中身表示*/
+        .hidden_box input:checked ~ .hidden_show {
+            height: auto;
+            opacity: 1;
+        }
+        #wrapper {
+            background-image: url("../../trust.jpg");
+        }
+
+        #wrapper p {
+            color: white;
+        }
+
+        .hidden_box label {
+            color: white;
+        }
+    </style>
 </head>
 <body>
-
+<input type="button" onclick="location.href='mypage.html'"value="ホームへ戻る">
+<div id="wrapper">
+    <p>Trust</p>
+    <div class="hidden_box">
+        <p><label for="label1">タップして意味を表示</label></p>
+        <input type="checkbox" id="label1"/>
+        <div class="hidden_show">
+            <!--非表示ここから-->
+            <p>信用する</p>
+            <!--ここまで-->
+        </div>
+    </div>
+</div>
+<div id="button">
+    <input type="button" onclick="location.href='mypage.html'"value="?">
+    <input type="button" onclick="location.href='mypage.html'"value="〇">
+</div>
 </body>
 </html>
