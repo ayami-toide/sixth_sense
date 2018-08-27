@@ -1,7 +1,7 @@
-package com.example.sixth_sense.repository;
+package com.example.sixth_sense.domain;
 
 
-import javax.persistence.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,15 +22,17 @@ public class WordList {
     @Column(name="word", nullable=false)
     private String word;
 
-    @Column(name="meaning1", nullable=false)
-    private  String meaning1;
+    @Column(name="meaning", nullable=false)
+    private  String meaning;
 
-    @Column(name="meaning2", nullable=false)
-    private  String meaning2;
+    @Column(name="flicker", nullable=false)
+    private  Integer flicker;
 
-    @Column(name="meaning3", nullable=false)
-    private  String meaning3;
+    @Column(name="hatena", nullable=false)
+    private  Integer hatena;
 
-    @Column(name="meaning4", nullable=false)
-    private  String meaning4;
+    @Column(name="status", nullable=true)
+    private  Integer status;
+
+
 }
