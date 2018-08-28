@@ -2,29 +2,47 @@ package com.example.sixth_sense.service;
 
 
 import com.example.sixth_sense.domain.WordList;
-import com.example.sixth_sense.repository.WordListRepository;
+import com.example.sixth_sense.mapper.WordListMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class WordListService {
 
-
         @Autowired
-        private WordListRepository WordListRepository;
+        private WordListMapper wordlistMapper;
 
+        @Transactional
         public List<WordList> findAll(){
-            return WordListRepository.findAll();
+
+            return wordlistMapper.findAll();
         }
 
+        @Transactional
         public WordList findOne(Long id){
-            return WordListRepository.findById(id).get();
+
+            return wordlistMapper.findOne(id);
         }
-        public WordList save(WordList wordlist){
-            return WordListRepository.save(wordlist);
+
+        @Transactional
+        public void save(WordList wordlist){
+
+           wordlistMapper.save(wordlist);
         }
+
+        @Transactional
+        public void update(WordList wordlist){
+
+            wordlistMapper.update(wordlist);
+        }
+
+        @Transactional
         public void delete(Long id){
-            WordListRepository.deleteById(id);
+
+            wordlistMapper.delete(id);
         }
 
 }

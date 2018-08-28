@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<p lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Test-quiz</title>
 </head>
 <body>
 <p><td th:text="${word}"></td></p>
-<p>
-    <input type="radio" name="q1" value="${m1}"><td th:text="${m1}"></td></p>
-<p><input type="radio" name="q1" value="${m2}"><td th:text="${m2}"></td></p>
-<p><input type="radio" name="q1" value="${m3}"><td th:text="${m3}"></td></p>
-<p><input type="radio" name="q1" value="${m4}"><td th:text="${m4}"></td>
-</p>
+<input type="radio" name="q1" value="${m1}" onClick="location.href='http://www.yahoo.co.jp'"><td th:text="${m1}"></td>
+<input type="radio" name="q1" value="${m2}" onClick="location.reload()"><td th:text="${m2}"></td>
+<input type="radio" name="q1" value="${m3}" onClick="location.reload()"><td th:text="${m3}"></td>
+<input type="radio" name="q1" value="${m4}" onClick="location.reload()"><td th:text="${m4}"></td>
+<tr th:each="words : ${words}">
+    <td th:text="${words}"></td>
+</tr>
 
 
+
+<form method="post" action="/sense/test_result">
+    <input type = "submit" value = "End"/>
+</form>
 
 </body>
 </html>
