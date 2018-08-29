@@ -1,0 +1,138 @@
+a:link { color: #000000; }
+a:visited { color: #000000; }
+a:hover { color: #000000; }
+a:active { color: #000000; }
+a:link {text-decoration:none;}
+
+body{
+    width: 360px;
+    height: 670px;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+.count_memory{
+    text-align: right;
+    margin-right: 20px;
+}
+
+
+//progress-bar//
+.progress{
+    display: block;
+    appearance: none;
+    border: none;
+}
+.progress{
+    --uiProgressWidth: var(--progressWidth, 100%);
+    --uiProgressHeight: var(--progressHeight, 5px);
+    width: var(--uiProgressWidth);
+    height: var(--uiProgressHeight);
+}
+
+.progress[value]::-webkit-progress-value{
+    transition: width .4s ease-out;
+}
+.progress{
+    --uiProgressColor: var(--progressColor);
+    --uiProgressBgColor: var(--progressBgColor);
+    background-color: var(--uiProgressColor);
+    color: var(--uiProgressColor);
+}
+
+.progress[value]::-webkit-progress-bar{
+    background-color: var(--uiProgressBgColor);
+}
+
+.progress[value]::-webkit-progress-value{
+    background-color: var(--uiProgressColor);
+}
+
+.progress[value]::-moz-progress-bar{
+    background-color: var(--uiProgressColor);
+}
+.progress{
+    --progressHeight: 4px;
+}
+.progress{
+    --progressColor: #C21858;
+    --progressBgColor: #F8BBD0;
+}
+
+
+
+.mypage_prf{
+    text-align: center;
+    width: 360px;
+    height: 270px;
+}
+
+.mypage_prf>img{
+    width: 200px;
+    height: 200px;
+}
+.mypage_btn{
+    width: 360px;
+    height: 130px;
+}
+a.review_btn {
+    float: left;
+    display: block;
+    text-align: center;
+    margin-left: 33px;
+    text-decoration: none;
+    color: #333;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border: double 4px #CC0000;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .6s;
+}
+a.newtango_btn {
+    float: right;
+    display: block;
+    text-align: center;
+    margin-right: 33px;
+    text-decoration: none;
+    color: #333;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border: double 4px #CC0000;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .6s;
+}
+
+.mypage_menu{
+    list-style: none;
+    width: 360px;
+    height: 50px;
+    padding: 0;
+    margin: 3px 19px;
+}
+.mypage_menu li {
+    float: left;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+
+}
+
+.mypage_menu li a {
+    width: auto;
+    font-size: 14px;
+    margin: 4px;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: block;
+
+}
+.mypage_level{
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+}
