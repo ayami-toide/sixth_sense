@@ -1,7 +1,27 @@
 //study.html ここから//
 $(function() {
-    $(".tap").click(function(){
-        $(".meaning").toggle();
+    $(".tap1").click(function(){
+        $(".meaning1").toggle();
+    });
+});
+$(function() {
+    $(".tap2").click(function(){
+        $(".meaning2").toggle();
+    });
+});
+$(function() {
+    $(".tap3").click(function(){
+        $(".meaning3").toggle();
+    });
+});
+$(function() {
+    $(".tap4").click(function(){
+        $(".meaning4").toggle();
+    });
+});
+$(function() {
+    $(".tap5").click(function(){
+        $(".meaning5").toggle();
     });
 });
 
@@ -33,4 +53,6 @@ $(document).ready(function(){
     });
 
 });
+
+
 //study.html ここまで//
