@@ -17,7 +17,7 @@ import java.util.List;
 public class WordListController {
 
     @Autowired
-     private WordListService wordlistService;
+    WordListService wordlistService;
 
     @GetMapping("test")
     public String test(Model model){
@@ -26,6 +26,10 @@ public class WordListController {
 
     @GetMapping("mypage")
     public String mypage(Model model){
+        model.addAttribute("count",wordlistService.findCount());
+        model.addAttribute("status",wordlistService.findCountStatus());
+        model.addAttribute("studied",wordlistService.findStudiedWord());
+
         return "mypage";
     }
 

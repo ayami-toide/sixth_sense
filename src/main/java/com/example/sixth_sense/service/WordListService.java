@@ -35,6 +35,21 @@ public class WordListService {
         }
 
         @Transactional
+        public  int findCount(){
+            return wordlistMapper.findCount();
+        }
+
+        @Transactional
+        public  int findCountStatus(){
+            return wordlistMapper.findCountStatus();
+        }
+
+        @Transactional
+        public  int findStudiedWord(){
+            return wordlistMapper.findStudiedWord();
+        }
+
+        @Transactional
         public void save(WordList wordlist){
 
            wordlistMapper.save(wordlist);

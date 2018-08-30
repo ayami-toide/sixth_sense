@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://java.sun.com/JSP/Page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +8,13 @@
 </head>
 <body>
 
-<p class="count_memory">総フリック数　200回<br>
+<p class="count_memory">進めた単語数　<tr th:text = "${studied}"></tr>回<br>
     継続日数　60日
 </p>
 
-<progress class="progress" min="0" max="100" value="80">40%</progress>
+<progress class="progress" min="0" max="4" th:value="${status}">%</progress>
+
+
 
 <p class="mypage_level">Level 7</p>
 
