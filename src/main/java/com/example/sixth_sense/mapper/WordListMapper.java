@@ -11,6 +11,16 @@ public interface WordListMapper {
     @Select("select * from wordlist")
     List<WordList> findAll();
 
+    @Select("SELECT COUNT(id) FROM wordlist")
+    int findCount();
+
+    @Select("SELECT COUNT(*) FROM wordlist WHERE status = '1'")
+    int findCountStatus();
+
+    @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
+    int findStudiedWord();
+
+
     @Select("select * from wordlist where id = #{id}")
     WordList findOne(Long id);
 
