@@ -1,6 +1,7 @@
 package com.example.sixth_sense.controller;
 
-
+import com.example.sixth_sense.service.WordListService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/sense")
 public class WordListController {
+
+    @Autowired
+    WordListService wordlistService;
 
     @GetMapping("test")
     public String test(Model model){
@@ -52,6 +56,7 @@ public class WordListController {
         model.addAttribute("id", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
+        return "test_quiz";
     }
 
 
