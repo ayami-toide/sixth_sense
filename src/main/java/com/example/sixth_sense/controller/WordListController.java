@@ -25,6 +25,10 @@ public class WordListController {
 
     @GetMapping("mypage")
     public String mypage(Model model){
+        model.addAttribute("count",wordlistService.findCount());
+        model.addAttribute("status",wordlistService.findCountStatus());
+        model.addAttribute("studied",wordlistService.findStudiedWord());
+
         return "mypage";
     }
 
@@ -55,7 +59,6 @@ public class WordListController {
         int id = 1;
         model.addAttribute("id", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
-
         return "test_quiz";
     }
 
