@@ -14,6 +14,10 @@ public interface WordListMapper {
     @Select("select * from wordlist where id = #{id}")
     WordList findOne(Long id);
 
+    //Geeee Rina
+    @Select("select * from wordlist where flicker = 0 LIMIT 5")
+    List<WordList> findWords();
+
 
     @Insert("insert into wordlist (word, meaning, flicker,status,hatena,perfect) values (#{word}, #{meaning}, #{flicker},#{status},#{hatena},#{perfect})")
     @Options(useGeneratedKeys = true)

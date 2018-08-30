@@ -15,6 +15,13 @@ public class WordListService {
         @Autowired
         private WordListMapper wordlistMapper;
 
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findWords(){
+
+            return wordlistMapper.findWords();
+        }
+
         @Transactional
         public List<WordList> findAll(){
 
