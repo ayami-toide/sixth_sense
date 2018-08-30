@@ -5,19 +5,29 @@
     <title>Test-quiz</title>
 </head>
 <body>
-<p><td th:text="${word}"></td></p>
-<input type="radio" name="q1" value="${m1}" onClick="location.href='http://www.yahoo.co.jp'"><td th:text="${m1}"></td>
-<input type="radio" name="q1" value="${m2}" onClick="location.reload()"><td th:text="${m2}"></td>
-<input type="radio" name="q1" value="${m3}" onClick="location.reload()"><td th:text="${m3}"></td>
-<input type="radio" name="q1" value="${m4}" onClick="location.reload()"><td th:text="${m4}"></td>
-<tr th:each="words : ${words}">
-    <td th:text="${words}"></td>
+<tr th:each="word : ${words}" th:object="${word}">
+    <td th:text="*{word}"></td>
 </tr>
 
+<br><br>
+
+<tr th:each="word : ${words}" th:object="${word}">
+<input type="radio" name="q1" value="${word.meaning}" onClick="location.href='http://www.yahoo.co.jp'"> <td th:text="*{meaning}"></td>
+<input type="radio" name="q1" value="${word.hazure1}" onClick="location.reload()"><td th:text="${word.hazure1}"></td>
+<input type="radio" name="q1" value="${word.hazure2}" onClick="location.reload()"><td th:text="${word.hazure2}"></td>
+<input type="radio" name="q1" value="${word.hazure3}" onClick="location.reload()"><td th:text="${word.hazure3}"></td>
 
 
-<form method="post" action="/sense/test_result">
+
+
+
+
+
+<form method="post" action="/sense/test_question/{id}">
+  <div th:with="id += 1">
     <input type = "submit" value = "End"/>
+    <input type="hidden" name="find" th:value="toy" />
+  </div>
 </form>
 
 </body>
