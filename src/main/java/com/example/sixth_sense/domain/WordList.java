@@ -23,16 +23,59 @@ public class WordList {
     private String word;
 
     @Column(name="meaning", nullable=false)
-    private  String meaning;
+    private String meaning;
+
+    @Column(name="hazure1", nullable = false)
+    private String hazure1;
+
+    @Column(name="hazure2", nullable = false)
+    private String hazure2;
+
+    @Column(name="hazure3", nullable = false)
+    private String hazure3;
 
     @Column(name="flicker", nullable=false)
     private  Integer flicker;
 
-    @Column(name="hatena", nullable=false)
-    private  Integer hatena;
-
     @Column(name="status", nullable=true)
     private  Integer status;
 
+    @Column(name="perfect", nullable=false)
+    private  Integer perfect;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public String getMeaning() {
+        return meaning;
+    }
+
+    public String getHazure1() {
+        return hazure1;
+    }
+
+    public String getHazure2() {
+        return hazure2;
+    }
+
+    public String getHazure3() {
+        return hazure3;
+    }
+
+    public Integer getFlicker() {
+        return flicker;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public Integer getPerfect() {
+        return perfect;
+    }
 }

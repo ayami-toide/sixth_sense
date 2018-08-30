@@ -14,6 +14,7 @@ public interface WordListMapper {
     @Select("select * from wordlist where id = #{id}")
     WordList findOne(Long id);
 
+
     @Insert("insert into wordlist (word, meaning, flicker,status,hatena,perfect) values (#{word}, #{meaning}, #{flicker},#{status},#{hatena},#{perfect})")
     @Options(useGeneratedKeys = true)
     void save(WordList wordlist);
