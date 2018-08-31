@@ -1,0 +1,83 @@
+a:link { color: #FFF; }
+a:visited { color: #000000; }
+a:hover { color: #000000; }
+a:active { color: #000000; }
+a:link {text-decoration:none;}
+
+body{
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.study_index_title{
+    text-align: center;
+    font-size: 37px;
+}
+
+.test_result>p{
+    margin: 10px;
+}
+
+
+.test_time{
+    text-align: center;
+    font-size: 30px;
+}
+.test_time>p{
+    margin-top: -10px;
+}
+
+.test_text{
+    margin:auto;
+    font-size: 26px;
+    margin-top: -27px;
+    width: 360px;
+    height: 400px;
+}
+
+.test_index_eng {
+    position: relative;
+    float: left;
+    width: 170px;
+    height: 300px;
+    text-align: center;
+}
+
+.test_index_jp {
+    position: relative;
+    float: left;
+    width: 170px;
+    height: 300px;
+    text-align: center;
+}
+
+
+
+
+.mypage_menu{
+    list-style: none;
+    width: 360px;
+    height: 100px;
+    margin-left: 79px;
+}
+.mypage_menu li {
+    float: left;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+
+}
+
+.mypage_menu li a {
+    width: auto;
+    font-size: 14px;
+    margin: 4px;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+    color: #C21858;
+}
+
+.mypage_menu li p{
+    margin: 6px;
+}
