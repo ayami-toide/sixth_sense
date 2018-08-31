@@ -3,7 +3,6 @@ a:visited { color: #000000; }
 a:hover { color: #000000; }
 a:active { color: #000000; }
 a:link {text-decoration:none;}
-
 body{
     width: 360px;
     height: 670px;
@@ -13,8 +12,6 @@ body{
     text-align: right;
     margin-right: 20px;
 }
-
-
 //progress-bar//
 .progress{
     display: block;
@@ -27,7 +24,6 @@ body{
     width: var(--uiProgressWidth);
     height: var(--uiProgressHeight);
 }
-
 .progress[value]::-webkit-progress-value{
     transition: width .4s ease-out;
 }
@@ -37,15 +33,12 @@ body{
     background-color: var(--uiProgressColor);
     color: var(--uiProgressColor);
 }
-
 .progress[value]::-webkit-progress-bar{
     background-color: var(--uiProgressBgColor);
 }
-
 .progress[value]::-webkit-progress-value{
     background-color: var(--uiProgressColor);
 }
-
 .progress[value]::-moz-progress-bar{
     background-color: var(--uiProgressColor);
 }
@@ -56,62 +49,47 @@ body{
     --progressColor: #C21858;
     --progressBgColor: #F8BBD0;
 }
-
-
-
 .mypage_prf{
     text-align: center;
     width: 360px;
     height: 270px;
 }
-
 .mypage_prf>img{
     width: 200px;
     height: 200px;
 }
 .mypage_btn{
     width: 360px;
-    height: 130px;
-}
-a.review_btn {
-    float: left;
-    display: block;
+    height: 136px;
     text-align: center;
-    margin-left: 33px;
-    text-decoration: none;
-    color: #333;
-    width: 120px;
-    height: 120px;
-    line-height: 120px;
-    border: double 4px #CC0000;
-    border-radius: 50%;
-    vertical-align: middle;
-    overflow: hidden;
-    transition: .6s;
 }
 a.newtango_btn {
-    float: right;
-    display: block;
-    text-align: center;
-    margin-right: 33px;
-    text-decoration: none;
-    color: #333;
-    width: 120px;
-    height: 120px;
-    line-height: 120px;
-    border: double 4px #CC0000;
-    border-radius: 50%;
-    vertical-align: middle;
-    overflow: hidden;
-    transition: .6s;
+    display: inline-block;
+    padding: 15px 43px;
+    margin-bottom: 10px;
+    border-radius: 31px;
+    color: #000;
+    background-image: -webkit-linear-gradient(45deg, #C21858 0%, #C21858 100%);
+    background-image: linear-gradient(45deg, #C21858 0%, #C21858 100%);
+    transition: .4s;
+    font-size: 20px;
 }
-
+a.oldtango_btn {
+    display: inline-block;
+    padding: 11px 31px;
+    border-radius: 31px;
+    color: #000;
+    background-image: -webkit-linear-gradient(45deg, #F8BBD0 0%, #F8BBD0 100%);
+    background-image: linear-gradient(45deg, #F8BBD0 0%, #F8BBD0 100%);
+    transition: .4s;
+    font-size: 18px;
+}
 .mypage_menu{
     list-style: none;
     width: 360px;
     height: 50px;
     padding: 0;
-    margin: 3px 19px;
+    margin: 0;
 }
 .mypage_menu li {
     float: left;
@@ -119,20 +97,21 @@ a.newtango_btn {
     margin: 0;
     text-align: center;
     display: inline-block;
-
 }
-
 .mypage_menu li a {
     width: auto;
     font-size: 14px;
     margin: 4px;
-    padding: 12px 12px;
+    padding: 0px 15px;
     text-decoration: none;
     display: block;
-
+    color: #C21858;
+}
+.mypage_menu li p{
+    margin: 6px;
 }
 .mypage_level{
     text-align: center;
     font-size: 30px;
-    margin: 20px;
+    margin: 10px;
 }
