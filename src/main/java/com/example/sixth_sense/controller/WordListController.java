@@ -43,7 +43,8 @@ public class WordListController {
 
     @GetMapping("review")
     public String review(Model model){
-        model.addAttribute("status",wordlistService.findCountStatus());
+        model.addAttribute("studying",wordlistService.findCountStudyingNow());
+        model.addAttribute("perfect",wordlistService.findCountPerfect());
 
         return "review";
     }

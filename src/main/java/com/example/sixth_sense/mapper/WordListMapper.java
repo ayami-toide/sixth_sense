@@ -20,6 +20,12 @@ public interface WordListMapper {
     @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
     int findStudiedWord();
 
+    @Select("SELECT COUNT(*) FROM wordlist WHERE perfect= '1'")
+    int findCountStudyingNow();
+
+    @Select("SELECT COUNT(*) FROM wordlist WHERE perfect= '2'")
+    int findCountPerfect();
+
 
     @Select("select * from wordlist where id = #{id}")
     WordList findOne(Long id);

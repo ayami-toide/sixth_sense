@@ -16,16 +16,17 @@
 
     <div class="review_index">
         <a href="#" class="btn-denim">マスター</a>
-        <tr th:text = "${status}"></tr><br>
-        <a href="#" class="btn-denim">学習中</a><br>
+        <tr th:text = "${perfect}"></tr><br>
+        <a href="#" class="btn-denim">学習中</a>
+        <tr th:text = "${studying}"></tr><br>
         <a href="#" class="btn-denim">My単語</a><br>
     </div>
 
     <ul class="mypage_menu">
-        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
-        <li><a href="#"><img src="/images/mypage/deta.png"></a></li>
-        <li><a href="/sense/test"><img src="/images/mypage/test.png"></a></li>
-        <li><a href="#"><img src="/images/mypage/ranking.png"></a></li>
+        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
+        <li><a href="#"><img src="/images/mypage/deta.png"></a><p>マイデータ</p></li>
+        <li><a href="/sense/test"><img src="/images/mypage/test.png"></a><p>テスト</p></li>
+        <li><a href="#"><img src="/images/mypage/ranking.png"></a><p>ランキング</p></li>
     </ul>
 </body>
 </html>

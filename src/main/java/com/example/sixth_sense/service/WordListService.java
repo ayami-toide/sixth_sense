@@ -50,6 +50,18 @@ public class WordListService {
         }
 
         @Transactional
+        public  int findCountStudyingNow(){
+            return wordlistMapper.findCountStudyingNow();
+        }
+
+        @Transactional
+        public  int findCountPerfect(){
+            return wordlistMapper.findCountPerfect();
+        }
+
+
+
+        @Transactional
         public void save(WordList wordlist){
 
            wordlistMapper.save(wordlist);
