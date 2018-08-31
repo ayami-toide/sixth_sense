@@ -53,6 +53,10 @@ public class WordListController {
         return "test_result";
     }
 
+    @GetMapping("study_index")
+    public String study_index(Model model) {
+        return "study_index";
+    }
 
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
