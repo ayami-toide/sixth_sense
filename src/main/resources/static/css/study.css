@@ -53,6 +53,11 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+img {
+    width: 340px;
+    height: 340px;
+    display: block;
+}
 .like {
     border-radius: 5px;
     padding: 5px 10px;
