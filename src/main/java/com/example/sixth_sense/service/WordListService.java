@@ -15,6 +15,13 @@ public class WordListService {
         @Autowired
         private WordListMapper wordlistMapper;
 
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findWords(){
+
+            return wordlistMapper.findWords();
+        }
+
         @Transactional
         public List<WordList> findAll(){
 
@@ -25,6 +32,21 @@ public class WordListService {
         public WordList findOne(Long id){
 
             return wordlistMapper.findOne(id);
+        }
+
+        @Transactional
+        public  int findCount(){
+            return wordlistMapper.findCount();
+        }
+
+        @Transactional
+        public  int findCountStatus(){
+            return wordlistMapper.findCountStatus();
+        }
+
+        @Transactional
+        public  int findStudiedWord(){
+            return wordlistMapper.findStudiedWord();
         }
 
         @Transactional
