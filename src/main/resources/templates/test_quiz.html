@@ -5,17 +5,22 @@
     <title>Test-quiz</title>
 </head>
 <body>
-<tr th:each="word : ${words}" th:object="${word}">
+<tr  th:object="${words}">
     <td th:text="*{word}"></td>
 </tr>
 
 <br><br>
 
-<tr th:each="word : ${words}" th:object="${word}">
-<input type="radio" name="q1" value="${word.meaning}" onClick="location.href='http://www.yahoo.co.jp'"> <td th:text="*{meaning}"></td>
-<input type="radio" name="q1" value="${word.hazure1}" onClick="location.reload()"><td th:text="${word.hazure1}"></td>
-<input type="radio" name="q1" value="${word.hazure2}" onClick="location.reload()"><td th:text="${word.hazure2}"></td>
-<input type="radio" name="q1" value="${word.hazure3}" onClick="location.reload()"><td th:text="${word.hazure3}"></td>
+
+<<<<<<< HEAD
+<tr th:each=" word : ${words.getShuffledAnswers()}">
+<form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+    <input type = "submit" th:value="${word}"/>
+    <br>
+</form>
+=======
+</tr>
+>>>>>>> 3bf4cfb684a31877faee48047d0c3bffeb75ca8e
 
 </tr>
 

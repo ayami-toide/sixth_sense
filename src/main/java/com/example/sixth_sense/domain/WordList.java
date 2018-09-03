@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 
 @Entity
@@ -43,6 +47,9 @@ public class WordList {
     @Column(name="perfect", nullable=false)
     private  Integer perfect;
 
+    @Column(name="hatena", nullable=false)
+    private  Integer hatena;
+
     public Integer getId() {
         return id;
     }
@@ -77,5 +84,21 @@ public class WordList {
 
     public Integer getPerfect() {
         return perfect;
+    }
+
+    public Integer getHatena() {
+        return hatena;
+    }
+
+    public List<String> getShuffledAnswers() {
+        ArrayList<String> answers = new ArrayList<String>();
+        answers.add (getMeaning());
+        answers.add(getHazure1());
+        answers.add(getHazure2());
+        answers.add(getHazure3());
+        Collections.shuffle(answers);
+
+        // シャッフルする
+        return  answers;
     }
 }
