@@ -1,6 +1,7 @@
 package com.example.sixth_sense.controller;
 
 
+import com.example.sixth_sense.domain.WordList;
 import com.example.sixth_sense.service.WordListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,26 +29,35 @@ public class WordListController {
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
 
-        String[] array = {"信じる", "嫌い", "遊ぶ", "かわいい", "TRUST"};
-        List<String> list = Arrays.asList(array);
-        String word = list.get(4);
-        Collections.shuffle(list);
-        String[] words =list.toArray(new String[0]);
-        int id = 1;
-        model.addAttribute("id", id);
+        String[] array = {"select * from wordlist where id = #{id}"};
+        List<String> lists = Arrays.asList(array);
+        Collections.shuffle(lists);
+        String[] options =lists.toArray(new String[0]);
+
+
+
+        // Collections.shuffle(wordlistService.findAll());
+
+        int id = 2;
+        model.addAttribute("nextId", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
         return "test_quiz";
-
-
     }
 
+    @RequestMapping("test_question/{id}")
+        public String test_question(@PathVariable("id") int id, Model model)
+    {
 
+        model.addAttribute("nextId", id + 1);
+        model.addAttribute("words",wordlistService.findOne(new Long(id)));
+
+        return "test_quiz" ;
+    }
 
     @RequestMapping("test_result")
     public String test_result(Model model)
     {
-
         return "test_result";
     }
 
