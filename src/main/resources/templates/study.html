@@ -18,12 +18,13 @@
 
     <tr th:each="word : ${words}" th:object="${word}">
         <div class="buddy" style="display: block;">
-            <div class="avatar"  style="display: block; background-image: url(th:text="*{url}")">
-                <div id="wrapper">
+            <div class="avatar">
+                <img th:src="*{url}" style="width: 340px;height: 340px;">
+                <div id="wrapper" style="position:absolute; top:50px; left:30px; width: 430px;">
                     <p th:text="*{word}"></p>
-                            <div  class="mask">
+
                             <p th:text="*{meaning}" ></p>
-                            </div>
+
 
                             <p>タップして意味を表示</p>
                         <!--非表示ここから-->
@@ -32,27 +33,48 @@
         </div>
     </tr>
 
-<tr>
-    <div class="buddy" style="display: block;">
-        <div class="avatar">
-            <img src="../images/study/hand.jpg" style="
-    width: 340px;
-    height: 170px;
-">
-        <div id="wrapper">
-            <p>hand</p>
-            <div  class="mask">
-                <p>hand</p>
-            </div>
+    <!--<tr th:each="word : ${words}" th:object="${word}">-->
+        <!--<div class="buddy" style="display: block;">-->
+            <!--<div class="avatar">-->
+                <!--<img src="../images/study/sense.jpg" style="width: 340px;height: 340px;">-->
+                <!--<div id="wrapper" style="position:absolute; top:50px; left:30px; width: 430px;">-->
+                    <!--<p th:text="*{word}"></p>-->
 
-            <p>タップして意味を表示</p>
-            <!--非表示ここから-->
-        </div>
-    </div>
-    </div>
-</tr>
+                    <!--<p th:text="*{meaning}" ></p>-->
 
+
+                    <!--<p>タップして意味を表示</p>-->
+                    <!--&lt;!&ndash;非表示ここから&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</tr>-->
 </div>
+
+<!--<tr>-->
+    <!--<div class="buddy" style="display: block;">-->
+        <!--<div class="avatar">-->
+            <!--<img src="../images/study/hand.jpg" style="width: 340px;height: 170px;">-->
+        <!--<div id="wrapper">-->
+            <!--<p>hand</p>-->
+            <!--<div  class="mask">-->
+                <!--<p>hand</p>-->
+            <!--</div>-->
+
+            <!--<p>タップして意味を表示</p>-->
+            <!--&lt;!&ndash;非表示ここから&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+<!--</tr>-->
+
+<!--<div style="position: relative;">-->
+    <!--<img src="../images/study/hand.jpg" alt="topimg">-->
+    <!--<div style="position:absolute; top:50px; left:30px; width: 430px;">-->
+        <!--ここに文章を書く-->
+    <!--</div></div>-->
+
+<!--</div>-->
     <!--<div id="button">-->
         <!--<input type="button" onclick="location.href='mypage.html'"value="?">-->
         <!--<input type="button" onclick="location.href='mypage.html'"value="〇">-->
