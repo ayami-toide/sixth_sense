@@ -30,23 +30,38 @@
         clearInterval( PassageID );   // タイマーのクリア
         document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
     }
+ </script>
 
-    function changepage(id) {
+<div class="marudisplay" id="marudisplay">
+    <img src="/images/study/word2.jpg">
+</div>
+<div class="hazuredisplay" id="hazuredisplay">
+    <img src="/images/study/hand.jpg">
+</div>
+
+<script>
+    var maruimg = document.getElementById('marudisplay');
+    var hazureimg = document.getElementById('hazuredisplay');
+    maruimg.style.display = "none";
+    hazureimg.style.display = "none";
+     function changepage(id) {
         if(id == 1) {
-            document.write('<img src="/images/study/hand.jpg" id="maru">');
+            maruimg.style.display = "block";
             setTimeout(function change(){
                 window.location.href = 'https://www.yahoo.co.jp/';
             }, 3000);
-
-            clearTimeout()
         }else if(id == 2){
-            document.write('<img src="/images/study/word2.jpg" id="batu">');
+            hazureimg.style.display = "block";
             setTimeout(function change(){
                 window.location.href = 'https://www.yahoo.co.jp/';
             }, 3000);
         }
     }
 </script>
+
+
+
+
 
 <p>
     <input type="button" value="end" id="endcount" onclick="stopShowing();">
@@ -81,6 +96,8 @@
 
    </div>
 </div>
+
+
 
 </body>
 </html>
