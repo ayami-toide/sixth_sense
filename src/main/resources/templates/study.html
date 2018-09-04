@@ -22,6 +22,7 @@
                 <img th:src="*{url}" style="width: 340px;height: 340px;">
                 <div id="wrapper" style="position:absolute; top:50px; left:30px; width: 430px;">
                     <p th:text="*{word}"></p>
+                    <input type="hidden" name="word" th:value="${word.word}" />
 
                             <p th:text="*{meaning}" ></p>
 

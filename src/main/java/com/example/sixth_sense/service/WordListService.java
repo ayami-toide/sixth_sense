@@ -63,6 +63,13 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
+        public void findByWord(String word){
+
+            wordListMapper.findByWord(word);
+        }
+
+        //Geeee Rina
+        @Transactional
         public void flick_status_zero(String word){
 
             wordListMapper.flick_status_zero(word);

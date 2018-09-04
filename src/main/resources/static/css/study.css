@@ -1,5 +1,8 @@
+body{
+    margin: 0px;
+}
 #container {
-    width: 500px;
+    width: 363px;
     margin: auto !important;
     display: block;
     height: 500px;
@@ -13,16 +16,16 @@
     user-select: none;
 }
 .buddy {
-    display: none;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    color: #fff;
-    padding: 20px;
-    width: 360px;
-    height: 360px;
-    top: 50px;
-    left: 50px;
+    /* display: none; */
+    /* background: #ffffff; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.2); */
+    /* color: #fff; */
+    /* padding: 20px; */
+    /* width: 360px; */
+    /* height: 360px; */
+    top: 77px;
+    /* left: 0px; */
     position: absolute;
     cursor: hand;
 }
@@ -43,17 +46,13 @@
     z-index: 10;
 }
 .avatar {
-    background: #222;
-    width: 340px;
-    height: 340px;
+    width: 364px;
+    height: 460px;
     display: block;
-    margin-top: 10px;
-    margin-left: 10px;
-    background-size: auto 160% !important;
+    background-size: auto 100% !important;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .like {
     border-radius: 5px;
     padding: 5px 10px;
@@ -81,26 +80,24 @@
 /*.hidden_box input {*/
 /*display: none;*/
 /*}*/
-
 /*中身を非表示にしておく*/
 .hidden_box .hidden_show {
     overflow: hidden;
     opacity: 0;
     transition: 0.8s;
 }
-
 /*クリックで中身表示*/
 .hidden_box input:checked ~ .hidden_show {
     height: auto;
     opacity: 1;
 }
-
 #wrapper p {
     color: white;
     font-size: 20px;
 }
-
 .hidden_box label {
     color: white;
 }
+
+
 

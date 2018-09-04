@@ -33,10 +33,19 @@ $(document).ready(function(){
 
         $(this).append('<div class="status like">知っている!</div>');
         // if ( $(this).is(':last-child') ) {
-        $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+        // $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
         // } else {
-        //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+            $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+
         // }
+        // var send_data:
+        // send_data = {
+        //     word : $('input').val()
+        // };
+        //
+        // $.ajax({
+        //     url: ''
+        // })
     });
 
     $(".buddy").on("swipeleft",function(){
@@ -44,12 +53,12 @@ $(document).ready(function(){
         $('.buddy').find('.status').remove();
         $(this).append('<div class="status dislike">知らない!</div>');
 
-        // // if ( $(this).is(':last-child') ) {
-        $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-        //     alert('OUPS');
-        // // } else {
-        //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-        // }
+        if ( $(this).is(':firstChild') ) {
+        $('.buddy:nth-child(5)').removeClass ('rotate-left rotate-right').fadeIn(300);
+            alert('OUPS');
+        } else {
+         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+         }
     });
 
 });
