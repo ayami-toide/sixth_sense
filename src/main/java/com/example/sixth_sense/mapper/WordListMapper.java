@@ -28,6 +28,13 @@ public interface WordListMapper {
     @Select("select * from wordlist where flicker = 0 LIMIT 5")
     List<WordList> findWords();
 
+    //Geeee Rina
+    @Update("update wordlist set status = 0 where word = #{word}")
+    void flick_status_zero(String word);
+
+    //Geeee Rina
+    @Update("update wordlist set status = 1 where word = #{word}")
+    void flick_status_ichi(String word);
 
     @Insert("insert into wordlist (word, meaning, flicker,status,hatena,perfect) values (#{word}, #{meaning}, #{flicker},#{status},#{hatena},#{perfect})")
     @Options(useGeneratedKeys = true)

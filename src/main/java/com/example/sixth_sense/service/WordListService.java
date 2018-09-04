@@ -13,58 +13,72 @@ import java.util.List;
 public class WordListService {
 
         @Autowired
-        private WordListMapper wordlistMapper;
+        private WordListMapper wordListMapper;
 
         //Geeee Rina
         @Transactional
         public List<WordList> findWords(){
 
-            return wordlistMapper.findWords();
+            return wordListMapper.findWords();
         }
 
         @Transactional
         public List<WordList> findAll(){
 
-            return wordlistMapper.findAll();
+            return wordListMapper.findAll();
         }
 
         @Transactional
         public WordList findOne(Long id){
 
-            return wordlistMapper.findOne(id);
+            return wordListMapper.findOne(id);
         }
 
         @Transactional
         public  int findCount(){
-            return wordlistMapper.findCount();
+            return wordListMapper.findCount();
         }
 
         @Transactional
         public  int findCountStatus(){
-            return wordlistMapper.findCountStatus();
+            return wordListMapper.findCountStatus();
         }
 
         @Transactional
         public  int findStudiedWord(){
-            return wordlistMapper.findStudiedWord();
+            return wordListMapper.findStudiedWord();
         }
 
         @Transactional
         public void save(WordList wordlist){
 
-           wordlistMapper.save(wordlist);
+           wordListMapper.save(wordlist);
         }
 
         @Transactional
         public void update(WordList wordlist){
 
-            wordlistMapper.update(wordlist);
+            wordListMapper.update(wordlist);
+        }
+
+        //Geeee Rina
+        @Transactional
+        public void flick_status_zero(String word){
+
+            wordListMapper.flick_status_zero(word);
+        }
+
+        //Geeee Rina
+        @Transactional
+        public void flick_status_ichi(String word){
+
+            wordListMapper.flick_status_ichi(word);
         }
 
         @Transactional
         public void delete(Long id){
 
-            wordlistMapper.delete(id);
+            wordListMapper.delete(id);
         }
 
 }
