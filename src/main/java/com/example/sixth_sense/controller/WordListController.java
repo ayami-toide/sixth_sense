@@ -49,10 +49,6 @@ public class WordListController {
         return "review";
     }
 
-    @GetMapping("test_result")
-    public String test_result(Model model) {
-        return "test_result";
-    }
 
     @GetMapping("study_index")
     public String study_index(Model model) {
@@ -62,7 +58,6 @@ public class WordListController {
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
 
-<<<<<<< HEAD
         String[] array = {"select * from wordlist where id = #{id}"};
         List<String> lists = Arrays.asList(array);
         Collections.shuffle(lists);
@@ -92,20 +87,13 @@ public class WordListController {
     @RequestMapping("test_result")
     public String test_result(Model model)
     {
-        return "test_result";
-=======
-        String[] array = {"信じる", "嫌い", "遊ぶ", "かわいい", "TRUST"};
-        List<String> list = Arrays.asList(array);
-        String word = list.get(4);
-        Collections.shuffle(list);
-        String[] words =list.toArray(new String[0]);
+
 
         int id = 1;
         model.addAttribute("id", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
-        return "test_quiz";
->>>>>>> 3bf4cfb684a31877faee48047d0c3bffeb75ca8e
+        return "test_result";
     }
 
 
