@@ -43,6 +43,9 @@ public class WordList {
     @Column(name="perfect", nullable=false)
     private  Integer perfect;
 
+    @Column(name="url", nullable=false)
+    private  String url;
+
     public Integer getId() {
         return id;
     }
@@ -77,5 +80,9 @@ public class WordList {
 
     public Integer getPerfect() {
         return perfect;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }
