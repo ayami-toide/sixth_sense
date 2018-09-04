@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Test-quiz</title>
+
 </head>
 <body>
+
+<script type="text/javascript">
+
+    var PassSec;   // 秒数カウント用変数
+
+    // 繰り返し処理の中身
+    function showPassage() {
+        PassSec++;   // カウントアップ
+        var msg =  PassSec + "秒が経過中。";   // 表示文作成
+        document.getElementById("PassageArea").innerHTML = msg;   // 表示更新
+    }
+
+    // 繰り返し処理の開始
+    window.onload =function startShowing() {
+        PassSec = 0;   // カウンタのリセット
+        PassageID = setInterval('showPassage()',1000);   // タイマーをセット(1000ms間隔)
+        document.getElementById("startcount").disabled = true;   // 開始ボタンの無効化
+    }
+
+    // 繰り返し処理の中止
+    function stopShowing() {
+        clearInterval( PassageID );   // タイマーのクリア
+        document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
+    }
+
+    function changepage(id) {
+        if(id == 1) {
+            document.write('<img src="/images/study/hand.jpg" id="maru">');
+            setTimeout(function change(){
+                window.location.href = 'https://www.yahoo.co.jp/';
+            }, 3000);
+
+            clearTimeout()
+        }else if(id == 2){
+            document.write('<img src="/images/study/word2.jpg" id="batu">');
+            setTimeout(function change(){
+                window.location.href = 'https://www.yahoo.co.jp/';
+            }, 3000);
+        }
+    }
+</script>
+
+<p>
+    <input type="button" value="end" id="endcount" onclick="stopShowing();">
+</p>
+<p id="PassageArea">(ここにカウントが表示されます)</p>
+
 
 <tr  th:object="${words}">
     <td th:text="*{word}"></td>
@@ -12,19 +60,18 @@
 
 <br><br>
 
-
 <div th:each=" word : ${words.getShuffledAnswers()}">
    <div th:each=" option : ${words}">
 
        <div th:switch="${word}">
-          <span th:case="${option.meaning}" onClick="document.all.item('maru').style.visibility='visible'">
+          <span th:case="${option.meaning}" onClick="changepage(1)">
               <input type="button" th:value="${word}" >
               <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
 　　　　　　　　<input type = "submit" th:value="次の問題へ"method="get"/>
               </form>
           </span>
 
-          <span th:case="*" onClick="document.all.item('batsu').style.visibility='visible'">
+          <span th:case="*" onClick="changepage(2)">
               <input type="button" th:value="${word}" >
               <form th:action="@{/sense/test_quiz/}" method="get" />
 　　　　　　　　<input type = "submit" th:value="最初の問題に戻る"method="get"/>
@@ -34,15 +81,6 @@
 
    </div>
 </div>
-
-<div ID="maru" style="visibility:hidden;">
-    <img src="/images/study/hand.jpg">
-</div>
-
-<div ID="batsu" style="visibility:hidden;">
-    <img src="/images/study/word3.jpg">
-</div>
-
 
 </body>
 </html>
