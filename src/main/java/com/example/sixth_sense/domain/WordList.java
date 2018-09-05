@@ -89,13 +89,15 @@ public class WordList {
         return perfect;
     }
 
+    public String getUrl() {
+        return url;
+    }
+  
     public Integer getHatena() {
         return hatena;
     }
 
-    public String getUrl() {
-        return url;
-    }
+
 
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();

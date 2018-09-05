@@ -20,7 +20,21 @@ public class WordListService {
         public List<WordList> findWords(){
 
             return wordListMapper.findWords();
+
         }
+
+        @Transactional
+        public WordList findTestWord(Long id){
+            return wordListMapper.findTestWord(id);
+
+        }
+
+        @Transactional
+        public WordList findTestMeaning(Long id){
+        return wordListMapper.findTestMeaning(id);
+
+    }
+
 
         @Transactional
         public List<WordList> findAll(){
@@ -72,6 +86,13 @@ public class WordListService {
         public void update(WordList wordlist){
 
             wordListMapper.update(wordlist);
+        }
+
+        //Geeee Rina
+        @Transactional
+        public void findByWord(String word){
+
+            wordListMapper.findByWord(word);
         }
 
         //Geeee Rina
