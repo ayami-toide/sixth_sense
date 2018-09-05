@@ -36,7 +36,7 @@ public class WordListController {
 
     @GetMapping("study")
     public String study(Model model){
-//        model.addAttribute("id", id);
+//    model.addAttribute("id", id);
 
         model.addAttribute("words",wordlistService.findWords());
         return "study";
@@ -73,7 +73,7 @@ public class WordListController {
     }
 
     @RequestMapping("test_question/{id}")
-        public String test_question(@PathVariable("id") int id, Model model)
+    public String test_question(@PathVariable("id") int id, Model model)
     {
         model.addAttribute("nextId", id + 1);
         model.addAttribute("words",wordlistService.findOne(new Long(id)));
@@ -118,9 +118,4 @@ public class WordListController {
 
 
 }
-
-
-
-
-
 
