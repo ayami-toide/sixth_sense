@@ -1,30 +1,21 @@
-#container {
-    width: 500px;
-    margin: auto !important;
-    display: block;
-    height: 500px;
-    position: relative;
-    list-style-type: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+body{
+    margin: 0px;
 }
+
 .buddy {
-    display: none;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    color: #fff;
-    padding: 20px;
-    width: 360px;
-    height: 360px;
-    top: 50px;
-    left: 50px;
-    position: absolute;
-    cursor: hand;
+     z-index:0;
+     display: none;
+     background: #ffffff;
+     /*border-radius: 10px;*/
+     box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+     /*color: #fff;*/
+     /*padding: 20px;*/
+     width: 364px;
+     height: 460px;
+     top: 77px;
+     /* left: 0px; */
+     position: absolute;
+     cursor: hand;
 }
 .rotate-left {
     transform: rotate(30deg) scale(0.8);
@@ -43,20 +34,13 @@
     z-index: 10;
 }
 .avatar {
-    background: #222;
-    width: 340px;
-    height: 340px;
+    z-index:1;
+    width: 364px;
+    height: 460px;
     display: block;
-    margin-top: 10px;
-    margin-left: 10px;
-    background-size: auto 160% !important;
+    background-size: auto 100% !important;
     background-position: center;
     background-repeat: no-repeat;
-}
-img {
-    width: 340px;
-    height: 340px;
-    display: block;
 }
 .like {
     border-radius: 5px;
@@ -82,29 +66,48 @@ img {
     left: 40px;
     text-shadow: none;
 }
-/*.hidden_box input {*/
-/*display: none;*/
-/*}*/
 
-/*中身を非表示にしておく*/
-.hidden_box .hidden_show {
-    overflow: hidden;
-    opacity: 0;
-    transition: 0.8s;
+
+.sample1 {
+    width:			364px;
+    height:			470px;
+    overflow:		hidden;
+    margin:			10px 3px 20px 5px;
+    position:		relative;	/* 相対位置指定 */
+}
+.sample1 p {
+    position: absolute;/*絶対配置*/
+    color: white;/*文字は白に*/
+    top: 15px;
+    left: 0;
+    text-align: center;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    width: 100%;
+    font-size: 70px;
 }
 
-/*クリックで中身表示*/
-.hidden_box input:checked ~ .hidden_show {
-    height: auto;
-    opacity: 1;
+.sample1 .caption {
+    font-size:		50px;
+    text-align: 		center;
+    padding-top:		208px;
+    color:			#fff;
 }
-
-#wrapper p {
-    color: white;
-    font-size: 20px;
+.sample1 .mask {
+    z-index:2;
+    width:			100%;
+    height:			100%;
+    position:		absolute;	/* 絶対位置指定 */
+    top:			0;
+    left:			0;
+    opacity:		0;	/* マスクを表示しない */
+    /*background-color:	rgba(0,0,0,0.4);	!* マスクは半透明 *!*/
+    -webkit-transition:	all 0.2s ease;
+    transition:		all 0.2s ease;
 }
-
-.hidden_box label {
-    color: white;
+.sample1:hover .mask {
+    opacity:		1;	/* マスクを表示する */
+}
+.homeback{
+    text-align: center;
 }
 

@@ -11,14 +11,31 @@
 
 <br><br>
 
-<tr th:each=" word : ${words.getShuffledAnswers()}">
-<form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-    <input type = "submit" th:value="${word}"/>
-    <br>
-</form>
+<div th:each=" word : ${words.getShuffledAnswers()}">
+    <div th:each=" option : ${words}">
+        <div th:switch="${word}">
+          <span th:case="${option.meaning}" onClick="document.all.item('maru').style.visibility='visible'">
+              <input type="button" th:value="${word}" >
+              <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+　　　　　　　　<input type = "submit" th:value="次の問題へ"method="get"/>
+              </form>
+          </span>
+            <span th:case="*" onClick="document.all.item('batsu').style.visibility='visible'">
+              <input type="button" th:value="${word}" >
+              <form th:action="@{/sense/test_quiz/}" method="get" />
+　　　　　　　　<input type = "submit" th:value="最初の問題に戻る"method="get"/>
+                </form>
+          </span>
+        </div>
+    </div>
+</div>
 
-</tr>
-
+<div ID="maru" style="visibility:hidden;">
+    <img src="/images/study/hand.jpg">
+</div>
+<div ID="batsu" style="visibility:hidden;">
+    <img src="/images/study/word3.jpg">
+</div>
 
 </body>
 </html>

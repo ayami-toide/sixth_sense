@@ -50,6 +50,9 @@ public class WordList {
     @Column(name="hatena", nullable=false)
     private  Integer hatena;
 
+    @Column(name="url", nullable=false)
+    private  String url;
+
     public Integer getId() {
         return id;
     }
@@ -88,6 +91,10 @@ public class WordList {
 
     public Integer getHatena() {
         return hatena;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public List<String> getShuffledAnswers() {
