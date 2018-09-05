@@ -89,6 +89,10 @@ public class WordList {
         return perfect;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
     public Integer getHatena() {
         return hatena;
     }

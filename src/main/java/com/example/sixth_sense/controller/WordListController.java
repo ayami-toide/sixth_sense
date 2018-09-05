@@ -63,8 +63,6 @@ public class WordListController {
         Collections.shuffle(lists);
         String[] options =lists.toArray(new String[0]);
 
-
-
         // Collections.shuffle(wordlistService.findAll());
 
         int id = 2;
