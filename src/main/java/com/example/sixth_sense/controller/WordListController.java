@@ -49,7 +49,6 @@ public class WordListController {
         return "review";
     }
 
-
     @GetMapping("study_index")
     public String study_index(Model model) {
         return "study_index";
@@ -88,6 +87,7 @@ public class WordListController {
     @RequestMapping("test_result")
     public String test_result(Model model)
     {
+
 
 
         for(int id =1; id<6; id++){

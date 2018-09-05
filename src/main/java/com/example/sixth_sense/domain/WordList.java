@@ -92,7 +92,7 @@ public class WordList {
     public String getUrl() {
         return url;
     }
-
+  
     public Integer getHatena() {
         return hatena;
     }
