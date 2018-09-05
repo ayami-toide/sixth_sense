@@ -19,28 +19,31 @@
     </div>
 　　　
     <div class="test_text">
+
         <div class="test_index_eng">
-            <p>trust</p>
-            <p>apple</p>
-            <p>walk</p>
-            <p>a lot</p>
-            <p>book</p>
+            <tr  th:object = "${testwords1}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords2}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords3}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords4}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords5}"><td th:text="*{word}"></td></tr><br>
         </div>
 
         <div class="test_index_jp">
-            <p>信頼する</p>
-            <p>りんご</p>
-            <p>歩く</p>
-            <p>たくさん</p>
-            <p>本</p>
+            <tr  th:object = "${testmeanings1}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings2}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings3}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings4}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings5}"><td th:text="*{meaning}"></td></tr><br>
         </div>
     </div>
 
+
     <div class="mypage_menu">
-        <li><a href="#"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
+        <li><a href=""><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
         <li><a href="#"><img src="/images/mypage/next.png"></a><p>次のテスト</p></li>
     </div>
 
-　　　
+
+
 </body>
 </html>

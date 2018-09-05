@@ -10,19 +10,27 @@ import java.util.List;
 public interface WordListMapper {
     @Select("select * from wordlist")
     List<WordList> findAll();
-
+    //Osa
     @Select("SELECT COUNT(id) FROM wordlist")
     int findCount();
-
+    //Osa
     @Select("SELECT COUNT(*) FROM wordlist WHERE status = '1'")
     int findCountStatus();
-
+    //Osa
     @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
     int findStudiedWord();
 
-
+    //Riku
     @Select("select * from wordlist where id = #{id}")
     WordList findOne(Long id);
+
+    //Toy
+    @Select("select word from wordlist  where id =#{id}")
+    WordList findTestWord(Long id);
+
+    //Toy
+    @Select("select meaning from wordlist  where id =#{id}")
+    WordList findTestMeaning(Long id);
 
     //Geeee Rina
     @Select("select * from wordlist where flicker = 0 LIMIT 5")
