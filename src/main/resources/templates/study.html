@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script src="/js/jquery.js"></script>
     <script src="/js/flicker.js"></script>
     <meta  name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="/css/study.css" />
@@ -12,72 +12,20 @@
 
 </head>
 <body>
-<div id="container">
-    <a href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
-
-
-    <tr th:each="word : ${words}" th:object="${word}">
-        <div class="buddy" style="display: block;">
-            <div class="avatar">
-                <img th:src="*{url}" style="width: 340px;height: 340px;">
-                <div id="wrapper" style="position:absolute; top:50px; left:30px; width: 430px;">
+        <tr th:each="word : ${words}" th:object="${word}">
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
+                    <img th:src="*{url}">
                     <p th:text="*{word}"></p>
-
-                            <p th:text="*{meaning}" ></p>
-
-
-                            <p>タップして意味を表示</p>
-                        <!--非表示ここから-->
+                    <div class="mask">
+                        <div class="caption" th:text="*{meaning}" ></div>
+                    </div>
                 </div>
             </div>
+        </tr>
+
+        <div class="homeback">
+           <a href="/sense/mypage"><img src="/images/mypage/home.png"></a>
         </div>
-    </tr>
-
-    <!--<tr th:each="word : ${words}" th:object="${word}">-->
-        <!--<div class="buddy" style="display: block;">-->
-            <!--<div class="avatar">-->
-                <!--<img src="../images/study/sense.jpg" style="width: 340px;height: 340px;">-->
-                <!--<div id="wrapper" style="position:absolute; top:50px; left:30px; width: 430px;">-->
-                    <!--<p th:text="*{word}"></p>-->
-
-                    <!--<p th:text="*{meaning}" ></p>-->
-
-
-                    <!--<p>タップして意味を表示</p>-->
-                    <!--&lt;!&ndash;非表示ここから&ndash;&gt;-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</tr>-->
-</div>
-
-<!--<tr>-->
-    <!--<div class="buddy" style="display: block;">-->
-        <!--<div class="avatar">-->
-            <!--<img src="../images/study/hand.jpg" style="width: 340px;height: 170px;">-->
-        <!--<div id="wrapper">-->
-            <!--<p>hand</p>-->
-            <!--<div  class="mask">-->
-                <!--<p>hand</p>-->
-            <!--</div>-->
-
-            <!--<p>タップして意味を表示</p>-->
-            <!--&lt;!&ndash;非表示ここから&ndash;&gt;-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-<!--</tr>-->
-
-<!--<div style="position: relative;">-->
-    <!--<img src="../images/study/hand.jpg" alt="topimg">-->
-    <!--<div style="position:absolute; top:50px; left:30px; width: 430px;">-->
-        <!--ここに文章を書く-->
-    <!--</div></div>-->
-
-<!--</div>-->
-    <!--<div id="button">-->
-        <!--<input type="button" onclick="location.href='mypage.html'"value="?">-->
-        <!--<input type="button" onclick="location.href='mypage.html'"value="〇">-->
-    <!--</div>-->
 </body>
 </html>
