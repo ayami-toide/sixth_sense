@@ -47,11 +47,11 @@ public class WordList {
     @Column(name="perfect", nullable=false)
     private  Integer perfect;
 
-    @Column(name="url", nullable=false)
-    private  String url;
-  
     @Column(name="hatena", nullable=false)
     private  Integer hatena;
+
+    @Column(name="url", nullable=false)
+    private  String url;
 
     public Integer getId() {
         return id;
@@ -89,11 +89,12 @@ public class WordList {
         return perfect;
     }
 
-    public String getUrl() {
-        return url;
-
     public Integer getHatena() {
         return hatena;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public List<String> getShuffledAnswers() {
