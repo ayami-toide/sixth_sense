@@ -39,7 +39,7 @@ dependencies {
 }
 
 
-war {
+bootWar {
     enabled = true
-    archiveName = 'test.war'
+    archiveName = 'ROOT.war'
 }

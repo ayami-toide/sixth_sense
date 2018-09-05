@@ -11,18 +11,14 @@
 
 <br><br>
 
-
-<<<<<<< HEAD
 <tr th:each=" word : ${words.getShuffledAnswers()}">
 <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
     <input type = "submit" th:value="${word}"/>
     <br>
 </form>
-=======
-</tr>
->>>>>>> 3bf4cfb684a31877faee48047d0c3bffeb75ca8e
 
 </tr>
+
 
 </body>
 </html>
