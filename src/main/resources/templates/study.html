@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <meta  name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <link rel="stylesheet" href="/css/study.css" />
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/flicker.js"></script>
-    <meta  name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <link rel="stylesheet" href="/css/study.css" />
-
-
     <title>Title</title>
-
 </head>
 <body>
-        <tr th:each="word : ${words}" th:object="${word}">
-            <div class="buddy" style="display: block;">
-                <div class="sample1">
-                    <img th:src="*{url}">
-                    <p th:text="*{word}"></p>
-                    <div class="mask">
-                        <div class="caption" th:text="*{meaning}" ></div>
-                    </div>
-                </div>
+<!--<div id="container">-->
+<tr th:each="word : ${words}" th:object="${word}">
+    <div class="buddy" style="display: block;">
+        <div class="sample1">
+            <img th:src="*{url}">
+            <p th:text="*{word}"></p>
+            <div class="mask">
+                <div class="caption" th:text="*{meaning}" ></div>
             </div>
-        </tr>
-
-        <div class="homeback">
-           <a href="/sense/mypage"><img src="/images/mypage/home.png"></a>
         </div>
+    </div>
+</tr>
+<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
+<!--</div>-->
 </body>
 </html>

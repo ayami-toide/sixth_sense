@@ -96,11 +96,7 @@ public class WordList {
     public Integer getHatena() {
         return hatena;
     }
-
-    public String getUrl() {
-        return url;
-    }
-
+    
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
         answers.add (getMeaning());
