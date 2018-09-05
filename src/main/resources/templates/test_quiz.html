@@ -105,13 +105,25 @@
    </div>
 </div>
 
-<input type = "submit" th:value="ホーム"method="get"/>
+<div>
+<form th:action="@{/sense/mypage/}" method="get">
+<input type = "submit" th:value="ホーム"method="get">
+</form>
+</div>
+<input type="button" value="end" id="endcount" onclick="stopShowing();">
 
-<p>
-    <input type="button" value="end" id="endcount" onclick="stopShowing();">
-</p>
 
+<div th:if="${lastid}">
+    <form th:action="@{/sense/test_result/}" method="get">
+    　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
+    </form>
+</div>
 
+<script>
+    function deleteButton() {
+        tugieimg.style.display = "none";
+    }
+</script>
 
 
 </body>

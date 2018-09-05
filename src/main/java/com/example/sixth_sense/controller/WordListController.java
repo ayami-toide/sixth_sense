@@ -75,10 +75,13 @@ public class WordListController {
     @RequestMapping("test_question/{id}")
         public String test_question(@PathVariable("id") int id, Model model)
     {
-
         model.addAttribute("nextId", id + 1);
         model.addAttribute("words",wordlistService.findOne(new Long(id)));
 
+        if(id % 5 == 0){
+            String lastid = "last";
+            model.addAttribute("lastid",lastid);
+        }
         return "test_quiz" ;
     }
 
