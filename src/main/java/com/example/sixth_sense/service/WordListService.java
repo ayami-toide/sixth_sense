@@ -51,12 +51,13 @@ public class WordListService {
 
         @Transactional
         public  int findCountStudyingNow(){
-            return wordlistMapper.findCountStudyingNow();
+            return wordListMapper.findCountStudyingNow();
         }
 
         @Transactional
         public  int findCountPerfect(){
-            return wordlistMapper.findCountPerfect();
+
+            return wordListMapper.findCountPerfect();
         }
 
 
