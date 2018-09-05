@@ -6,7 +6,6 @@
 
 </head>
 <body>
-
 <script type="text/javascript">
 
     var PassSec;   // 秒数カウント用変数
@@ -30,44 +29,53 @@
         clearInterval( PassageID );   // タイマーのクリア
         document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
     }
- </script>
+</script>
+<p id="PassageArea">(ここにカウントが表示されます)</p>
+
+
 
 <div class="marudisplay" id="marudisplay">
-    <img src="/images/study/word2.jpg">
+    <img src="/images/test/maru.jpg">
 </div>
 <div class="hazuredisplay" id="hazuredisplay">
-    <img src="/images/study/hand.jpg">
+    <img src="/images/test/batu.jpg">
+</div>
+
+<div class="tugiedisplay" id="tugiedisplay">
+    <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+    　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
+    </form>
 </div>
 
 <script>
     var maruimg = document.getElementById('marudisplay');
     var hazureimg = document.getElementById('hazuredisplay');
+    var tugieimg = document.getElementById('tugiedisplay');
     maruimg.style.display = "none";
     hazureimg.style.display = "none";
-     function changepage(id) {
-        if(id == 1) {
+    tugieimg.style.display  = "none";
+      function changepage(id) {
+          tugieimg.style.display = "block";
+          if(id == 1) {
             maruimg.style.display = "block";
             setTimeout(function change(){
-                window.location.href = 'https://www.yahoo.co.jp/';
-            }, 3000);
-        }else if(id == 2){
+                maruimg.style.display = "none";
+            }, 1000);
+
+              tugieimg.style.display = "block";
+        }
+              else if(id == 2){
+              tugieimg.style.display = "none";
             hazureimg.style.display = "block";
             setTimeout(function change(){
-                window.location.href = 'https://www.yahoo.co.jp/';
-            }, 3000);
+                window.location.href='/sense/test_question/1';
+            }, 1000);
         }
+
     }
+
+
 </script>
-
-
-
-
-
-<p>
-    <input type="button" value="end" id="endcount" onclick="stopShowing();">
-</p>
-<p id="PassageArea">(ここにカウントが表示されます)</p>
-
 
 <tr  th:object="${words}">
     <td th:text="*{word}"></td>
@@ -81,21 +89,28 @@
        <div th:switch="${word}">
           <span th:case="${option.meaning}" onClick="changepage(1)">
               <input type="button" th:value="${word}" >
-              <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-　　　　　　　　<input type = "submit" th:value="次の問題へ"method="get"/>
-              </form>
+
           </span>
 
           <span th:case="*" onClick="changepage(2)">
               <input type="button" th:value="${word}" >
               <form th:action="@{/sense/test_quiz/}" method="get" />
-　　　　　　　　<input type = "submit" th:value="最初の問題に戻る"method="get"/>
+　　　　　　　　
               </form>
           </span>
+
+
        </div>
 
    </div>
 </div>
+
+<input type = "submit" th:value="ホーム"method="get"/>
+
+<p>
+    <input type="button" value="end" id="endcount" onclick="stopShowing();">
+</p>
+
 
 
 
