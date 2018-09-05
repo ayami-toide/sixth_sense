@@ -25,6 +25,10 @@ public interface WordListMapper {
     WordList findOne(Long id);
 
     //Geeee Rina
+    @Select("select word from wordlist where word = #{word}")
+    String findByWord (String word);
+
+    //Geeee Rina
     @Select("select * from wordlist where flicker = 0 LIMIT 5")
     List<WordList> findWords();
 

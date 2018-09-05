@@ -49,7 +49,6 @@ public class WordListController {
         return "review";
     }
 
-
     @GetMapping("study_index")
     public String study_index(Model model) {
         return "study_index";
@@ -85,8 +84,6 @@ public class WordListController {
     @RequestMapping("test_result")
     public String test_result(Model model)
     {
-
-
         int id = 1;
         model.addAttribute("id", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
