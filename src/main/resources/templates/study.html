@@ -4,39 +4,32 @@
 
     <meta  name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="/css/study.css" />
-
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/flicker.js"></script>
 
     <title>Title</title>
 
 </head>
 <body>
-    <div id="container">
-        <!--<a href="/sense/mypage" data-ajax="false">ホーム画面へ</a>-->
+    <!--<div id="container">-->
 
 
         <tr th:each="word : ${words}" th:object="${word}">
-            <div class="buddy geeee" style="display: block;">
-                <div class="avatar">
-                    <img th:src="*{url}" style="width: 340px;height: 340px;">
-                    <div id="wrapper" style="position:absolute; top:50px; left:30px; width: 430px;">
-                        <p class="word" th:text="*{word}"></p>
-                        <input type="hidden" name="word" th:value="${word.word}" />
-
-                                <p class="mean" th:text="*{meaning}" ></p>
-
-
-                                <p class="tap">タップして意味を表示</p>
-                            <!--非表示ここから-->
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
+                    <img th:src="*{url}">
+                    <p th:text="*{word}"></p>
+                    <div class="mask">
+                                <div class="caption" th:text="*{meaning}" ></div>
                     </div>
                 </div>
             </div>
         </tr>
 
+        <a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
 
-    </div>
+    <!--</div>-->
 
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-    <script src="/js/flicker.js"></script>
 </body>
 </html>
