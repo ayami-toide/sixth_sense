@@ -97,9 +97,7 @@ public class WordList {
         return hatena;
     }
 
-    public String getUrl() {
-        return url;
-    }
+
 
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
