@@ -36,7 +36,7 @@ public class WordListController {
 
     @GetMapping("study")
     public String study(Model model){
-//        model.addAttribute("id", id);
+//    model.addAttribute("id", id);
 
         model.addAttribute("words",wordlistService.findWords());
         return "study";
@@ -62,8 +62,6 @@ public class WordListController {
         Collections.shuffle(lists);
         String[] options =lists.toArray(new String[0]);
 
-
-
         // Collections.shuffle(wordlistService.findAll());
 
         int id = 2;
@@ -74,7 +72,7 @@ public class WordListController {
     }
 
     @RequestMapping("test_question/{id}")
-        public String test_question(@PathVariable("id") int id, Model model)
+    public String test_question(@PathVariable("id") int id, Model model)
     {
 
         model.addAttribute("nextId", id + 1);
@@ -86,15 +84,14 @@ public class WordListController {
     @RequestMapping("test_result")
     public String test_result(Model model)
     {
+        int id = 1;
+        model.addAttribute("id", id);
+        model.addAttribute("words",wordlistService.findOne(new Long(1)));
+
         return "test_result";
     }
 
 
 
 }
-
-
-
-
-
 
