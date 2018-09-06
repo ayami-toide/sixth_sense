@@ -2,109 +2,119 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/test_quiz.css">
+    <script src="/js/style.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Test-quiz</title>
 
 </head>
 <body>
-<script type="text/javascript">
+    <script class="timer" type="text/javascript">
 
-    var PassSec;   // 秒数カウント用変数
+        var PassSec;   // 秒数カウント用変数
 
-    // 繰り返し処理の中身
-    function showPassage() {
-        PassSec++;   // カウントアップ
-        var msg =  PassSec + "秒が経過中。";   // 表示文作成
-        document.getElementById("PassageArea").innerHTML = msg;   // 表示更新
-    }
-
-    // 繰り返し処理の開始
-    window.onload =function startShowing() {
-        PassSec = 0;   // カウンタのリセット
-        PassageID = setInterval('showPassage()',1000);   // タイマーをセット(1000ms間隔)
-        document.getElementById("startcount").disabled = true;   // 開始ボタンの無効化
-    }
-
-    // 繰り返し処理の中止
-    function stopShowing() {
-        clearInterval( PassageID );   // タイマーのクリア
-        document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
-    }
-</script>
-<p id="PassageArea">(ここにカウントが表示されます)</p>
-
-
-
-<div class="marudisplay" id="marudisplay">
-    <img src="/images/test/maru.jpg">
-</div>
-<div class="hazuredisplay" id="hazuredisplay">
-    <img src="/images/test/batu.jpg">
-</div>
-
-<div class="tugiedisplay" id="tugiedisplay">
-    <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-    　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
-    </form>
-</div>
-
-<script>
-    var maruimg = document.getElementById('marudisplay');
-    var hazureimg = document.getElementById('hazuredisplay');
-    var tugieimg = document.getElementById('tugiedisplay');
-    maruimg.style.display = "none";
-    hazureimg.style.display = "none";
-    tugieimg.style.display  = "none";
-      function changepage(id) {
-          tugieimg.style.display = "block";
-          if(id == 1) {
-            maruimg.style.display = "block";
-            setTimeout(function change(){
-                maruimg.style.display = "none";
-            }, 1000);
-
-              tugieimg.style.display = "block";
-        }
-              else if(id == 2){
-              tugieimg.style.display = "none";
-            hazureimg.style.display = "block";
-            setTimeout(function change(){
-                window.location.href='/sense/test_question/1';
-            }, 1000);
+        // 繰り返し処理の中身
+        function showPassage() {
+            PassSec++;   // カウントアップ
+            var msg =  PassSec ;   // 表示文作成
+            document.getElementById("PassageArea").innerHTML = msg;   // 表示更新
         }
 
-    }
+        // 繰り返し処理の開始
+        window.onload =function startShowing() {
+            PassSec = 0;   // カウンタのリセット
+            PassageID = setInterval('showPassage()',1000);   // タイマーをセット(1000ms間隔)
+            document.getElementById("startcount").disabled = true;   // 開始ボタンの無効化
+        }
+
+        // 繰り返し処理の中止
+        function stopShowing() {
+            clearInterval( PassageID );   // タイマーのクリア
+            document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
+        }
+    </script>
+    <p id="PassageArea">　</p>
 
 
-</script>
+    <div class="quiz_zentai">
+        <div class="marudisplay" id="marudisplay">
+            <img src="/images/test/maru.jpg">
+        </div>
 
-<tr  th:object="${words}">
-    <td th:text="*{word}"></td>
-</tr>
+        <div class="hazuredisplay" id="hazuredisplay">
+            <img src="/images/test/batu.jpg">
+        </div>
 
+        <div class="tugiedisplay" id="tugiedisplay">
+            <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+            　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
+            </form>
+        </div>
+
+        <script>
+            var maruimg = document.getElementById('marudisplay');
+            var hazureimg = document.getElementById('hazuredisplay');
+            var tugieimg = document.getElementById('tugiedisplay');
+
+            maruimg.style.display = "none";
+            hazureimg.style.display = "none";
+            tugieimg.style.display  = "none";
+              function changepage(id) {
+                  tugieimg.style.display = "block";
+                  if(id == 1) {
+                    maruimg.style.display = "block";
+                    setTimeout(function change(){
+                        maruimg.style.display = "none";
+                    }, 1000);
+
+                      tugieimg.style.display = "block";
+                }
+                      else if(id == 2){
+                      tugieimg.style.display = "none";
+                    hazureimg.style.display = "block";
+                    setTimeout(function change(){
+                        window.location.href='/sense/test_question/1';
+                    }, 1000);
+                }
+
+            }
+
+
+<<<<<<< HEAD
 <br><br>
+=======
+        </script>
 
-<div th:each=" word : ${words.getShuffledAnswers()}">
-   <div th:each=" option : ${words}">
-
-       <div th:switch="${word}">
-          <span th:case="${option.meaning}" onClick="changepage(1)">
-              <input type="button" th:value="${word}" >
-
-          </span>
-
-          <span th:case="*" onClick="changepage(2)">
-              <input type="button" th:value="${word}" >
-              <form th:action="@{/sense/test_quiz/}" method="get" />
-　　　　　　　　
-              </form>
-          </span>
+        <div class="test_eigo">
+            <tr  th:object="${words}">
+                <td th:text="*{word}"></td>
+            </tr>
+        </div>
+>>>>>>> 4a13108e9e96d2cac7d3056f18fe5f9d0bb339d7
 
 
-       </div>
+        <br><br>
 
-   </div>
-</div>
+        <div class="test_nihongo">
+                <div th:each=" word : ${words.getShuffledAnswers()}">
+                   <div th:each=" option : ${words}">
 
+                       <div class="geee" th:switch="${word}">
+                          <span th:case="${option.meaning}" onClick="changepage(1)">
+                              <div class="nihongo_btn" th:text="${word}"></div>
+                          </span>
+
+                          <span th:case="*" onClick="changepage(2)">
+                              <div class="nihongo_btn" th:text="${word}" ></div>
+                              <form th:action="@{/sense/test_quiz/}" method="get" />　
+                              </form>
+                          </span>
+
+
+                       </div>
+
+<<<<<<< HEAD
 <div>
 <form th:action="@{/sense/mypage/}" method="get">
 <input type = "submit" th:value="ホーム"method="get">
@@ -114,12 +124,26 @@
 <input type="button" value="end" id="endcount" onclick="stopShowing();">
 
 
+=======
+                   </div>
+                </div>
+            </div>
+        </div>
+
+　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+     <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
+
+
+<input type="button" value="end" id="endcount" onclick="stopShowing();">
+
+>>>>>>> 4a13108e9e96d2cac7d3056f18fe5f9d0bb339d7
 <div th:if="${lastid}">
     <form th:action="@{/sense/test_result/}" method="get">
     　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
     </form>
 </div>
 
+<<<<<<< HEAD
 <script>
     function deleteButton() {
         tugieimg.style.display = "none";
@@ -134,5 +158,7 @@
     <img src="/images/study/word3.jpg">
 </div>
 
+=======
+>>>>>>> 4a13108e9e96d2cac7d3056f18fe5f9d0bb339d7
 </body>
 </html>

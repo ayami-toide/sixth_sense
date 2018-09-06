@@ -12,22 +12,10 @@ $(document).ready(function(){
         $(".buddy").find(".status").remove();
 
         $(this).append('<div class="status like">Like!</div>');
-        
         if ( $(this).is(':first-child') ) {
             $('.rotate-right').removeClass ('rotate-right').fadeIn(300);
         }
-        // } else {
-        //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
 
-         // }
-        // var send_data:
-        // send_data = {
-        //     word : $('input').val()
-        // };
-        //
-        // $.ajax({
-        //     url: ''
-        // })
     });
 
     $(".buddy").on("swipeleft",function(){
@@ -38,11 +26,8 @@ $(document).ready(function(){
         $('.rotate-left').remove();
 
         if ( $(this).is(':first-child') ) {
-        $('.rotate-right').removeClass('rotate-right').fadeIn(300);
-        //     alert('OUPS');
-        // } else {
-        //  $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-         }
+            $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+        }
     });
 
 });
