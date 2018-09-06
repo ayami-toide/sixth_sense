@@ -1,7 +1,7 @@
 <h2>プロダクト名</h2><br>
-Swimpa（仮）<br>
+Swish（仮）<br>
 <h2>このプロダクトについて</h2><br>
-・フリッカーによって手軽に学べて、自然と英単語の習得率が100%になっちゃうアプリ。<br>
+・スワイプによって手軽に学べて、自然と英単語の習得率が100%になっちゃうアプリ。<br>
 <br>
 <h2>▼デモサイト▼</h2><br>
 URL: https://sixth-sense.azurewebsites.net/sense/mypage<br>
