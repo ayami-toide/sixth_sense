@@ -17,3 +17,11 @@ URL: https://sixth-sense.azurewebsites.net/sense/mypage<br>
 →データベースからデータを取り出すライブラリ。<br>
 ・tomcat<br>
 →Azureに上げる前にTomcatでランして動作するかを確認できるツール。<br>
+
+<h2>チームメンバー</h2>
+・Osa<br>
+・Kazane<br>
+・Rina<br>
+・Geeee<br>
+・Toy<br>
+・Riku<br>
