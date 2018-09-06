@@ -1,4 +1,5 @@
-<h2>プロダクト名：　Sixth-Sense</h2><br>
+<h2>プロダクト名</h2><br>
+Sixth-Sense<br>
 <h2>このプロダクトについて</h2><br>
 ・フリッカーによって手軽に学べて、自然と英単語の習得率が100%になっちゃうアプリ。<br>
 <br>
@@ -6,6 +7,8 @@
 URL: https://sixth-sense.azurewebsites.net/sense/mypage<br>
 
 <h2>Dependencies</h2><br>
+・spring boot<br>
+・jQuery<br>
 ・mysql<br>
 ・js<br>
 ・thymeleaf<br>
