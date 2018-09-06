@@ -1,0 +1,49 @@
+html,body{
+    overflow: hidden
+}
+body{
+    width: 350px;
+    height: 650px;
+}
+p#PassageArea{
+    text-align: center;
+    font-size: 30px;
+}
+
+.quiz_zentai{
+    width: 350px;
+    height: 460px;
+    text-align: center;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+.test_eigo{
+    font-size: 70px;
+}
+
+.test_nihongo{
+    width: 350px;
+    height: 300px;
+    margin-left: 82px;
+}
+
+a.homeback>img{
+    margin-left: 117px;
+}
+
+
+.nihongo_btn {
+    display: block;
+    width: 160px;
+    padding: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    border: 2px solid #EC407A;
+    border-radius: 55px;
+    transition: .4s;
+}
+
+.geee{
+    width: 100%;
+    height: 70px;
+}
