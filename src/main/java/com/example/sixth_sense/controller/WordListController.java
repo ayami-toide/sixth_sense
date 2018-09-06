@@ -92,7 +92,7 @@ public class WordListController {
         model.addAttribute("id", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
-        for(int id =1; id<6; id++){
+        for( id =1; id<6; id++){
             switch(id){
                 case 1: model.addAttribute("testwords1",wordlistService.findTestWord(new Long(id)));
                 case 2: model.addAttribute("testwords2",wordlistService.findTestWord(new Long(id)));
@@ -102,7 +102,7 @@ public class WordListController {
             }
         }
 
-        for(int id =1; id<6; id++){
+        for(id =1; id<6; id++){
             switch(id){
                 case 1: model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(id)));
                 case 2: model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(id)));

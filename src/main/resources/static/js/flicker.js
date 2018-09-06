@@ -12,7 +12,7 @@ $(document).ready(function(){
         $(".buddy").find(".status").remove();
 
         $(this).append('<div class="status like">Like!</div>');
-        // $(this).find('.geeee').remove();
+        
         if ( $(this).is(':first-child') ) {
             $('.rotate-right').removeClass ('rotate-right').fadeIn(300);
         }

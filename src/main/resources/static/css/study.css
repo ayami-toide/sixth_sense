@@ -38,10 +38,9 @@ body{
      /*padding: 20px;*/
      width: 364px;
      height: 460px;
-     top: 77px;
+
      /* left: 0px; */
-     position: absolute;
-     cursor: hand;
+
 }
 .rotate-left {
     transform: rotate(30deg) scale(0.8);
@@ -110,9 +109,6 @@ body{
     color: white;
     font-size: 20px;
 }
-.hidden_box label {
-    color: white;
-
 
 .sample1 {
     width:			364px;
