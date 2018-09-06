@@ -9,19 +9,19 @@
     <title>Title</title>
 </head>
 <body>
-<!--<div id="container">-->
-<tr th:each="word : ${words}" th:object="${word}">
-    <div class="buddy" style="display: block;">
-        <div class="sample1">
-            <img th:src="*{url}">
-            <p th:text="*{word}"></p>
-            <div class="mask">
-                <div class="caption" th:text="*{meaning}" ></div>
+    <!--<div id="container">-->
+        <tr th:each="word : ${words}" th:object="${word}">
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
+                    <img th:src="*{url}">
+                    <p th:text="*{word}"></p>
+                    <div class="mask">
+                                <div class="caption" th:text="*{meaning}" ></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</tr>
-<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
-<!--</div>-->
+        </tr>
+        <a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
+    <!--</div>-->
 </body>
 </html>
