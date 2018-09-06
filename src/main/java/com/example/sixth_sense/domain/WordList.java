@@ -97,8 +97,6 @@ public class WordList {
         return hatena;
     }
 
-
-
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
         answers.add (getMeaning());
