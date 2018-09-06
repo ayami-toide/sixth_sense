@@ -6,32 +6,10 @@
 
 </head>
 <body>
-<script type="text/javascript">
 
-    var PassSec;   // 秒数カウント用変数
-
-    // 繰り返し処理の中身
-    function showPassage() {
-        PassSec++;   // カウントアップ
-        var msg =  PassSec + "秒が経過中。";   // 表示文作成
-        document.getElementById("PassageArea").innerHTML = msg;   // 表示更新
-    }
-
-    // 繰り返し処理の開始
-    window.onload =function startShowing() {
-        PassSec = 0;   // カウンタのリセット
-        PassageID = setInterval('showPassage()',1000);   // タイマーをセット(1000ms間隔)
-        document.getElementById("startcount").disabled = true;   // 開始ボタンの無効化
-    }
-
-    // 繰り返し処理の中止
-    function stopShowing() {
-        clearInterval( PassageID );   // タイマーのクリア
-        document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
-    }
-</script>
-<p id="PassageArea">(ここにカウントが表示されます)</p>
-
+<form name="form_countdown">
+    <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
+</form>
 
 
 <div class="marudisplay" id="marudisplay">
@@ -54,23 +32,42 @@
     maruimg.style.display = "none";
     hazureimg.style.display = "none";
     tugieimg.style.display  = "none";
-      function changepage(id) {
-          tugieimg.style.display = "block";
-          if(id == 1) {
+    function changepage(id) {
+        tugieimg.style.display = "block";
+        if(id == 1) {
             maruimg.style.display = "block";
             setTimeout(function change(){
                 maruimg.style.display = "none";
             }, 1000);
 
-              tugieimg.style.display = "block";
+            tugieimg.style.display = "block";
         }
-              else if(id == 2){
-              tugieimg.style.display = "none";
+        else if(id == 2){
+            tugieimg.style.display = "none";
             hazureimg.style.display = "block";
             setTimeout(function change(){
                 window.location.href='/sense/test_question/1';
             }, 1000);
         }
+
+    }
+
+    window.onload =function countstart() {
+        count = eval(document.form_countdown.counter.value);
+        timerID = setInterval('countdown()',1000);
+        document.form_countdown.start.disabled = true; //開始ボタンを使用禁止
+    }
+
+    function countstop() {
+        clearInterval(timerID);
+        document.form_countdown.start.disabled = false; //開始ボタンを解除
+        document.form_countdown.reset(); //初期値に戻す
+    }
+
+    function countdown() {
+        document.form_countdown.counter.value= count; //カウント表示
+        count--; //カウントダウン
+        if (count < 0) countstop();//カウント終了
 
     }
 
@@ -84,6 +81,10 @@
 
 <br><br>
 
+
+
+
+
 <div th:each=" word : ${words.getShuffledAnswers()}">
    <div th:each=" option : ${words}">
 
@@ -93,7 +94,7 @@
 
           </span>
 
-          <span th:case="*" onClick="changepage(2)">
+           <span th:case="*" onClick="changepage(2)">
               <input type="button" th:value="${word}" >
               <form th:action="@{/sense/test_quiz/}" method="get" />
 　　　　　　　　
@@ -111,10 +112,7 @@
 <input type = "submit" th:value="ホーム"method="get">
 </form>
 </div>
-<input type="button" value="end" id="endcount" onclick="stopShowing();">
 
-
-<<<<<<< HEAD
 <div th:if="${lastid}">
     <form th:action="@{/sense/test_result/}" method="get">
     　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
@@ -128,13 +126,9 @@
 </script>
 
 
-=======
-<div ID="maru" style="visibility:hidden;">
-    <img src="/images/study/hand.jpg">
-</div>
-<div ID="batsu" style="visibility:hidden;">
-    <img src="/images/study/word3.jpg">
-</div>
->>>>>>> fdabe9d5f511b5174b1d91293011ca0eda5e04f9
+
+
+
+
 </body>
 </html>
