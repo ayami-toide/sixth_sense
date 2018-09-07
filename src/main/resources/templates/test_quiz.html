@@ -15,6 +15,9 @@
     <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
 </form>
 
+<p class="delay1 delay"><a></a></p>
+
+
     <div class="quiz_zentai">
         <div class="marudisplay" id="marudisplay">
             <img src="/images/test/maru.jpg">
@@ -29,9 +32,10 @@
             　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
             </form>
         </div>
-    </div>
 
 <script>
+
+
     var maruimg = document.getElementById('marudisplay');
     var hazureimg = document.getElementById('hazuredisplay');
     var tugieimg = document.getElementById('tugiedisplay');
@@ -40,13 +44,15 @@
     tugieimg.style.display  = "none";
     function changepage(id) {
         tugieimg.style.display = "block";
-        if (id == 1) {
+         if (id == 1) {
             maruimg.style.display = "block";
             setTimeout(function change() {
                 maruimg.style.display = "none";
             }, 1000);
+
             countstop();
-            tugieimg.style.display = "block";
+             tugieimg.style.display = "block";
+
         }
         else if (id == 2) {
             tugieimg.style.display = "none";
@@ -67,16 +73,18 @@
         clearInterval(timerID);
         document.form_countdown.start.disabled = false; //開始ボタンを解除
         document.form_countdown.reset(); //初期値に戻す
+
+
     }
 
     function countdown() {
         document.form_countdown.counter.value= count; //カウント表示
         count--; //カウントダウン
-        if (count < 0) countstop();
-        {setTimeout(function change() {
-            location.href = "/sense/test_question/1";
-        }, 5000)};
-        //カウント終了 */
+        if (count == 0)        {
+            setTimeout(function change() {
+                location.href = "/sense/test_question/1";
+            }, 1000);}
+            //カウント終了 */
     }
         </script>
 
@@ -108,17 +116,28 @@
                  </div>
         </div>
 
-　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
-     <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
+    　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+         <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
 
 
-<input type="button" value="end" id="endcount" onclick="stopShowing();">
+         <input type="button" value="end" id="endcount" onclick="stopShowing();">
 
-<div th:if="${lastid}">
-    <form th:action="@{/sense/test_result/}" method="get">
-    　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
-    </form>
+        <div th:if = ${lastId} id="resultButtonDisplay">
+            <form th:action="@{/sense/test_result/}" method="get">
+                　   <input type="submit" th:value="結果" method="get" >　　　
+            </form>
+        </div>
+
+        <script>
+            var resultButtonImg = document.getElementById('resultButtonDisplay');
+            resultButtonImg.style.display = "none";
+
+            function resultButton() {
+                resultButtonImg.style.display = "block";
+            }
+        </script>
+
+
 </div>
-
 </body>
 </html>
