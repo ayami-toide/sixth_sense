@@ -58,12 +58,6 @@ public class WordListController {
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
 
-        String[] array = {"select * from wordlist where id = #{id}"};
-        List<String> lists = Arrays.asList(array);
-        Collections.shuffle(lists);
-        String[] options =lists.toArray(new String[0]);
-
-        // Collections.shuffle(wordlistService.findAll());
 
         int id = 2;
         model.addAttribute("nextId", id);
