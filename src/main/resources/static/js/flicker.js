@@ -12,8 +12,12 @@ $(document).ready(function(){
         $(".buddy").find(".status").remove();
 
         $(this).append('<div class="status like">知ってる！</div>');
+
+
         if ( $(this).is(':first-child') ) {
-            $('.rotate-right').removeClass ('rotate-right').fadeIn(300);
+            setTimeout(function () {
+                $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+            }, 1000);
         }
 
     });
@@ -26,8 +30,11 @@ $(document).ready(function(){
         $('.rotate-left').remove();
 
         if ( $(this).is(':first-child') ) {
-        $('.rotate-right').removeClass('rotate-right').fadeIn(300);
-         }
+            setTimeout(function () {
+                $('.buddy').find('.status').remove();
+                $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+            }, 900);
+        }
     });
 
 });
