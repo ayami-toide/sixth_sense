@@ -19,28 +19,59 @@
     </div>
 　　　
     <div class="test_text">
+
         <div class="test_index_eng">
-            <p>trust</p>
-            <p>apple</p>
-            <p>walk</p>
-            <p>a lot</p>
-            <p>book</p>
+            <tr  th:object = "${testwords1}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords2}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords3}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords4}"><td th:text="*{word}"></td></tr><br>
+            <tr  th:object = "${testwords5}"><td th:text="*{word}"></td></tr><br>
         </div>
 
         <div class="test_index_jp">
-            <p>信頼する</p>
-            <p>りんご</p>
-            <p>歩く</p>
-            <p>たくさん</p>
-            <p>本</p>
+            <tr  th:object = "${testmeanings1}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings2}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings3}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings4}"><td th:text="*{meaning}"></td></tr><br>
+            <tr  th:object = "${testmeanings5}"><td th:text="*{meaning}"></td></tr><br>
         </div>
     </div>
 
+
     <div class="mypage_menu">
-        <li><a href="#"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
+        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
         <li><a href="#"><img src="/images/mypage/next.png"></a><p>次のテスト</p></li>
     </div>
 
-　　　
+<script>
+    var PassSec;   // 秒数カウント用変数
+
+    // 繰り返し処理の中身
+    function showPassage() {
+        PassSec++;   // カウントアップ
+        PassSec = sessionStorage.getItem('showPassage');
+        PassSec = window.sessionStorage.getItem('showPassage');
+        PassSec = sessionStorage.showPassage;
+        var msg =  PassSec + "秒が経過中。";   // 表示文作成
+        document.getElementById("PassageArea").innerHTML = msg;   // 表示更新
+    }
+
+    // 繰り返し処理の開始
+    window.onload =function startShowing() {
+         // カウンタのリセット
+        PassageID = setInterval('showPassage()',1000);   // タイマーをセット(1000ms間隔)
+        document.getElementById("startcount").disabled = true;   // 開始ボタンの無効化
+    }
+
+    // 繰り返し処理の中止
+    function stopShowing() {
+
+        clearInterval(PassageID);   // タイマーのクリア
+        document.getElementById("startcount").disabled = false;   // 開始ボタンの有効化
+    }
+
+</script>
+<p id="PassageArea">(ここにカウントが表示されます)</p>
+
 </body>
 </html>

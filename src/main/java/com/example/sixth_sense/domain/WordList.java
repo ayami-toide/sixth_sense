@@ -92,11 +92,11 @@ public class WordList {
     public String getUrl() {
         return url;
     }
-
+  
     public Integer getHatena() {
         return hatena;
     }
-    
+
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
         answers.add (getMeaning());
