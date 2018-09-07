@@ -1,9 +1,28 @@
-プロダクト名：　Sixth-Sense<br>
+<h2>プロダクト名</h2><br>
+Swish（仮）<br>
+<h2>このプロダクトについて</h2><br>
+・スワイプによって手軽に学べて、自然と英単語の習得率が100%になっちゃうアプリ。<br>
 <br>
-プロダクト概要：　Rakuten Super Englishへのアプリの提案。<br>
-                私達のミッションは３つ。<br>
-                １．英単語を手軽に学んでもらう。<br>
-                ２．自分の得意・不得意をまとめた『My単語帳』が自動生成され、学習効率がUP。<br>
-                ３．先生の小テスト作成を手伝う。（手軽且つ、生徒の得意・不得意にあったものを作成する）<br>
+<h2>▼デモサイト▼</h2><br>
+URL: https://sixth-sense.azurewebsites.net/sense/mypage<br>
 
-プロダクトURL：　https://sixth-sense.azurewebsites.net/
+<h2>Dependencies</h2><br>
+・spring boot<br>
+・jQuery<br>
+・mysql<br>
+・js<br>
+・thymeleaf<br>
+・gradle<br>
+・mybatis<br>
+→データベースからデータを取り出すライブラリ。<br>
+・tomcat<br>
+→Azureに上げる前にTomcatでランして動作するかを確認できるツール。<br>
+・google font<br>
+
+<h2>チームメンバー</h2>
+・Osa<br>
+・Kazane<br>
+・Rina<br>
+・Geeee<br>
+・Toy<br>
+・Riku<br>

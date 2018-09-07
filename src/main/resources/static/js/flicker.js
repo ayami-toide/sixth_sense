@@ -13,7 +13,6 @@ $(document).ready(function(){
 
         $(this).append('<div class="status like">知ってる！</div>');
 
-
         if ( $(this).is(':first-child') ) {
             setTimeout(function () {
                 $('.rotate-right').removeClass('rotate-right').fadeIn(300);
