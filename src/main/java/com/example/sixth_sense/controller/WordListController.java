@@ -58,7 +58,6 @@ public class WordListController {
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
 
-
         int id = 2;
         model.addAttribute("nextId", id);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));

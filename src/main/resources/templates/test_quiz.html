@@ -80,7 +80,15 @@
             };
             //カウント終了 */
         }
-    </script>
+
+
+</script>
+
+<tr  th:object="${words}">
+    <td th:text="*{word}"></td>
+</tr>
+
+<br><br>
 
     <div class="test_eigo">
         <tr  th:object="${words}">
@@ -114,6 +122,8 @@
     <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
 
 
+<input type = "submit" th:value="ホーム"method="get"/>
+
     <input type="button" value="end" id="endcount" onclick="stopShowing();">
 
     <div th:if="${lastid}">
@@ -121,6 +131,12 @@
             　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
         </form>
     </div>
+<div ID="maru" style="visibility:hidden;">
+    <img src="/images/study/hand.jpg">
+</div>
+<div ID="batsu" style="visibility:hidden;">
+    <img src="/images/study/word3.jpg">
+</div>
 
 </div>
 </body>
