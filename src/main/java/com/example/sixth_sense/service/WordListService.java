@@ -17,17 +17,10 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public List<WordList> findWords(){
-
-            return wordListMapper.findWords();
-
-        }
+        public List<WordList> findWords(){ return wordListMapper.findWords(); }
 
         @Transactional
-        public WordList findTestWord(Long id){
-            return wordListMapper.findTestWord(id);
-
-        }
+        public WordList findTestWord(Long id){ return wordListMapper.findTestWord(id); }
 
         @Transactional
         public WordList findTestMeaning(Long id){
@@ -43,10 +36,7 @@ public class WordListService {
         }
 
         @Transactional
-        public WordList findOne(Long id){
-
-            return wordListMapper.findOne(id);
-        }
+        public WordList findOne(Long id){ return wordListMapper.findOne(id); }
 
         @Transactional
         public  int findCount(){
@@ -69,31 +59,19 @@ public class WordListService {
         }
 
         @Transactional
-        public  int findCountPerfect(){
-
-            return wordListMapper.findCountPerfect();
-        }
+        public  int findCountPerfect(){ return wordListMapper.findCountPerfect(); }
 
 
 
         @Transactional
-        public void save(WordList wordlist){
-
-           wordListMapper.save(wordlist);
-        }
+        public void save(WordList wordlist){ wordListMapper.save(wordlist); }
 
         @Transactional
-        public void update(WordList wordlist){
-
-            wordListMapper.update(wordlist);
-        }
+        public void update(WordList wordlist){ wordListMapper.update(wordlist); }
 
         //Geeee Rina
         @Transactional
-        public void findByWord(String word){
-
-            wordListMapper.findByWord(word);
-        }
+        public void findByWord(String word){ wordListMapper.findByWord(word); }
 
         //Geeee Rina
         @Transactional
@@ -104,15 +82,9 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public void flick_status_ichi(String word){
-
-            wordListMapper.flick_status_ichi(word);
-        }
+        public void flick_status_ichi(String word){ wordListMapper.flick_status_ichi(word); }
 
         @Transactional
-        public void delete(Long id){
-
-            wordListMapper.delete(id);
-        }
+        public void delete(Long id){ wordListMapper.delete(id); }
 
 }
