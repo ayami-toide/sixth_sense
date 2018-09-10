@@ -6,7 +6,6 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/flicker.js"></script>
-
     <title>Title</title>
 
     <script>
@@ -54,6 +53,7 @@
     </script>
 </head>
 <body>
+
     <!--<div id="container">-->
 
         <tr th:each="word : ${words}" th:object="${word}">
@@ -69,10 +69,12 @@
                         <!--<input th:field="*{word}" type="hidden" th:value="*{word}">-->
                     <!--</form>-->
                 </div>
-            </div>
-        </tr>
 
-        <a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
-    <!--</div>-->
+            </div>
+        </div>
+    </div>
+</tr>
+<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
+<!--</div>-->
 </body>
 </html>

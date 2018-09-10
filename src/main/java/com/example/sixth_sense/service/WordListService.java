@@ -17,17 +17,10 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public List<WordList> findWords(){
-
-            return wordListMapper.findWords();
-
-        }
+        public List<WordList> findWords(){ return wordListMapper.findWords(); }
 
         @Transactional
-        public WordList findTestWord(Long id){
-            return wordListMapper.findTestWord(id);
-
-        }
+        public WordList findTestWord(Long id){ return wordListMapper.findTestWord(id); }
 
         @Transactional
         public WordList findTestMeaning(Long id){
@@ -43,10 +36,7 @@ public class WordListService {
         }
 
         @Transactional
-        public WordList findOne(Long id){
-
-            return wordListMapper.findOne(id);
-        }
+        public WordList findOne(Long id){ return wordListMapper.findOne(id); }
 
         @Transactional
         public  int findCount(){
@@ -64,23 +54,24 @@ public class WordListService {
         }
 
         @Transactional
-        public void save(WordList wordlist){
-
-           wordListMapper.save(wordlist);
+        public  int findCountStudyingNow(){
+            return wordListMapper.findCountStudyingNow();
         }
 
         @Transactional
-        public void update(WordList wordlist){
+        public  int findCountPerfect(){ return wordListMapper.findCountPerfect(); }
 
-            wordListMapper.update(wordlist);
-        }
+
+
+        @Transactional
+        public void save(WordList wordlist){ wordListMapper.save(wordlist); }
+
+        @Transactional
+        public void update(WordList wordlist){ wordListMapper.update(wordlist); }
 
         //Geeee Rina
         @Transactional
-        public void findByWord(String word){
-
-            wordListMapper.findByWord(word);
-        }
+        public void findByWord(String word){ wordListMapper.findByWord(word); }
 
         //Geeee Rina
         @Transactional
@@ -91,15 +82,14 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
+
         public void hatena_increment(String word){
 
             wordListMapper.hatena_increment(word);
         }
 
-        @Transactional
-        public void delete(Long id){
 
-            wordListMapper.delete(id);
-        }
+        @Transactional
+        public void delete(Long id){ wordListMapper.delete(id); }
 
 }

@@ -1,3 +1,4 @@
+
 a:link { color: #000000; }
 a:visited { color: #000000; }
 a:hover { color: #000000; }
@@ -55,11 +56,11 @@ html,body{
 .mypage_prf{
     text-align: center;
     width: 360px;
-    height: 270px;
+    height: 244px;
 }
 .mypage_prf>img{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }
 .mypage_btn{
     width: 360px;
@@ -79,24 +80,26 @@ a.newtango_btn {
 }
 a.oldtango_btn {
     display: inline-block;
-    padding: 11px 31px;
+    padding: 15px 64px;
+    margin-bottom: 10px;
     border-radius: 31px;
     color: #000;
-    background-image: -webkit-linear-gradient(45deg, #F8BBD0 0%, #F8BBD0 100%);
-    background-image: linear-gradient(45deg, #F8BBD0 0%, #F8BBD0 100%);
+    background-image: -webkit-linear-gradient(45deg, #C21858 0%, #C21858 100%);
+    background-image: linear-gradient(45deg, #C21858 0%, #C21858 100%);
     transition: .4s;
-    font-size: 18px;
+    font-size: 20px;
 }
 .mypage_menu{
     list-style: none;
     width: 360px;
     height: 50px;
-    padding: 0;
     margin: 0;
+    padding-left: 17px;
+    padding-top: 0;
 }
 .mypage_menu li {
     float: left;
-    padding: 0;
+    padding: 11px;
     margin: 0;
     text-align: center;
     display: inline-block;
@@ -113,8 +116,10 @@ a.oldtango_btn {
 .mypage_menu li p{
     margin: 6px;
 }
+
 .mypage_level{
     text-align: center;
     font-size: 30px;
     margin: 10px;
 }
+
