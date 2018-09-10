@@ -1,3 +1,5 @@
+//progressbar
+
 /**
  * Define jQuery plug-in
  */
@@ -34,7 +36,7 @@
                     cssText: '-webkit-transition: none !important; transition: none !important; background-color: red; height: 20px',
                     width: '20%'
                 });
-            } else if (width <= 50) { // less than 50 % (and more than 20 %)
+            } else if (width < 50) { // less than 50 % (and more than 20 %)
                 $progressBar.removeClass();
                 $progressBar.addClass('progress-bar progress-bar-warning').css({
                     cssText: '-webkit-transition: none !important; transition: none !important; background-color: yellow; height: 20px',
@@ -56,3 +58,20 @@
     };
 })(jQuery);
 
+// audio
+
+(function (window, $) {
+    'use strict';
+
+    $.fn.useSound = function (_event, _id) {
+        var se = $(_id);
+        this.on(_event, function(){
+            se[0].currentTime = 0;
+            se[0].play();
+        });
+        return this;
+    };
+
+})(this, this.jQuery);
+
+$('.btn a').useSound('mousedown touchstart', '#sound');
