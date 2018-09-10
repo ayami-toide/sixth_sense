@@ -5,6 +5,7 @@ import com.example.sixth_sense.domain.WordList;
 import com.example.sixth_sense.service.WordListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -78,36 +79,29 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping("test_result")
-    public String test_result(Model model)
+    @RequestMapping("test_result/{id}")
+    public String test_result(@PathVariable("id") int id,Model model)
     {
-        int id = 1;
-        model.addAttribute("id", id);
-        model.addAttribute("words",wordlistService.findOne(new Long(1)));
+              int resultId1 = id - 5;
+              model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
+              int resultId2 = id - 4;
+              model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
+              int resultId3 = id - 3;
+              model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
+              int resultId4 = id - 2;
+              model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
+              int resultId5 = id - 1;
+              model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
 
-        for( id =1; id<6; id++){
-            switch(id){
-                case 1: model.addAttribute("testwords1",wordlistService.findTestWord(new Long(id)));
-                case 2: model.addAttribute("testwords2",wordlistService.findTestWord(new Long(id)));
-                case 3: model.addAttribute("testwords3",wordlistService.findTestWord(new Long(id)));
-                case 4: model.addAttribute("testwords4",wordlistService.findTestWord(new Long(id)));
-                case 5: model.addAttribute("testwords5",wordlistService.findTestWord(new Long(id)));
-            }
-        }
+              model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
+              model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
+              model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
+              model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
+              model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
-        for(id =1; id<6; id++){
-            switch(id){
-                case 1: model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(id)));
-                case 2: model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(id)));
-                case 3: model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(id)));
-                case 4: model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(id)));
-                case 5: model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(id)));
-            }
-        }
+              model.addAttribute("id", id);
 
-
-        model.addAttribute("words",wordlistService.findOne(new Long(1)));
-        return "test_result";
+         return "test_result";
     }
 
     @GetMapping("unit_select")
