@@ -84,16 +84,16 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public void flick_status_zero(String word){
+        public void flicker_increment(String word){
 
-            wordListMapper.flick_status_zero(word);
+            wordListMapper.flicker_increment(word);
         }
 
         //Geeee Rina
         @Transactional
-        public void flick_status_ichi(String word){
+        public void hatena_increment(String word){
 
-            wordListMapper.flick_status_ichi(word);
+            wordListMapper.hatena_increment(word);
         }
 
         @Transactional

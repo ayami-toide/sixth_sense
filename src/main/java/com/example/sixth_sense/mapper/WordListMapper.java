@@ -41,12 +41,12 @@ public interface WordListMapper {
     List<WordList> findWords();
 
     //Geeee Rina
-    @Update("update wordlist set status = 0 where word = #{word}")
-    void flick_status_zero(String word);
+    @Update("UPDATE wordlist SET flicker = flicker + 1 WHERE word = #{word}")
+    void flicker_increment(String word);
 
     //Geeee Rina
-    @Update("update wordlist set status = 1 where word = #{word}")
-    void flick_status_ichi(String word);
+    @Update("UPDATE wordlist SET hatena = hatena + 1 WHERE word = #{word}")
+    void hatena_increment(String word);
 
     @Insert("insert into wordlist (word, meaning, flicker,status,hatena,perfect) values (#{word}, #{meaning}, #{flicker},#{status},#{hatena},#{perfect})")
     @Options(useGeneratedKeys = true)
