@@ -30,10 +30,10 @@
 </div>
 
 
-    <div class="quiz_zentai">
-        <div class="marudisplay" id="marudisplay">
-            <img src="/images/test/maru.png">
-        </div>
+<div class="quiz_zentai">
+    <div class="marudisplay" id="marudisplay">
+        <img src="/images/test/maru.png">
+    </div>
 
     <div class="hazuredisplay" id="hazuredisplay">
         <img src="/images/test/batu.png">
@@ -72,7 +72,7 @@
                 }, 1000);
                 countstop();
             }
-    }
+        }
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
             timerID = setInterval('countdown()',1000);
@@ -95,43 +95,43 @@
                 }, 5000)
             };
             //カウント終了 *
-    }
-    window.onload =function countstart() {
-        count = eval(document.form_countdown.counter.value);
-        timerID = setInterval('countdown()',1000);
-         //開始ボタンを使用禁止
-
-        $('#timer').timer(5);
-    }
-
-    function countstop() {
-        clearInterval(timerID);
-        document.form_countdown.start.disabled = false; //開始ボタンを解除
-        document.form_countdown.reset(); //初期値に戻す
-
-
-    }
-
-    function countdown() {
-        document.form_countdown.counter.value = count; //カウント表示
-        count--; //カウントダウン
-        if (count == 0) {
-            setTimeout(function change() {
-                location.href = "/sense/test_question/1";
-            }, 1000);
         }
-        //カウント終了 */
-    }
+        window.onload =function countstart() {
+            count = eval(document.form_countdown.counter.value);
+            timerID = setInterval('countdown()',1000);
+            //開始ボタンを使用禁止
+
+            $('#timer').timer(5);
+        }
+
+        function countstop() {
+            clearInterval(timerID);
+            document.form_countdown.start.disabled = false; //開始ボタンを解除
+            document.form_countdown.reset(); //初期値に戻す
+
+
+        }
+
+        function countdown() {
+            document.form_countdown.counter.value = count; //カウント表示
+            count--; //カウントダウン
+            if (count == 0) {
+                setTimeout(function change() {
+                    location.href = "/sense/test_question/1";
+                }, 1000);
+            }
+            //カウント終了 */
+        }
 
     </script>
 
-        <div class="test_eigo">
-            <tr  th:object="${words}">
-                <td th:text="*{word}"></td>
-            </tr>
-        </div>
+    <div class="test_eigo">
+        <tr  th:object="${words}">
+            <td th:text="*{word}"></td>
+        </tr>
+    </div>
 
-        <br><br>
+    <br><br>
 
     <div class="test_nihongo">
         <div th:each=" word : ${words.getShuffledAnswers()}">
@@ -142,10 +142,10 @@
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
 
-                          <span th:case="*" onClick="changepage(2)">
+                    <span th:case="*" onClick="changepage(2)">
                               <div class="nihongo_btn" th:text="${word}" ></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
-                              </form>
+                        </form>
                           </span>
                 </div>
 
@@ -155,7 +155,11 @@
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
- 　
+    　
+
+
+
+
 
 </div>
 </body>

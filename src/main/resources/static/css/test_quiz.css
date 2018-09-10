@@ -54,18 +54,6 @@ a.homeback>img{
     padding-top:  2em;
 }
 
-.progress-bar.progress-bar-danger{
-    height:20px;
-    background:red;
-}
-
-
-.progress-bar.progress-bar-warning
-{
-    height:20px;
-    background:yellow;
-}
-
 .number{
     text-align: center;
     font-size: 20px;
