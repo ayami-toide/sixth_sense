@@ -14,11 +14,11 @@ public interface WordListMapper {
     @Select("SELECT COUNT(id) FROM wordlist")
     int findCount();
     //Osa
-    @Select("SELECT COUNT(*) FROM wordlist WHERE status = '1'")
+    @Select("SELECT COUNT(*) FROM wordlist WHERE maru = '1'")
     int findCountStatus();
     //Osa
-    @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
-    int findStudiedWord();
+//    @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
+//    int findStudiedWord();
 
     @Select("SELECT COUNT(*) FROM wordlist WHERE perfect= '1'")
     int findCountStudyingNow();
