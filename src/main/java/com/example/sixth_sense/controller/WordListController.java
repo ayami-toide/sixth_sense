@@ -44,7 +44,8 @@ public class WordListController {
 
     @GetMapping("review")
     public String review(Model model){
-        model.addAttribute("status",wordlistService.findCountStatus());
+        model.addAttribute("studying",wordlistService.findCountStudyingNow());
+        model.addAttribute("perfect",wordlistService.findCountPerfect());
 
         return "review";
     }
@@ -56,13 +57,6 @@ public class WordListController {
 
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
-
-        String[] array = {"select * from wordlist where id = #{id}"};
-        List<String> lists = Arrays.asList(array);
-        Collections.shuffle(lists);
-        String[] options =lists.toArray(new String[0]);
-
-        // Collections.shuffle(wordlistService.findAll());
 
         int id = 2;
         model.addAttribute("nextId", id);
@@ -87,10 +81,11 @@ public class WordListController {
     @RequestMapping("test_result")
     public String test_result(Model model)
     {
+        int id = 1;
+        model.addAttribute("id", id);
+        model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
-
-
-        for(int id =1; id<6; id++){
+        for( id =1; id<6; id++){
             switch(id){
                 case 1: model.addAttribute("testwords1",wordlistService.findTestWord(new Long(id)));
                 case 2: model.addAttribute("testwords2",wordlistService.findTestWord(new Long(id)));
@@ -100,7 +95,7 @@ public class WordListController {
             }
         }
 
-        for(int id =1; id<6; id++){
+        for(id =1; id<6; id++){
             switch(id){
                 case 1: model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(id)));
                 case 2: model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(id)));
@@ -113,6 +108,16 @@ public class WordListController {
 
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
         return "test_result";
+    }
+
+    @GetMapping("unit_select")
+    public String unit_select(Model model){
+        return "unit_select";
+    }
+
+    @GetMapping("teacher_page")
+    public String teacher_page(Model model){
+        return "teacher_page";
     }
 
 
