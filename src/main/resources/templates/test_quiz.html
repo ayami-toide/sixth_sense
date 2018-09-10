@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="/css/test_quiz.css">
     <script src="/js/style.js"></script>
+    <script src="/js/test_quiz.js"></script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Test-quiz</title>
 
@@ -12,9 +16,18 @@
 <body>
 
 <form name="form_countdown">
-    <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
+    <input name="counter" type="hidden" value="4"  style="border:none; background-color:transparent;">
 </form>
 
+
+
+<div class="container">
+    <div id="timer"></div>
+    <form id="form" class="form-inline">
+        <div class="form-group">
+        </div>
+    </form>
+</div>
 <div class="quiz_zentai">
     <div class="marudisplay" id="marudisplay">
         <img src="/images/test/maru.png">
@@ -24,13 +37,37 @@
         <img src="/images/test/batu.png">
     </div>
 
+
+        <div class="tugiedisplay" id="tugiedisplay">
+            <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+            　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
+            </form>
+        </div>
+
+<script>
+
+
+    var maruimg = document.getElementById('marudisplay');
+    var hazureimg = document.getElementById('hazuredisplay');
+    var tugieimg = document.getElementById('tugiedisplay');
+
+
+    maruimg.style.display = "none";
+    hazureimg.style.display = "none";
+    tugieimg.style.display  = "none";
+    function changepage(id) {
+        tugieimg.style.display = "block";
+
+
+         
     <div class="tugiedisplay" id="tugiedisplay">
         <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
         　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
         </form>
     </div>
 
-    <script>
+    
+      <script>
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
         var tugieimg = document.getElementById('tugiedisplay');
@@ -55,40 +92,43 @@
                     window.location.href = '/sense/test_question/1';
                 }, 1000);
                 countstop();
-            }
+    
         }
-        window.onload =function countstart() {
-            count = eval(document.form_countdown.counter.value);
-            timerID = setInterval('countdown()',1000);
-            document.form_countdown.start.disabled = true; //開始ボタンを使用禁止
-        }
+    }
+    window.onload =function countstart() {
+        count = eval(document.form_countdown.counter.value);
+        timerID = setInterval('countdown()',1000);
+         //開始ボタンを使用禁止
 
-        function countstop() {
-            clearInterval(timerID);
-            document.form_countdown.start.disabled = false; //開始ボタンを解除
-            document.form_countdown.reset(); //初期値に戻す
-        }
+        $('#timer').timer(5);
+    }
 
-        function countdown() {
-            document.form_countdown.counter.value= count; //カウント表示
-            count--; //カウントダウン
-            if (count < 0) countstop();
-            {
-                setTimeout(function change() {
-                    location.href = "/sense/test_question/1";
-                }, 5000)
-            };
+    function countstop() {
+        clearInterval(timerID);
+        document.form_countdown.start.disabled = false; //開始ボタンを解除
+        document.form_countdown.reset(); //初期値に戻す
+
+
+    }
+
+    function countdown() {
+        document.form_countdown.counter.value= count; //カウント表示
+        count--; //カウントダウン
+        if (count == 0)        {
+            setTimeout(function change() {
+                location.href = "/sense/test_question/1";
+            }, 1000);}
             //カウント終了 */
-        }
+    }
+        </script>
 
-    </script>
+        <div class="test_eigo">
+            <tr  th:object="${words}">
+                <td th:text="*{word}"></td>
+            </tr>
+        </div>
 
-    <!--<tr  th:object="${words}">-->
-        <!--<td th:text="*{word}"></td>-->
-    <!--</tr>-->
-
-    <!--<br><br>-->
-
+    
     <div class="test_eigo">
         <tr  th:object="${words}">
             <td th:text="*{word}"></td>
@@ -119,13 +159,6 @@
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
-
-
-    <div th:if="${lastid}">
-        <form th:action="@{/sense/test_result/}" method="get">
-            　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
-        </form>
-    </div>
 
 <div ID="maru" style="visibility:hidden;">
     <img src="/images/study/hand.jpg">
