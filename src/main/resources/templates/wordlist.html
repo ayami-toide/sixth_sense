@@ -6,7 +6,9 @@
     <title>単語一覧</title>
 </head>
 <body>
-<div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.word}"><br></tr></div>
+<h1><div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.word}"><br></tr></div></h1>
+<br>
+<div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.meaning}"><br></tr></div>
 
 </p>
 </body>
