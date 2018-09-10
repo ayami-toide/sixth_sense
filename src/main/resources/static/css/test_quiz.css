@@ -49,54 +49,22 @@ a.homeback>img{
 }
 
 
-.delay {
-    position: relative;
-    width: 100%;
-    margin: 6px auto;
-    font-size: 14px;
-    text-align: center;
-    animation-name: my_delay;
-    animation-duration: 5s;
-}
-.delay a {
-    z-index: 3;
-    position: relative;
-    display: block;
-    padding: 0.8em 0;
-    color: #20b2aa;
-}
-.delay::before,
-.delay::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.delay::before {
-    z-index: 1;
-    background-color: #fff;
-    opacity: 0.3;
-}
-.delay::after {
-    z-index: 2;
-    width: 100%;
-    background-color: #20b2aa;
 
+.container {
+    padding-top:  2em;
 }
 
- body:hover .delay::after {
-    width: 0%;
-    transition: width 5s linear;
-}
-.delay1::after {
-    transition-delay: 0s;
+.progress-bar.progress-bar-danger{
+    height:20px;
+    background:red;
 }
 
 
-
+.progress-bar.progress-bar-warning
+{
+    height:20px;
+    background:yellow;
+}
 
 
 

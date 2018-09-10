@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="/css/test_quiz.css">
     <script src="/js/style.js"></script>
+    <script src="/js/test_quiz.js"></script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Test-quiz</title>
 
@@ -12,10 +16,19 @@
 <body>
 
 <form name="form_countdown">
-    <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
+    <input name="counter" type="hidden" value="4"  style="border:none; background-color:transparent;">
 </form>
 
-<p class="delay1 delay"><a></a></p>
+
+
+
+<div class="container">
+    <div id="timer"></div>
+    <form id="form" class="form-inline">
+        <div class="form-group">
+        </div>
+    </form>
+</div>
 
 
     <div class="quiz_zentai">
@@ -39,16 +52,23 @@
     var maruimg = document.getElementById('marudisplay');
     var hazureimg = document.getElementById('hazuredisplay');
     var tugieimg = document.getElementById('tugiedisplay');
+
+
     maruimg.style.display = "none";
     hazureimg.style.display = "none";
     tugieimg.style.display  = "none";
     function changepage(id) {
         tugieimg.style.display = "block";
+
+
          if (id == 1) {
+
             maruimg.style.display = "block";
             setTimeout(function change() {
                 maruimg.style.display = "none";
             }, 1000);
+
+
 
             countstop();
              tugieimg.style.display = "block";
@@ -66,7 +86,9 @@
     window.onload =function countstart() {
         count = eval(document.form_countdown.counter.value);
         timerID = setInterval('countdown()',1000);
-        document.form_countdown.start.disabled = true; //開始ボタンを使用禁止
+         //開始ボタンを使用禁止
+
+        $('#timer').timer(5);
     }
 
     function countstop() {
@@ -128,14 +150,6 @@
             </form>
         </div>
 
-        <script>
-            var resultButtonImg = document.getElementById('resultButtonDisplay');
-            resultButtonImg.style.display = "none";
-
-            function resultButton() {
-                resultButtonImg.style.display = "block";
-            }
-        </script>
 
 
 </div>
