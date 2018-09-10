@@ -13,7 +13,9 @@ $(document).ready(function(){
 
         $(this).append('<div class="status like">Like!</div>');
         if ( $(this).is(':first-child') ) {
-            $('.rotate-right').removeClass ('rotate-right').fadeIn(300);
+            setTimeout(function () {
+                $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+            }, 1000);
         }
 
     });
@@ -27,6 +29,10 @@ $(document).ready(function(){
 
         if ( $(this).is(':first-child') ) {
             $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+            setTimeout(function () {
+                $('.buddy').find('.status').remove();
+                $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+            }, 900);
         }
     });
 

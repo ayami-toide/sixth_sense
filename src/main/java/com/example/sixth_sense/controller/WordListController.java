@@ -111,6 +111,16 @@ public class WordListController {
         return "test_result";
     }
 
+    @GetMapping("unit_select")
+    public String unit_select(Model model){
+        return "unit_select";
+    }
+
+    @GetMapping("teacher_page")
+    public String teacher_page(Model model){
+        return "teacher_page";
+    }
+
 
 
 }
