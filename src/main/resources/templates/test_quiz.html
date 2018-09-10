@@ -21,7 +21,6 @@
 
 
 
-
 <div class="container">
     <div id="timer"></div>
     <form id="form" class="form-inline">
@@ -29,16 +28,15 @@
         </div>
     </form>
 </div>
+<div class="quiz_zentai">
+    <div class="marudisplay" id="marudisplay">
+        <img src="/images/test/maru.png">
+    </div>
 
+    <div class="hazuredisplay" id="hazuredisplay">
+        <img src="/images/test/batu.png">
+    </div>
 
-    <div class="quiz_zentai">
-        <div class="marudisplay" id="marudisplay">
-            <img src="/images/test/maru.jpg">
-        </div>
-
-        <div class="hazuredisplay" id="hazuredisplay">
-            <img src="/images/test/batu.jpg">
-        </div>
 
         <div class="tugiedisplay" id="tugiedisplay">
             <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
@@ -61,26 +59,40 @@
         tugieimg.style.display = "block";
 
 
-         if (id == 1) {
+         
+    <div class="tugiedisplay" id="tugiedisplay">
+        <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+        　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
+        </form>
+    </div>
 
-            maruimg.style.display = "block";
-            setTimeout(function change() {
-                maruimg.style.display = "none";
-            }, 1000);
-
-
-
-            countstop();
-             tugieimg.style.display = "block";
-
-        }
-        else if (id == 2) {
-            tugieimg.style.display = "none";
-            hazureimg.style.display = "block";
-            setTimeout(function change() {
-                window.location.href = '/sense/test_question/1';
-            }, 1000);
-            countstop();
+    
+      <script>
+        var maruimg = document.getElementById('marudisplay');
+        var hazureimg = document.getElementById('hazuredisplay');
+        var tugieimg = document.getElementById('tugiedisplay');
+        maruimg.style.display = "none";
+        hazureimg.style.display = "none";
+        tugieimg.style.display  = "none";
+        function changepage(id) {
+            tugieimg.style.display = "block";
+            if (id == 1) {
+                maruimg.style.display = "block";
+                setTimeout(function change() {
+                    maruimg.style.display = "none";
+                }, 1000);
+                location.href= unload();
+                tugieimg.style.display = "block";
+                countstop();
+            }
+            else if (id == 2) {
+                tugieimg.style.display = "none";
+                hazureimg.style.display = "block";
+                setTimeout(function change() {
+                    window.location.href = '/sense/test_question/1';
+                }, 1000);
+                countstop();
+    
         }
     }
     window.onload =function countstart() {
@@ -116,13 +128,20 @@
             </tr>
         </div>
 
-        <br><br>
+    
+    <div class="test_eigo">
+        <tr  th:object="${words}">
+            <td th:text="*{word}"></td>
+        </tr>
+    </div>
 
-        <div class="test_nihongo">
-                <div th:each=" word : ${words.getShuffledAnswers()}">
-                   <div th:each=" option : ${words}">
+    <br><br>
 
-                       <div class="geee" th:switch="${word}">
+    <div class="test_nihongo">
+        <div th:each=" word : ${words.getShuffledAnswers()}">
+            <div th:each=" option : ${words}">
+
+                <div class="geee" th:switch="${word}">
                           <span th:case="${option.meaning}" onClick="changepage(1)">
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
@@ -132,25 +151,21 @@
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
                               </form>
                           </span>
-                       </div>
+                </div>
 
-                   </div>
-                 </div>
+            </div>
         </div>
+    </div>
 
-    　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
-         <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
-
-
-         <input type="button" value="end" id="endcount" onclick="stopShowing();">
-
-        <div th:if = ${lastId} id="resultButtonDisplay">
-            <form th:action="@{/sense/test_result/}" method="get">
-                　   <input type="submit" th:value="結果" method="get" >　　　
-            </form>
-        </div>
+    <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
 
+<div ID="maru" style="visibility:hidden;">
+    <img src="/images/study/hand.jpg">
+</div>
+<div ID="batsu" style="visibility:hidden;">
+    <img src="/images/study/word3.jpg">
+</div>
 
 </div>
 </body>
