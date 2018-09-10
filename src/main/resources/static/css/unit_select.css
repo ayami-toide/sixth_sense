@@ -1,0 +1,28 @@
+a:link { color: #000; }
+a:visited { color: #000000; }
+a:hover { color: #000000; }
+a:active { color: #000000; }
+a:link {text-decoration:none;}
+
+body{
+    width: 360px;
+    height: 670px;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+html,body{
+    overflow: hidden
+}
+
+.setumei{
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+}
+.setumei_img{
+    font-size: 18px;
+    float: left;
+}
+.setumei_p{
+    font-size: 18px;
+
+}
