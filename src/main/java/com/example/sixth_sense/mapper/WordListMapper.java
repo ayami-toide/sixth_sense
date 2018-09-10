@@ -26,7 +26,6 @@ public interface WordListMapper {
     @Select("SELECT COUNT(*) FROM wordlist WHERE perfect= '2'")
     int findCountPerfect();
 
-
     //Riku
     @Select("select * from wordlist where id = #{id}")
     WordList findOne(Long id);

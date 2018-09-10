@@ -120,6 +120,12 @@ public class WordListController {
         return "teacher_page";
     }
 
+    @GetMapping("wordlist")
+    public String wordlist(Model model){
+        model.addAttribute("ShowWordColumns",wordlistService.findAll());
+        return "wordlist";
+    }
+
 
 
 }
