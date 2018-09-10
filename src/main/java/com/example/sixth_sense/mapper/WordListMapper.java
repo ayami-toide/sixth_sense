@@ -37,12 +37,12 @@ public interface WordListMapper {
     String findByWord (String word);
 
     //Geeee Rina
-    @Select("select * from wordlist where flicker = 0 LIMIT 5")
+    @Select("select * from wordlist where maru = 0 LIMIT 5")
     List<WordList> findWords();
 
     //Geeee Rina
-    @Update("UPDATE wordlist SET flicker = flicker + 1 WHERE word = #{word}")
-    void flicker_increment(String word);
+    @Update("UPDATE wordlist SET maru = maru + 1 WHERE word = #{word}")
+    void maru_increment(String word);
 
     //Geeee Rina
     @Update("UPDATE wordlist SET hatena = hatena + 1 WHERE word = #{word}")

@@ -18,9 +18,16 @@ public class FlickerController {
 
     @Autowired
     WordListService wordListService;
-    @RequestMapping(value = "/study1", method = RequestMethod.POST, consumes= MediaType.APPLICATION_JSON_VALUE)
+
+    @RequestMapping(value = "/study_r", method = RequestMethod.POST, consumes= MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public void update_flicker(@RequestBody StudyBean bean) {
-        wordListService.flicker_increment(bean.getWord());
+    public void update_maru(@RequestBody StudyBean bean) {
+        wordListService.maru_increment(bean.getWord());
+    }
+
+    @RequestMapping(value = "/study_l", method = RequestMethod.POST, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public void update_hatena(@RequestBody StudyBean bean) {
+        wordListService.hatena_increment(bean.getWord());
     }
 }

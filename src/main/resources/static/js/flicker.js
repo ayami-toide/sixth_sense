@@ -19,6 +19,19 @@ $(document).ready(function(){
             }, 1000);
         }
 
+        // var data = {word: document.getElementById("flick_word").textContent};
+        //
+        // $.ajax ({
+        //     url: "/sense/study1",
+        //     type: "POST",
+        //     data : JSON.stringify(data),
+        //     contentType: 'application/JSON',
+        //     dataType : 'JSON',
+        //     success: function() {
+        //         console.log("success");
+        //     }
+        // });
+
     });
 
     $(".buddy").on("swipeleft",function(){

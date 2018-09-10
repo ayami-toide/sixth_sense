@@ -15,10 +15,31 @@
 
             $(".buddy").on("swiperight",function(){
 
-                var data = {word: document.getElementById("flick_word").textContent};
+                var word = $(this).find(".flick_word").text();
+
+                var data = {word: word};
 
                 $.ajax ({
-                    url: "/sense/study1",
+                    url: "/sense/study_r",
+                    type: "POST",
+                    data : JSON.stringify(data),
+                    contentType: 'application/JSON',
+                    dataType : 'JSON',
+                    success: function() {
+                        console.log("success");
+                    }
+                });
+            });
+
+
+            $(".buddy").on("swipeleft",function(){
+
+                var word = $(this).find(".flick_word").text();
+
+                var data = {word: word};
+
+                $.ajax ({
+                    url: "/sense/study_l",
                     type: "POST",
                     data : JSON.stringify(data),
                     contentType: 'application/JSON',
@@ -40,7 +61,7 @@
                 <div class="sample1">
                     <
                     <img th:src="*{url}">
-                    <p id="flick_word" th:text="*{word}"></p>
+                    <p class="flick_word" th:text="*{word}"></p>
                     <div class="mask">
                                 <div class="caption" th:text="*{meaning}" ></div>
                     </div>

@@ -84,9 +84,9 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public void flicker_increment(String word){
+        public void maru_increment(String word){
 
-            wordListMapper.flicker_increment(word);
+            wordListMapper.maru_increment(word);
         }
 
         //Geeee Rina

@@ -38,17 +38,17 @@ public class WordList {
     @Column(name="hazure3", nullable = false)
     private String hazure3;
 
-    @Column(name="flicker", nullable=false)
-    private  Integer flicker;
+    @Column(name="maru", nullable=false)
+    private  Integer maru;
+
+    @Column(name="hatena", nullable=false)
+    private  Integer hatena;
 
     @Column(name="status", nullable=true)
     private  Integer status;
 
     @Column(name="perfect", nullable=false)
     private  Integer perfect;
-
-    @Column(name="hatena", nullable=false)
-    private  Integer hatena;
 
     @Column(name="url", nullable=false)
     private  String url;
@@ -77,8 +77,8 @@ public class WordList {
         return hazure3;
     }
 
-    public Integer getFlicker() {
-        return flicker;
+    public Integer getMaru() {
+        return maru;
     }
 
     public Integer getStatus() {
