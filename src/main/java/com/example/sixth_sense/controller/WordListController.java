@@ -120,6 +120,16 @@ public class WordListController {
         return "teacher_page";
     }
 
+    @RequestMapping("get_ready_test")
+    public String get_ready_test(Model model){
+
+        int id = 2;
+        model.addAttribute("nextId", id);
+        model.addAttribute("words",wordlistService.findOne(new Long(1)));
+
+        return "get_ready_test";
+    }
+
     @GetMapping("wordlist")
     public String wordlist(Model model){
         model.addAttribute("ShowWordColumns",wordlistService.findAll());
