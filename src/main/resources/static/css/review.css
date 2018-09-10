@@ -98,3 +98,11 @@ html,body{
     display: block;
 
 }
+
+html,body{
+    overflow: hidden
+}
+body{
+    width: 350px;
+    height: 650px;
+}
