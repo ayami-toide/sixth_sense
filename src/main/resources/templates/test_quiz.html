@@ -16,6 +16,7 @@
     <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
 </form>
 
+<<<<<<< HEAD
 
 <div class="quiz_zentai">
     <div class="marudisplay" id="marudisplay">
@@ -32,6 +33,23 @@
         </form>
     </div>
 
+=======
+<div class="quiz_zentai">
+    <div class="marudisplay" id="marudisplay">
+        <img src="/images/test/maru.jpg">
+    </div>
+
+    <div class="hazuredisplay" id="hazuredisplay">
+        <img src="/images/test/batu.jpg">
+    </div>
+
+    <div class="tugiedisplay" id="tugiedisplay">
+        <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+        　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
+        </form>
+    </div>
+
+>>>>>>> ae10a18f9a0a722d777c40c2d0467d75a6785a1b
     <script>
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
@@ -80,6 +98,7 @@
                     location.href = "/sense/test_question/1";
                 }, 5000)
             };
+<<<<<<< HEAD
 
             //カウント終了 */
         }
@@ -97,6 +116,32 @@
         <div th:each=" word : ${words.getShuffledAnswers()}">
             <div th:each=" option : ${words}">
 
+=======
+            //カウント終了 */
+        }
+
+
+</script>
+
+<tr  th:object="${words}">
+    <td th:text="*{word}"></td>
+</tr>
+
+<br><br>
+
+    <div class="test_eigo">
+        <tr  th:object="${words}">
+            <td th:text="*{word}"></td>
+        </tr>
+    </div>
+
+    <br><br>
+
+    <div class="test_nihongo">
+        <div th:each=" word : ${words.getShuffledAnswers()}">
+            <div th:each=" option : ${words}">
+
+>>>>>>> ae10a18f9a0a722d777c40c2d0467d75a6785a1b
                 <div class="geee" th:switch="${word}">
                           <span th:case="${option.meaning}" onClick="changepage(1)">
                               <div class="nihongo_btn" th:text="${word}"></div>
@@ -112,10 +157,18 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+
+    　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+    <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
+=======
 
     　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
     <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
 
+>>>>>>> ae10a18f9a0a722d777c40c2d0467d75a6785a1b
+
+<input type = "submit" th:value="ホーム"method="get"/>
 
     <input type="button" value="end" id="endcount" onclick="stopShowing();">
 
@@ -124,6 +177,15 @@
             　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
         </form>
     </div>
+<<<<<<< HEAD
+=======
+<div ID="maru" style="visibility:hidden;">
+    <img src="/images/study/hand.jpg">
+</div>
+<div ID="batsu" style="visibility:hidden;">
+    <img src="/images/study/word3.jpg">
+</div>
+>>>>>>> ae10a18f9a0a722d777c40c2d0467d75a6785a1b
 
 </div>
 </body>
