@@ -106,6 +106,14 @@ public class WordListController {
         }
 
 
+        String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
+        List<String> list = Arrays.asList(array);
+        Collections.shuffle(list);
+        String word  = list.get(1);
+        array = (String[])list.toArray(new String[0]);
+        model.addAttribute("word",word);
+
+
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
         return "test_result";
     }
@@ -135,6 +143,8 @@ public class WordListController {
         model.addAttribute("ShowWordColumns",wordlistService.findAll());
         return "wordlist";
     }
+
+
 
 
 
