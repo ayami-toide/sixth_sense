@@ -26,7 +26,7 @@
 
     <div class="tugiedisplay" id="tugiedisplay">
         <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-        　<input type = "submit" th:value="次へ"method="get"/>　　　　　　　
+        　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
         </form>
     </div>
 
@@ -81,14 +81,13 @@
             //カウント終了 */
         }
 
+    </script>
 
-</script>
+    <!--<tr  th:object="${words}">-->
+        <!--<td th:text="*{word}"></td>-->
+    <!--</tr>-->
 
-<tr  th:object="${words}">
-    <td th:text="*{word}"></td>
-</tr>
-
-<br><br>
+    <!--<br><br>-->
 
     <div class="test_eigo">
         <tr  th:object="${words}">
@@ -118,11 +117,7 @@
         </div>
     </div>
 
-    　　 <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
-    <!--<input type="button" value="テスト結果へ" id="endcount" onclick="stopShowing();">-->
-
-
-<input type = "submit" th:value="ホーム"method="get"/>
+    <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
     <input type="button" value="end" id="endcount" onclick="stopShowing();">
 
@@ -131,6 +126,7 @@
             　   <input type="submit" th:value="結果" method="get" onclick="deleteButton()" >　　　
         </form>
     </div>
+
 <div ID="maru" style="visibility:hidden;">
     <img src="/images/study/hand.jpg">
 </div>
