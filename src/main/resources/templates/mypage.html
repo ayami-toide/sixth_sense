@@ -9,13 +9,10 @@
     <title>TopPage</title>
 </head>
 <body>
-
-<p class="count_memory">進めた単語数　<tr th:text = "${studied}"></tr>回<br>
+<p class="count_memory">進めた単語数　<tr th:text = "${status}"></tr>回<br>
     継続日数　60日
 </p>
-
 <progress class="progress" min="0" th:attr="max=${count}" th:value="${status}">%</progress>
-
 <p class="mypage_level">Level 7</p>
 <div class="mypage_prf">
     <img src="/images/mypage/icon.png">
@@ -29,7 +26,6 @@
     <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
     <li><a href="#"><img src="/images/mypage/tangolist.png"></a><p>単語リスト</p></li>
     <li><a href="/sense/review"><img src="/images/mypage/review.png"></a><p>復習</p></li>
-
 </ul>
 </body>
 </html>
