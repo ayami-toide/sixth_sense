@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <p lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
-    <script src="/js/test_quiz.js"></script>
+
 
 
     <html lang="en">
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="/js/style.js"></script>
+      <script src="/js/test_quiz.js"></script>
       <link rel="stylesheet" href="/css/test_result.css">
       <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
       <title>Test Result</title>
@@ -45,17 +47,20 @@
 
     <div class="mypage_menu">
         <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
-        <li><a href="#"><img src="/images/mypage/next.png"></a><p>次のテスト</p></li>
+        <li><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
+            <input type = "image" src="/images/mypage/next.png">
+            <p>次のテスト</p>
+            </form>
+        </li>
     </div>
 
 
 <p class="btn"><a onClick="sound()">クリック</a></p>
 
 <audio id="sound" preload="auto">
-    <source src="Carly_Rae_Jepsen_-_I_Really_Like_You_Audio[SaveFrom.online].mp3" type="audio/mp3">
-    <source src="http://idotdesign.net/wp-content/themes/idotdesign/sound/sound.wav" type="audio/wav">
+    <source src="/static/kazane.mp3" type="audio/mp3">
+    <source src="/static/kazane.wav" type="audio/wav">
 </audio>
-
 
 </body>
 </html>
