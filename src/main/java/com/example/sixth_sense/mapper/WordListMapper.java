@@ -38,6 +38,10 @@ public interface WordListMapper {
     @Select("select meaning from wordlist  where id =#{id}")
     WordList findTestMeaning(Long id);
 
+    //Toy
+    @Select("select audio from wordlist  where id =#{id}")
+    WordList findTestAudio(Long id);
+
     //Geeee Rina
     @Select("select word from wordlist where word = #{word}")
     String findByWord (String word);
