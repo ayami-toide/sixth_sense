@@ -21,13 +21,6 @@
 
 
 
-<div class="container">
-    <div id="timer"></div>
-    <form id="form" class="form-inline">
-        <div class="form-group">
-        </div>
-    </form>
-</div>
 
 
 <div class="quiz_zentai">
@@ -47,33 +40,37 @@
         </form>
     </div>
 
-    <div class = "resultButtonDisplay" id = "resultButtonDisplay">
-        <form th:action="@{/sense/test_result/{id}(id=${nextId})}" method="get">
-        　<input type="submit"  th:value="結果" method="get" >　　　　　　　
+    <div class="container">
+        <div id="timer"></div>
+        <form id="form" class="form-inline">
+            <div class="form-group">
+            </div>
         </form>
     </div>
+
+
 
     <script>
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
         var tugieimg = document.getElementById('tugiedisplay');
-        var resultButtonImg = document.getElementById('resultButtonDisplay');
-
-        resultButtonImg.style.display = "none"
         maruimg.style.display = "none";
         hazureimg.style.display = "none";
         tugieimg.style.display  = "none";
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
+                $('#timer').timer(0);
                 maruimg.style.display = "block";
                 setTimeout(function change() {
                     maruimg.style.display = "none";
                 }, 1000);
                 tugieimg.style.display = "block";
                 countstop();
+
             }
             else if (id == 2) {
+                $('#timer').timer(0);
                 tugieimg.style.display = "none";
                 hazureimg.style.display = "block";
                 setTimeout(function change() {
@@ -81,46 +78,15 @@
                 }, 1000);
                 countstop();
             }
-            else if(id == 0){
-                maruimg.style.display = "block";
-                tugieimg.style.display = "none";
-                setTimeout(function change() {
-                    maruimg.style.display = "none";
-                    resultButtonImg.style.display = "block";
-                }, 1000);
-                location.href= unload();
-                countstop();
-            }
-        }
-        window.onload =function countstart() {
-            count = eval(document.form_countdown.counter.value);
-            timerID = setInterval('countdown()',1000);
-            document.form_countdown.start.disabled = true; //開始ボタンを使用禁止
         }
 
-        function countstop() {
-            clearInterval(timerID);
-            document.form_countdown.start.disabled = false; //開始ボタンを解除
-            document.form_countdown.reset(); //初期値に戻す
-        }
 
-        function countdown() {
 
-            document.form_countdown.counter.value= count; //カウント表示
-            count--; //カウントダウン
-            if (count < 0) countstop();
-            {
-                setTimeout(function change() {
-                    location.href = "/sense/test_question/1";
-                }, 5000)
-            };
-            //カウント終了 *
-        }
+
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
             timerID = setInterval('countdown()',1000);
             //開始ボタンを使用禁止
-
             $('#timer').timer(5);
         }
 
@@ -128,8 +94,23 @@
             clearInterval(timerID);
             document.form_countdown.start.disabled = false; //開始ボタンを解除
             document.form_countdown.reset(); //初期値に戻す
-　　　　　　　}
+
+
+        }
+
+        function countdown() {
+            document.form_countdown.counter.value = count; //カウント表示
+            count--; //カウントダウン
+            if (count == 0) {
+                setTimeout(function change() {
+                    location.href = "/sense/test_question/1";
+                }, 1000);
+            }
+            //カウント終了 */
+        }
+
     </script>
+
     <div class="test_eigo">
         <tr  th:object="${words}">
             <td th:text="*{word}"></td>
@@ -142,9 +123,8 @@
         <div th:each=" word : ${words.getShuffledAnswers()}">
             <div th:each=" option : ${words}">
 
-                <div th:if="${lastid}">
-                    <div th:switch="${word}">
-                          <span th:case="${option.meaning}" onClick="changepage(0)">
+                <div class="geee" th:switch="${word}">
+                          <span th:case="${option.meaning}" onClick="changepage(1)">
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
 
@@ -153,27 +133,19 @@
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
                         </form>
                           </span>
-                    </div>
                 </div>
 
-                <div th:unless="${lastid}">
-                     <div th:switch="${word}">
-                          <span th:case="${option.meaning}" onClick="changepage(1)">
-                              <div class="nihongo_btn" th:text="${word}"></div>
-                          </span>
-
-                          <span th:case="*" onClick="changepage(2)">
-                              <div class="nihongo_btn" th:text="${word}" ></div>
-                              <form th:action="@{/sense/test_quiz/}" method="get" />　
-                              </form>
-                          </span>
-                      </div>
-                </div>
             </div>
         </div>
     </div>
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+
+    　
+
+
+
+
 
 </div>
 </body>
