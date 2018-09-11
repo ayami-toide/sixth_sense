@@ -42,9 +42,13 @@ public interface WordListMapper {
     @Select("select word from wordlist where word = #{word}")
     String findByWord (String word);
 
-    //Geeee Rina
+    //Geeee Rina 9/11
     @Select("select * from wordlist where maru = 0 LIMIT 5")
-    List<WordList> findWords();
+    List<WordList> findNewWords1();
+
+    //Geeee Rina 9/11
+    @Select("select * from wordlist where maru = 0 LIMIT 5 OFFSET 5")
+    List<WordList> findNewWords2();
 
     //Geeee Rina
     @Update("UPDATE wordlist SET maru = maru + 1 WHERE word = #{word}")
