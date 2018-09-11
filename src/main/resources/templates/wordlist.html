@@ -3,13 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/wordlist.css">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>単語一覧</title>
 </head>
 <body>
-<h1><div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.word}"><br></tr></div></h1>
-<br>
-<div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.meaning}"><br></tr></div>
-
-</p>
+<p class="list_title">単語リスト</p>
+<li class="eigo"><div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.word}"><br></tr></div>
+    <br></li>
+<li class="nihongo"><div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.meaning}"><br></tr></div>
+</li>
 </body>
 </html>

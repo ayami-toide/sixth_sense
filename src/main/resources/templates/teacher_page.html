@@ -11,8 +11,11 @@
 <body>
 
 <p class="teacher_midashi">Teacher's Page</p>
-
-<a class="teacher_btn" href="/sense/unit_select">Unit Select</a><br>
+<div class = "teacher_btn">
+    <form th:action="@{/sense/teacher_unit_select}" method="get">
+        <input type = "submit" value="Unit Select">
+    </form><br>
+</div>
 <a class="teacher_btn" href="#">Making Test</a>
 
 </body>
