@@ -7,8 +7,6 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="/js/style.js"></script>
-      <script src="/js/test_quiz.js"></script>
       <link rel="stylesheet" href="/css/test_result.css">
       <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
       <title>Test Result</title>
@@ -55,12 +53,21 @@
     </div>
 
 
-<p class="btn"><a onClick="sound()">クリック</a></p>
+<audio id="audio" controls>
+    <source src="/kazane.mp3">
+</audio><br>
 
-<audio id="sound" preload="auto">
-    <source src="/static/kazane.mp3" type="audio/mp3">
-    <source src="/static/kazane.wav" type="audio/wav">
-</audio>
+<input type="hidden" value="play" onclick="audio_play()">
+<input type="hidden" value="pause" onclick="audio_pause()">
 
+<script type="text/javascript">
+    function audio_play() {
+        audio.play();
+    }
+
+    function audio_pause() {
+        audio.pause();
+    }
+</script>
 </body>
 </html>
