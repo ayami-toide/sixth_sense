@@ -1,0 +1,37 @@
+a:link { color: #FFF; }
+a:visited { color: #000000; }
+a:hover { color: #000000; }
+a:active { color: #000000; }
+a:link {text-decoration:none;}
+
+body{
+    width: 360px;
+    height: 670px;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+html,body{
+    overflow: hidden
+}
+
+p.teacher_midashi{
+    text-align: center;
+    font-size: 38px;
+}
+
+.teacher_btn{
+    font-size: 23px;
+    display: inline-block;
+    text-decoration: none;
+    color: #C21858;
+    width: 160px;
+    height: 160px;
+    line-height: 160px;
+    border-radius: 50%;
+    border: double 4px #C21858;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .6s;
+    margin: 31px;
+    margin-left: 95px;
+}
