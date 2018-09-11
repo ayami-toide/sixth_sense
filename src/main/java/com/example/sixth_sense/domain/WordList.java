@@ -53,6 +53,9 @@ public class WordList {
     @Column(name="url", nullable=false)
     private  String url;
 
+    @Column(name="audio", nullable=false)
+    private  String audio;
+
     public Integer getId() {
         return id;
     }
@@ -95,6 +98,10 @@ public class WordList {
   
     public Integer getHatena() {
         return hatena;
+    }
+
+    public String getAudio() {
+        return audio;
     }
 
     public List<String> getShuffledAnswers() {
