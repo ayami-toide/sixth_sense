@@ -1,6 +1,7 @@
 package com.example.sixth_sense.controller;
 
 
+import com.example.sixth_sense.domain.LessonSelect;
 import com.example.sixth_sense.domain.WordList;
 import com.example.sixth_sense.service.WordListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.example.sixth_sense.service.LessonSelectService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,6 +23,9 @@ public class WordListController {
 
     @Autowired
     WordListService wordlistService;
+
+    @Autowired
+    LessonSelectService lessonSelectService;
 
     @GetMapping("test")
     public String test(Model model){
@@ -126,7 +131,6 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-
         return "unit_select";
     }
 
@@ -142,6 +146,7 @@ public class WordListController {
         model.addAttribute("ShowWordColumns",wordlistService.findAll());
         return "wordlist";
     }
+
 
 
 
