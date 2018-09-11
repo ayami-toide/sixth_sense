@@ -21,13 +21,6 @@
 
 
 
-<div class="container">
-    <div id="timer"></div>
-    <form id="form" class="form-inline">
-        <div class="form-group">
-        </div>
-    </form>
-</div>
 
 
 <div class="quiz_zentai">
@@ -47,6 +40,16 @@
         </form>
     </div>
 
+    <div class="container">
+        <div id="timer"></div>
+        <form id="form" class="form-inline">
+            <div class="form-group">
+            </div>
+        </form>
+    </div>
+
+
+
     <script>
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
@@ -57,6 +60,7 @@
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
+                $('#timer').timer(0);
                 maruimg.style.display = "block";
                 setTimeout(function change() {
                     maruimg.style.display = "none";
@@ -64,9 +68,9 @@
                 tugieimg.style.display = "block";
                 countstop();
 
-
             }
             else if (id == 2) {
+                $('#timer').timer(0);
                 tugieimg.style.display = "none";
                 hazureimg.style.display = "block";
                 setTimeout(function change() {
@@ -77,22 +81,12 @@
         }
 
 
-        function countdown() {
-            document.form_countdown.counter.value= count; //カウント表示
-            count--; //カウントダウン
-            if (count < 0) countstop();
-            {
-                setTimeout(function change() {
-                    location.href = "/sense/test_question/1";
-                }, 5000)
-            };
-            //カウント終了 *
-        }
+
+
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
             timerID = setInterval('countdown()',1000);
             //開始ボタンを使用禁止
-
             $('#timer').timer(5);
         }
 
@@ -100,7 +94,21 @@
             clearInterval(timerID);
             document.form_countdown.start.disabled = false; //開始ボタンを解除
             document.form_countdown.reset(); //初期値に戻す
+
+
         }
+
+        function countdown() {
+            document.form_countdown.counter.value = count; //カウント表示
+            count--; //カウントダウン
+            if (count == 0) {
+                setTimeout(function change() {
+                    location.href = "/sense/test_question/1";
+                }, 1000);
+            }
+            //カウント終了 */
+        }
+
     </script>
 
     <div class="test_eigo">

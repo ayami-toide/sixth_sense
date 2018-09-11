@@ -44,6 +44,8 @@
                 });
             }
 
+
+
             $progressBar.animate({
                 width:  width + '%'
             }, 1000, 'linear');

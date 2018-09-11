@@ -14,11 +14,11 @@ public interface WordListMapper {
     @Select("SELECT COUNT(id) FROM wordlist")
     int findCount();
     //Osa
-    @Select("SELECT COUNT(*) FROM wordlist WHERE status = '1'")
+    @Select("SELECT COUNT(*) FROM wordlist WHERE maru = '1'")
     int findCountStatus();
     //Osa
-    @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
-    int findStudiedWord();
+//    @Select("SELECT COUNT(*) FROM wordlist WHERE flicker= '1'")
+//    int findStudiedWord();
 
     @Select("SELECT COUNT(*) FROM wordlist WHERE perfect= '1'")
     int findCountStudyingNow();
@@ -43,16 +43,16 @@ public interface WordListMapper {
     String findByWord (String word);
 
     //Geeee Rina
-    @Select("select * from wordlist where flicker = 0 LIMIT 5")
+    @Select("select * from wordlist where maru = 0 LIMIT 5")
     List<WordList> findWords();
 
     //Geeee Rina
-    @Update("update wordlist set status = 0 where word = #{word}")
-    void flick_status_zero(String word);
+    @Update("UPDATE wordlist SET maru = maru + 1 WHERE word = #{word}")
+    void maru_increment(String word);
 
     //Geeee Rina
-    @Update("update wordlist set status = 1 where word = #{word}")
-    void flick_status_ichi(String word);
+    @Update("UPDATE wordlist SET hatena = hatena + 1 WHERE word = #{word}")
+    void hatena_increment(String word);
 
     @Insert("insert into wordlist (word, meaning, flicker,status,hatena,perfect) values (#{word}, #{meaning}, #{flicker},#{status},#{hatena},#{perfect})")
     @Options(useGeneratedKeys = true)

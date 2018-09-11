@@ -48,10 +48,10 @@ public class WordListService {
             return wordListMapper.findCountStatus();
         }
 
-        @Transactional
-        public  int findStudiedWord(){
-            return wordListMapper.findStudiedWord();
-        }
+//        @Transactional
+//        public  int findStudiedWord(){
+//            return wordListMapper.findStudiedWord();
+//        }
 
         @Transactional
         public  int findCountStudyingNow(){
@@ -75,14 +75,19 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public void flick_status_zero(String word){
+        public void maru_increment(String word){
 
-            wordListMapper.flick_status_zero(word);
+            wordListMapper.maru_increment(word);
         }
 
         //Geeee Rina
         @Transactional
-        public void flick_status_ichi(String word){ wordListMapper.flick_status_ichi(word); }
+
+        public void hatena_increment(String word){
+
+            wordListMapper.hatena_increment(word);
+        }
+
 
         @Transactional
         public void delete(Long id){ wordListMapper.delete(id); }
