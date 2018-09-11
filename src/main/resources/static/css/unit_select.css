@@ -6,9 +6,10 @@ a:link {text-decoration:none;}
 
 body{
     width: 360px;
-    height: 670px;
+    /*height: 670px;*/
     font-family: 'Sawarabi Gothic', sans-serif;
 }
+
 html,body{
     overflow: hidden
 }
@@ -17,6 +18,8 @@ html,body{
     list-style: none;
     padding: 0;
     overflow: hidden;
+    margin: 10px;
+    margin-left: 42px;
 }
 .setumei_img{
     font-size: 18px;
@@ -25,4 +28,13 @@ html,body{
 .setumei_p{
     font-size: 18px;
 
+}
+.unit_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #000;
+    background-color: #F8BBD0;
+    transition: .4s;
+    margin: 10px;
 }
