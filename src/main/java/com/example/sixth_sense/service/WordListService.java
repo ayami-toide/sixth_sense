@@ -23,6 +23,14 @@ public class WordListService {
         @Transactional
         public List<WordList> findNewWords2(){ return wordListMapper.findNewWords2(); }
 
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findReviewWords1(){ return wordListMapper.findReviewWords1(); }
+
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findReviewWords2(){ return wordListMapper.findReviewWords2(); }
+
         @Transactional
         public WordList findTestWord(Long id){ return wordListMapper.findTestWord(id); }
 

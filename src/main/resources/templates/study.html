@@ -50,6 +50,13 @@
             });
         });
 
+
+            $('.a').live('click', function() {
+                $.mobile.silentScroll();
+            });
+
+    // <a class="top" href="#" data-role="button">Topへ</a>
+
     </script>
 </head>
 <body>
@@ -90,51 +97,48 @@
 
             </div>
         </tr>
-        <!--<div  class= "wall">-->
+        <div  class= "wall">
     </div>
 
-    <!--<div class="reviewWord2">-->
+    <div class="reviewWord2">
 
-        <!--<tr th:each="word : ${words}" th:object="${word}">-->
-            <!--<div class="buddy" style="display: block;">-->
-                <!--<div class="sample1">-->
+        <tr th:each="word : ${reviewWords2}" th:object="${word}">
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
 
-                    <!--<img th:src="*{url}">-->
-                    <!--<p class="flick_word" th:text="*{word}"></p>-->
-                    <!--<div class="mask">-->
-                        <!--<div class="caption" th:text="*{meaning}" ></div>-->
-                    <!--</div>-->
+                    <img th:src="*{url}">
+                    <p class="flick_word" th:text="*{word}"></p>
+                    <div class="mask">
+                        <div class="caption" th:text="*{meaning}" ></div>
+                    </div>
 
-                <!--</div>-->
+                </div>
 
-            <!--</div>-->
-        <!--</tr>-->
-        <!--<div  class= "wall">-->
-    <!--</div>-->
+            </div>
+        </tr>
+        <div  class= "wall">
+    </div>
 
 
+    <div class="reviewWord1">
 
-    <!--&lt;!&ndash;<img src="../images/study/White.png">&ndash;&gt;-->
+        <tr th:each="word : ${reviewWords1}" th:object="${word}">
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
 
-    <!--<div class="reviewWord1">-->
+                    <img th:src="*{url}">
+                    <p class="flick_word" th:text="*{word}"></p>
+                    <div class="mask">
+                        <div class="caption" th:text="*{meaning}" ></div>
+                    </div>
 
-        <!--<tr th:each="word : ${words}" th:object="${word}">-->
-            <!--<div class="buddy" style="display: block;">-->
-                <!--<div class="sample1">-->
+                </div>
 
-                    <!--<img th:src="*{url}">-->
-                    <!--<p class="flick_word" th:text="*{word}"></p>-->
-                    <!--<div class="mask">-->
-                        <!--<div class="caption" th:text="*{meaning}" ></div>-->
-                    <!--</div>-->
+            </div>
+        </tr>
+    </div>
 
-                <!--</div>-->
-
-            <!--</div>-->
-        <!--</tr>-->
-    <!--</div>-->
-
-<!--<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>-->
+<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
 <!--</div>-->
 </body>
 </html>

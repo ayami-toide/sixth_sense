@@ -41,6 +41,8 @@ public class WordListController {
 
         model.addAttribute("newWords1", wordlistService.findNewWords1());
         model.addAttribute("newWords2", wordlistService.findNewWords2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
 
         return "study";
     }
