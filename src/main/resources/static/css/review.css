@@ -13,45 +13,8 @@ a:link {text-decoration:none;}
     width: 360px;
     height: 400px;
     line-height: 4;
-    /*float: left;*/
-    /*opacity: 0;*/
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
 }
 
-.review_index:nth-child(1) {
-    -webkit-animation: example 0.5s ease 0.5s 1 forwards;
-    animation: example 0.5s ease 0.5s 1 forwards;
-}
-
-.review_index:nth-child(2) {
-    -webkit-animation: example 0.5s ease 1s 1 forwards;
-    animation: example 0.5s ease 1s 1 forwards;
-}
-
-.review_index:nth-child(3) {
-    -webkit-animation: example 0.5s ease 1.5s 1 forwards;
-    animation: example 0.5s ease 1.5s 1 forwards;
-}
-
-
-@-webkit-keyframes example {
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes example {
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
 
 .btn-denim {
     display: inline-block;
