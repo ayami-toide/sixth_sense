@@ -141,6 +141,13 @@ public class WordListController {
     }
 
 
+    //osanai(9/11)
+    @GetMapping("master")
+    public String master(Model model){
+        model.addAttribute("masters",wordlistService.findMaster());
+        return "master";
+    }
+
 
 
 

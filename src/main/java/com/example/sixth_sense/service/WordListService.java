@@ -61,6 +61,9 @@ public class WordListService {
         @Transactional
         public  int findCountPerfect(){ return wordListMapper.findCountPerfect(); }
 
+        //osanai(9/11)
+        @Transactional
+        public List<WordList> findMaster(){ return wordListMapper.findMaster(); }
 
 
         @Transactional

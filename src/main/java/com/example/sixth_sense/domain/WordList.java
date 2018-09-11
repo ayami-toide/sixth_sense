@@ -108,4 +108,8 @@ public class WordList {
         // シャッフルする
         return  answers;
     }
+
+    public boolean isUnderstanding() {
+        return 0.5 < maru / (maru + hatena) && 2 <= maru;
+    }
 }

@@ -64,4 +64,8 @@ public interface WordListMapper {
 
     @Delete("delete from wordlist where id = #{id}")
     void delete(Long id);
+
+    //Osanai
+    @Select("select word, meaning, maru, hatena from wordlist")
+    List<WordList> findMaster();
 }

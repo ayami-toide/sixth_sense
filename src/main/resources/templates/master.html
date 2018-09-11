@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>マスター</title>
+</head>
+<body>
+<h1>
+    <div th:each = " master :${masters}" th:object="${master}">
+        <div th:text = "${master.word}"><br></div>
+    </div>
+
+
+</h1>
+
+  if(isUnderstanding() == true){
+
+}
+</body>
+</html>
