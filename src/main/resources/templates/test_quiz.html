@@ -40,6 +40,10 @@
         </form>
     </div>
 
+    <div class="overdisplay" id="overdisplay">
+        <img src="/images/test/over.png">
+    </div>
+
     <div class="container">
         <div id="timer"></div>
         <form id="form" class="form-inline">
@@ -51,12 +55,15 @@
 
 
     <script>
+
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
         var tugieimg = document.getElementById('tugiedisplay');
+        var overimg = document.getElementById('overdisplay');
         maruimg.style.display = "none";
         hazureimg.style.display = "none";
         tugieimg.style.display  = "none";
+        overimg.style.display  = "none";
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
@@ -95,16 +102,18 @@
             document.form_countdown.start.disabled = false; //開始ボタンを解除
             document.form_countdown.reset(); //初期値に戻す
 
-
         }
 
         function countdown() {
             document.form_countdown.counter.value = count; //カウント表示
             count--; //カウントダウン
+
             if (count == 0) {
+                overimg.style.display  = "block";
                 setTimeout(function change() {
+
                     location.href = "/sense/test_question/1";
-                }, 1000);
+                }, 2000);
             }
             //カウント終了 */
         }
