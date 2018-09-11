@@ -2,15 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/teacher_page.css">
+    <script src="/js/style.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Teacher Page</title>
 </head>
 <body>
 
+
+<p class="teacher_midashi">Teacher's Page</p>
+<div class = "teacher_btn">
 <form th:action="@{/sense/teacher_unit_select}" method="get">
     <input type = "submit" value="Unit Select">
-</form>
+</form><br>
+</div>
+<a class="teacher_btn" href="#">Making Test</a>
 
-<a href="#">Making Test</a>
 
 </body>
 </html>

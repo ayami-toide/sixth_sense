@@ -9,7 +9,7 @@
     <title>TopPage</title>
 </head>
 <body>
-<p class="count_memory">進めた単語数　<tr th:text = "${studied}"></tr>回<br>
+<p class="count_memory">進めた単語数　<tr th:text = "${status}"></tr>回<br>
     継続日数　60日
 </p>
 <progress class="progress" min="0" th:attr="max=${count}" th:value="${status}">%</progress>

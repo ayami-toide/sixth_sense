@@ -48,10 +48,10 @@ public class WordListService {
             return wordListMapper.findCountStatus();
         }
 
-        @Transactional
-        public  int findStudiedWord(){
-            return wordListMapper.findStudiedWord();
-        }
+//        @Transactional
+//        public  int findStudiedWord(){
+//            return wordListMapper.findStudiedWord();
+//        }
 
         @Transactional
         public  int findCountStudyingNow(){

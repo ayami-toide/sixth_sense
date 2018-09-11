@@ -30,7 +30,7 @@ public class WordListController {
     public String mypage(Model model){
         model.addAttribute("count",wordlistService.findCount());
         model.addAttribute("status",wordlistService.findCountStatus());
-        model.addAttribute("studied",wordlistService.findStudiedWord());
+//        model.addAttribute("studied",wordlistService.findStudiedWord());
 
         return "mypage";
     }
@@ -100,7 +100,6 @@ public class WordListController {
               model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
               model.addAttribute("id", id);
-
 
                 String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
                 List<String> list = Arrays.asList(array);

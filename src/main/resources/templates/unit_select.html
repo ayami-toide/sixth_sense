@@ -2,33 +2,44 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/unit_select.css">
+    <script src="/js/style.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
 
-<div th:if="${teacherId}">
-    <p>◎…必須で受けてほしいテスト</p><br>
-    <p>〇…受けることを推奨するテスト</p><br>
 
-    <form th:action="@{/sense/test}" method="get">
-        <input type = "submit" value="Get Ready">
-    </form><br>
+<div th:if="${teacherId}">
+    <ul class="setumei">
+        <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
+        <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できれば受けてほしいテスト</p></li>
+    </ul>
+
+        <form th:action="@{/sense/test}" method="get">
+            <input type = "submit" value="Get Ready">
+        </form><br>
 
     <div id="nizyu-maru-on" class="nizyu-maru-on">
         <input type="submit" value = "◎" onclick="changeButton(0)">
-    </div>
-
-    <div id="maru-on" class="maru-on">
-        <input type = "submit" value="〇" onclick="changeButton(1)">
     </div>
 
     <div id="nizyu-maru-off" class="nizyu-maru-off">
         <input type="submit" value = "ooo" onclick="changeButton(2)">
     </div>
 
+    <div id="maru-on" class="maru-on">
+        <input type = "submit" value="〇" onclick="changeButton(1)">
+    </div>
+
     <div id="maru-off" class="maru-off">
         <input type="submit" value = "zzz" onclick="changeButton(3)">
     </div>
+
+    <option th:each="i : ${#numbers.sequence(1, 9)}" th:value="${i}">
+        <div th:text="'Unit'+ ${i}"></div>
+    </option>
 
     <script>
         var nizyumaru_onButton = document.getElementById('nizyu-maru-on');
@@ -43,13 +54,17 @@
 
         function changeButton(id) {
             if (id == 0){
-
+              nizyumaru_offButton.style.display = "block";
+              nizyumaru_onButton.style.display = "none";
             } else if (id == 1){
-
+              maru_offButton.style.display = "block";
+              maru_onButton.style.display = "none";
             } else if (id == 2){
-
+              nizyumaru_onButton.style.display = "block";
+              nizyumaru_offButton.style.display = "none";
             } else if (id == 3){
-
+              maru_onButton.style.display = "block";
+              maru_offButton.style.display = "none";
             }
         }
     </script>
@@ -68,10 +83,11 @@
 
 
 <div th:unless = "${teacherId}">
-    <p>◎…必須で受けてほしいテスト</p><br>
-    <p>〇…受けることを推奨するテスト</p><br>
-    <p>✔…テスト完了！！</p><br>
-
+    <ul class="setumei">
+        <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
+        <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できれば受けてほしいテスト</p></li>
+        <li><a class="setumei_img"><img src="/images/unit_select/check.png"></a><p class="setumei_p">:テスト受けました！</p></li>
+    </ul>
     <form th:action="@{/sense/test}" method="get">
         <input type = "submit" value="Get Ready">
     </form>
@@ -85,6 +101,8 @@
     <a href="#">Unit 8</a><br>
     <a href="#">Unit 9</a><br>
 </div>
+
+
 
 </body>
 </html>
