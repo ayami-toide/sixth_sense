@@ -5,6 +5,12 @@ $(function() {
     });
 });
 
+$(function() {
+    $(".wall").click(function() {
+        $(this).remove();
+    });
+})
+
 $(document).ready(function(){
 
     $(".buddy").on("swiperight",function(){
@@ -13,24 +19,10 @@ $(document).ready(function(){
 
         $(this).append('<div class="status like">Like!</div>');
         if ( $(this).is(':first-child') ) {
-            setTimeout(function () {
+            // setTimeout(function () {
                 $('.rotate-right').removeClass('rotate-right').fadeIn(300);
-            }, 1000);
+            // }, 1000);
         }
-
-        // var data = {word: document.getElementById("flick_word").textContent};
-        //
-        // $.ajax ({
-        //     url: "/sense/study1",
-        //     type: "POST",
-        //     data : JSON.stringify(data),
-        //     contentType: 'application/JSON',
-        //     dataType : 'JSON',
-        //     success: function() {
-        //         console.log("success");
-        //     }
-        // });
-
     });
 
     $(".buddy").on("swipeleft",function(){
@@ -41,13 +33,14 @@ $(document).ready(function(){
         $('.rotate-left').remove();
 
         if ( $(this).is(':first-child') ) {
-            $('.rotate-right').removeClass('rotate-right').fadeIn(300);
+            // $('.rotate-right').removeClass('rotate-right').fadeIn(300);
             setTimeout(function () {
                 $('.buddy').find('.status').remove();
-                $('.rotate-right').removeClass('rotate-right').fadeIn(300);
-            }, 900);
+                $('.rotate-right').removeClass('rotate-right').fadeIn(0);
+            }, 500);
         }
     });
+
 
 });
 
