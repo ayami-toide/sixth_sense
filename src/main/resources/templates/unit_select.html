@@ -10,29 +10,24 @@
 </head>
 <body>
 
-
 <div th:if="${teacherId}">
     <ul class="setumei">
         <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
         <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できれば受けてほしいテスト</p></li>
     </ul>
 
-        <form th:action="@{/sense/test}" method="get">
-            <input type = "submit" value="Get Ready">
-        </form><br>
-
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Get Ready">
+    </form><br>
     <div id="nizyu-maru-on" class="nizyu-maru-on">
         <input type="submit" value = "◎" onclick="changeButton(0)">
     </div>
-
     <div id="nizyu-maru-off" class="nizyu-maru-off">
         <input type="submit" value = "ooo" onclick="changeButton(2)">
     </div>
-
     <div id="maru-on" class="maru-on">
         <input type = "submit" value="〇" onclick="changeButton(1)">
     </div>
-
     <div id="maru-off" class="maru-off">
         <input type="submit" value = "zzz" onclick="changeButton(3)">
     </div>
@@ -54,22 +49,21 @@
 
         function changeButton(id) {
             if (id == 0){
-              nizyumaru_offButton.style.display = "block";
-              nizyumaru_onButton.style.display = "none";
+                nizyumaru_offButton.style.display = "block";
+                nizyumaru_onButton.style.display = "none";
             } else if (id == 1){
-              maru_offButton.style.display = "block";
-              maru_onButton.style.display = "none";
+                maru_offButton.style.display = "block";
+                maru_onButton.style.display = "none";
             } else if (id == 2){
-              nizyumaru_onButton.style.display = "block";
-              nizyumaru_offButton.style.display = "none";
+                nizyumaru_onButton.style.display = "block";
+                nizyumaru_offButton.style.display = "none";
             } else if (id == 3){
-              maru_onButton.style.display = "block";
-              maru_offButton.style.display = "none";
+                maru_onButton.style.display = "block";
+                maru_offButton.style.display = "none";
             }
         }
     </script>
 
-    <br>
     <a href="#">Unit 1</a><br>
     <a href="#">Unit 2</a><br>
     <a href="#">Unit 3</a><br>
@@ -80,7 +74,6 @@
     <a href="#">Unit 8</a><br>
     <a href="#">Unit 9</a><br>
 </div>
-
 
 <div th:unless = "${teacherId}">
     <ul class="setumei">
@@ -101,7 +94,6 @@
     <a href="#">Unit 8</a><br>
     <a href="#">Unit 9</a><br>
 </div>
-
 
 
 </body>

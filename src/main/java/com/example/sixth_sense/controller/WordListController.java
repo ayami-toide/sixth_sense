@@ -84,24 +84,24 @@ public class WordListController {
     @RequestMapping("test_result/{id}")
     public String test_result(@PathVariable("id") int id,Model model)
     {
-              int resultId1 = id - 5;
-              model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
-              int resultId2 = id - 4;
-              model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
-              int resultId3 = id - 3;
-              model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
-              int resultId4 = id - 2;
-              model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
-              int resultId5 = id - 1;
-              model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
+        int resultId1 = id - 5;
+        model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
+        int resultId2 = id - 4;
+        model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
+        int resultId3 = id - 3;
+        model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
+        int resultId4 = id - 2;
+        model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
+        int resultId5 = id - 1;
+        model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
 
-              model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
-              model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
-              model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
-              model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
-              model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
+        model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
+        model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
+        model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
+        model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
+        model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
-              model.addAttribute("id", id);
+        model.addAttribute("id", id);
 
                 String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
                 List<String> list = Arrays.asList(array);
@@ -110,10 +110,10 @@ public class WordListController {
                 array = (String[])list.toArray(new String[0]);
                 model.addAttribute("word",word);
 
+        model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
-               model.addAttribute("words",wordlistService.findOne(new Long(1)));
+        return "test_result";
 
-               return "test_result";
     }
 
     @GetMapping("unit_select")
@@ -148,4 +148,3 @@ public class WordListController {
 
 
 }
-
