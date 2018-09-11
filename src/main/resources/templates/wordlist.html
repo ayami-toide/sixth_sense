@@ -10,9 +10,15 @@
 </head>
 <body>
 <p class="list_title">単語リスト</p>
-<li class="eigo"><div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.word}"><br></tr></div>
+--   もう勉強したもの
+  <li class="eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.word}"><br></tr></div>
     <br></li>
-<li class="nihongo"><div th:each = " ShowWordColumn :${ShowWordColumns}" th:object="${ShowWordColumn}"><tr th:text = "${ShowWordColumn.meaning}"><br></tr></div>
+  <li class="eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.meaning}"><br></tr></div>
+
+
 </li>
+--     まだ勉強していないもの
+<li class="eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
+<li class="eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
 </body>
 </html>

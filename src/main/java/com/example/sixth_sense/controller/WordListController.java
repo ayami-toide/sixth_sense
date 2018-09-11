@@ -31,7 +31,6 @@ public class WordListController {
     public String mypage(Model model){
         model.addAttribute("count",wordlistService.findCount());
         model.addAttribute("status",wordlistService.findCountStatus());
-//        model.addAttribute("studied",wordlistService.findStudiedWord());
 
         return "mypage";
     }
@@ -151,6 +150,8 @@ public class WordListController {
     @GetMapping("wordlist")
     public String wordlist(Model model){
         model.addAttribute("ShowWordColumns",wordlistService.findAll());
+        model.addAttribute("studieds",wordlistService.findStudied());
+        model.addAttribute("notstudieds",wordlistService.findNotStudied());
         return "wordlist";
     }
 

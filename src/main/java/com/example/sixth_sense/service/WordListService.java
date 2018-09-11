@@ -79,6 +79,14 @@ public class WordListService {
             return wordListMapper.countMaster();
         }
 
+        //Osanai
+        @Transactional
+        public List<WordList> findStudied(){ return wordListMapper.findStudied(); }
+
+        //Osanai
+        @Transactional
+        public List<WordList> findNotStudied(){ return wordListMapper.findNotStudied(); }
+
 
 
 
