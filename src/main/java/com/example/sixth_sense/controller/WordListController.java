@@ -103,17 +103,17 @@ public class WordListController {
 
               model.addAttribute("id", id);
 
-        String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
-        List<String> list = Arrays.asList(array);
-        Collections.shuffle(list);
-        String word  = list.get(1);
-        array = (String[])list.toArray(new String[0]);
-        model.addAttribute("word",word);
+                String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
+                List<String> list = Arrays.asList(array);
+                Collections.shuffle(list);
+                String word  = list.get(1);
+                array = (String[])list.toArray(new String[0]);
+                model.addAttribute("word",word);
 
 
-   
-        return "test_result";
+               model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
+               return "test_result";
     }
 
     @GetMapping("unit_select")
@@ -121,8 +121,19 @@ public class WordListController {
         return "unit_select";
     }
 
+    @GetMapping("teacher_unit_select")
+    public String teacher_unit_select(Model model){
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+
+        return "unit_select";
+    }
+
     @GetMapping("teacher_page")
     public String teacher_page(Model model){
+
+
         return "teacher_page";
     }
 

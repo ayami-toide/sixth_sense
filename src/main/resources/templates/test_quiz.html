@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="/css/test_quiz.css">
     <script src="/js/style.js"></script>
-    <script src="/js/test_quiz.js"></script>
-
-
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Test-quiz</title>
 
@@ -16,12 +12,8 @@
 <body>
 
 <form name="form_countdown">
-    <input name="counter" type="hidden" value="4"  style="border:none; background-color:transparent;">
+    <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
 </form>
-
-
-
-
 
 <div class="quiz_zentai">
     <div class="marudisplay" id="marudisplay">
@@ -32,45 +24,40 @@
         <img src="/images/test/batu.png">
     </div>
 
-
-
     <div class="tugiedisplay" id="tugiedisplay">
         <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
         　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
         </form>
     </div>
 
-    <div class="container">
-        <div id="timer"></div>
-        <form id="form" class="form-inline">
-            <div class="form-group">
-            </div>
+    <div class = "resultButtonDisplay" id = "resultButtonDisplay">
+        <form th:action="@{/sense/test_result/{id}(id=${nextId})}" method="get">
+            　<input type="submit"  th:value="結果" method="get" >　　　　　　　
         </form>
     </div>
-
-
 
     <script>
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
         var tugieimg = document.getElementById('tugiedisplay');
+        var resultButtonImg = document.getElementById('resultButtonDisplay');
+
+        resultButtonImg.style.display = "none"
         maruimg.style.display = "none";
         hazureimg.style.display = "none";
         tugieimg.style.display  = "none";
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
-                $('#timer').timer(0);
                 maruimg.style.display = "block";
                 setTimeout(function change() {
                     maruimg.style.display = "none";
                 }, 1000);
+                location.href= unload();
                 tugieimg.style.display = "block";
                 countstop();
-
             }
             else if (id == 2) {
-                $('#timer').timer(0);
                 tugieimg.style.display = "none";
                 hazureimg.style.display = "block";
                 setTimeout(function change() {
@@ -78,34 +65,39 @@
                 }, 1000);
                 countstop();
             }
+            else if(id == 0){
+                maruimg.style.display = "block";
+                tugieimg.style.display = "none";
+                setTimeout(function change() {
+                    maruimg.style.display = "none";
+                    resultButtonImg.style.display = "block";
+                }, 1000);
+                location.href= unload();
+                countstop();
+            }
         }
-
-
-
-
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
             timerID = setInterval('countdown()',1000);
-            //開始ボタンを使用禁止
-            $('#timer').timer(5);
+            document.form_countdown.start.disabled = true; //開始ボタンを使用禁止
         }
 
         function countstop() {
             clearInterval(timerID);
             document.form_countdown.start.disabled = false; //開始ボタンを解除
             document.form_countdown.reset(); //初期値に戻す
-
-
         }
 
         function countdown() {
-            document.form_countdown.counter.value = count; //カウント表示
+
+            document.form_countdown.counter.value= count; //カウント表示
             count--; //カウントダウン
-            if (count == 0) {
+            if (count < 0) countstop();
+            {
                 setTimeout(function change() {
                     location.href = "/sense/test_question/1";
-                }, 1000);
-            }
+                }, 5000)
+            };
             //カウント終了 */
         }
 
@@ -123,29 +115,38 @@
         <div th:each=" word : ${words.getShuffledAnswers()}">
             <div th:each=" option : ${words}">
 
-                <div class="geee" th:switch="${word}">
+                <div th:if="${lastid}">
+                    <div th:switch="${word}">
+                          <span th:case="${option.meaning}" onClick="changepage(0)">
+                              <div class="nihongo_btn" th:text="${word}"></div>
+                          </span>
+
+                        <span th:case="*" onClick="changepage(2)">
+                              <div class="nihongo_btn" th:text="${word}" ></div>
+                              <form th:action="@{/sense/test_quiz/}" method="get" />　
+                            </form>
+                          </span>
+                    </div>
+                </div>
+
+                <div th:unless="${lastid}">
+                    <div th:switch="${word}">
                           <span th:case="${option.meaning}" onClick="changepage(1)">
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
 
-                    <span th:case="*" onClick="changepage(2)">
+                        <span th:case="*" onClick="changepage(2)">
                               <div class="nihongo_btn" th:text="${word}" ></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
-                        </form>
+                            </form>
                           </span>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
-
-    　
-
-
-
-
 
 </div>
 </body>
