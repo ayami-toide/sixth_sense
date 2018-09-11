@@ -14,7 +14,7 @@
         this.append('<div class="progress"></div>');
         this.children('.progress').append('<div class="progress-bar progress-bar-info"></div>');
         this.find('.progress-bar').css({
-            cssText: '-webkit-transition: none !important; transition: none !important; background-color: green; height: 20px',
+            cssText: '-webkit-transition: none !important; transition: none !important; background-image: linear-gradient(to right, #f83600 0%, #f9d423 50%, #CCFF00 100%); height: 20px',
             width: '100%'
         });
 
@@ -33,13 +33,13 @@
             if (width < 20) { // less than 20 %
                 $progressBar.removeClass();
                 $progressBar.addClass('progress-bar progress-bar-danger').css({
-                    cssText: '-webkit-transition: none !important; transition: none !important; background-color: red; height: 20px',
+                    cssText: '-webkit-transition: none !important; transition: none !important; background-color: #f83600; height: 20px',
                     width: '20%'
                 });
             } else if (width < 50) { // less than 50 % (and more than 20 %)
                 $progressBar.removeClass();
                 $progressBar.addClass('progress-bar progress-bar-warning').css({
-                    cssText: '-webkit-transition: none !important; transition: none !important; background-color: yellow; height: 20px',
+                    cssText: '-webkit-transition: none !important; transition: none !important; background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%); height: 20px',
                     width: '50%'
                 });
             }
