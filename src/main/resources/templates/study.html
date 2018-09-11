@@ -54,9 +54,9 @@
 </head>
 <body>
 
-    <!--<div id="container">-->
+    <div class="newWord2">
 
-        <tr th:each="word : ${words}" th:object="${word}">
+        <tr th:each="word : ${newWords2}" th:object="${word}">
             <div class="buddy" style="display: block;">
                 <div class="sample1">
 
@@ -65,16 +65,76 @@
                     <div class="mask">
                                 <div class="caption" th:text="*{meaning}" ></div>
                     </div>
-                    <!--<form name="sendWord" action="/study1" th:pbject="${word}" method="post">-->
-                        <!--<input th:field="*{word}" type="hidden" th:value="*{word}">-->
-                    <!--</form>-->
+
                 </div>
 
             </div>
-        </div>
+
+        </tr>
+        <div  class= "wall">
     </div>
-</tr>
-<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
+
+    <div class="newWord1">
+
+        <tr th:each="word : ${newWords1}" th:object="${word}">
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
+
+                    <img th:src="*{url}">
+                    <p class="flick_word" th:text="*{word}"></p>
+                    <div class="mask">
+                        <div class="caption" th:text="*{meaning}" ></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </tr>
+        <!--<div  class= "wall">-->
+    </div>
+
+    <!--<div class="reviewWord2">-->
+
+        <!--<tr th:each="word : ${words}" th:object="${word}">-->
+            <!--<div class="buddy" style="display: block;">-->
+                <!--<div class="sample1">-->
+
+                    <!--<img th:src="*{url}">-->
+                    <!--<p class="flick_word" th:text="*{word}"></p>-->
+                    <!--<div class="mask">-->
+                        <!--<div class="caption" th:text="*{meaning}" ></div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</tr>-->
+        <!--<div  class= "wall">-->
+    <!--</div>-->
+
+
+
+    <!--&lt;!&ndash;<img src="../images/study/White.png">&ndash;&gt;-->
+
+    <!--<div class="reviewWord1">-->
+
+        <!--<tr th:each="word : ${words}" th:object="${word}">-->
+            <!--<div class="buddy" style="display: block;">-->
+                <!--<div class="sample1">-->
+
+                    <!--<img th:src="*{url}">-->
+                    <!--<p class="flick_word" th:text="*{word}"></p>-->
+                    <!--<div class="mask">-->
+                        <!--<div class="caption" th:text="*{meaning}" ></div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</tr>-->
+    <!--</div>-->
+
+<!--<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>-->
 <!--</div>-->
 </body>
 </html>

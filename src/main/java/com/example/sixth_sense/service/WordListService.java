@@ -17,7 +17,11 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-        public List<WordList> findWords(){ return wordListMapper.findWords(); }
+        public List<WordList> findNewWords1(){ return wordListMapper.findNewWords1(); }
+
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findNewWords2(){ return wordListMapper.findNewWords2(); }
 
         @Transactional
         public WordList findTestWord(Long id){ return wordListMapper.findTestWord(id); }

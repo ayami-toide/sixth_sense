@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -37,9 +38,10 @@ public class WordListController {
 
     @GetMapping("study")
     public String study(Model model){
-//    model.addAttribute("id", id);
 
-        model.addAttribute("words",wordlistService.findWords());
+        model.addAttribute("newWords1", wordlistService.findNewWords1());
+        model.addAttribute("newWords2", wordlistService.findNewWords2());
+
         return "study";
     }
 
@@ -82,6 +84,7 @@ public class WordListController {
     @RequestMapping("test_result/{id}")
     public String test_result(@PathVariable("id") int id,Model model)
     {
+
               int resultId1 = id - 5;
               model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
               int resultId2 = id - 4;
@@ -100,11 +103,6 @@ public class WordListController {
               model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
               model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
-              //model.addAttribute("audio", wordlistService.findOne(new Long(1)));
-              //model.addAttribute("audio", wordlistService.findOne(new Long(2)));
-              //model.addAttribute("audio", wordlistService.findOne(new Long(3)));
-              //model.addAttribute("audio", wordlistService.findOne(new Long(4)));
-              //model.addAttribute("audio", wordlistService.findOne(new Long(5)));
               //audio
                model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(1)));
                model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(resultId2)));
@@ -122,8 +120,10 @@ public class WordListController {
         array = (String[])list.toArray(new String[0]);
         model.addAttribute("word",word);
 
+        model.addAttribute("id", id);
 
-   
+        model.addAttribute("words",wordlistService.findOne(new Long(1)));
+
         return "test_result";
 
     }
@@ -133,8 +133,19 @@ public class WordListController {
         return "unit_select";
     }
 
+    @GetMapping("teacher_unit_select")
+    public String teacher_unit_select(Model model){
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+
+        return "unit_select";
+    }
+
     @GetMapping("teacher_page")
     public String teacher_page(Model model){
+
+
         return "teacher_page";
     }
 
@@ -149,4 +160,3 @@ public class WordListController {
 
 
 }
-
