@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="/css/test_quiz.css">
     <script src="/js/style.js"></script>
+    <script src="/js/test_quiz.js"></script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Test-quiz</title>
 
@@ -12,8 +16,19 @@
 <body>
 
 <form name="form_countdown">
-    <input name="counter" type="text" value="5"  style="border:none; background-color:transparent;">
+    <input name="counter" type="hidden" value="4"  style="border:none; background-color:transparent;">
 </form>
+
+
+
+<div class="container">
+    <div id="timer"></div>
+    <form id="form" class="form-inline">
+        <div class="form-group">
+        </div>
+    </form>
+</div>
+
 
 <div class="quiz_zentai">
     <div class="marudisplay" id="marudisplay">
@@ -23,6 +38,8 @@
     <div class="hazuredisplay" id="hazuredisplay">
         <img src="/images/test/batu.png">
     </div>
+
+
 
     <div class="tugiedisplay" id="tugiedisplay">
         <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
@@ -42,7 +59,7 @@
         var tugieimg = document.getElementById('tugiedisplay');
         var resultButtonImg = document.getElementById('resultButtonDisplay');
 
-        resultButtonImg.style.display = "none"
+        resultButtonImg.style.display = "none";
         maruimg.style.display = "none";
         hazureimg.style.display = "none";
         tugieimg.style.display  = "none";
@@ -53,7 +70,6 @@
                 setTimeout(function change() {
                     maruimg.style.display = "none";
                 }, 1000);
-                location.href= unload();
                 tugieimg.style.display = "block";
                 countstop();
             }
@@ -98,7 +114,20 @@
                     location.href = "/sense/test_question/1";
                 }, 5000)
             };
-            //カウント終了 */
+            //カウント終了 *
+        }
+        window.onload =function countstart() {
+            count = eval(document.form_countdown.counter.value);
+            timerID = setInterval('countdown()',1000);
+            //開始ボタンを使用禁止
+
+            $('#timer').timer(5);
+        }
+
+        function countstop() {
+            clearInterval(timerID);
+            document.form_countdown.start.disabled = false; //開始ボタンを解除
+            document.form_countdown.reset(); //初期値に戻す
         }
 
     </script>
@@ -121,10 +150,10 @@
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
 
-                          <span th:case="*" onClick="changepage(2)">
+                    <span th:case="*" onClick="changepage(2)">
                               <div class="nihongo_btn" th:text="${word}" ></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
-                              </form>
+                        </form>
                           </span>
                     </div>
                 </div>
@@ -147,7 +176,6 @@
     </div>
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
-
 </div>
 </body>
 </html>

@@ -5,7 +5,11 @@
     <title>Teacher Page</title>
 </head>
 <body>
-<a href="/sense/unit_select">Unit Select</a><br>
+
+<form th:action="@{/sense/teacher_unit_select}" method="get">
+    <input type = "submit" value="Unit Select">
+</form>
+
 <a href="#">Making Test</a>
 
 </body>
