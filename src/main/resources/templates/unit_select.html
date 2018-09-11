@@ -9,11 +9,13 @@
     <title>Title</title>
 </head>
 <body>
+
 <div th:if="${teacherId}">
     <ul class="setumei">
         <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
         <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できれば受けてほしいテスト</p></li>
     </ul>
+
     <form th:action="@{/sense/test}" method="get">
         <input type = "submit" value="Get Ready">
     </form><br>
@@ -29,18 +31,22 @@
     <div id="maru-off" class="maru-off">
         <input type="submit" value = "zzz" onclick="changeButton(3)">
     </div>
+
     <option th:each="i : ${#numbers.sequence(1, 9)}" th:value="${i}">
         <div th:text="'Unit'+ ${i}"></div>
     </option>
+
     <script>
         var nizyumaru_onButton = document.getElementById('nizyu-maru-on');
         var maru_onButton = document.getElementById('maru-on');
         var nizyumaru_offButton = document.getElementById('nizyu-maru-off');
         var maru_offButton = document.getElementById('maru-off');
+
         nizyumaru_onButton.style.display = "block";
         maru_onButton.style.display = "block";
         nizyumaru_offButton.style.display = "none";
         maru_offButton.style.display = "none";
+
         function changeButton(id) {
             if (id == 0){
                 nizyumaru_offButton.style.display = "block";
@@ -57,7 +63,7 @@
             }
         }
     </script>
-    <br>
+
     <a href="#">Unit 1</a><br>
     <a href="#">Unit 2</a><br>
     <a href="#">Unit 3</a><br>
@@ -68,6 +74,7 @@
     <a href="#">Unit 8</a><br>
     <a href="#">Unit 9</a><br>
 </div>
+
 <div th:unless = "${teacherId}">
     <ul class="setumei">
         <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
@@ -87,5 +94,7 @@
     <a href="#">Unit 8</a><br>
     <a href="#">Unit 9</a><br>
 </div>
+
+
 </body>
 </html>
