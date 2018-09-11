@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -37,9 +38,10 @@ public class WordListController {
 
     @GetMapping("study")
     public String study(Model model){
-//    model.addAttribute("id", id);
 
-        model.addAttribute("words",wordlistService.findWords());
+        model.addAttribute("newWords1", wordlistService.findNewWords1());
+        model.addAttribute("newWords2", wordlistService.findNewWords2());
+
         return "study";
     }
 
