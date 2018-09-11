@@ -57,7 +57,7 @@
     <!--<div id="container">-->
 
         <tr th:each="word : ${words}" th:object="${word}">
-            <div class="buddy" style="display: block;">
+            <div class="buddy flick1" style="display: block;">
                 <div class="sample1">
 
                     <img th:src="*{url}">
@@ -65,15 +65,62 @@
                     <div class="mask">
                                 <div class="caption" th:text="*{meaning}" ></div>
                     </div>
-                    <!--<form name="sendWord" action="/study1" th:pbject="${word}" method="post">-->
-                        <!--<input th:field="*{word}" type="hidden" th:value="*{word}">-->
-                    <!--</form>-->
+
                 </div>
 
             </div>
+        </tr>
+
+    <tr th:each="word : ${words}" th:object="${word}">
+        <div class="buddy flick2" style="display: block;">
+            <div class="sample1">
+
+                <img th:src="*{url}">
+                <p class="flick_word" th:text="*{word}"></p>
+                <div class="mask">
+                    <div class="caption" th:text="*{meaning}" ></div>
+                </div>
+                <!--<form name="sendWord" action="/study1" th:pbject="${word}" method="post">-->
+                <!--<input th:field="*{word}" type="hidden" th:value="*{word}">-->
+                <!--</form>-->
+            </div>
+
         </div>
-    </div>
-</tr>
+    </tr>
+
+    <tr th:each="word : ${words}" th:object="${word}">
+        <div class="buddy flick3" style="display: block;">
+            <div class="sample1">
+
+                <img th:src="*{url}">
+                <p class="flick_word" th:text="*{word}"></p>
+                <div class="mask">
+                    <div class="caption" th:text="*{meaning}" ></div>
+                </div>
+                <!--<form name="sendWord" action="/study1" th:pbject="${word}" method="post">-->
+                <!--<input th:field="*{word}" type="hidden" th:value="*{word}">-->
+                <!--</form>-->
+            </div>
+
+        </div>
+    </tr>
+
+    <tr th:each="word : ${words}" th:object="${word}">
+        <div class="buddy flick4" style="display: block;">
+            <div class="sample1">
+
+                <img th:src="*{url}">
+                <p class="flick_word" th:text="*{word}"></p>
+                <div class="mask">
+                    <div class="caption" th:text="*{meaning}" ></div>
+                </div>
+                <!--<form name="sendWord" action="/study1" th:pbject="${word}" method="post">-->
+                <!--<input th:field="*{word}" type="hidden" th:value="*{word}">-->
+                <!--</form>-->
+            </div>
+
+        </div>
+    </tr>
 <a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
 <!--</div>-->
 </body>
