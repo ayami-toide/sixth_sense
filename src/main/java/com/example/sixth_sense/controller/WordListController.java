@@ -30,7 +30,7 @@ public class WordListController {
     public String mypage(Model model){
         model.addAttribute("count",wordlistService.findCount());
         model.addAttribute("status",wordlistService.findCountStatus());
-        model.addAttribute("studied",wordlistService.findStudiedWord());
+//        model.addAttribute("studied",wordlistService.findStudiedWord());
 
         return "mypage";
     }
