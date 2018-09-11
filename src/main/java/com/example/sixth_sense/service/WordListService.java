@@ -28,6 +28,12 @@ public class WordListService {
 
     }
 
+        @Transactional
+        public WordList findTestAudio(Long id){
+        return wordListMapper.findTestAudio(id);
+
+    }
+
 
         @Transactional
         public List<WordList> findAll(){

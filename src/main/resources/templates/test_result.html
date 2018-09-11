@@ -26,6 +26,36 @@
 　　　
     <div class="test_text">
 
+            <div class="audio_button">
+
+                <audio id="audio1">
+                    <source th:src="${'/audio/' + testaudios1.audio}">
+                </audio>
+                <input type="image" src="/images/test/saisei.jpg" onclick="audio1.play()" height="25px" width="25px" ><br>
+
+                <audio id="audio2">
+                    <source th:src="${'/audio/' + testaudios2.audio}">
+                </audio>
+                <input type="image" src="/images/test/saisei.jpg" onclick="audio2.play()" height="25px" width="25px" ><br>
+
+                <audio id="audio3">
+                    <source th:src="${'/audio/' + testaudios3.audio}">
+                </audio>
+                <input type="image" src="/images/test/saisei.jpg" onclick="audio3.play()" height="25px" width="25px" ><br>
+
+                <audio id="audio4">
+                    <source th:src="${'/audio/' + testaudios4.audio}">
+                </audio>
+                <input type="image" src="/images/test/saisei.jpg" onclick="audio4.play()" height="25px" width="25px" ><br>
+
+                <audio id="audio5">
+                    <source th:src="${'/audio/' + testaudios5.audio}">
+                </audio>
+                <input type="image" src="/images/test/saisei.jpg" onclick="audio5.play()" height="25px" width="25px" ><br>
+
+            </div>
+
+
         <div class="test_index_eng">
             <tr  th:object = "${testwords1}"><td th:text="*{word}"></td></tr><br>
             <tr  th:object = "${testwords2}"><td th:text="*{word}"></td></tr><br>
@@ -53,13 +83,11 @@
     </div>
 
 
-<audio id="audio" controls>
-    <source src="/kazane.mp3">
-</audio><br>
 
-<input type="hidden" value="play" onclick="audio_play()">
-<input type="hidden" value="pause" onclick="audio_pause()">
 
+
+<input type="hidden" src="/images/test/saisei.jpg" onclick="audio_play()" height="25px" width="25px" ><br>
+<input type="hidden" src="/images/test/saisei.jpg" onclick="audio_pause()">
 <script type="text/javascript">
     function audio_play() {
         audio.play();
@@ -69,5 +97,7 @@
         audio.pause();
     }
 </script>
+
+
 </body>
 </html>

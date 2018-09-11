@@ -93,13 +93,27 @@ public class WordListController {
               int resultId5 = id - 1;
               model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
 
+              //meaning
               model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
               model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
               model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
               model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
               model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
-              model.addAttribute("id", id);
+              //model.addAttribute("audio", wordlistService.findOne(new Long(1)));
+              //model.addAttribute("audio", wordlistService.findOne(new Long(2)));
+              //model.addAttribute("audio", wordlistService.findOne(new Long(3)));
+              //model.addAttribute("audio", wordlistService.findOne(new Long(4)));
+              //model.addAttribute("audio", wordlistService.findOne(new Long(5)));
+              //audio
+               model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(1)));
+               model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(resultId2)));
+               model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(resultId3)));
+              model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(resultId4)));
+              model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(resultId5)));
+
+
+        model.addAttribute("id", id);
 
         String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
         List<String> list = Arrays.asList(array);
