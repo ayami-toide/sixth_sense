@@ -40,6 +40,12 @@ public class WordListService {
 
     }
 
+        @Transactional
+        public WordList findTestAudio(Long id){
+        return wordListMapper.findTestAudio(id);
+
+    }
+
 
         @Transactional
         public List<WordList> findAll(){
@@ -72,6 +78,29 @@ public class WordListService {
 
         @Transactional
         public  int findCountPerfect(){ return wordListMapper.findCountPerfect(); }
+
+        //Osanai(9/11)
+        @Transactional
+        public List<WordList> findMaster1(){ return wordListMapper.findMaster1(); }
+
+        //Osanai(9/11)
+        @Transactional
+        public List<WordList> findMaster2(){ return wordListMapper.findMaster2(); }
+
+        //Osanai(9/11)
+        @Transactional
+        public  int countMaster(){
+            return wordListMapper.countMaster();
+        }
+
+        //Osanai
+        @Transactional
+        public List<WordList> findStudied(){ return wordListMapper.findStudied(); }
+
+        //Osanai
+        @Transactional
+        public List<WordList> findNotStudied(){ return wordListMapper.findNotStudied(); }
+
 
 
 
