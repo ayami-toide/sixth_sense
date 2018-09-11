@@ -76,4 +76,8 @@ public interface WordListMapper {
     //Osanai
     @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
     List<WordList> findMaster2();
+
+    @Select("SELECT COUNT(*) FROM wordlist WHERE 0.5 < maru / (maru + hatena) && 2 <= maru")
+    int countMaster();
+
 }

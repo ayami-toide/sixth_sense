@@ -49,6 +49,7 @@ public class WordListController {
     public String review(Model model){
         model.addAttribute("studying",wordlistService.findCountStudyingNow());
         model.addAttribute("perfect",wordlistService.findCountPerfect());
+        model.addAttribute("countMaster",wordlistService.countMaster());
 
         return "review";
     }

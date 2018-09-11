@@ -73,6 +73,12 @@ public class WordListService {
         @Transactional
         public List<WordList> findMaster2(){ return wordListMapper.findMaster2(); }
 
+        //Osanai(9/11)
+        @Transactional
+        public  int countMaster(){
+            return wordListMapper.countMaster();
+        }
+
 
 
 
