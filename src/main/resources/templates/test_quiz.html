@@ -108,7 +108,7 @@
             document.form_countdown.counter.value = count; //カウント表示
             count--; //カウントダウン
 
-            if (count == 0) {
+            if (count < 0) {
                 overimg.style.display  = "block";
                 setTimeout(function change() {
 
@@ -149,12 +149,6 @@
     </div>
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
-
-    　
-
-
-
-
 
 </div>
 </body>
