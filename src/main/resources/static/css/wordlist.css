@@ -1,0 +1,40 @@
+html,body{
+    overflow: hidden
+}
+body{
+    width: 350px;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    /*height: 650px;*/
+}
+li.eigo{
+    list-style: none;
+    float: left;
+    width: 170px;
+    text-align: center;
+    font-size: 21px;
+}
+li.eigo>div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 170px;
+    height: 40px;
+    background-color: #F8BBD0;
+}
+li.nihongo{
+    list-style: none;
+    float: left;
+    width: 170px;
+    text-align: center;
+    font-size: 21px;
+}
+li.nihongo>div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 170px;
+    height: 40px;
+    background-color: #F8BBD0;
+}
+.list_title{
+    font-size: 35px;
+    text-align: center;
+}
