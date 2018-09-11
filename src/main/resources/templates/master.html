@@ -1,21 +1,94 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>マスター</title>
+    <meta  name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <link rel="stylesheet" href="/css/study.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/flicker.js"></script>
+    <title>Title</title>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $(".buddy").on("swiperight",function(){
+
+                var word = $(this).find(".flick_word").text();
+
+                var data = {word: word};
+
+                $.ajax ({
+                    url: "/sense/study_r",
+                    type: "POST",
+                    data : JSON.stringify(data),
+                    contentType: 'application/JSON',
+                    dataType : 'JSON',
+                    success: function() {
+                        console.log("success");
+                    }
+                });
+            });
+
+
+            $(".buddy").on("swipeleft",function(){
+
+                var word = $(this).find(".flick_word").text();
+
+                var data = {word: word};
+
+                $.ajax ({
+                    url: "/sense/study_l",
+                    type: "POST",
+                    data : JSON.stringify(data),
+                    contentType: 'application/JSON',
+                    dataType : 'JSON',
+                    success: function() {
+                        console.log("success");
+                    }
+                });
+            });
+        });
+
+    </script>
 </head>
 <body>
-<h1>
-    <div th:each = " master :${masters}" th:object="${master}">
-        <div th:text = "${master.word}"><br></div>
+
+<div class="newWord2">
+
+    <tr th:each="word : ${masters2}" th:object="${word}">
+        <div class="buddy" style="display: block;">
+            <div class="sample1">
+
+                <img th:src="*{url}">
+                <p class="flick_word" th:text="*{word}"></p>
+                <div class="mask">
+                    <div class="caption" th:text="*{meaning}" ></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </tr>
+    <div  class= "wall">
     </div>
 
+    <div class="newWord1">
 
-</h1>
+        <tr th:each="word : ${masters1}" th:object="${word}">
+            <div class="buddy" style="display: block;">
+                <div class="sample1">
 
-  if(isUnderstanding() == true){
+                    <img th:src="*{url}">
+                    <p class="flick_word" th:text="*{word}"></p>
+                    <div class="mask">
+                        <div class="caption" th:text="*{meaning}" ></div>
+                    </div>
 
-}
-</body>
+                </div>
+
+            </div>
+        </tr>
+    </div>
 </html>

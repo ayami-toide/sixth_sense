@@ -70,6 +70,10 @@ public interface WordListMapper {
     void delete(Long id);
 
     //Osanai
-    @Select("select word, meaning, maru, hatena from wordlist")
-    List<WordList> findMaster();
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5")
+    List<WordList> findMaster1();
+
+    //Osanai
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
+    List<WordList> findMaster2();
 }
