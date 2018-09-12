@@ -1,122 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta  name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <link rel="stylesheet" href="/css/study.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="/js/jquery.js"></script>
-    <script src="/js/flicker.js"></script>
-    <title>Title</title>
-
-    <script>
-
-        $(document).ready(function(){
-
-            $(".buddy").on("swiperight",function(){
-
-                var word = $(this).find(".flick_word").text();
-
-                var data = {word: word};
-
-                $.ajax ({
-                    url: "/sense/study_r",
-                    type: "POST",
-                    data : JSON.stringify(data),
-                    contentType: 'application/JSON',
-                    dataType : 'JSON',
-                    success: function() {
-                        console.log("success");
-                    }
-                });
-            });
+    <link rel="stylesheet" href="/css/test_quiz.css">
+    <script src="/js/style.js"></script>
+    <script src="/js/test_quiz.js"></script>
 
 
-            $(".buddy").on("swipeleft",function(){
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <title>Test-quiz</title>
 
-                var word = $(this).find(".flick_word").text();
-
-                var data = {word: word};
-
-                $.ajax ({
-                    url: "/sense/study_l",
-                    type: "POST",
-                    data : JSON.stringify(data),
-                    contentType: 'application/JSON',
-                    dataType : 'JSON',
-                    success: function() {
-                        console.log("success");
-                    }
-                });
-            });
-        });
-
-    </script>
 </head>
 <body>
 
-    <div class="newWord2">
-
-        <tr th:each="word : ${newWords2}" th:object="${word}">
-            <div class="buddy" style="display: block;">
-                <div class="sample1">
+<form name="form_countdown">
+    <input name="counter" type="hidden" value="4"  style="border:none; background-color:transparent;">
+</form>
 
 
 
-                    <p class="flick_word" th:text="*{word}">
-
-                    </p>
-
-                    <div class="mask">
-                        <div class="caption" th:text="*{meaning}" ></div>
-                    </div>
-
-                    <audio id="audio">
-                        <source src="/audio/kazane.mp3">
-                    </audio>
-                    <input type="image" src="/images/test/saisei.jpg" onclick="audio.play()" height="25px" width="25px" ><br>
-                    <script type="text/javascript">
-                        function audio_play() {
-                            audio.play();
-                        }
-
-                        function audio_pause() {
-                            audio.pause();
-                        }
-                    </script>
 
 
-
-                </div>
-
-            </div>
-
-        </tr>
-        <div  class= "wall">
+<div class="quiz_zentai">
+    <div class="marudisplay" id="marudisplay">
+        <img src="/images/test/maru.png">
     </div>
 
-    <div class="newWord1">
-
-        <tr th:each="word : ${newWords1}" th:object="${word}">
-            <div class="buddy" style="display: block;">
-                <div class="sample1">
+    <div class="hazuredisplay" id="hazuredisplay">
+        <img src="/images/test/batu.png">
+    </div>
 
 
-                    <p class="flick_word" th:text="*{word}"></p>
-                    <div class="mask">
-                        <img th:src="*{url}">
-                        <p class="flick_word_after" th:text="*{word}"></p>
-                        <p class="caption" th:text="*{meaning}" ></p>
-                    </div>
 
-                </div>
+    <div class="tugiedisplay" id="tugiedisplay">
+        <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
+        　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
+        </form>
+    </div>
 
+    <div class = "resultButtonDisplay" id = "resultButtonDisplay">
+        <form th:action="@{/sense/test_result/{id}(id=${nextId})}" method="get">
+            　<input type="image" src ="/images/test/finish.png" >　　　　　　　
+        </form>
+    </div>
+
+
+    <div class="overdisplay" id="overdisplay">
+        <img src="/images/test/over.png">
+    </div>
+
+    <div class="container">
+        <div id="timer"></div>
+        <form id="form" class="form-inline">
+            <div class="form-group">
             </div>
+        </form>
+    </div>
+
+
+
+    <script>
+
+        var maruimg = document.getElementById('marudisplay');
+        var hazureimg = document.getElementById('hazuredisplay');
+        var tugieimg = document.getElementById('tugiedisplay');
+        var overimg = document.getElementById('overdisplay');
+        var resultButtonImg = document.getElementById('resultButtonDisplay');
+        maruimg.style.display = "none";
+        hazureimg.style.display = "none";
+        tugieimg.style.display  = "none";
+        overimg.style.display  = "none";
+        resultButtonImg.style.display  = "none";
+        function changepage(id) {
+            tugieimg.style.display = "block";
+            if (id == 1) {
+                $('#timer').timer(0);
+                maruimg.style.display = "block";
+                setTimeout(function change() {
+                    maruimg.style.display = "none";
+                }, 1000);
+                tugieimg.style.display = "block";
+                countstop();
+
+            }
+            else if (id == 2) {
+                $('#timer').timer(0);
+                tugieimg.style.display = "none";
+                hazureimg.style.display = "block";
+                setTimeout(function change() {
+                    window.location.href = '/sense/test_question/1';
+                }, 1000);
+                countstop();
+            }
+            else if (id == 0) {
+                $('#timer').timer(0);
+                maruimg.style.display = "block";
+                tugieimg.style.display = "none";
+                setTimeout(function change() {
+                    maruimg.style.display = "none";
+                    resultButtonImg.style.display = "block";
+                }, 1000);
+                countstop();
+            }
+
+
+        }
+        window.onload =function countstart() {
+            count = eval(document.form_countdown.counter.value);
+            timerID = setInterval('countdown()',1000);
+            //開始ボタンを使用禁止
+            $('#timer').timer(5);
+        }
+
+        function countstop() {
+            clearInterval(timerID);
+            document.form_countdown.start.disabled = false; //開始ボタンを解除
+            document.form_countdown.reset(); //初期値に戻す
+
+        }
+
+        function countdown() {
+            document.form_countdown.counter.value = count; //カウント表示
+            count--; //カウントダウン
+
+            if (count < 0) {
+                overimg.style.display  = "block";
+                setTimeout(function change() {
+
+                    location.href = "/sense/test_question/1";
+                }, 2000);
+            }
+            //カウント終了 */
+        }
+
+    </script>
+
+    <div class="test_eigo">
+        <tr  th:object="${words}">
+            <td th:text="*{word}"></td>
         </tr>
     </div>
-        <input type="hidden" src="/images/test/saisei.jpg" onclick="audio_play()" height="25px" width="25px" ><br>
-        <input type="hidden" src="/images/test/saisei.jpg" onclick="audio_pause()">
 
+    <br><br>
 
+    <div class="test_nihongo">
+        <div th:each=" word : ${words.getShuffledAnswers()}">
+            <div th:each=" option : ${words}">
 
+                <div th:if="${lastid}">
+                    <div th:switch="${word}">
+                         <span th:case="${option.meaning}" onClick="changepage(0)">
+                             <div class="nihongo_btn" th:text="${word}"></div>
+                         </span>
+
+                        <span th:case="*" onClick="changepage(2)">
+                             <div class="nihongo_btn" th:text="${word}" ></div>
+                             <form th:action="@{/sense/test_quiz/}" method="get" />　
+                            </form>
+                         </span>
+                    </div>
+                </div>
+
+                <div th:unless="${lastid}">
+                    <div th:switch="${word}">
+                             <span th:case="${option.meaning}" onClick="changepage(1)">
+                                 <div class="nihongo_btn" th:text="${word}"></div>
+                             </span>
+
+                        <span th:case="*" onClick="changepage(2)">
+                                 <div class="nihongo_btn" th:text="${word}" ></div>
+                                 <form th:action="@{/sense/test_quiz/}" method="get" />　
+                            </form>
+                             </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+
+</div>
 </body>
 </html>
