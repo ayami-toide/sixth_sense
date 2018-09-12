@@ -60,17 +60,31 @@
             <div class="buddy" style="display: block;">
                 <div class="sample1">
 
-                    <img th:src="*{url}">
+
 
                     <p class="flick_word" th:text="*{word}">
 
                     </p>
 
                     <div class="mask">
-
-
                         <div class="caption" th:text="*{meaning}" ></div>
                     </div>
+
+                    <audio id="audio">
+                        <source src="/audio/kazane.mp3">
+                    </audio>
+                    <input type="image" src="/images/test/saisei.jpg" onclick="audio.play()" height="25px" width="25px" ><br>
+                    <script type="text/javascript">
+                        function audio_play() {
+                            audio.play();
+                        }
+
+                        function audio_pause() {
+                            audio.pause();
+                        }
+                    </script>
+
+
 
                 </div>
 
