@@ -98,8 +98,12 @@ public interface WordListMapper {
     int countStudying();
 
     //Osanai
-    @Select("select * from wordlist where 1 <= maru")
-    List<WordList> findStudied();
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru")
+    List<WordList> findMasterWordlist();
+
+    //Osanai
+    @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru")
+    List<WordList> findStudyingWordlist();
 
     //Osanai
     @Select("select * from wordlist where 0 = maru")
