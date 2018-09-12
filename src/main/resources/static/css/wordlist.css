@@ -1,19 +1,19 @@
-html,body{
-    overflow: hidden
-}
+/*html,body{*/
+    /*overflow: hidden*/
+/*}*/
 body{
     width: 350px;
     font-family: 'Sawarabi Gothic', sans-serif;
     /*height: 650px;*/
 }
-li.eigo{
+li.done_eigo{
     list-style: none;
     float: left;
     width: 170px;
     text-align: center;
     font-size: 21px;
 }
-li.eigo>div{
+li.done_eigo>div{
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 14px;
@@ -21,20 +21,52 @@ li.eigo>div{
     height: 40px;
     background-color: #F8BBD0;
 }
-li.nihongo{
+li.done_nihongo{
     list-style: none;
     float: left;
     width: 170px;
     text-align: center;
     font-size: 21px;
 }
-li.nihongo>div{
+li.done_nihongo>div{
     margin-top: 20px;
     margin-bottom: 20px;
     width: 170px;
     height: 40px;
     background-color: #F8BBD0;
 }
+
+li.notyet_eigo{
+    clear: both;
+    list-style: none;
+    float: left;
+    width: 170px;
+    text-align: center;
+    font-size: 21px;
+}
+li.notyet_eigo>div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 14px;
+    width: 170px;
+    height: 40px;
+    background-color: #BAD3FF;
+}
+li.notyet_nihongo{
+    list-style: none;
+    float: left;
+    width: 170px;
+    text-align: center;
+    font-size: 21px;
+}
+li.notyet_nihongo>div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 170px;
+    height: 40px;
+    background-color: #BAD3FF;
+}
+
 .list_title{
     font-size: 35px;
     text-align: center;
