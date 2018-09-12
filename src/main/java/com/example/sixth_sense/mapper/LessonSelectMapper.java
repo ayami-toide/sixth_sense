@@ -18,8 +18,8 @@ public interface LessonSelectMapper {
     @Options(useGeneratedKeys = true)
     void save(LessonSelect lessonSelect);
 
-    @Update("update lessonselect set lesson_id = #{lesson_id}, status= #{status} where id = #{id}")
-    void update(LessonSelect lessonSelect);
+    @Update("update lessonselect set status= 1 where lesson_id = #{id}")
+    LessonSelect update(Integer id);
 
     @Delete("delete from lessonselect where id = #{id}")
     void delete(Long id);

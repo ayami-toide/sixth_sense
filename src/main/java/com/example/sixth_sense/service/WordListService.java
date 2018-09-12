@@ -3,6 +3,7 @@ package com.example.sixth_sense.service;
 
 import com.example.sixth_sense.domain.WordList;
 import com.example.sixth_sense.mapper.WordListMapper;
+import com.example.sixth_sense.repository.WordListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class WordListService {
 
         @Autowired
         private WordListMapper wordListMapper;
+
 
         //Geeee Rina
         @Transactional
@@ -29,6 +31,12 @@ public class WordListService {
         @Transactional
         public WordList findTestMeaning(Long id){
         return wordListMapper.findTestMeaning(id);
+
+    }
+
+        @Transactional
+        public WordList findTestAudio(Long id){
+        return wordListMapper.findTestAudio(id);
 
     }
 
@@ -65,6 +73,29 @@ public class WordListService {
         @Transactional
         public  int findCountPerfect(){ return wordListMapper.findCountPerfect(); }
 
+        //Osanai(9/11)
+        @Transactional
+        public List<WordList> findMaster1(){ return wordListMapper.findMaster1(); }
+
+        //Osanai(9/11)
+        @Transactional
+        public List<WordList> findMaster2(){ return wordListMapper.findMaster2(); }
+
+        //Osanai(9/11)
+        @Transactional
+        public  int countMaster(){
+            return wordListMapper.countMaster();
+        }
+
+        //Osanai
+        @Transactional
+        public List<WordList> findStudied(){ return wordListMapper.findStudied(); }
+
+        //Osanai
+        @Transactional
+        public List<WordList> findNotStudied(){ return wordListMapper.findNotStudied(); }
+
+
 
 
         @Transactional
@@ -93,7 +124,5 @@ public class WordListService {
         }
 
 
-        @Transactional
-        public void delete(Long id){ wordListMapper.delete(id); }
 
 }

@@ -2,11 +2,9 @@ package com.example.sixth_sense.domain;
 
 import javax.persistence.*;
 
-public class LessonSelect {
-
     @Entity
     @Table(name = "lessonselect")
-    public class WordList {
+    public class LessonSelect {
 
         @Id
         @Column(name = "id")
@@ -44,4 +42,3 @@ public class LessonSelect {
         }
 
     }
-}

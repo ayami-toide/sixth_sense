@@ -38,6 +38,10 @@ public interface WordListMapper {
     @Select("select meaning from wordlist  where id =#{id}")
     WordList findTestMeaning(Long id);
 
+    //Toy
+    @Select("select audio from wordlist  where id =#{id}")
+    WordList findTestAudio(Long id);
+
     //Geeee Rina
     @Select("select word from wordlist where word = #{word}")
     String findByWord (String word);
@@ -68,4 +72,26 @@ public interface WordListMapper {
 
     @Delete("delete from wordlist where id = #{id}")
     void delete(Long id);
+
+    //Osanai
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5")
+    List<WordList> findMaster1();
+
+    //Osanai
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
+    List<WordList> findMaster2();
+
+    //Osanai
+    @Select("SELECT COUNT(*) FROM wordlist WHERE 0.5 < maru / (maru + hatena) && 2 <= maru")
+    int countMaster();
+
+    //Osanai
+    @Select("select * from wordlist where 1 <= maru")
+    List<WordList> findStudied();
+
+    //Osanai
+    @Select("select * from wordlist where 0 = maru")
+    List<WordList> findNotStudied();
+
+
 }

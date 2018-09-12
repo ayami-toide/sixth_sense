@@ -53,6 +53,9 @@ public class WordList {
     @Column(name="url", nullable=false)
     private  String url;
 
+    @Column(name="audio", nullable=false)
+    private  String audio;
+
     public Integer getId() {
         return id;
     }
@@ -97,6 +100,10 @@ public class WordList {
         return hatena;
     }
 
+    public String getAudio() {
+        return audio;
+    }
+
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
         answers.add (getMeaning());
@@ -107,5 +114,9 @@ public class WordList {
 
         // シャッフルする
         return  answers;
+    }
+
+    public boolean isUnderstanding() {
+        return 0.5 < maru / (maru + hatena) && 2 <= maru;
     }
 }
