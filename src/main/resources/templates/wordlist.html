@@ -10,15 +10,13 @@
 </head>
 <body>
 <p class="list_title">単語リスト</p>
---   もう勉強したもの
-  <li class="eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.word}"><br></tr></div>
+<li class="done_eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.word}"><br></tr></div>
     <br></li>
-  <li class="eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.meaning}"><br></tr></div>
-
-
+<li class="done_nihongo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.meaning}"><br></tr></div>
 </li>
---     まだ勉強していないもの
-<li class="eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
-<li class="eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
+<li class="notyet_eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
+    <br></li>
+<li class="notyet_nihongo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
+</li>
 </body>
 </html>
