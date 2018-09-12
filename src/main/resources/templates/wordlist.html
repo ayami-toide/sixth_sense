@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/wordlist.css">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>単語一覧</title>
@@ -11,24 +10,26 @@
 <body>
 <p class="list_title">単語リスト</p>
 
--- マスター
+<p class="list_sub_title">マスターした単語</p>
 <li class="done_eigo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.word}"><br></tr></div>
     <br></li>
 <li class="done_nihongo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.meaning}"><br></tr></div>
 </li>
 
 
--- 学習中
+<p class="list_sub_title">学習中の単語</p>
 <li class="studying_eigo"><div th:each = " StudyingWordlists :${StudyingWordlists}" th:object="${StudyingWordlist}"><tr th:text = "${StudyingWordlists.word}"><br></tr></div>
     <br></li>
 <li class="studying_nihongo"><div th:each = " StudyingWordlists :${StudyingWordlists}" th:object="${StudyingWordlist}"><tr th:text = "${StudyingWordlists.meaning}"><br></tr></div>
 </li>
 
 
--- 未着手
+<p class="list_sub_title">未学習の単語</p>
 <li class="notyet_eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
     <br></li>
-<li class="notyet_nihongo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
-</li>
+  <li class="notyet_nihongo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
+    </li>
+
+
 </body>
 </html>
