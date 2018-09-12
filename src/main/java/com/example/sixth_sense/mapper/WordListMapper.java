@@ -73,17 +73,29 @@ public interface WordListMapper {
     @Delete("delete from wordlist where id = #{id}")
     void delete(Long id);
 
-    //Osanai
+    //Osanai Master
     @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5")
     List<WordList> findMaster1();
 
-    //Osanai
+    //Osanai Master
     @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
     List<WordList> findMaster2();
+
+    //Osanai Studying
+    @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru LIMIT 5")
+    List<WordList> findStudying1();
+
+    //Osanai Studying
+    @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru LIMIT 5 OFFSET 5")
+    List<WordList> findStudying2();
 
     //Osanai
     @Select("SELECT COUNT(*) FROM wordlist WHERE 0.5 < maru / (maru + hatena) && 2 <= maru")
     int countMaster();
+
+    //Osanai
+    @Select("SELECT COUNT(*) FROM wordlist WHERE 0.5 >= maru / (maru + hatena) && 2 > maru")
+    int countStudying();
 
     //Osanai
     @Select("select * from wordlist where 1 <= maru")

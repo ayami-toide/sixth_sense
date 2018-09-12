@@ -12,14 +12,14 @@ public interface LessonSelectMapper {
     List<LessonSelect> findAll();
 
     @Select("select * from lessonselect where id = #{id}")
-    LessonSelect findOne(Long id);
+    LessonSelect findOne(Integer id);
 
     @Insert("insert into lessonselect (lesson_id,status) values (#{lesson_id}, #{status})")
     @Options(useGeneratedKeys = true)
     void save(LessonSelect lessonSelect);
 
     @Update("update lessonselect set status= 1 where lesson_id = #{id}")
-    LessonSelect update(Integer id);
+    void update(LessonSelect lessonSelect);
 
     @Delete("delete from lessonselect where id = #{id}")
     void delete(Long id);

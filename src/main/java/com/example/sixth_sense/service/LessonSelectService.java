@@ -17,10 +17,14 @@ public class LessonSelectService {
     @Autowired
     private LessonSelectMapper lessonSelectMapper;
 
+    @Transactional
+    public LessonSelect findOne(Integer id){
+        return lessonSelectMapper.findOne(id);
+    }
 
     @Transactional
-    public LessonSelect update(Integer id){
-        return lessonSelectMapper.update(id);
+    public void update(LessonSelect lessonSelect){
+       lessonSelectMapper.update(lessonSelect);
     }
 
 }

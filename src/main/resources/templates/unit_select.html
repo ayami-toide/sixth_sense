@@ -10,6 +10,7 @@
 </head>
 <body>
 
+
 <div th:if="${teacherId}">
     <ul class="setumei">
         <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
@@ -18,12 +19,17 @@
 
     <form th:action="@{/sense/test}" method="get">
         <input type = "submit" value="Get Ready">
-    </form><br>
-    <form th:action="@{/sense/unit_select/0}" th:method="put">
-    <div id="nizyu-maru-on" class="nizyu-maru-on">
-        <input type="submit" value = "◎" onclick="changeButton(0)">
-    </div>
     </form>
+
+    <tr th:text="${status1}">
+    </tr>
+            <form th:action="@{/sense/unit_select/0}" th:method="put">
+            <div id="nizyu-maru-on" class="nizyu-maru-on">
+                <input type="submit" value = "◎" onclick="changeButton(0)">
+            </div>
+            </form>
+
+
     <div id="nizyu-maru-off" class="nizyu-maru-off">
         <input type="submit" value = "ooo" onclick="changeButton(2)">
     </div>

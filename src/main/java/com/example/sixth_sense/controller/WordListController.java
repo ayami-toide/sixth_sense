@@ -54,6 +54,7 @@ public class WordListController {
         model.addAttribute("studying",wordlistService.findCountStudyingNow());
         model.addAttribute("perfect",wordlistService.findCountPerfect());
         model.addAttribute("countMaster",wordlistService.countMaster());
+        model.addAttribute("countStudying",wordlistService.countStudying());
 
         return "review";
     }
@@ -133,11 +134,6 @@ public class WordListController {
 
     }
 
-    @GetMapping("unit_select")
-    public String unit_select(Model model){
-        return "unit_select";
-    }
-
     @GetMapping("teacher_unit_select")
     public String teacher_unit_select(Model model){
 
@@ -182,14 +178,31 @@ public class WordListController {
 
     @PutMapping("unit_select/{id}")
     public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
-        Integer Id = 1;
-        lessonSelect.setLesson_id(Id);
-        lessonSelectService.update(id);
 
-        String lastid = "last";
-        model.addAttribute("lastid",lastid);
+        lessonSelect.setId(id);
+        lessonSelectService.update(lessonSelect);
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "forward:unit_select";
+    }
+
+    @GetMapping("unit_select")
+    public String unit_select(Model model){
+
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+
         return "unit_select";
     }
+
+    //osanai(9/12)
+    @GetMapping("studying")
+    public String studying(Model model){
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+        model.addAttribute("studyings2",wordlistService.findStudying2());
+        return "studying";
+    }
+
 
 
 
