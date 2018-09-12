@@ -49,6 +49,7 @@ public class WordListController {
         model.addAttribute("studying",wordlistService.findCountStudyingNow());
         model.addAttribute("perfect",wordlistService.findCountPerfect());
         model.addAttribute("countMaster",wordlistService.countMaster());
+        model.addAttribute("countStudying",wordlistService.countStudying());
 
         return "review";
     }
@@ -174,6 +175,14 @@ public class WordListController {
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("masters2",wordlistService.findMaster2());
         return "master";
+    }
+
+    //osanai(9/12)
+    @GetMapping("studying")
+    public String studying(Model model){
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+        model.addAttribute("studyings2",wordlistService.findStudying2());
+        return "studying";
     }
 
 
