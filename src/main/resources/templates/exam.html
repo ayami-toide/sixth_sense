@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自動生成テスト</title>
+</head>
+<body>
+<p class="list_title">単語テスト</p>
+<li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.word}"><br></tr></div>
+    <br></li>
+
+
+</body>
+</html>

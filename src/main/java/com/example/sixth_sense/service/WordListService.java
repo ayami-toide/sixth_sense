@@ -79,13 +79,22 @@ public class WordListService {
         @Transactional
         public  int findCountPerfect(){ return wordListMapper.findCountPerfect(); }
 
-        //Osanai(9/11)
+        //Osanai(9/11) Master
         @Transactional
         public List<WordList> findMaster1(){ return wordListMapper.findMaster1(); }
 
-        //Osanai(9/11)
+        //Osanai(9/11) Master
         @Transactional
         public List<WordList> findMaster2(){ return wordListMapper.findMaster2(); }
+
+        //Osanai(9/12) Studying
+        @Transactional
+        public List<WordList> findStudying1(){ return wordListMapper.findStudying1(); }
+
+        //Osanai(9/12) Studying
+        @Transactional
+        public List<WordList> findStudying2(){ return wordListMapper.findStudying2(); }
+
 
         //Osanai(9/11)
         @Transactional
@@ -93,11 +102,21 @@ public class WordListService {
             return wordListMapper.countMaster();
         }
 
-        //Osanai
+        //Osanai(9/11)
         @Transactional
-        public List<WordList> findStudied(){ return wordListMapper.findStudied(); }
+        public  int countStudying(){
+            return wordListMapper.countStudying();
+        }
 
         //Osanai
+        @Transactional
+        public List<WordList> findMasterWordlist(){ return wordListMapper.findMasterWordlist(); }
+
+        @Transactional
+        public List<WordList> findStudyingWordlist(){ return wordListMapper.findStudyingWordlist(); }
+
+
+    //Osanai
         @Transactional
         public List<WordList> findNotStudied(){ return wordListMapper.findNotStudied(); }
 
