@@ -32,13 +32,18 @@
         <img src="/images/test/batu.png">
     </div>
 
-
-
     <div class="tugiedisplay" id="tugiedisplay">
         <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-        　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
+        　<input type="image" src="/images/test/nextquestion.png">　　　　　　　
         </form>
     </div>
+
+    <div class = "resultButtonDisplay" id = "resultButtonDisplay">
+        <form th:action="@{/sense/test_result/{id}(id=${nextId})}" method="get">
+            　<input type="image" src ="/images/test/finish.png" >　　　　　　　
+        </form>
+    </div>
+
 
     <div class="overdisplay" id="overdisplay">
         <img src="/images/test/over.png">
@@ -52,18 +57,18 @@
         </form>
     </div>
 
-
-
     <script>
 
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
         var tugieimg = document.getElementById('tugiedisplay');
         var overimg = document.getElementById('overdisplay');
+        var resultButtonImg = document.getElementById('resultButtonDisplay')
         maruimg.style.display = "none";
         hazureimg.style.display = "none";
         tugieimg.style.display  = "none";
         overimg.style.display  = "none";
+        resultButtonImg.style.display = "none";
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
@@ -85,37 +90,30 @@
                 }, 1000);
                 countstop();
             }
-        }
-
-
-
-
-        window.onload =function countstart() {
-            count = eval(document.form_countdown.counter.value);
-            timerID = setInterval('countdown()',1000);
-            //開始ボタンを使用禁止
-            $('#timer').timer(5);
-        }
-
-        function countstop() {
-            clearInterval(timerID);
-            document.form_countdown.start.disabled = false; //開始ボタンを解除
-            document.form_countdown.reset(); //初期値に戻す
-
-        }
-
-        function countdown() {
-            document.form_countdown.counter.value = count; //カウント表示
-            count--; //カウントダウン
-
-            if (count < 0) {
-                overimg.style.display  = "block";
+            else if (id == 0) {
+                maruimg.style.display = "block";
+                tugieimg.style.display = "none";
                 setTimeout(function change() {
-
-                    location.href = "/sense/test_question/1";
-                }, 2000);
+                    maruimg.style.display = "none";
+                    resultButtonImg.style.display = "block";
+                }, 1000);
+                location.href = unload();
+                countstop();
             }
-            //カウント終了 */
+            window.onload = function countstart() {
+                count = eval(document.form_countdown.counter.value);
+                timerID = setInterval('countdown()', 1000);
+                //開始ボタンを使用禁止
+                $('#timer').timer(5);
+            }
+
+            function countstop() {
+                clearInterval(timerID);
+                document.form_countdown.start.disabled = false; //開始ボタンを解除
+                document.form_countdown.reset(); //初期値に戻す
+
+            }
+
         }
 
     </script>
@@ -132,18 +130,33 @@
         <div th:each=" word : ${words.getShuffledAnswers()}">
             <div th:each=" option : ${words}">
 
-                <div class="geee" th:switch="${word}">
-                          <span th:case="${option.meaning}" onClick="changepage(1)">
+                <div th:if="${lastid}">
+                    <div th:switch="${word}">
+                          <span th:case="${option.meaning}" onClick="changepage(0)">
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
 
-                    <span th:case="*" onClick="changepage(2)">
+                        <span th:case="*" onClick="changepage(2)">
                               <div class="nihongo_btn" th:text="${word}" ></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
-                        </form>
+                            </form>
                           </span>
+                    </div>
                 </div>
 
+                <div th:unless="${lastid}">
+                    <div th:switch="${word}">
+                              <span th:case="${option.meaning}" onClick="changepage(1)">
+                                  <div class="nihongo_btn" th:text="${word}"></div>
+                              </span>
+
+                              <span th:case="*" onClick="changepage(2)">
+                                  <div class="nihongo_btn" th:text="${word}" ></div>
+                                  <form th:action="@{/sense/test_quiz/}" method="get" />　
+                                  </form>
+                              </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
