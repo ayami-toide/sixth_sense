@@ -73,6 +73,12 @@ body{
     margin:         10px 3px 20px 0px;
     position:       relative;   /* 相対位置指定 */
 }
+p.flick_word_after {
+    color: white;
+}
+p.flick_word{
+    color: black;
+}
 .sample1 p {
     position: absolute;/*絶対配置*/
     color: #FFF;/*文字は白に*/
@@ -90,7 +96,7 @@ p.flick_word{
     font-size:      50px;
     text-align:         center;
     padding-top:        208px;
-    color:          #fff;
+    color: #fff;
 }
 
 .sample1 .mask {
@@ -115,9 +121,32 @@ p.flick_word{
 .wall {
     top: 77px;
     position:absolute;
-    background-color:pink;
     width:364px;
     height:470px;
     margin:10px 3px 20px 5px;
 }
+
+.wall-final{
+    top: 77px;
+    position:absolute;
+    background-color:white;
+    width:364px;
+    height:470px;
+    margin:10px 3px 20px 5px;
+}
+
+/*#modalwin {*/
+    /*position: relative;*/
+    /*margin: 400px 0px 0px 0px;*/
+/*}*/
+
+/*.show {*/
+    /*display: block;*/
+/*}*/
+
+/*.hide {*/
+    /*display: none;*/
+/*}*/
+
+
 

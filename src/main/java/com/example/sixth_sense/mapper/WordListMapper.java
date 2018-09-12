@@ -54,6 +54,12 @@ public interface WordListMapper {
     @Select("select * from wordlist where maru = 0 LIMIT 5 OFFSET 5")
     List<WordList> findNewWords2();
 
+    @Select("select * from wordlist where maru = 1 OR maru = 2 order by rand() limit 5")
+    List<WordList> findReviewWords1();
+
+    @Select("select * from wordlist where maru != 0 AND maru <= hatena order by rand() limit 5")
+    List<WordList> findReviewWords2();
+
     //Geeee Rina
     @Update("UPDATE wordlist SET maru = maru + 1 WHERE word = #{word}")
     void maru_increment(String word);

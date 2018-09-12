@@ -17,7 +17,7 @@ $(document).ready(function(){
         $(this).addClass("rotate-left").delay(700).fadeOut(1);
         $(".buddy").find(".status").remove();
 
-        $(this).append('<div class="status like">Like!</div>');
+        $(this).append('<div class="status like">知ってる！</div>');
         if ( $(this).is(':first-child') ) {
             // setTimeout(function () {
                 $('.rotate-right').removeClass('rotate-right').fadeIn(300);
@@ -43,6 +43,13 @@ $(document).ready(function(){
 
 
 });
+
+// $(function() {
+//     $(".show-modal").click(function () {
+//         $(this).removeClass("hide");
+//         $(this).addClass("show");
+//     });
+// });
 
 
 //study.html ここまで//
