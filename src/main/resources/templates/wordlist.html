@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <link rel="stylesheet" href="/css/wordlist.css">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>単語一覧</title>
 </head>
 <body>
 <p class="list_title">単語リスト</p>
+
 
   <li class="done_eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.word}"><br></tr></div>
     <br></li>
@@ -20,6 +20,7 @@
     <br></li>
   <li class="notyet_nihongo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
     </li>
+
 
 </body>
 </html>
