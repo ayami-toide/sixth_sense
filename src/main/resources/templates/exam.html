@@ -4,11 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <title>自動生成テスト</title>
+
+    <script type="text/javascript">
+        function ChangeTab(tabname) {
+            // タブメニュー実装
+            document.getElementById('tab1').style.display = 'none';
+            document.getElementById('tab2').style.display = 'none';
+            document.getElementById('tab3').style.display = 'none';
+            // タブメニュー実装
+            document.getElementById(tabname).style.display = 'block';
+        }
+        //</script>
+
+    <style type="text/css">
+        /* ▼ タブメニュー全体の設定 */
+        div.tabbox { margin: 15px 0 0 0; padding: 0px; width:600px; height:200px;}
+        /* ▼ タブ部分のマージンとパディング領域を設定 */
+        p.tabs { margin: 0px; padding: 0px; }
+        p.tabs a {
+            /* ▼ リンクをタブのように見せる */
+            display: block; width: 150px; float: left;
+            margin: 0px 3px 0px 0px; padding: 3px;
+            text-align: center;
+            font-size:12px;
+        }
+        /* ▼ タブごとの配色設定 */
+        p.tabs a.tab1 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 3px solid rgba(170, 0, 0, 0.85);  color: #666; font-weight:600;}
+        p.tabs a.tab2 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 3px solid rgba(0, 170, 0, 0.85);  color: #666; font-weight:600;}
+        p.tabs a.tab3 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 3px solid rgba(0, 0, 170, 0.85);  color: #666; font-weight:600;}
+        p.tabs a:hover {opacity:0.7;filter:alpha(opacity=70);}
+        /* ▼ タブ中身のボックス */
+        div.tab {
+            /* ▼ ボックス共通の装飾 */
+            height: 270px;  clear: left;
+        }
+        /* ▼ 各ボックスの配色設定 */
+        div#tab1 { border: 2px solid #DDD; background-color: #fbfbfb; }
+        div#tab2 { border: 2px solid #DDD; background-color: #fbfbfb; }
+        div#tab3 { border: 2px solid #DDD; background-color: #fbfbfb; }
+        div.tab p { margin: 0.5em; }
+    </style>
 </head>
 <body>
 <p class="list_title">単語テスト</p>
-<li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.word}"><br></tr></div>
     <br></li>
+
+<div class="tabbox">
+
+    <p class="tabs">
+        <a href="#tab1" class="tab1" onclick="ChangeTab('tab1'); return false;">英語→日本語テスト</a>
+        <a href="#tab2" class="tab2" onclick="ChangeTab('tab2'); return false;">日本語→英語テスト</a>
+    </p>
+    <div id="tab1" class="tab">
+        <li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.id}"><tr th:text = "."><tr th:text = "${masters1.word}"><br></tr></div>
+        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "${studyings1.word}"><br></tr></div>
+
+    </div>
+
+    <div id="tab2" class="tab">
+        タブ2の内容です。画像やリンクを含めることもできます。bbb
+        　 </div>
+
+    <div id="tab3" class="tab">
+        タブ3の内容です。画像やリンクを含めることもできます。ccc
+    </div>
+
+
+</div><!-- tabbox -->
+
+<!-- ページを開いた際の最初に表示されるタブの選択 -->
+<script type="text/javascript">
+    ChangeTab('tab1');
+</script>
+
+
+
 
 
 </body>

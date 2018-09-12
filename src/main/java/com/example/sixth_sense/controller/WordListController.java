@@ -189,6 +189,8 @@ public class WordListController {
     @GetMapping("exam")
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+
         return "exam";
     }
 
