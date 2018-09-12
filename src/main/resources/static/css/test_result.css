@@ -11,6 +11,7 @@ body{
 }
 
 .test_result{
+    margin-top: 40px;
     text-align: center;
     font-size: 37px;
 }
@@ -91,3 +92,9 @@ body{
     margin: 6px;
 }
 
+p.test_index_kids{
+    margin: 10px;
+}
+.test_index_kids{
+    margin: 10px;
+}

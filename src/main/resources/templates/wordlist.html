@@ -10,13 +10,22 @@
 <body>
 <p class="list_title">単語リスト</p>
 
-
-  <li class="done_eigo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.word}"><br></tr></div>
+<p class="list_sub_title">マスターした単語</p>
+<li class="done_eigo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.word}"><br></tr></div>
     <br></li>
-  <li class="done_nihongo"><div th:each = " studieds :${studieds}" th:object="${studied}"><tr th:text = "${studieds.meaning}"><br></tr></div>
-    </li>
+<li class="done_nihongo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.meaning}"><br></tr></div>
+</li>
 
-  <li class="notyet_eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
+
+<p class="list_sub_title">学習中の単語</p>
+<li class="studying_eigo"><div th:each = " StudyingWordlists :${StudyingWordlists}" th:object="${StudyingWordlist}"><tr th:text = "${StudyingWordlists.word}"><br></tr></div>
+    <br></li>
+<li class="studying_nihongo"><div th:each = " StudyingWordlists :${StudyingWordlists}" th:object="${StudyingWordlist}"><tr th:text = "${StudyingWordlists.meaning}"><br></tr></div>
+</li>
+
+
+<p class="list_sub_title">未学習の単語</p>
+<li class="notyet_eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
     <br></li>
   <li class="notyet_nihongo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
     </li>

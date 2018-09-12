@@ -102,9 +102,13 @@ public class WordListService {
 
         //Osanai
         @Transactional
-        public List<WordList> findStudied(){ return wordListMapper.findStudied(); }
+        public List<WordList> findMasterWordlist(){ return wordListMapper.findMasterWordlist(); }
 
-        //Osanai
+        @Transactional
+        public List<WordList> findStudyingWordlist(){ return wordListMapper.findStudyingWordlist(); }
+
+
+    //Osanai
         @Transactional
         public List<WordList> findNotStudied(){ return wordListMapper.findNotStudied(); }
 

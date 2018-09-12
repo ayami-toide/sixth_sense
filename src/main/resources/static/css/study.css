@@ -75,7 +75,7 @@ body{
 }
 .sample1 p {
     position: absolute;/*絶対配置*/
-    color: #000;/*文字は白に*/
+    color: #FFF;/*文字は白に*/
     top: 15px;
     left: 0;
     text-align: center;
@@ -83,14 +83,14 @@ body{
     width: 100%;
     font-size: 70px;
 }
+p.flick_word{
+    color: black;
+}
 .sample1 .caption {
     font-size:      50px;
     text-align:         center;
     padding-top:        208px;
     color:          #fff;
-}
-p.flick_word_after{
-    color: #FFFFFF;
 }
 
 .sample1 .mask {
@@ -120,3 +120,4 @@ p.flick_word_after{
     height:470px;
     margin:10px 3px 20px 5px;
 }
+
