@@ -61,9 +61,15 @@
                 <div class="sample1">
 
                     <img th:src="*{url}">
-                    <p class="flick_word" th:text="*{word}"></p>
+
+                    <p class="flick_word" th:text="*{word}">
+
+                    </p>
+
                     <div class="mask">
-                                <div class="caption" th:text="*{meaning}" ></div>
+
+
+                        <div class="caption" th:text="*{meaning}" ></div>
                     </div>
 
                 </div>
@@ -92,6 +98,10 @@
         </tr>
         <!--<div  class= "wall">-->
     </div>
+        <input type="hidden" src="/images/test/saisei.jpg" onclick="audio_play()" height="25px" width="25px" ><br>
+        <input type="hidden" src="/images/test/saisei.jpg" onclick="audio_pause()">
+
+
 
     <!--<div class="reviewWord2">-->
 
