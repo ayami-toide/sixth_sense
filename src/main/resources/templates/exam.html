@@ -57,14 +57,18 @@
     </p>
     <div id="tab1" class="tab">
         <li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.id}"><tr th:text = "."><tr th:text = "${masters1.word}"><br></tr></div>
-        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "${studyings1.word}"><br></tr></div>
+        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "."><tr th:text = "${studyings1.word}"><br></tr></div>
 
     </div>
 
     <div id="tab2" class="tab">
-        <li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.id}"><tr th:text = "."><tr th:text = "${masters1.word}"><br></tr></div>
-        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "${studyings1.word}"><br></tr></div>
+        <li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.id}"><tr th:text = "."><tr th:text = "${masters1.meaning}"><br></tr></div>
+        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "."><tr th:text = "${studyings1.meaning}"><br></tr></div>
     </div>
+
+    <div id="tab3" class="tab">
+    </div>
+
 
 
 </div><!-- tabbox -->
