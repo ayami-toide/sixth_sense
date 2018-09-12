@@ -61,24 +61,33 @@
 </head>
 <body>
 
+    <div  class= "wall-final">
+        <!--<input class="show-modal" type="button" value="フリックした単語一覧">-->
+        <br><br>
+        <a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/mypage/home.png">ホーム画面に戻る</a>
+        <br><br>
+        <a class="homeback" href="/sense/study" data-ajax="false"><img src="/images/study/reroad.png">次の20単語をフリックする</a>
+
+    </div>
+
     <div class="newWord2">
 
         <tr th:each="word : ${newWords2}" th:object="${word}">
             <div class="buddy" style="display: block;">
                 <div class="sample1">
 
-                    <img th:src="*{url}">
+
                     <p class="flick_word" th:text="*{word}"></p>
                     <div class="mask">
-                                <div class="caption" th:text="*{meaning}" ></div>
+                        <img th:src="*{url}">
+                        <p class="flick_word_after" th:text="*{word}"></p>
+                        <p class="caption" th:text="*{meaning}" ></p>
                     </div>
 
                 </div>
 
             </div>
-
         </tr>
-        <div  class= "wall">
     </div>
 
     <div class="newWord1">
@@ -87,17 +96,18 @@
             <div class="buddy" style="display: block;">
                 <div class="sample1">
 
-                    <img th:src="*{url}">
+
                     <p class="flick_word" th:text="*{word}"></p>
                     <div class="mask">
-                        <div class="caption" th:text="*{meaning}" ></div>
+                        <img th:src="*{url}">
+                        <p class="flick_word_after" th:text="*{word}"></p>
+                        <p class="caption" th:text="*{meaning}" ></p>
                     </div>
 
                 </div>
 
             </div>
         </tr>
-        <div  class= "wall">
     </div>
 
     <div class="reviewWord2">
@@ -106,17 +116,18 @@
             <div class="buddy" style="display: block;">
                 <div class="sample1">
 
-                    <img th:src="*{url}">
+
                     <p class="flick_word" th:text="*{word}"></p>
                     <div class="mask">
-                        <div class="caption" th:text="*{meaning}" ></div>
+                        <img th:src="*{url}">
+                        <p class="flick_word_after" th:text="*{word}"></p>
+                        <p class="caption" th:text="*{meaning}" ></p>
                     </div>
 
                 </div>
 
             </div>
         </tr>
-        <div  class= "wall">
     </div>
 
 
@@ -126,10 +137,12 @@
             <div class="buddy" style="display: block;">
                 <div class="sample1">
 
-                    <img th:src="*{url}">
+
                     <p class="flick_word" th:text="*{word}"></p>
                     <div class="mask">
-                        <div class="caption" th:text="*{meaning}" ></div>
+                        <img th:src="*{url}">
+                        <p class="flick_word_after" th:text="*{word}"></p>
+                        <p class="caption" th:text="*{meaning}" ></p>
                     </div>
 
                 </div>
@@ -138,7 +151,33 @@
         </tr>
     </div>
 
-<a class="next-study" href="/sense/mypage" data-ajax="false">ホーム画面へ</a>
+    <!--<div id="modalwin" class="modalwin hide">-->
+         <!--<h1>フリックした単語一覧</h1>-->
+         <!--<div class="modalwin-contents">-->
+             <!--<table th:inline="text">-->
+                 <!--<tr><th>Word</th><th>Meaning</th></tr>-->
+
+                 <!--<tr th:each="word:${reviewWords1}" th:object="${word}">-->
+                     <!--<td th:text="*{word}"></td>-->
+                     <!--<td th:text="*{meaning}"></td>-->
+                 <!--</tr>-->
+                 <!--<tr th:each="word:${reviewWords2}" th:object="${word}">-->
+                     <!--<td th:text="*{word}"></td>-->
+                     <!--<td th:text="*{meaning}"></td>-->
+                 <!--</tr>-->
+                 <!--<tr th:each="word:${newWords1}" th:object="${word}">-->
+                     <!--<td th:text="*{word}"></td>-->
+                     <!--<td th:text="*{meaning}"></td>-->
+                 <!--</tr>-->
+                 <!--<tr th:each="word:${newWords2}" th:object="${word}">-->
+                     <!--<td th:text="*{word}"></td>-->
+                     <!--<td th:text="*{meaning}"></td>-->
+                 <!--</tr>-->
+             <!--</table>-->
+         <!--</div>-->
+        <!--<img class="close_modal" src="/images/study/close.jpeg">-->
+    </div>
+        <a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
 <!--</div>-->
 </body>
 </html>
