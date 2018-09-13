@@ -182,6 +182,7 @@ public class WordListController {
     public String unit_select(Model model){
 
         model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status",lessonSelectService.findStatus(new Integer(1)));
 
         return "unit_select";
     }

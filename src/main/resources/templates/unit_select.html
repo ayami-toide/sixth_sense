@@ -11,6 +11,13 @@
 <body>
 
 
+<p th:object="${status1}" ><tr th:text="${status1.status}"></tr></p>
+<p th:text="${status1.status}"></p>
+
+<!--<tr th:each="status : ${newWords2}" th:object="${word}">-->
+
+
+
 <div th:if="${teacherId}">
     <ul class="setumei">
         <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
@@ -28,21 +35,21 @@
     </form>
 
     <form th:action="@{/sense/unit_select0/0}" th:method="put">
-    <div id="nizyu-maru-off" class="nizyu-maru-off">
-        <input type="submit" value = "ooo" onclick="changeButton(2)">
-    </div>
+        <div id="nizyu-maru-off" class="nizyu-maru-off">
+            <input type="submit" value = "ooo" onclick="changeButton(2)">
+        </div>
     </form>
 
     <form th:action="@{/sense/unit_select_maru/0}" th:method="put">
-    <div id="maru-on" class="maru-on">
-        <input type = "submit" value="〇" onclick="changeButton(1)">
-    </div>
+        <div id="maru-on" class="maru-on">
+            <input type = "submit" value="〇" onclick="changeButton(1)">
+        </div>
     </form>
 
     <form th:action="@{/sense/unit_select_maru0/0}" th:method="put">
-    <div id="maru-off" class="maru-off">
-        <input type="submit" value = "zzz" onclick="changeButton(3)">
-    </div>
+        <div id="maru-off" class="maru-off">
+            <input type="submit" value = "zzz" onclick="changeButton(3)">
+        </div>
     </form>
 
     <option th:each="i : ${#numbers.sequence(1, 9)}" th:value="${i}">
