@@ -32,7 +32,7 @@ body{
 .audio_button {
     position: relative;
     float: left;
-    width: 4px;
+    width: 29px;
     height: 300px;
     text-align: center;
 }
@@ -40,7 +40,7 @@ body{
 .test_index_eng {
     position: relative;
     float: left;
-    width: 170px;
+    width: 150px;
     height: 300px;
     text-align: center;
 }
@@ -48,7 +48,7 @@ body{
 .test_index_jp {
     position: relative;
     float: left;
-    width: 170px;
+    width: 178px;
     height: 300px;
     text-align: center;
 }

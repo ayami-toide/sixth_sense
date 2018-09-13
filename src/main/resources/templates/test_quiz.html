@@ -40,6 +40,13 @@
         </form>
     </div>
 
+    <div class = "resultButtonDisplay" id = "resultButtonDisplay">
+        <form th:action="@{/sense/test_result/{id}(id=${nextId})}" method="get">
+            　<input type="image" src ="/images/test/finish.png" >　　　　　　　
+        </form>
+    </div>
+
+
     <div class="overdisplay" id="overdisplay">
         <img src="/images/test/over.png">
     </div>
@@ -60,10 +67,12 @@
         var hazureimg = document.getElementById('hazuredisplay');
         var tugieimg = document.getElementById('tugiedisplay');
         var overimg = document.getElementById('overdisplay');
+        var resultButtonImg = document.getElementById('resultButtonDisplay');
         maruimg.style.display = "none";
         hazureimg.style.display = "none";
         tugieimg.style.display  = "none";
         overimg.style.display  = "none";
+        resultButtonImg.style.display  = "none";
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
@@ -85,6 +94,18 @@
                 }, 1000);
                 countstop();
             }
+            else if (id == 0) {
+                $('#timer').timer(0);
+                maruimg.style.display = "block";
+                tugieimg.style.display = "none";
+                setTimeout(function change() {
+                    maruimg.style.display = "none";
+                    resultButtonImg.style.display = "block";
+                }, 1000);
+                countstop();
+            }
+
+
         }
 
 
@@ -132,18 +153,33 @@
         <div th:each=" word : ${words.getShuffledAnswers()}">
             <div th:each=" option : ${words}">
 
-                <div class="geee" th:switch="${word}">
-                          <span th:case="${option.meaning}" onClick="changepage(1)">
+                <div th:if="${lastid}">
+                    <div th:switch="${word}">
+                          <span th:case="${option.meaning}" onClick="changepage(0)">
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
 
-                    <span th:case="*" onClick="changepage(2)">
+                        <span th:case="*" onClick="changepage(2)">
                               <div class="nihongo_btn" th:text="${word}" ></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
-                        </form>
+                            </form>
                           </span>
+                    </div>
                 </div>
 
+                <div th:unless="${lastid}">
+                    <div th:switch="${word}">
+                              <span th:case="${option.meaning}" onClick="changepage(1)">
+                                  <div class="nihongo_btn" th:text="${word}"></div>
+                              </span>
+
+                        <span th:case="*" onClick="changepage(2)">
+                                  <div class="nihongo_btn" th:text="${word}" ></div>
+                                  <form th:action="@{/sense/test_quiz/}" method="get" />　
+                            </form>
+                              </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
