@@ -92,7 +92,6 @@ p.flick_word{
     padding-top:        208px;
     color:          #fff;
 }
-
 .sample1 .mask {
     z-index:2;
     width:          364px;
@@ -111,7 +110,6 @@ p.flick_word{
 .homeback{
     text-align: center;
 }
-
 .wall {
     top: 77px;
     position:absolute;
@@ -120,4 +118,3 @@ p.flick_word{
     height:470px;
     margin:10px 3px 20px 5px;
 }
-
