@@ -105,10 +105,7 @@
                 countstop();
             }
 
-
         }
-
-
 
 
         window.onload =function countstart() {
@@ -168,6 +165,7 @@
 
                 <div th:unless="${lastid}">
                     <div th:switch="${word}">
+
                               <span th:case="${option.meaning}" onClick="changepage(1)">
                                   <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
                               </span>
