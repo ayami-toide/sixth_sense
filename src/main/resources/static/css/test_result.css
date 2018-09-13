@@ -6,34 +6,33 @@ a:link {text-decoration:none;}
 
 body{
     width: 360px;
-    height: 670px;
-    font-family: 'Sawarabi Gothic', sans-serif;
+    height: 660px;
 }
 
 .test_result{
     margin-top: 40px;
     text-align: center;
-    font-size: 37px;
+    font-size: 57px;
+    transform: rotate(-7deg);
+    display: inline-block;
+    color: #CC0000;
+    /*background: linear-gradient(transparent 80%, #FF0000 80%);*/
 }
-.test_result>p{
+div.test_result{
     margin: 10px;
+    margin-left: 53px;
+    font-family: 'Kaushan Script', cursive;
 }
 
 
-.test_time{
-    text-align: center;
-    font-size: 30px;
-}
-.test_time>p{
-    margin-top: -10px;
-}
 
 .test_text{
+    font-family: 'Sawarabi Gothic', sans-serif;
     margin:auto;
     font-size: 26px;
     margin-top: 16px;
     width: 360px;
-    height: 400px;
+    height: 383px;
 }
 
 .audio_button {
@@ -67,7 +66,7 @@ body{
     list-style: none;
     width: 360px;
     height: 100px;
-    margin-left: 79px;
+    margin-left: 60px;
 }
 .mypage_menu li {
     float: left;
@@ -97,4 +96,25 @@ p.test_index_kids{
 }
 .test_index_kids{
     margin: 10px;
+}
+
+.test_result_tx{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+li.my_menu_t{
+    margin-top: 3px;
+}
+.mypage_menu>li{
+    font-family: 'Sawarabi Gothic', sans-serif;
+    margin-right: 40px;
+}
+.test_result_tx:after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: -moz-linear-gradient(to right, #000080, transparent);
+    background: -webkit-linear-gradient(to right, #000080, transparent);
+    background: linear-gradient(to right, #000080, transparent);
 }
