@@ -22,10 +22,15 @@ import java.util.List;
 public class WordListController {
 
     @Autowired
-    WordListService wordlistService;
+    LessonSelectService lessonSelectService;
 
     @Autowired
-    LessonSelectService lessonSelectService;
+    WordListService wordlistService;
+
+
+    @GetMapping("info")
+    public String info(Model model) { return "info"; }
+
 
     @GetMapping("test")
     public String test(Model model){
