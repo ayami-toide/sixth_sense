@@ -1,0 +1,143 @@
+body{
+    margin: 0px;
+}
+.buddy {
+    z-index: 0;
+    display: none;
+    background: #ffffff;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+    /* color: #fff; */
+    /* padding: 20px; */
+    width: 370px;
+    height: 481px;
+    top: 77px;
+    /* left: 0px; */
+    position: absolute;
+    cursor: hand;
+    margin: 10px 3px 20px 5px;
+}
+.rotate-left {
+    transform: rotate(30deg) scale(0.8);
+    transition: 1.6s;
+    margin-left: 400px;
+    cursor: e-resize;
+    opacity: 0;
+    z-index: 10;
+}
+.rotate-right {
+    transform: rotate(-30deg) scale(0.8);
+    transition: 1.6s;
+    opacity: 0;
+    margin-left: -400px;
+    cursor: w-resize;
+    z-index: 10;
+}
+.avatar {
+    z-index:1;
+    width: 364px;
+    height: 460px;
+    display: block;
+    background-size: auto 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.like {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 2px solid green;
+    color: green;
+    text-transform: uppercase;
+    font-size: 15px;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    text-shadow: none;
+}
+.dislike {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 2px solid red;
+    color: red;
+    text-transform: uppercase;
+    font-size: 15px;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    text-shadow: none;
+}
+.sample1 {
+    width:          364px;
+    height:         470px;
+    overflow:       hidden;
+    margin:         10px 3px 20px 0px;
+    position:       relative;   /* 相対位置指定 */
+}
+p.flick_word_after {
+    color: white;
+}
+p.flick_word{
+    color: black;
+}
+.sample1 p {
+    position: absolute;/*絶対配置*/
+    color: #FFF;/*文字は白に*/
+    top: 15px;
+    left: 0;
+    text-align: center;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    width: 100%;
+    font-size: 70px;
+}
+p.flick_word{
+    color: black;
+}
+.sample1 .caption {
+    font-size:      50px;
+    text-align:         center;
+    padding-top:        208px;
+    color: #fff;
+}
+.sample1 .mask {
+    z-index:2;
+    width:          364px;
+    height:         470px;
+    position:       absolute;   /* 絶対位置指定 */
+    top:            0;
+    left:           0;
+    opacity:        0;  /* マスクを表示しない */
+    /*background-color: rgba(0,0,0,0.4);    !* マスクは半透明 *!*/
+    -webkit-transition: all 0.2s ease;
+    transition:     all 0.2s ease;
+}
+.sample1:hover .mask {
+    opacity:        1;  /* マスクを表示する */
+}
+.homeback{
+    text-align: center;
+}
+.wall {
+    top: 77px;
+    position:absolute;
+    width:364px;
+    height:470px;
+    margin:10px 3px 20px 5px;
+}
+.wall-final{
+    top: 77px;
+    position:absolute;
+    background-color:white;
+    width:364px;
+    height:470px;
+    margin:10px 3px 20px 5px;
+}
+/*#modalwin {*/
+/*position: relative;*/
+/*margin: 400px 0px 0px 0px;*/
+/*}*/
+/*.show {*/
+/*display: block;*/
+/*}*/
+/*.hide {*/
+/*display: none;*/
+/*}*/

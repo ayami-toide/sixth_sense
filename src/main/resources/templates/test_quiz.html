@@ -154,12 +154,12 @@
                 <div th:if="${lastid}">
                     <div th:switch="${word}">
                           <span th:case="${option.meaning}" onClick="changepage(0)">
-                              <div class="nihongo_btn" th:text="${word}"></div>
+                              <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
                           </span>
 
 
                         <span th:case="*" onClick="changepage(2)">
-                              <div class="nihongo_btn" th:text="${word}" ></div>
+                              <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
                           </span>
