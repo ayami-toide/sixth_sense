@@ -20,13 +20,7 @@ body{
 }
 
 
-.test_time{
-    text-align: center;
-    font-size: 30px;
-}
-.test_time>p{
-    margin-top: -10px;
-}
+
 
 .test_text{
     margin:auto;
@@ -39,7 +33,7 @@ body{
 .audio_button {
     position: relative;
     float: left;
-    width: 4px;
+    width: 30px;
     height: 300px;
     text-align: center;
 }
@@ -47,7 +41,7 @@ body{
 .test_index_eng {
     position: relative;
     float: left;
-    width: 170px;
+    width: 142px;
     height: 300px;
     text-align: center;
 }
