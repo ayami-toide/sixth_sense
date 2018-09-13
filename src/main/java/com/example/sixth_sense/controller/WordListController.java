@@ -121,7 +121,7 @@ public class WordListController {
 
         model.addAttribute("id", id);
 
-        String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
+        String[] array = {"Great job!", "Excellent!", "Well done!"};
         List<String> list = Arrays.asList(array);
         Collections.shuffle(list);
         String word  = list.get(1);
