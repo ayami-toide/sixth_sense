@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/flicker.js"></script>
-    <title>Title</title>
+    <title>新しい単語</title>
 
     <script>
 
@@ -80,12 +80,11 @@
         <!--}-->
     <!--</script>-->
 
+
     <br><br>
     <a class="homeback" href="/sense/study" data-ajax="false"><img src="/images/study/reroad.png">次の20単語をフリックする</a>
 
 </div>
-
-
 
 <div class="newWord2">
 
@@ -137,9 +136,6 @@
 
 
                 <p class="flick_word" th:text="*{word}"></p>
-
-
-
                 <div class="mask">
                     <img th:src="*{url}">
                     <p class="flick_word_after" th:text="*{word}"></p>
@@ -159,10 +155,11 @@
     <tr th:each="word : ${reviewWords1}" th:object="${word}">
         <div class="buddy" style="display: block;">
             <div class="sample1">
+
+
                 <p class="flick_word" th:text="*{word}"></p>
                 <div class="mask">
                     <img th:src="*{url}">
-
                     <p class="flick_word_after" th:text="*{word}"></p>
                     <p class="caption" th:text="*{meaning}" ></p>
                 </div>
@@ -199,9 +196,7 @@
          <!--</div>-->
         <!--<img class="close_modal" src="/images/study/close.jpeg">-->
 </div>
-
-
-
+<!--</div>-->
 
 </body>
 </html>
