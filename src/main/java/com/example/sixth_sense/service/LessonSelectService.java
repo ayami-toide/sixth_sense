@@ -27,6 +27,19 @@ public class LessonSelectService {
        lessonSelectMapper.update(lessonSelect);
     }
 
+    @Transactional
+    public void update0(LessonSelect lessonSelect) { lessonSelectMapper.update0(lessonSelect);}
+
+    @Transactional
+    public void maru_update(LessonSelect lessonSelect){
+        lessonSelectMapper.maru_update(lessonSelect);
+    }
+
+    @Transactional
+    public void maru_update0(LessonSelect lessonSelect){
+        lessonSelectMapper.maru_update0(lessonSelect);
+    }
+
 }
 
 

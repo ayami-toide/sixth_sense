@@ -10,7 +10,7 @@ import java.util.List;
 public interface WordListMapper {
     @Select("select * from wordlist")
     List<WordList> findAll();
-    //Osa
+
     @Select("SELECT COUNT(id) FROM wordlist")
     int findCount();
     //Osa
@@ -53,6 +53,12 @@ public interface WordListMapper {
     //Geeee Rina 9/11
     @Select("select * from wordlist where maru = 0 LIMIT 5 OFFSET 5")
     List<WordList> findNewWords2();
+
+    @Select("select * from wordlist where maru = 1 OR maru = 2 order by rand() limit 5")
+    List<WordList> findReviewWords1();
+
+    @Select("select * from wordlist where maru != 0 AND maru <= hatena order by rand() limit 5")
+    List<WordList> findReviewWords2();
 
     //Geeee Rina
     @Update("UPDATE wordlist SET maru = maru + 1 WHERE word = #{word}")
@@ -98,8 +104,12 @@ public interface WordListMapper {
     int countStudying();
 
     //Osanai
-    @Select("select * from wordlist where 1 <= maru")
-    List<WordList> findStudied();
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru")
+    List<WordList> findMasterWordlist();
+
+    //Osanai
+    @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru")
+    List<WordList> findStudyingWordlist();
 
     //Osanai
     @Select("select * from wordlist where 0 = maru")

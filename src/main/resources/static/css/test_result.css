@@ -5,10 +5,13 @@ a:active { color: #000000; }
 a:link {text-decoration:none;}
 
 body{
+    width: 360px;
+    height: 670px;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
 
 .test_result{
+    margin-top: 40px;
     text-align: center;
     font-size: 37px;
 }
@@ -28,7 +31,7 @@ body{
 .test_text{
     margin:auto;
     font-size: 26px;
-    margin-top: -27px;
+    margin-top: 16px;
     width: 360px;
     height: 400px;
 }
@@ -36,7 +39,7 @@ body{
 .audio_button {
     position: relative;
     float: left;
-    width: 170px;
+    width: 4px;
     height: 300px;
     text-align: center;
 }
@@ -89,3 +92,9 @@ body{
     margin: 6px;
 }
 
+p.test_index_kids{
+    margin: 10px;
+}
+.test_index_kids{
+    margin: 10px;
+}

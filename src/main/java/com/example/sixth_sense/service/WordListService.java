@@ -25,6 +25,14 @@ public class WordListService {
         @Transactional
         public List<WordList> findNewWords2(){ return wordListMapper.findNewWords2(); }
 
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findReviewWords1(){ return wordListMapper.findReviewWords1(); }
+
+        //Geeee Rina
+        @Transactional
+        public List<WordList> findReviewWords2(){ return wordListMapper.findReviewWords2(); }
+
         @Transactional
         public WordList findTestWord(Long id){ return wordListMapper.findTestWord(id); }
 
@@ -104,9 +112,13 @@ public class WordListService {
 
         //Osanai
         @Transactional
-        public List<WordList> findStudied(){ return wordListMapper.findStudied(); }
+        public List<WordList> findMasterWordlist(){ return wordListMapper.findMasterWordlist(); }
 
-        //Osanai
+        @Transactional
+        public List<WordList> findStudyingWordlist(){ return wordListMapper.findStudyingWordlist(); }
+
+
+    //Osanai
         @Transactional
         public List<WordList> findNotStudied(){ return wordListMapper.findNotStudied(); }
 

@@ -45,6 +45,8 @@ public class WordListController {
 
         model.addAttribute("newWords1", wordlistService.findNewWords1());
         model.addAttribute("newWords2", wordlistService.findNewWords2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
 
         return "study";
     }
@@ -161,8 +163,8 @@ public class WordListController {
 
     @GetMapping("wordlist")
     public String wordlist(Model model){
-        model.addAttribute("ShowWordColumns",wordlistService.findAll());
-        model.addAttribute("studieds",wordlistService.findStudied());
+        model.addAttribute("StudyingWordlists",wordlistService.findStudyingWordlist());
+        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
         model.addAttribute("notstudieds",wordlistService.findNotStudied());
         return "wordlist";
     }
@@ -174,17 +176,6 @@ public class WordListController {
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("masters2",wordlistService.findMaster2());
         return "master";
-    }
-
-    @PutMapping("unit_select/{id}")
-    public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
-
-        lessonSelect.setId(id);
-        lessonSelectService.update(lessonSelect);
-
-        String teacherId = "teacherId";
-        model.addAttribute("teacherId",teacherId);
-        return "forward:unit_select";
     }
 
     @GetMapping("unit_select")
@@ -203,7 +194,59 @@ public class WordListController {
         return "studying";
     }
 
+    //osanai(9/12)
+    @GetMapping("exam")
+    public String exam(Model model){
+        model.addAttribute("masters1",wordlistService.findMaster1());
+        return "exam";
+    }
 
 
+    @PutMapping("unit_select/{id}")
+    public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
+
+        lessonSelect.setId(id);
+        lessonSelectService.update(lessonSelect);
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "unit_select";
+    }
+
+    @PutMapping("unit_select0/{id}")
+    public String update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect, Model model){
+
+        lessonSelect.setId(id);
+        lessonSelectService.update0(lessonSelect);
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+
+        return "unit_select";
+    }
+
+
+    @PutMapping("unit_select_maru/{id}")
+    public String maru_update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
+
+        lessonSelect.setId(id);
+        lessonSelectService.maru_update(lessonSelect);
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "unit_select";
+    }
+
+
+    @PutMapping("unit_select_maru0/{id}")
+    public String maru_update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
+
+        lessonSelect.setId(id);
+        lessonSelectService.maru_update0(lessonSelect);
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "unit_select";
+    }
 
 }

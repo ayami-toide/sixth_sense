@@ -21,24 +21,29 @@
         <input type = "submit" value="Get Ready">
     </form>
 
-    <tr th:text="${status1}">
-    </tr>
-            <form th:action="@{/sense/unit_select/0}" th:method="put">
-            <div id="nizyu-maru-on" class="nizyu-maru-on">
-                <input type="submit" value = "◎" onclick="changeButton(0)">
-            </div>
-            </form>
+    <form th:action="@{/sense/unit_select/0}" th:method="put">
+        <div id="nizyu-maru-on" class="nizyu-maru-on">
+            <input type="submit" value = "◎" onclick="changeButton(0)">
+        </div>
+    </form>
 
-
+    <form th:action="@{/sense/unit_select0/0}" th:method="put">
     <div id="nizyu-maru-off" class="nizyu-maru-off">
         <input type="submit" value = "ooo" onclick="changeButton(2)">
     </div>
+    </form>
+
+    <form th:action="@{/sense/unit_select_maru/0}" th:method="put">
     <div id="maru-on" class="maru-on">
         <input type = "submit" value="〇" onclick="changeButton(1)">
     </div>
+    </form>
+
+    <form th:action="@{/sense/unit_select_maru0/0}" th:method="put">
     <div id="maru-off" class="maru-off">
         <input type="submit" value = "zzz" onclick="changeButton(3)">
     </div>
+    </form>
 
     <option th:each="i : ${#numbers.sequence(1, 9)}" th:value="${i}">
         <div th:text="'Unit'+ ${i}"></div>
@@ -52,8 +57,8 @@
 
         nizyumaru_onButton.style.display = "block";
         maru_onButton.style.display = "block";
-        nizyumaru_offButton.style.display = "none";
-        maru_offButton.style.display = "none";
+        nizyumaru_offButton.style.display = "block";
+        maru_offButton.style.display = "block";
 
         function changeButton(id) {
             if (id == 0){
@@ -71,16 +76,6 @@
             }
         }
     </script>
-
-    <a href="#">Unit 1</a><br>
-    <a href="#">Unit 2</a><br>
-    <a href="#">Unit 3</a><br>
-    <a href="#">Unit 4</a><br>
-    <a href="#">Unit 5</a><br>
-    <a href="#">Unit 6</a><br>
-    <a href="#">Unit 7</a><br>
-    <a href="#">Unit 8</a><br>
-    <a href="#">Unit 9</a><br>
 </div>
 
 <div th:unless = "${teacherId}">

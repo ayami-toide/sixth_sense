@@ -17,6 +17,9 @@ import javax.persistence.*;
         @Column(name = "status", nullable = false)
         private Integer status;
 
+        @Column(name = "maru_status", nullable = false)
+        private Integer maru_status;
+
         public  Integer getId(){
             return id;
         }
@@ -27,6 +30,10 @@ import javax.persistence.*;
 
         public Integer getstatus() {
             return status;
+        }
+
+        public  Integer getmaru_status(){
+            return  maru_status;
         }
 
         public void setId(Integer id) {
@@ -40,5 +47,7 @@ import javax.persistence.*;
         public void setStatus(Integer status){
             this.status = status;
         }
+
+        public  void setMaru_status(Integer maru_status){ this.maru_status = maru_status; }
 
     }
