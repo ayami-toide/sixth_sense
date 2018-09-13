@@ -10,7 +10,7 @@ import java.util.List;
 public interface WordListMapper {
     @Select("select * from wordlist")
     List<WordList> findAll();
-    //Osa
+
     @Select("SELECT COUNT(id) FROM wordlist")
     int findCount();
     //Osa

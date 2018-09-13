@@ -3,6 +3,7 @@ package com.example.sixth_sense.service;
 
 import com.example.sixth_sense.domain.WordList;
 import com.example.sixth_sense.mapper.WordListMapper;
+import com.example.sixth_sense.repository.WordListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class WordListService {
 
         @Autowired
         private WordListMapper wordListMapper;
+
 
         //Geeee Rina
         @Transactional
@@ -149,7 +151,5 @@ public class WordListService {
         }
 
 
-        @Transactional
-        public void delete(Long id){ wordListMapper.delete(id); }
 
 }
