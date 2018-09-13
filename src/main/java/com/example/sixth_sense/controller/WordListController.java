@@ -22,6 +22,9 @@ public class WordListController {
     @Autowired
     WordListService wordlistService;
 
+    @GetMapping("info")
+    public String info(Model model) { return "info"; }
+
     @GetMapping("test")
     public String test(Model model){
         return "test";
