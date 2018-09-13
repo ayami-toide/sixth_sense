@@ -20,13 +20,6 @@ body{
 }
 
 
-.test_time{
-    text-align: center;
-    font-size: 30px;
-}
-.test_time>p{
-    margin-top: -10px;
-}
 
 .test_text{
     margin:auto;
