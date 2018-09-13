@@ -176,6 +176,8 @@ public class WordListController {
     public String master(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("masters2",wordlistService.findMaster2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
         return "master";
     }
 
@@ -184,6 +186,9 @@ public class WordListController {
     public String studying(Model model){
         model.addAttribute("studyings1",wordlistService.findStudying1());
         model.addAttribute("studyings2",wordlistService.findStudying2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
+
         return "studying";
     }
 
