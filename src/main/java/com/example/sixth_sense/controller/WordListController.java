@@ -22,6 +22,9 @@ import java.util.List;
 public class WordListController {
 
     @Autowired
+    LessonSelectService lessonSelectService;
+
+    @Autowired
     WordListService wordlistService;
 
 
