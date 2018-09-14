@@ -103,6 +103,9 @@
 
     <tr th:each="word : ${studyings1}" th:object="${word}">
         <div class="buddy" style="display: block;">
+            <div class="sample1">
+
+
             <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
             <audio><source th:src="${'/audio/'+ word.audio}"></audio>
 
@@ -154,6 +157,7 @@
         <div class="buddy" style="display: block;">
             <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
             <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+
 
             <div class="sample1">
 
