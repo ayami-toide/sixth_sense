@@ -9,12 +9,35 @@
     <title>TopPage</title>
 </head>
 <body>
+<div class="area">
+    <div class="marquee">
+        おはよう！今日は<span id="view_time"></span>。
+        Swishを初めて5日目だよ！
+    </div>
+</div>
+<script type="text/javascript">
+    document.getElementById("view_time").innerHTML = getNow();
 
-<p><a href="/sense/info"><img src="/images/mypage/information.jpg" height="30px" width="37px"></a></p>
+    function getNow() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var mon = now.getMonth()+1; //１を足すこと
+        var day = now.getDate();
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
 
-<p class="count_memory">進めた単語数　<tr th:text = "${status}"></tr>回<br>
-    継続日数　60日
-</p>
+        //出力用
+        var s =  mon + "月" + day + "日" ;
+        return s;
+    }
+</script>
+
+<!--<p class="count_memory"><a class="inf_btn" href="/sense/mypage"><img src="/images/mypage/information.jpg" height="30px" width="37px"></a>　　　　　　　　　　進めた単語数　<tr th:text = "${status}"></tr>回-->
+<!--<br><p class="count_days">継続日数　60日　　　</p>-->
+
+
+
 <progress class="progress" min="0" th:attr="max=${count}" th:value="${status}">%</progress>
 <p class="mypage_level">Level 7</p>
 <div class="mypage_prf">
@@ -27,7 +50,7 @@
 </div>
 <ul class="mypage_menu">
     <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
-    <li><a href="/sense/wordlist"><img src="/images/mypage/tangolist.png"></a><p>単語リスト</p></li>
+    <li><a href="#"><img src="/images/mypage/tangolist.png"></a><p>単語リスト</p></li>
     <li><a href="/sense/review"><img src="/images/mypage/review.png"></a><p>復習</p></li>
 </ul>
 </body>
