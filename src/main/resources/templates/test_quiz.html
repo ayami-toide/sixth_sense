@@ -36,7 +36,7 @@
 
     <div class="tugiedisplay" id="tugiedisplay">
         <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-        　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
+        　<input type="image" src="/images/test/nextquestion.png">　　　　　　　
         </form>
     </div>
 
@@ -108,7 +108,10 @@ D
 
 
 
+
         }
+
+
 
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
@@ -161,7 +164,7 @@ D
                               <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
-                          </span>
+                        </span>
                     </div>
                 </div>
 
@@ -176,7 +179,7 @@ D
                                   <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
                                   <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
-                              </span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -192,6 +195,10 @@ D
         <source src="/audio/batu.mp3">
     </audio>
 
+    <audio id="audiohome" >
+        <source src="/audio/home.mp3">
+    </audio>
+
     <script type="text/javascript">
         function audio_play() {
             audio.play();
@@ -199,6 +206,7 @@ D
         function audiobatu_play() {
             audiobatu.play();
         }
+
     </script>
 
 

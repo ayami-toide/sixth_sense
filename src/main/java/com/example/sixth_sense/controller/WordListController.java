@@ -66,6 +66,7 @@ public class WordListController {
         return "review";
     }
 
+
     @GetMapping("study_index")
     public String study_index(Model model) {
         return "study_index";
