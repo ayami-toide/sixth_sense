@@ -25,6 +25,10 @@ div.test_result{
 }
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> ece764690f6ae72141341421d0e6f9f5cabf8729
 
 .test_text{
     font-family: 'Sawarabi Gothic', sans-serif;
@@ -38,7 +42,7 @@ div.test_result{
 .audio_button {
     position: relative;
     float: left;
-    width: 29px;
+    width: 30px;
     height: 300px;
     text-align: center;
 }
@@ -46,7 +50,7 @@ div.test_result{
 .test_index_eng {
     position: relative;
     float: left;
-    width: 150px;
+    width: 142px;
     height: 300px;
     text-align: center;
 }

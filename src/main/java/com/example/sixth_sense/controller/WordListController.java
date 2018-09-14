@@ -22,10 +22,15 @@ import java.util.List;
 public class WordListController {
 
     @Autowired
-    WordListService wordlistService;
+    LessonSelectService lessonSelectService;
 
     @Autowired
-    LessonSelectService lessonSelectService;
+    WordListService wordlistService;
+
+
+    @GetMapping("info")
+    public String info(Model model) { return "info"; }
+
 
     @GetMapping("test")
     public String test(Model model){
@@ -175,6 +180,8 @@ public class WordListController {
     public String master(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("masters2",wordlistService.findMaster2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
         return "master";
     }
 
@@ -191,6 +198,9 @@ public class WordListController {
     public String studying(Model model){
         model.addAttribute("studyings1",wordlistService.findStudying1());
         model.addAttribute("studyings2",wordlistService.findStudying2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
+
         return "studying";
     }
 
@@ -198,7 +208,15 @@ public class WordListController {
     @GetMapping("exam")
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+
         return "exam";
+    }
+
+    //osanai(9/12)
+    @GetMapping("test01")
+    public String test01(Model model){
+        return "test01";
     }
 
 

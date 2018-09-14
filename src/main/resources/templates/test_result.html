@@ -20,49 +20,75 @@
 
     </div>
 
-    　
     <div class="test_text">
         <div class="test_result_tx">
-            <audio id="audio1">
-                <source th:src="${'/audio/' + testaudios1.audio}">
+            <audio th:src="${'/audio/' + testaudios1.audio}" id="audio1" >
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio1.play()" height="25px" width="25px" >
+            <script type="text/javascript">
+                function audio1_play() {
+                    audio1.play();
+                }
+            </script>
+
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio1_play()" height="25px" width="25px" >
             <tr  th:object = "${testwords1}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings1}"><td th:text="*{meaning}"></td></tr>
         </div>
 
         <div class="test_result_tx">
             <audio id="audio2">
-                <source th:src="${'/audio/' + testaudios2.audio}">
+                <source th:src="${'/audio/'+ testaudios2.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio2.play()" height="25px" width="25px" >
+            <script type="text/javascript">
+                function audio2_play() {
+                    var audio2 = document.getElementById("audio2");
+                    audio2.play();
+                }
+            </script>
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio2_play()" height="25px" width="25px" >
             <tr  th:object = "${testwords2}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings2}"><td th:text="*{meaning}"></td></tr>
         </div>
 
         <div class="test_result_tx">
-            <audio id="audio3">
+            <audio id="audio3" >
                 <source th:src="${'/audio/' + testaudios3.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio3.play()" height="25px" width="25px" >
+            <script type="text/javascript">
+                function audio3_play() {
+                    audio3.play();
+                }
+            </script>
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio3_play()" height="25px" width="25px" >
             <tr  th:object = "${testwords3}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings3}"><td th:text="*{meaning}"></td></tr>
         </div>
 
         <div class="test_result_tx">
-            <audio id="audio4">
+            <audio id="audio4" >
                 <source th:src="${'/audio/' + testaudios4.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio4.play()" height="25px" width="25px" >
+            <script type="text/javascript">
+                function audio4_play() {
+                    audio4.play();
+                }
+            </script>
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio4_play()" height="25px" width="25px" >
             <tr  th:object = "${testwords4}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings4}"><td th:text="*{meaning}"></td></tr>
         </div>
 
         <div class="test_result_tx">
-            <audio id="audio5">
+            <audio id="audio5" >
                 <source th:src="${'/audio/' + testaudios5.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio5.play()" height="25px" width="25px" >
+            <script type="text/javascript">
+                function audio5_play() {
+                    audio5.load();
+                    audio5.play();
+                }
+            </script>
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio5_play()" height="25px" width="25px" >
             <tr  th:object = "${testwords5}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings5}"><td th:text="*{meaning}"></td></tr>
         </div>
@@ -70,25 +96,17 @@
 
     <div class="mypage_menu">
         <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
-        <li class="my_menu_t"><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
-            <input type = "image" src="/images/mypage/next.png"><p>次のテスト</p>
-            </form>
-            </li>
+
+<li class="my_menu_t"><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
+    <input type = "image" src="/images/mypage/next.png" ><p>次のテスト</p>
+</form>
+</li>
+</div>
+
         </div>
 
 
-
 <input type="hidden" src="/images/test/saisei.jpg" onclick="audio_play()" height="25px" width="25px" ><br>
-<input type="hidden" src="/images/test/saisei.jpg" onclick="audio_pause()">
-<script type="text/javascript">
-    function audio_play() {
-        audio.play();
-    }
-
-    function audio_pause() {
-        audio.pause();
-    }
-</script>
 
 
 </body>
