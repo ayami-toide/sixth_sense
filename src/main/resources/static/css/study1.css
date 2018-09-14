@@ -131,6 +131,9 @@ p.flick_word{
     height:470px;
     margin:10px 3px 20px 5px;
 }
+.title {
+    margin: 0px;
+}
 /*#modalwin {*/
 /*position: relative;*/
 /*margin: 400px 0px 0px 0px;*/
@@ -140,4 +143,5 @@ p.flick_word{
 /*}*/
 /*.hide {*/
 /*display: none;*/
+/*}*/
 /*}*/
