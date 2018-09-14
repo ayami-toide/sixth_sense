@@ -1,97 +1,58 @@
-/*html,body{*/
-    /*overflow: hidden*/
-/*}*/
-
-li.done_eigo{
-    list-style: none;
-    float: left;
-    width: 170px;
-    text-align: center;
-    font-size: 21px;
-}
-li.done_eigo>div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 14px;
-    width: 170px;
-    height: 40px;
-    background-color: #F8BBD0;
-}
-li.done_nihongo{
-    list-style: none;
-    float: left;
-    width: 170px;
-    text-align: center;
-    font-size: 21px;
-}
-li.done_nihongo>div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 170px;
-    height: 40px;
-    background-color: #F8BBD0;
+body{
+    width: 375px;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    margin: 0;
+    /*height: 650px;*/
 }
 
-li.studying_eigo{
-    clear: both;
-    list-style: none;
-    float: left;
-    width: 170px;
+.list_title{
+    font-size: 35px;
     text-align: center;
-    font-size: 21px;
-}
-li.studying_eigo>div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 14px;
-    width: 170px;
-    height: 40px;
-    background-color: #FFFF99;
-}
-li.studying_nihongo{
-    list-style: none;
-    float: left;
-    width: 170px;
-    text-align: center;
-    font-size: 21px;
-}
-li.studying_nihongo>div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 170px;
-    height: 40px;
-    background-color: #FFFF99;
 }
 
-li.notyet_eigo{
-    clear: both;
-    list-style: none;
-    float: left;
-    width: 170px;
-    text-align: center;
-    font-size: 21px;
-}
-li.notyet_eigo>div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 14px;
-    width: 170px;
-    height: 40px;
-    background-color: #BAD3FF;
-}
-li.notyet_nihongo{
-    list-style: none;
-    float: left;
-    width: 170px;
-    text-align: center;
-    font-size: 21px;
-}
-li.notyet_nihongo>div{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 170px;
-    height: 40px;
-    background-color: #BAD3FF;
+.list_sub_title {
+    font-size: 25px;
+    padding-left: 20px;
+    margin-bottom: 10px;
 }
 
+th {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    width: 33%;
+    padding: 15px 0px;
+    background-color: dimgray;
+    color: white;
+}
 
+td {
+    width: 33%;
+}
+
+td.word {
+    padding-left: 15px;
+}
+
+td.done {
+    background-color: #FFCCCC;
+}
+
+td.doing {
+    background-color: #FFFFCC;
+}
+
+td.meaning {
+    padding-left: 15px;
+}
+
+td.lesson {
+    padding-left: 15px;
+}
+
+td.notyet {
+    background-color: #CCCCFF;
+}
+
+table {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+}
