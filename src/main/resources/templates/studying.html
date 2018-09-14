@@ -75,9 +75,16 @@
 
     <tr th:each="word : ${studyings2}" th:object="${word}">
         <div class="buddy" style="display: block;">
+            <script type="text/javascript">
+                function audio_play() {
+                    var audio = document.getElementById("audio");
+                    audio.play();
+                }
+            </script>
+            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+
             <div class="sample1">
-
-
                 <p class="flick_word" th:text="*{word}"></p>
                 <div class="mask">
                     <img th:src="*{url}">
@@ -99,6 +106,12 @@
             <div class="sample1">
 
 
+            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+
+            <div class="sample1">
+
+
                 <p class="flick_word" th:text="*{word}"></p>
                 <div class="mask">
                     <img th:src="*{url}">
@@ -117,6 +130,9 @@
 
     <tr th:each="word : ${reviewWords2}" th:object="${word}">
         <div class="buddy" style="display: block;">
+            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+
             <div class="sample1">
 
 
@@ -139,6 +155,10 @@
 
     <tr th:each="word : ${reviewWords1}" th:object="${word}">
         <div class="buddy" style="display: block;">
+            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+
+
             <div class="sample1">
 
 
