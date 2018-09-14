@@ -4,22 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/mypage.css">
-    <script src="/js/style.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
     <title>TopPage</title>
 </head>
 <body>
+<div class="area">
+    <div class="marquee">
+        おはよう！今日は<span id="view_time"></span>。
+        Swishを初めて5日目だよ！
+    </div>
+</div>
+        <script type="text/javascript">
+            document.getElementById("view_time").innerHTML = getNow();
 
-<p class="count_memory"><a class="inf_btn" href="/sense/mypage"><img src="/images/mypage/information.jpg" height="30px" width="37px"></a>　　　　　　　　　　進めた単語数　<tr th:text = "${status}"></tr>回
-<br><p class="count_days">継続日数　60日　　　</p>
+            function getNow() {
+                var now = new Date();
+                var year = now.getFullYear();
+                var mon = now.getMonth()+1; //１を足すこと
+                var day = now.getDate();
+                var hour = now.getHours();
+                var min = now.getMinutes();
+                var sec = now.getSeconds();
+
+                //出力用
+                var s =  mon + "月" + day + "日" ;
+                return s;
+            }
+        </script>
+<p class="mypage_swish">Swish</p>
+<!--<p class="count_memory"><a class="inf_btn" href="/sense/mypage"><img src="/images/mypage/information.jpg" height="30px" width="37px"></a>　　　　　　　　　　進めた単語数　<tr th:text = "${status}"></tr>回-->
+<!--<br><p class="count_days">継続日数　60日　　　</p>-->
 
 
 
-<progress class="progress" min="0" th:attr="max=${count}" th:value="${status}">%</progress>
-<p class="mypage_level">Level 7</p>
+
+
 <div class="mypage_prf">
-    <img src="/images/mypage/icon.png">
-    <p class="myname">おさっぴ</p>
+    <!--<img src="/images/mypage/icon.png">-->
+    <div class="dounuts" style="height: 270px; width: 270px;">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'マスター',
+                    '学習中',
+                    '未学習'
+                ],
+                datasets: [{
+                        data: [10, 20, 30],
+                        backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
+                    }]
+            },
+            options: {
+        }
+        });
+    </script>
+
 </div>
 <div class="mypage_btn">
     <a href="/sense/study" class="newtango_btn">今日の単語</a><br>

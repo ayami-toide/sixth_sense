@@ -12,47 +12,12 @@ body{
 html,body{
     overflow: hidden
 }
-//progress-bar//
-.progress{
-    display: block;
-    appearance: none;
-    border: none;
-}
-.progress{
-    --uiProgressWidth: var(--progressWidth, 100%);
-    --uiProgressHeight: var(--progressHeight, 5px);
-    width: var(--uiProgressWidth);
-    height: var(--uiProgressHeight);
-}
-.progress[value]::-webkit-progress-value{
-    transition: width .4s ease-out;
-}
-.progress{
-    --uiProgressColor: var(--progressColor);
-    --uiProgressBgColor: var(--progressBgColor);
-    background-color: var(--uiProgressColor);
-    color: var(--uiProgressColor);
-}
-.progress[value]::-webkit-progress-bar{
-    background-color: var(--uiProgressBgColor);
-}
-.progress[value]::-webkit-progress-value{
-    background-color: var(--uiProgressColor);
-}
-.progress[value]::-moz-progress-bar{
-    background-color: var(--uiProgressColor);
-}
-.progress{
-    --progressHeight: 4px;
-}
-.progress{
-    --progressColor: #C21858;
-    --progressBgColor: #F8BBD0;
-}
+
+
 .mypage_prf{
     text-align: center;
     width: 360px;
-    height: 244px;
+    height: 296px;
 }
 .mypage_prf>img{
     width: 180px;
@@ -60,7 +25,7 @@ html,body{
 }
 .mypage_btn{
     width: 360px;
-    height: 136px;
+    height: 143px;
     text-align: center;
 }
 a.newtango_btn {
@@ -68,9 +33,9 @@ a.newtango_btn {
     padding: 15px 43px;
     margin-bottom: 10px;
     border-radius: 31px;
-    color: #000;
-    background-image: -webkit-linear-gradient(45deg, #C21858 0%, #C21858 100%);
-    background-image: linear-gradient(45deg, #C21858 0%, #C21858 100%);
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #191970 0%, #191970 100%);
+    background-image: linear-gradient(45deg, #191970 0%, #191970 100%);
     transition: .4s;
     font-size: 20px;
 }
@@ -79,9 +44,9 @@ a.oldtango_btn {
     padding: 15px 64px;
     margin-bottom: 10px;
     border-radius: 31px;
-    color: #000;
-    background-image: -webkit-linear-gradient(45deg, #C21858 0%, #C21858 100%);
-    background-image: linear-gradient(45deg, #C21858 0%, #C21858 100%);
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #191970 0%, #191970 100%);
+    background-image: linear-gradient(45deg, #191970 0%, #191970 100%);
     transition: .4s;
     font-size: 20px;
 }
@@ -113,10 +78,11 @@ a.oldtango_btn {
     margin: 6px;
 }
 
-.mypage_level{
+.mypage_swish{
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
     margin: 10px;
+    font-family: 'Audiowide', cursive;
 }
 
 .count_days{
@@ -125,4 +91,32 @@ a.oldtango_btn {
 }
 .count_memory{
     margin: 0;
+}
+
+
+/* 表示領域 */
+.area {
+    width: 353px;
+    overflow: hidden;
+}
+/* 表示領域に合わせてサイズと余白を設定 */
+.marquee {
+    width: 400px;
+    padding-left: 300px;
+    white-space: nowrap;
+
+    animation-name: marquee;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes marquee {
+    from    { transform: translate(0%); }
+    100%,to { transform: translate(-100%); }
+}
+
+.dounuts{
+    margin: 46px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
