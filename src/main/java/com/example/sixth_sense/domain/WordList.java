@@ -56,6 +56,9 @@ public class WordList {
     @Column(name="audio", nullable=false)
     private  String audio;
 
+    @Column(name="lesson", nullable=false)
+    private  String lesson;
+
     public Integer getId() {
         return id;
     }
@@ -102,6 +105,10 @@ public class WordList {
 
     public String getAudio() {
         return audio;
+    }
+
+    public String getLesson() {
+        return lesson;
     }
 
     public List<String> getShuffledAnswers() {
