@@ -8,10 +8,8 @@ body{
     height: 670px;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
-
 html,body {
     overflow: hidden;
-
 }
 .progress{
     display: block;
@@ -113,14 +111,12 @@ a.oldtango_btn {
 .mypage_menu li p{
     margin: 6px;
 }
-
 .mypage_swish{
     text-align: center;
     font-size: 50px;
     margin: 5px;
     font-family: 'Audiowide', cursive;
 }
-
 .count_days{
     text-align: right;
     margin: 0;
@@ -128,9 +124,6 @@ a.oldtango_btn {
 .count_memory{
     margin: 0;
 }
-
-
-
 /* 表示領域 */
 .area {
     width: 365px;
@@ -154,10 +147,8 @@ a.oldtango_btn {
     from    { transform: translate(0%); }
     100%,to { transform: translate(-100%); }
 }
-
 .dounuts{
     margin: 46px;
     margin-bottom: 0;
     margin-top: 0;
 }
-
