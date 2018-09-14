@@ -69,24 +69,23 @@
 
     <div class="mypage_menu">
         <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
-        <li class="my_menu_t"><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
-            <input type = "image" src="/images/mypage/next.png"><p>次のテスト</p>
-            </form>
-            </li>
+
+<li class="my_menu_t"><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
+    <input type = "image" src="/images/mypage/next.png"><p>次のテスト</p>
+</form>
+</li>
+</div>
+
         </div>
 
 
-
 <input type="hidden" src="/images/test/saisei.jpg" onclick="audio_play()" height="25px" width="25px" ><br>
-<input type="hidden" src="/images/test/saisei.jpg" onclick="audio_pause()">
+
 <script type="text/javascript">
     function audio_play() {
         audio.play();
     }
 
-    function audio_pause() {
-        audio.pause();
-    }
 </script>
 
 
