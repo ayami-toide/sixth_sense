@@ -12,10 +12,6 @@ body{
 html,body{
     overflow: hidden
 }
-.count_memory{
-    text-align: right;
-    margin-right: 20px;
-}
 //progress-bar//
 .progress{
     display: block;
@@ -123,3 +119,10 @@ a.oldtango_btn {
     margin: 10px;
 }
 
+.count_days{
+    text-align: right;
+    margin: 0;
+}
+.count_memory{
+    margin: 0;
+}
