@@ -104,13 +104,17 @@
                 }, 1000);
                 countstop();
             }
+<<<<<<< HEAD
+=======
 
 
         }
 
 
+>>>>>>> 76948ac7fb94b27abc800de44bce2efd9a537bb7
 
 
+        }
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
             timerID = setInterval('countdown()',1000);
@@ -155,6 +159,17 @@
 
                 <div th:if="${lastid}">
                     <div th:switch="${word}">
+<<<<<<< HEAD
+                         <span th:case="${option.meaning}" onClick="changepage(0)">
+                             <div class="nihongo_btn" th:text="${word}"></div>
+                         </span>
+
+                        <span th:case="*" onClick="changepage(2)">
+                             <div class="nihongo_btn" th:text="${word}" ></div>
+                             <form th:action="@{/sense/test_quiz/}" method="get" />　
+                            </form>
+                         </span>
+=======
                           <span th:case="${option.meaning}" onClick="changepage(0)">
                               <div class="nihongo_btn" th:text="${word}"></div>
                           </span>
@@ -164,11 +179,23 @@
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
                           </span>
+>>>>>>> 76948ac7fb94b27abc800de44bce2efd9a537bb7
                     </div>
                 </div>
 
                 <div th:unless="${lastid}">
                     <div th:switch="${word}">
+<<<<<<< HEAD
+                             <span th:case="${option.meaning}" onClick="changepage(1)">
+                                 <div class="nihongo_btn" th:text="${word}"></div>
+                             </span>
+
+                        <span th:case="*" onClick="changepage(2)">
+                                 <div class="nihongo_btn" th:text="${word}" ></div>
+                                 <form th:action="@{/sense/test_quiz/}" method="get" />　
+                            </form>
+                             </span>
+=======
                               <span th:case="${option.meaning}" onClick="changepage(1)">
                                   <div class="nihongo_btn" th:text="${word}"></div>
                               </span>
@@ -178,6 +205,7 @@
                                   <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
                               </span>
+>>>>>>> 76948ac7fb94b27abc800de44bce2efd9a537bb7
                     </div>
                 </div>
             </div>

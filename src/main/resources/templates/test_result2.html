@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/test_result.css">
-        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Sawarabi+Gothic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
         <title>Test Result</title>
     </head>
 
@@ -20,12 +20,13 @@
 
     </div>
 
+    　
     <div class="test_text">
         <div class="test_result_tx">
             <audio id="audio1">
                 <source th:src="${'/audio/' + testaudios1.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio1.play()" height="25px" width="25px" >
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio1.play()" height="25px" width="25px" ><br>
             <tr  th:object = "${testwords1}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings1}"><td th:text="*{meaning}"></td></tr>
         </div>
@@ -34,7 +35,7 @@
             <audio id="audio2">
                 <source th:src="${'/audio/' + testaudios2.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio2.play()" height="25px" width="25px" >
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio2.play()" height="25px" width="25px" ><br>
             <tr  th:object = "${testwords2}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings2}"><td th:text="*{meaning}"></td></tr>
         </div>
@@ -43,7 +44,7 @@
             <audio id="audio3">
                 <source th:src="${'/audio/' + testaudios3.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio3.play()" height="25px" width="25px" >
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio3.play()" height="25px" width="25px" ><br>
             <tr  th:object = "${testwords3}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings3}"><td th:text="*{meaning}"></td></tr>
         </div>
@@ -52,7 +53,7 @@
             <audio id="audio4">
                 <source th:src="${'/audio/' + testaudios4.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio4.play()" height="25px" width="25px" >
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio4.play()" height="25px" width="25px" ><br>
             <tr  th:object = "${testwords4}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings4}"><td th:text="*{meaning}"></td></tr>
         </div>
@@ -61,19 +62,20 @@
             <audio id="audio5">
                 <source th:src="${'/audio/' + testaudios5.audio}">
             </audio>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio5.play()" height="25px" width="25px" >
+            <input type="image" src="/images/test/saisei.jpg" onclick="audio5.play()" height="25px" width="25px" ><br>
             <tr  th:object = "${testwords5}"><td th:text="*{word}"></td></tr>
             <tr  th:object = "${testmeanings5}"><td th:text="*{meaning}"></td></tr>
         </div>
     </div>
 
     <div class="mypage_menu">
-        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
-        <li class="my_menu_t"><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
-            <input type = "image" src="/images/mypage/next.png"><p>次のテスト</p>
-            </form>
-            </li>
-        </div>
+        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a>ホーム</li>
+        <li><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
+            <input type = "image" src="/images/mypage/next.png">
+<p>次のテスト</p>
+</form>
+</li>
+</div>
 
 
 
