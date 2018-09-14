@@ -7,6 +7,45 @@
     <script src="/js/style.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Title</title>
+    <style>
+        .progress{
+            display: block;
+            appearance: none;
+            border: none;
+        }
+        .progress{
+            --uiProgressWidth: var(--progressWidth, 100%);
+            --uiProgressHeight: var(--progressHeight, 5px);
+            width: var(--uiProgressWidth);
+            height: var(--uiProgressHeight);
+        }
+        .progress[value]::-webkit-progress-value{
+            transition: width .4s ease-out;
+        }
+        .progress{
+            --uiProgressColor: var(--progressColor);
+            --uiProgressBgColor: var(--progressBgColor);
+            background-color: var(--uiProgressColor);
+            color: var(--uiProgressColor);
+        }
+        .progress[value]::-webkit-progress-bar{
+            background-color: var(--uiProgressBgColor);
+        }
+        .progress[value]::-webkit-progress-value{
+            background-color: var(--uiProgressColor);
+        }
+        .progress[value]::-moz-progress-bar{
+            background-color: var(--uiProgressColor);
+        }
+        .progress{
+            --progressHeight: 8px;
+        }
+        .progress{
+            --progressColor: #C21858;
+            --progressBgColor: #F8BBD0;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -152,11 +191,6 @@
 
 </div>
 
-
-        <!--<option th:each="i : ${#numbers.sequence(2, 9)}" th:value="${i}">-->
-            <!--<div th:text="'Unit'+ ${i}"></div>-->
-        <!--</option>-->
-
     <script>
         var nizyumaru_onButton = document.getElementById('nizyu-maru-on');
         var maru_onButton = document.getElementById('maru-on');
@@ -191,28 +225,50 @@
         <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:次に受けてほしいテスト</p></li>
         <li><a class="setumei_img"><img src="/images/unit_select/check.png"></a><p class="setumei_p">:テスト受けました！</p></li>
     </ul>
-    <form th:action="@{/sense/test}" method="get">
-        <input type = "submit" value="Get Ready">
-    </form>
-    <div th:if="${status1.status}==1"><img src="/images/unit_select/nimaru.png"></div>
-    <div th:if="${status1.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
+    <div>
+        <form th:action="@{/sense/test}" method="get">
+            <input type = "submit" value="Get Ready">
+        </form>
+        <p>進捗度<p><progress class="progress" min="0" th:attr="max=${count}" th:value="${status}">50%</progress>
+        <div th:if="${status1.status}==1"><img src="/images/unit_select/nimaru.png"></div>
+        <div th:if="${status1.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
+    </div>
 
-    <a href="#">Unit 1</a><br>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson1">
+    </form>
     <div th:if="${status2.status}==1"><img src="/images/unit_select/nimaru.png"></div>
     <div th:if="${status2.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
 
-    <a href="#">Unit 2</a><br>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson2">
+    </form>
     <div th:if="${status3.status}==1"><img src="/images/unit_select/nimaru.png"></div>
     <div th:if="${status3.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
 
 
-    <a href="#">Unit 3</a><br>
-    <a href="#">Unit 4</a><br>
-    <a href="#">Unit 5</a><br>
-    <a href="#">Unit 6</a><br>
-    <a href="#">Unit 7</a><br>
-    <a href="#">Unit 8</a><br>
-    <a href="#">Unit 9</a><br>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson3">
+    </form>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson4">
+    </form>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson5">
+    </form>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson6">
+    </form>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson7">
+    </form>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson8">
+    </form>
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson9">
+    </form>
+
 </div>
 
 
