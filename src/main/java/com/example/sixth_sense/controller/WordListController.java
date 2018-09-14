@@ -201,6 +201,12 @@ public class WordListController {
         return "exam";
     }
 
+    //osanai(9/12)
+    @GetMapping("test01")
+    public String test01(Model model){
+        return "test01";
+    }
+
 
 
 

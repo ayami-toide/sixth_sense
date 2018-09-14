@@ -44,8 +44,81 @@
         div#tab3 { border: 2px solid #DDD; background-color: #fbfbfb; }
         div.tab p { margin: 0.5em; }
     </style>
+
+    <script src="/js/pdfmake.min.js"></script>
+    <script src="/js/vfs_fonts.js"></script>
+
 </head>
 <body>
+
+
+
+
+
+
+
+    <button id="btn_gen_pdf" type="button">日本語PDF出力</button><br/><br/>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+
+    <script>
+
+      var docDefinition;
+      // 初期化処理
+      $(function() {
+        // PDF出力定義
+        pdfMake.fonts = {
+          tekito_font: {
+          normal: 'ipaexm.ttf'
+          }
+        };
+        docDefinition = {
+          pageSize: 'A4',
+          content: [
+            {text: 'This is an sample PDF printed with pdfMake. 日本語のテスト',
+               fontSize: 10,
+              absolutePosition : { x :15,y :15 }
+          }],
+          defaultStyle: {font: 'tekito_font'}
+        };
+
+        $("#btn_gen_pdf").on("click", function(){
+          var _hoge = pdfMake.createPdf(docDefinition);
+          _hoge.getDataUrl(function(result) {
+
+            // PDF生成(Base64エンコードされている)
+            var encPdf = result.replace(/^data:application\/pdf;base64,/, '');
+
+            // "NativeObj"として、WebViewに紐付けられている場合
+            if (NativeObj) {
+              // エンコードされた文字列をアプリ上でデコードし、ファイルを出力
+              var genPdfPath =  NativeObj.generatePdfOnNative(encPdf);
+              console.log("generated:"+genPdfPath);
+            } else {
+            // とりあえず。。。
+              console.log("========");
+              console.log("local log:\n" + encPdf);
+            }
+          });
+        });
+      });
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p class="list_title">単語テスト</p>
     <br></li>
 
