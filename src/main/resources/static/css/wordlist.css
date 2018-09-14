@@ -1,11 +1,7 @@
 /*html,body{*/
     /*overflow: hidden*/
 /*}*/
-body{
-    width: 350px;
-    font-family: 'Sawarabi Gothic', sans-serif;
-    /*height: 650px;*/
-}
+
 li.done_eigo{
     list-style: none;
     float: left;
@@ -98,7 +94,4 @@ li.notyet_nihongo>div{
     background-color: #BAD3FF;
 }
 
-.list_title{
-    font-size: 35px;
-    text-align: center;
-}
+

@@ -4,31 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/wordlist.css">
+    <link rel="stylesheet" href="/css/wordlist1.css">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>単語一覧</title>
 </head>
 <body>
-<p class="list_title">単語リスト</p>
+<a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
+<p class="list_title">WORD LIST</p>
 
 <p class="list_sub_title">マスターした単語</p>
-<li class="done_eigo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.word}"><br></tr></div>
-    <br></li>
-<li class="done_nihongo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.meaning}"><br></tr></div>
-</li>
 
+<table>
+    <tr><th>単語</th><th>意味</th><th>Lesson</th></tr>
+    <tr th:each = "obj:${MasterWordlists}" th:object="${obj}">
+        <td class="word done" th:text="*{word}"></td>
+        <td class="meaning done" th:text="*{meaning}"></td>
+        <td class="lesson done" th:text="*{lesson}"></td>
+    </tr>
+</table>
 
 <p class="list_sub_title">学習中の単語</p>
-<li class="studying_eigo"><div th:each = " StudyingWordlists :${StudyingWordlists}" th:object="${StudyingWordlist}"><tr th:text = "${StudyingWordlists.word}"><br></tr></div>
-    <br></li>
-<li class="studying_nihongo"><div th:each = " StudyingWordlists :${StudyingWordlists}" th:object="${StudyingWordlist}"><tr th:text = "${StudyingWordlists.meaning}"><br></tr></div>
-</li>
 
+<table>
+    <tr><th>単語</th><th>意味</th><th>Lesson</th></tr>
+    <tr th:each = "obj:${StudyingWordlists}" th:object="${obj}">
+        <td class="word doing" th:text="*{word}"></td>
+        <td class="meaning doing" th:text="*{meaning}"></td>
+        <td class="lesson doing" th:text="*{lesson}"></td>
+    </tr>
+</table>
 
 <p class="list_sub_title">未学習の単語</p>
-<li class="notyet_eigo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.word}"><br></tr></div>
-    <br></li>
-  <li class="notyet_nihongo"><div th:each = " notstudieds :${notstudieds}" th:object="${notstudied}"><tr th:text = "${notstudieds.meaning}"><br></tr></div>
-    </li>
+
+<table>
+    <tr><th>単語</th><th>意味</th><th>Lesson</th></tr>
+    <tr th:each = "obj:${notstudieds}" th:object="${obj}">
+        <td class="word notyet" th:text="*{word}"></td>
+        <td class="meaning notyet" th:text="*{meaning}"></td>
+        <td class="lesson notyet" th:text="*{lesson}"></td>
+    </tr>
+</table>
 
 
 </body>
