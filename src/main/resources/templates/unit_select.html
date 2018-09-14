@@ -11,10 +11,13 @@
 <body>
 
 
-<p th:object="${status1}" ><tr th:text="${status1.status}"></tr></p>
-<p th:text="${status1.status}"></p>
+<!--<p th:object="${status1}" ><tr th:text="${status1.status}"></tr></p>-->
+<!--<p th:text="${status1.status}"></p>-->
 
-<!--<tr th:each="status : ${newWords2}" th:object="${word}">-->
+<!--<p th:if="${status1.status}==1"><img src="/images/unit_select/nimaru.png"></p>-->
+<!--<p th:unless="${status1.status}==1"><img src="/images/unit_select/ichimaru.png"></p>-->
+
+
 
 
 
@@ -24,37 +27,135 @@
         <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できれば受けてほしいテスト</p></li>
     </ul>
 
+    <!--getready-->
     <form th:action="@{/sense/test}" method="get">
         <input type = "submit" value="Get Ready">
     </form>
 
-    <form th:action="@{/sense/unit_select/0}" th:method="put">
-        <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "◎" onclick="changeButton(0)">
+        <div th:if="${status1.status}==0">
+            <form th:action="@{/sense/unit_select/0}" th:method="put">
+                <div id="nizyu-maru-on" class="nizyu-maru-on">
+                    <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+                </div>
+            </form>
         </div>
+
+        <div th:if="${status1.status}==1">
+            <form th:action="@{/sense/unit_select0/0}" th:method="put">
+                <img src="/images/unit_select/nimaru.png">
+                <div id="nizyu-maru-off" class="nizyu-maru-off">
+                    <input type="submit" value = "今日のテストを解除する" onclick="changeButton(2)">
+                </div>
+            </form>
+        </div>
+
+        <div th:if="${status1.maru_status}==0">
+            <form th:action="@{/sense/unit_select_maru/0}" th:method="put">
+                <div id="maru-on" class="maru-on">
+                    <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+                </div>
+            </form>
+        </div>
+
+        <div th:if="${status1.maru_status}==1">
+            <form th:action="@{/sense/unit_select_maru0/0}" th:method="put">
+                <img src="/images/unit_select/ichimaru.png">
+                <div id="maru-off" class="maru-off">
+                    <input type="submit" value = "次のテストを解除" onclick="changeButton(3)">
+                </div>
+            </form>
+        </div>
+
+    <br>
+
+    <!--Lesson1-->
+    <form th:action="@{/sense/test}" method="get">
+            <input type = "submit" value="Lesson1">
     </form>
 
-    <form th:action="@{/sense/unit_select0/0}" th:method="put">
-        <div id="nizyu-maru-off" class="nizyu-maru-off">
-            <input type="submit" value = "ooo" onclick="changeButton(2)">
+        <div th:if="${status2.status}==0">
+            <form th:action="@{/sense/unit_select/1}" th:method="put">
+                <div id="nizyu-maru-on" class="nizyu-maru-on">
+                    <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+                </div>
+            </form>
         </div>
+
+        <div th:if="${status2.status}==1">
+            <form th:action="@{/sense/unit_select0/1}" th:method="put">
+                <img src="/images/unit_select/nimaru.png">
+                <div id="nizyu-maru-off" class="nizyu-maru-off">
+                    <input type="submit" value = "今日のテストを解除する" onclick="changeButton(2)">
+                </div>
+            </form>
+        </div>
+
+        <div th:if="${status2.maru_status}==0">
+            <form th:action="@{/sense/unit_select_maru/1}" th:method="put">
+                <div id="maru-on" class="maru-on">
+                    <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+                </div>
+            </form>
+        </div>
+
+        <div th:if="${status2.maru_status}==1">
+            <form th:action="@{/sense/unit_select_maru0/1}" th:method="put">
+            <img src="/images/unit_select/ichimaru.png">
+                <div id="maru-off" class="maru-off">
+                    <input type="submit" value = "次のテストを解除" onclick="changeButton(3)">
+                </div>
+            </form>
+        </div>
+
+    <br>
+
+    <!--Lesson2-->
+    <form th:action="@{/sense/test}" method="get">
+        <input type = "submit" value="Lesson2">
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/0}" th:method="put">
-        <div id="maru-on" class="maru-on">
-            <input type = "submit" value="〇" onclick="changeButton(1)">
-        </div>
-    </form>
+    <div th:if="${status3.status}==0">
+        <form th:action="@{/sense/unit_select/2}" th:method="put">
+            <div id="nizyu-maru-on" class="nizyu-maru-on">
+                <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            </div>
+        </form>
+    </div>
 
-    <form th:action="@{/sense/unit_select_maru0/0}" th:method="put">
-        <div id="maru-off" class="maru-off">
-            <input type="submit" value = "zzz" onclick="changeButton(3)">
-        </div>
-    </form>
+    <div th:if="${status3.status}==1">
+        <form th:action="@{/sense/unit_select0/2}" th:method="put">
+            <img src="/images/unit_select/nimaru.png">
+            <div id="nizyu-maru-off" class="nizyu-maru-off">
+                <input type="submit" value = "今日のテストを解除する" onclick="changeButton(2)">
+            </div>
+        </form>
+    </div>
 
-    <option th:each="i : ${#numbers.sequence(1, 9)}" th:value="${i}">
-        <div th:text="'Unit'+ ${i}"></div>
-    </option>
+    <div th:if="${status3.maru_status}==0">
+        <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+            <div id="maru-on" class="maru-on">
+                <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            </div>
+        </form>
+    </div>
+
+    <div th:if="${status3.maru_status}==1">
+        <form th:action="@{/sense/unit_select_maru0/2}" th:method="put">
+            <img src="/images/unit_select/ichimaru.png">
+            <div id="maru-off" class="maru-off">
+                <input type="submit" value = "次のテストを解除" onclick="changeButton(3)">
+            </div>
+        </form>
+    </div>
+
+    <br>
+
+</div>
+
+
+        <!--<option th:each="i : ${#numbers.sequence(2, 9)}" th:value="${i}">-->
+            <!--<div th:text="'Unit'+ ${i}"></div>-->
+        <!--</option>-->
 
     <script>
         var nizyumaru_onButton = document.getElementById('nizyu-maru-on');
@@ -83,19 +184,28 @@
             }
         }
     </script>
-</div>
 
 <div th:unless = "${teacherId}">
     <ul class="setumei">
-        <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:必須で受けてほしいテスト</p></li>
-        <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できれば受けてほしいテスト</p></li>
+        <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:今日のテスト</p></li>
+        <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:次に受けてほしいテスト</p></li>
         <li><a class="setumei_img"><img src="/images/unit_select/check.png"></a><p class="setumei_p">:テスト受けました！</p></li>
     </ul>
     <form th:action="@{/sense/test}" method="get">
         <input type = "submit" value="Get Ready">
     </form>
+    <div th:if="${status1.status}==1"><img src="/images/unit_select/nimaru.png"></div>
+    <div th:if="${status1.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
+
     <a href="#">Unit 1</a><br>
+    <div th:if="${status2.status}==1"><img src="/images/unit_select/nimaru.png"></div>
+    <div th:if="${status2.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
+
     <a href="#">Unit 2</a><br>
+    <div th:if="${status3.status}==1"><img src="/images/unit_select/nimaru.png"></div>
+    <div th:if="${status3.maru_status}==1"><img src="/images/unit_select/ichimaru.png"></div>
+
+
     <a href="#">Unit 3</a><br>
     <a href="#">Unit 4</a><br>
     <a href="#">Unit 5</a><br>

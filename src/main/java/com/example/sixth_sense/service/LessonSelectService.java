@@ -23,9 +23,6 @@ public class LessonSelectService {
     }
 
     @Transactional
-    public LessonSelect findStatus(Integer id){ return lessonSelectMapper.findStatus(id); }
-
-    @Transactional
     public void update(LessonSelect lessonSelect){
        lessonSelectMapper.update(lessonSelect);
     }

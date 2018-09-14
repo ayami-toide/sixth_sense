@@ -14,9 +14,6 @@ public interface LessonSelectMapper {
     @Select("select * from lessonselect where id = #{id}")
     LessonSelect findOne(Integer id);
 
-    @Select("select status from lessonselect where id = 1")
-    LessonSelect findStatus(Integer id);
-
     @Insert("insert into lessonselect (lesson_id,status) values (#{lesson_id}, #{status})")
     @Options(useGeneratedKeys = true)
     void save(LessonSelect lessonSelect);

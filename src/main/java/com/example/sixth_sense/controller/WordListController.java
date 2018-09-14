@@ -139,6 +139,10 @@ public class WordListController {
     @GetMapping("teacher_unit_select")
     public String teacher_unit_select(Model model){
 
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
         return "unit_select";
@@ -182,7 +186,8 @@ public class WordListController {
     public String unit_select(Model model){
 
         model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
-        model.addAttribute("status",lessonSelectService.findStatus(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
         return "unit_select";
     }
@@ -208,6 +213,10 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.update(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -219,6 +228,10 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.update0(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -232,6 +245,10 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.maru_update(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -244,6 +261,9 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.maru_update0(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
