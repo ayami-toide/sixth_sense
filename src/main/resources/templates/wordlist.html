@@ -15,7 +15,7 @@
 <p class="list_sub_title">マスターした単語</p>
 
 <table>
-    <tr><th>単語</th><th>意味</th><th>Lesson</th></tr>
+    <tr><th class="wordcolumn">単語</th><th>意味</th><th class="lessoncolumn">Lesson</th></tr>
     <tr th:each = "obj:${MasterWordlists}" th:object="${obj}">
         <td class="word done" th:text="*{word}"></td>
         <td class="meaning done" th:text="*{meaning}"></td>
@@ -26,7 +26,7 @@
 <p class="list_sub_title">学習中の単語</p>
 
 <table>
-    <tr><th>単語</th><th>意味</th><th>Lesson</th></tr>
+    <tr><th class="wordcolumn">単語</th><th>意味</th><th class="lessoncolumn">Lesson</th></tr>
     <tr th:each = "obj:${StudyingWordlists}" th:object="${obj}">
         <td class="word doing" th:text="*{word}"></td>
         <td class="meaning doing" th:text="*{meaning}"></td>
@@ -37,7 +37,7 @@
 <p class="list_sub_title">未学習の単語</p>
 
 <table>
-    <tr><th>単語</th><th>意味</th><th>Lesson</th></tr>
+    <tr><th class="wordcolumn">単語</th><th>意味</th><th class="lessoncolumn">Lesson</th></tr>
     <tr th:each = "obj:${notstudieds}" th:object="${obj}">
         <td class="word notyet" th:text="*{word}"></td>
         <td class="meaning notyet" th:text="*{meaning}"></td>
