@@ -36,8 +36,10 @@ public class WordListController {
     public String info(Model model) { return "info"; }
 
 
-    @GetMapping("test")
-    public String test(Model model){
+    @GetMapping("test/{id}")
+    public String test(@PathVariable("id") int id, Model model){
+
+        model.addAttribute("UnitId",id);
         return "test";
     }
 
@@ -76,20 +78,27 @@ public class WordListController {
         return "study_index";
     }
 
-    @RequestMapping("test_quiz")
-    public String test_quiz(Model model){
+    @RequestMapping("test_quiz/{UnitId}")
+    public String test_quiz(@PathVariable("UnitId") int id, Model model){
 
+        model.addAttribute("UnitId", id);
         model.addAttribute("testNumber", 1);
-        model.addAttribute("testwords",wordlistService.setTest());
+        if(id == 0) {
+            model.addAttribute("testwords", wordlistService.setTest());
+        }else if(id == 1){
+            model.addAttribute("testwords", wordlistService.setTest1());
+        }else{
+            model.addAttribute("testwords",wordlistService.setTest());
+        }
 
         return "test_quiz";
     }
 
-    @RequestMapping(value = "test_question/{id}/{testNumber}", method = POST)
-    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@ModelAttribute WordList wordlist,Model model){
+    @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = POST)
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute WordList wordlist,Model model){
 
         wordlistService.test_maru_update(new Integer(id));
-
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
 
@@ -101,9 +110,10 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping(value = "test_question/{id}/{testNumber}", method = GET)
-    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber, Model model)
+    @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = GET)
+    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId, Model model)
     {
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
         int TestNumber = testNumber + 1;
@@ -116,12 +126,13 @@ public class WordListController {
     }
 
 
-    @RequestMapping(value = "test_result/{id}" , method = POST)
-    public String test_result_post(@PathVariable("id") int id,@ModelAttribute LessonSelect lessonSelect, Model model)
+    @RequestMapping(value = "test_result/{id}/{UnitId}", method = POST)
+    public String test_result_post(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId,@ModelAttribute LessonSelect lessonSelect, Model model)
     {
         lessonSelect.setId(new Integer(0));
         lessonSelectService.perfect(lessonSelect);
 
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("id", id);
 
         String[] array = {"Great job!", "Excellent!", "Well done!"};
@@ -136,8 +147,8 @@ public class WordListController {
 
 
     }
-    @RequestMapping(value = "test_result/{id}" , method = GET)
-    public String test_result(@PathVariable("id") int id,Model model)
+    @RequestMapping(value = "test_result/{id}/{UnitId}" , method = GET)
+    public String test_result(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId, Model model)
     {
 
               int resultId1 = id - 5;
@@ -175,6 +186,8 @@ public class WordListController {
         array = (String[])list.toArray(new String[0]);
         model.addAttribute("word",word);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
+
+        model.addAttribute("UnitId",UnitId);
 
         return "test_result";
 
@@ -274,7 +287,6 @@ public class WordListController {
         model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
         model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
         model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
-
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
