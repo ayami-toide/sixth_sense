@@ -160,6 +160,11 @@ public class WordListService {
             return  wordListMapper.setTest();
         }
 
+        @Transactional
+        public List<WordList> setTest1(){
+        return  wordListMapper.setTest1();
+    }
+
         //Riku
         @Transactional
         public void test_maru_update(Integer id){
