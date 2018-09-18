@@ -60,6 +60,7 @@ public class WordList {
     private  Integer test_maru;
 
     @Column(name="lesson", nullable=false)
+    private String lesson;
 
 
     public Integer getId() {

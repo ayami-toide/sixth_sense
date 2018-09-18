@@ -17,8 +17,7 @@ html,body {
     margin-right: 20px;
 }
 
-.progress{
-    display: block;
+.progress{    display: block;
     appearance: none;
     border: none;
 }

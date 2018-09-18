@@ -32,10 +32,10 @@
     <div class="tugiedisplay" id="tugiedisplay">
 
         <div th:object="${testwords.get(0)}">
-        <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
-        　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
+            <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
+                　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
 
-        </form>
+            </form>
         </div>
     </div>
 
@@ -181,30 +181,30 @@
                 </div>
             </div>
         </div>
-    </span>
+        </span>
 
-    <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+        <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
-    <audio id="audio" >
-        <source src="/audio/crrect_answer.mp3">
-    </audio>
-    <audio id="audiobatu" >
-        <source src="/audio/batu.mp3">
-    </audio>
+        <audio id="audio" >
+            <source src="/audio/crrect_answer.mp3">
+        </audio>
+        <audio id="audiobatu" >
+            <source src="/audio/batu.mp3">
+        </audio>
 
-    <audio id="audiohome" >
-        <source src="/audio/home.mp3">
-    </audio>
+        <audio id="audiohome" >
+            <source src="/audio/home.mp3">
+        </audio>
 
-    <script type="text/javascript">
-        function audio_play() {
-            audio.play();
-        }
-        function audiobatu_play() {
-            audiobatu.play();
-        }
+        <script type="text/javascript">
+            function audio_play() {
+                audio.play();
+            }
+            function audiobatu_play() {
+                audiobatu.play();
+            }
 
-    </script>
-</div>
+        </script>
+    </div>
 </body>
 </html>
