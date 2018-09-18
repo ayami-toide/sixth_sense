@@ -16,6 +16,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
+
 
 @Controller
 @RequestMapping("/sense")
@@ -75,27 +79,64 @@ public class WordListController {
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
 
-        int id = 2;
-        model.addAttribute("nextId", id);
-        model.addAttribute("words",wordlistService.findOne(new Long(1)));
+        model.addAttribute("testNumber", 1);
+        model.addAttribute("testwords",wordlistService.setTest());
 
         return "test_quiz";
     }
 
-    @RequestMapping("test_question/{id}")
-    public String test_question(@PathVariable("id") int id, Model model)
-    {
-        model.addAttribute("nextId", id + 1);
-        model.addAttribute("words",wordlistService.findOne(new Long(id)));
+    @RequestMapping(value = "test_question/{id}/{testNumber}", method = POST)
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@ModelAttribute WordList wordlist,Model model){
 
-        if(id % 5 == 0){
+        wordlistService.test_maru_update(new Integer(id));
+
+        model.addAttribute("testNumber",testNumber + 1);
+        model.addAttribute("testwords",wordlistService.setTest());
+
+        int TestNumber = testNumber + 1;
+        if(TestNumber % 5 == 0){
             String lastid = "last";
             model.addAttribute("lastid",lastid);
         }
         return "test_quiz" ;
     }
 
-    @RequestMapping("test_result/{id}")
+    @RequestMapping(value = "test_question/{id}/{testNumber}", method = GET)
+    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber, Model model)
+    {
+        model.addAttribute("testNumber",testNumber + 1);
+        model.addAttribute("testwords",wordlistService.setTest());
+        int TestNumber = testNumber + 1;
+
+        if(TestNumber % 5 == 0){
+            String lastid = "last";
+            model.addAttribute("lastid",lastid);
+        }
+        return "test_quiz" ;
+    }
+
+
+    @RequestMapping(value = "test_result/{id}" , method = POST)
+    public String test_result_post(@PathVariable("id") int id,@ModelAttribute LessonSelect lessonSelect, Model model)
+    {
+        lessonSelect.setId(new Integer(0));
+        lessonSelectService.perfect(lessonSelect);
+
+        model.addAttribute("id", id);
+
+        String[] array = {"Great job!", "Excellent!", "Well done!"};
+        List<String> list = Arrays.asList(array);
+        Collections.shuffle(list);
+        String word  = list.get(1);
+        array = (String[])list.toArray(new String[0]);
+
+        model.addAttribute("word",word);
+
+        return "test_result";
+
+
+    }
+    @RequestMapping(value = "test_result/{id}" , method = GET)
     public String test_result(@PathVariable("id") int id,Model model)
     {
 
@@ -133,9 +174,6 @@ public class WordListController {
         String word  = list.get(1);
         array = (String[])list.toArray(new String[0]);
         model.addAttribute("word",word);
-
-        model.addAttribute("id", id);
-
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
         return "test_result";
@@ -223,6 +261,7 @@ public class WordListController {
     //osanai(9/12)
     @GetMapping("test01")
     public String test01(Model model){
+        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
         return "test01";
     }
 

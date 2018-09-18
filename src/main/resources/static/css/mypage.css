@@ -8,11 +8,15 @@ body{
     height: 670px;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
-
 html,body {
     overflow: hidden;
-
 }
+
+.count_memory{
+    text-align: right;
+    margin-right: 20px;
+}
+
 .progress{
     display: block;
     appearance: none;
@@ -53,6 +57,7 @@ html,body {
     text-align: center;
     width: 360px;
     height: 296px;
+    margin-top: 10px;
 }
 .mypage_prf>img{
     width: 180px;
@@ -112,14 +117,12 @@ a.oldtango_btn {
 .mypage_menu li p{
     margin: 6px;
 }
-
 .mypage_swish{
     text-align: center;
     font-size: 50px;
-    margin: 10px;
+    margin: 5px;
     font-family: 'Audiowide', cursive;
 }
-
 .count_days{
     text-align: right;
     margin: 0;
@@ -127,13 +130,14 @@ a.oldtango_btn {
 .count_memory{
     margin: 0;
 }
-
-
-
 /* 表示領域 */
 .area {
-    width: 353px;
+    width: 365px;
     overflow: hidden;
+    /*background-color: #191970;*/
+    /*color: #FFFFFF;*/
+    border-top: 1px solid #191970;
+    border-bottom: 1px solid #191970;
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
@@ -149,10 +153,8 @@ a.oldtango_btn {
     from    { transform: translate(0%); }
     100%,to { transform: translate(-100%); }
 }
-
 .dounuts{
     margin: 46px;
     margin-bottom: 0;
     margin-top: 0;
 }
-

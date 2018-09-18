@@ -19,11 +19,8 @@
     <input name="counter" type="hidden" value="4"  style="border:none; background-color:transparent;">
 </form>
 
-
-
-
-
 <div class="quiz_zentai">
+
     <div class="marudisplay" id="marudisplay">
         <img src="/images/test/maru.png">
     </div>
@@ -32,16 +29,19 @@
         <img src="/images/test/batu.png">
     </div>
 
-
-
     <div class="tugiedisplay" id="tugiedisplay">
-        <form th:action="@{/sense/test_question/{id}(id=${nextId})}" method="get" />
-        　<input type="image" src="/images/test/nextquestion.png">　　　　　　　
-        </form>
+
+        <div th:object="${testwords.get(0)}">
+
+            <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
+            　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
+            </form>
+
+        </div>
     </div>
 
     <div class = "resultButtonDisplay" id = "resultButtonDisplay">
-        <form th:action="@{/sense/test_result/{id}(id=${nextId})}" method="get">
+        <form th:action="@{/sense/test_result/{id}(id=${testNumber})}" method="post">
             　<input type="image" src ="/images/test/finish.png" >　　　　　　　
         </form>
     </div>
@@ -83,14 +83,13 @@
                 }, 1000);
                 tugieimg.style.display = "block";
                 countstop();
-
             }
             else if (id == 2) {
                 $('#timer').timer(0);
                 tugieimg.style.display = "none";
                 hazureimg.style.display = "block";
                 setTimeout(function change() {
-                    window.location.href = '/sense/test_question/1';
+                    window.location.href = '/sense/test_quiz';
                 }, 1000);
                 countstop();
             }
@@ -104,14 +103,8 @@
                 }, 1000);
                 countstop();
             }
-D
-
-
-
 
         }
-
-
 
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
@@ -135,29 +128,33 @@ D
                 overimg.style.display  = "block";
                 setTimeout(function change() {
 
-                    location.href = "/sense/test_question/1";
+                    location.href = "/sense/test_quiz";
                 }, 2000);
             }
             //カウント終了 */
         }
-
     </script>
 
     <div class="test_eigo">
-        <tr  th:object="${words}">
+        <tr  th:object="${testwords.get(0)}">
             <td th:text="*{word}"></td>
         </tr>
+        <div th:text = "${testNumber}"></div>
     </div>
     <br><br>
 
     <div class="test_nihongo">
-        <div th:each=" word : ${words.getShuffledAnswers()}">
-            <div th:each=" option : ${words}" >
+
+
+                <div th:each=" word : ${testwords.get(0).getShuffledAnswers()}">
+                    <div th:each=" option : ${testwords.get(0)}">
+
                 <div th:if="${lastid}">
                     <div th:switch="${word}">
-                          <span th:case="${option.meaning}" onClick="changepage(0)">
+
+                        <span th:case="${option.meaning}" onClick="changepage(0)">
                               <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
-                          </span>
+                        </span>
 
 
                         <span th:case="*" onClick="changepage(2)">
@@ -165,26 +162,29 @@ D
                               <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
                         </span>
+
                     </div>
                 </div>
 
                 <div th:unless="${lastid}">
                     <div th:switch="${word}">
 
-                              <span th:case="${option.meaning}" onClick="changepage(1)">
+                            <span th:case="${option.meaning}" onClick="changepage(1)">
                                   <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
-                              </span>
+                            </span>
 
-                        <span th:case="*" onClick="changepage(2)">
-                                  <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
-                                  <form th:action="@{/sense/test_quiz/}" method="get" />　
-                            </form>
-                        </span>
+
+                            <span th:case="*" onClick="changepage(2)">
+                                      <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
+                                      <form th:action="@{/sense/test_quiz/}" method="get" />　
+                                </form>
+                            </span>
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </span>
 
     <a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
@@ -208,8 +208,6 @@ D
         }
 
     </script>
-
-
 
 </div>
 </body>
