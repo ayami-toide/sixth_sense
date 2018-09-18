@@ -1,10 +1,94 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/css/exam.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
+    <title>英単語テスト</title>
 </head>
 <body>
+
+<form>
+    <input type="image" src="/images/mypage/printer.png" width="50" height="50" align="middle" onclick="window.print();" />
+</form>
+<a href="/sense/exam_lesson2">日本語→英語ver</a>
+
+<script>
+    alert('印刷してペーパーテストを実施しましょう。※フリックが足りない場合はエラーが表示されます。');
+</script>
+<p class="daimei">英単語テスト</p>
+
+<p class="name">氏名(　　　　　　　　　)</p><p class="ten">　　　　　　点</p>
+
+<table border="1">
+    <tr class="exam-tango">
+        <th>　</th>
+        <th>英語</th>
+        <th>日本語</th>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>1</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterLesson1.get(0)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>2</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingLesson1.get(0)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>3</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterLesson1.get(1)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>4</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingLesson1.get(1)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>5</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterLesson1.get(2)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>6</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingLesson1.get(2)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>7</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterLesson1.get(3)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>8</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingLesson1.get(3)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>9</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterLesson1.get(4)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>10</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingLesson1.get(4)}"></td>
+        <td>　　　　　　</td>
+    </tr>
+</table>
 
 </body>
 </html>
