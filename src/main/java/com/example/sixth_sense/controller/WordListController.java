@@ -233,6 +233,9 @@ public class WordListController {
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("studyings1",wordlistService.findStudying1());
+        model.addAttribute("StudyingWordlists",wordlistService.findStudyingWordlist());
+        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
+        model.addAttribute("notstudieds",wordlistService.findNotStudied());
 
         return "exam";
     }
