@@ -40,6 +40,8 @@ public class LessonSelectService {
         lessonSelectMapper.maru_update0(lessonSelect);
     }
 
+    @Transactional
+    public void perfect(LessonSelect lessonSelect){ lessonSelectMapper.perfect(lessonSelect);}
 }
 
 
