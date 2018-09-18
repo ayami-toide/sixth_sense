@@ -223,6 +223,7 @@ public class WordListController {
     //osanai(9/12)
     @GetMapping("test01")
     public String test01(Model model){
+        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
         return "test01";
     }
 
