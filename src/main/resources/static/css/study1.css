@@ -54,7 +54,9 @@ body{
     top: 50px;
     right: 40px;
     text-shadow: none;
+
     margin-top: 10px;
+
 }
 .dislike {
     border-radius: 5px;
@@ -67,7 +69,9 @@ body{
     top: 50px;
     left: 40px;
     text-shadow: none;
+
     margin-top: 10px;
+
 }
 .sample1 {
     width:          364px;
@@ -101,6 +105,7 @@ p.flick_word{
     padding-top:        208px;
     color: #fff;
 }
+
 .sample1 .mask {
     z-index:2;
     width:          364px;
@@ -119,6 +124,7 @@ p.flick_word{
 .homeback{
     text-align: center;
 }
+
 .wall {
     top: 77px;
     position:absolute;
@@ -126,6 +132,7 @@ p.flick_word{
     height:470px;
     margin:10px 3px 20px 5px;
 }
+
 .wall-final{
     top: 77px;
     position:absolute;
@@ -134,7 +141,6 @@ p.flick_word{
     height:470px;
     margin:10px 3px 20px 5px;
 }
-
 
 .title {
     margin: 0px;

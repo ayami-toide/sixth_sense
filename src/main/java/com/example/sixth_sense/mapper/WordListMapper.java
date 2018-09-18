@@ -11,6 +11,9 @@ public interface WordListMapper {
     @Select("select * from wordlist")
     List<WordList> findAll();
 
+    @Select("select * from wordlist where id between 1 and 8 ORDER BY RAND() LIMIT 2")
+    List<WordList> findTest0();
+
     @Select("SELECT COUNT(id) FROM wordlist")
     int findCount();
     //Osa
@@ -115,5 +118,10 @@ public interface WordListMapper {
     @Select("select * from wordlist where 0 = maru")
     List<WordList> findNotStudied();
 
+    @Select("select * from wordlist order by test_maru, rand() limit 5")
+    List<WordList> setTest();
 
+    //Riku
+    @Update("update wordlist set test_maru = test_maru+1 where id = #{id}")
+    void test_maru_update(Integer id);
 }
