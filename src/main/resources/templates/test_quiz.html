@@ -32,9 +32,11 @@
     <div class="tugiedisplay" id="tugiedisplay">
 
         <div th:object="${testwords.get(0)}">
+
             <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
             　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
             </form>
+
         </div>
     </div>
 
@@ -102,12 +104,7 @@
                 countstop();
             }
 
-
-
-
         }
-
-
 
         window.onload =function countstart() {
             count = eval(document.form_countdown.counter.value);
@@ -148,6 +145,7 @@
 
     <div class="test_nihongo">
 
+
                 <div th:each=" word : ${testwords.get(0).getShuffledAnswers()}">
                     <div th:each=" option : ${testwords.get(0)}">
 
@@ -174,6 +172,7 @@
                             <span th:case="${option.meaning}" onClick="changepage(1)">
                                   <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
                             </span>
+
 
                             <span th:case="*" onClick="changepage(2)">
                                       <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
