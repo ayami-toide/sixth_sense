@@ -51,13 +51,12 @@
         <img src="/images/test/over.png">
     </div>
 
-    <div class="container">
+
         <div id="timer"></div>
         <form id="form" class="form-inline">
             <div class="form-group">
             </div>
         </form>
-    </div>
 
 
 
@@ -139,9 +138,9 @@
         <tr  th:object="${testwords.get(0)}">
             <td th:text="*{word}"></td>
         </tr>
-        <div th:text = "${testNumber}"></div>
+        <div class="number" th:text = "${testNumber}"></div>
     </div>
-    <br><br>
+    <br>
 
     <div class="test_nihongo">
 
