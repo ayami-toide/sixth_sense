@@ -16,6 +16,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
+
 
 @Controller
 @RequestMapping("/sense")
@@ -75,20 +79,36 @@ public class WordListController {
     @RequestMapping("test_quiz")
     public String test_quiz(Model model){
 
-        int id = 2;
-        model.addAttribute("nextId", id);
-        model.addAttribute("words",wordlistService.findOne(new Long(1)));
+        model.addAttribute("testNumber", 1);
+        model.addAttribute("testwords",wordlistService.setTest());
 
         return "test_quiz";
     }
 
-    @RequestMapping("test_question/{id}")
-    public String test_question(@PathVariable("id") int id, Model model)
-    {
-        model.addAttribute("nextId", id + 1);
-        model.addAttribute("words",wordlistService.findOne(new Long(id)));
+    @RequestMapping(value = "test_question/{id}/{testNumber}", method = POST)
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@ModelAttribute WordList wordlist,Model model){
 
-        if(id % 5 == 0){
+        wordlistService.test_maru_update(new Integer(id));
+
+        model.addAttribute("testNumber",testNumber + 1);
+        model.addAttribute("testwords",wordlistService.setTest());
+
+        int TestNumber = testNumber + 1;
+        if(TestNumber % 5 == 0){
+            String lastid = "last";
+            model.addAttribute("lastid",lastid);
+        }
+        return "test_quiz" ;
+    }
+
+    @RequestMapping(value = "test_question/{id}/{testNumber}", method = GET)
+    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber, Model model)
+    {
+        model.addAttribute("testNumber",testNumber + 1);
+        model.addAttribute("testwords",wordlistService.setTest());
+        int TestNumber = testNumber + 1;
+
+        if(TestNumber % 5 == 0){
             String lastid = "last";
             model.addAttribute("lastid",lastid);
         }
@@ -133,9 +153,6 @@ public class WordListController {
         String word  = list.get(1);
         array = (String[])list.toArray(new String[0]);
         model.addAttribute("word",word);
-
-        model.addAttribute("id", id);
-
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
         return "test_result";

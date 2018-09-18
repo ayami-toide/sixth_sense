@@ -56,8 +56,11 @@ public class WordList {
     @Column(name="audio", nullable=false)
     private  String audio;
 
+    @Column(name="test_maru", nullable = false)
+    private  Integer test_maru;
+
     @Column(name="lesson", nullable=false)
-    private  String lesson;
+
 
     public Integer getId() {
         return id;
@@ -106,6 +109,13 @@ public class WordList {
     public String getAudio() {
         return audio;
     }
+
+
+    public Integer getTest_maru() {return test_maru;}
+
+    public Integer setId(Integer id) {return  this.id = id;}
+
+    public Integer setTest_maru(Integer test_maru) {return  this.test_maru = test_maru ;}
 
     public String getLesson() {
         return lesson;
