@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    font-family: 'Sawarabi Gothic', sans-serif;
 }
 .buddy {
     z-index: 0;
@@ -10,7 +11,7 @@ body{
     /* color: #fff; */
     /* padding: 20px; */
     width: 370px;
-    height: 481px;
+    height: 519px;
     top: 77px;
     /* left: 0px; */
     position: absolute;
@@ -145,7 +146,13 @@ p.flick_word{
     margin: 0px;
 }
 
+.icon {
+    margin: 0px 10px 0px 40px;
+}
 
+a {
+    text-decoration: none;
+}
 /*#modalwin {*/
 /*position: relative;*/
 /*margin: 400px 0px 0px 0px;*/
