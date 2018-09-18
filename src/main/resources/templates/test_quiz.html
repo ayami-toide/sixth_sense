@@ -34,7 +34,7 @@
         <div th:object="${testwords.get(0)}">
 
 
-            <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
+            <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__/__${UnitId}__}" method="post">
             　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
             </form>
 
@@ -42,7 +42,7 @@
     </div>
 
     <div class = "resultButtonDisplay" id = "resultButtonDisplay">
-        <form th:action="@{/sense/test_result/{id}(id=${testNumber})}" method="post">
+        <form th:action="@{/sense/test_result/__${testNumber}__/__${UnitId}__}" method="post">
             　<input type="image" src ="/images/test/finish.png" >　　　　　　　
         </form>
     </div>
@@ -52,17 +52,16 @@
         <img src="/images/test/over.png">
     </div>
 
-    <div class="container">
+
         <div id="timer"></div>
         <form id="form" class="form-inline">
             <div class="form-group">
             </div>
         </form>
-    </div>
 
 
 
-    <script>
+    <script type="text/javascript" th:inline="javascript">
 
         var maruimg = document.getElementById('marudisplay');
         var hazureimg = document.getElementById('hazuredisplay');
@@ -74,6 +73,13 @@
         tugieimg.style.display  = "none";
         overimg.style.display  = "none";
         resultButtonImg.style.display  = "none";
+
+        /*<![CDATA[*/
+        //-------------------------
+        // JSONで表記したPDFの内容
+        //-------------------------
+        var UnitId = [[ ${UnitId}]];
+        /*]]>*/
         function changepage(id) {
             tugieimg.style.display = "block";
             if (id == 1) {
@@ -89,9 +95,15 @@
                 $('#timer').timer(0);
                 tugieimg.style.display = "none";
                 hazureimg.style.display = "block";
-                setTimeout(function change() {
-                    window.location.href = '/sense/test_quiz';
-                }, 1000);
+                if(UnitId == 0) {
+                    setTimeout(function change() {
+                        window.location.href = '/sense/test_quiz/0';
+                    }, 1000);
+                }else if(UnitId == 1){
+                    setTimeout(function change() {
+                        window.location.href = '/sense/test_quiz/1';
+                    }, 1000);
+                }
                 countstop();
             }
             else if (id == 0) {
@@ -120,29 +132,33 @@
             document.form_countdown.reset(); //初期値に戻す
 
         }
-
         function countdown() {
             document.form_countdown.counter.value = count; //カウント表示
             count--; //カウントダウン
 
             if (count < 0) {
                 overimg.style.display  = "block";
-                setTimeout(function change() {
-
-                    location.href = "/sense/test_quiz";
-                }, 2000);
+                if(UnitId == 0) {
+                    setTimeout(function change() {
+                        location.href = "/sense/test_quiz/0"
+                    }, 2000);
+                }else if(UnitId == 1) {
+                    setTimeout(function change() {
+                        location.href = "/sense/test_quiz/1"
+                    }, 2000);
+                }
+                }
             }
             //カウント終了 */
-        }
     </script>
 
     <div class="test_eigo">
         <tr  th:object="${testwords.get(0)}">
             <td th:text="*{word}"></td>
         </tr>
-        <div th:text = "${testNumber}"></div>
+        <div class="number"><td th:text = "${testNumber}+'/5'"></div>
     </div>
-    <br><br>
+    <br>
 
     <div class="test_nihongo">
 
@@ -160,7 +176,7 @@
 
                         <span th:case="*" onClick="changepage(2)">
                               <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
-                              <form th:action="@{/sense/test_quiz/}" method="get" />　
+                              <form th:action="@{/sense/test_quiz/__${UnitId}__}" method="get" />　
                             </form>
                         </span>
 
@@ -176,9 +192,9 @@
 
 
                             <span th:case="*" onClick="changepage(2)">
-                                      <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
-                                      <form th:action="@{/sense/test_quiz/}" method="get" />　
-                                </form>
+                                      <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()">
+                                      <form th:action="@{/sense/test_quiz/__${UnitId}__}" method="get">　
+                                      </form></div>
                             </span>
 
                     </div>
