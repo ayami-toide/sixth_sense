@@ -290,7 +290,6 @@ public class WordListController {
         model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
         model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
-
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
 
