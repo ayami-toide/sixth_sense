@@ -18,8 +18,8 @@ html,body{
     list-style: none;
     padding: 0;
     overflow: hidden;
-    margin: 10px;
-    margin-left: 42px;
+    /*margin: 10px;*/
+    margin-left: 30px;
 }
 .setumei_img{
     font-size: 18px;
@@ -27,7 +27,6 @@ html,body{
 }
 .setumei_p{
     font-size: 18px;
-
 }
 .unit_btn{
     display: inline-block;
