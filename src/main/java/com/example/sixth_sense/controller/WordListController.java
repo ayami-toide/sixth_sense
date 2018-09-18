@@ -267,11 +267,47 @@ public class WordListController {
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("studyings1",wordlistService.findStudying1());
-        model.addAttribute("StudyingWordlists",wordlistService.findStudyingWordlist());
-        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
-        model.addAttribute("notstudieds",wordlistService.findNotStudied());
-
         return "exam";
+    }
+
+    @GetMapping("exam2")
+    public String exam2(Model model){
+        model.addAttribute("masters1",wordlistService.findMaster1());
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+        return "exam2";
+    }
+
+    @GetMapping("exam_get_ready")
+    public String exam_get_ready(Model model){
+        model.addAttribute("MasterGetReadys",wordlistService.findMasterGetReady());
+        model.addAttribute("StudyingGetReadys",wordlistService.findStudyingGetReady());
+        return "exam_get_ready";
+    }
+
+    @GetMapping("exam_get_ready2")
+    public String exam_get_ready2(Model model){
+        model.addAttribute("MasterGetReadys",wordlistService.findMasterGetReady());
+        model.addAttribute("StudyingGetReadys",wordlistService.findStudyingGetReady());
+        return "exam_get_ready2";
+    }
+
+    @GetMapping("exam_lesson")
+    public String exam_lesson(Model model){
+        model.addAttribute("MasterLesson1",wordlistService.findMasterLesson1());
+        model.addAttribute("StudyingLesson1",wordlistService.findStudyingLesson1());
+        return "exam_lesson";
+    }
+
+    @GetMapping("exam_lesson2")
+    public String exam_lesson2(Model model){
+        model.addAttribute("MasterLesson1",wordlistService.findMasterLesson1());
+        model.addAttribute("StudyingLesson1",wordlistService.findStudyingLesson1());
+        return "exam_lesson2";
+    }
+
+    @GetMapping("exam_select")
+    public String exam_select(Model model){
+        return "exam_select";
     }
 
     //osanai(9/12)

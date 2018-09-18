@@ -116,6 +116,16 @@ public class WordListService {
         @Transactional
         public List<WordList> findStudyingWordlist(){ return wordListMapper.findStudyingWordlist(); }
 
+        //テスト get ready & lesson1
+        @Transactional
+        public List<WordList> findMasterGetReady(){ return wordListMapper.findMasterGetReady(); }
+        @Transactional
+        public List<WordList> findStudyingGetReady(){ return wordListMapper.findStudyingGetReady(); }
+        @Transactional
+        public List<WordList> findMasterLesson1(){ return wordListMapper.findMasterLesson1(); }
+        @Transactional
+        public List<WordList> findStudyingLesson1(){ return wordListMapper.findStudyingLesson1(); }
+
 
     //Osanai
         @Transactional
