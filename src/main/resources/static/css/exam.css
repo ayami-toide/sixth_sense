@@ -1,12 +1,12 @@
 @page {
-    size: B5 landscape;
+    size: A4;
 }
 body{
-    text-align: center;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
 
 table {
+    text-align: center;
     border-collapse: collapse;
 }
 
@@ -20,23 +20,29 @@ th{
     background: lightgray;
 }
 table {
-    margin: 298px;
-    margin-top: 40px;
+    margin-left:  150px;
+    margin-right:  150px;
+    margin-top: 70px;
     width: 60%;
 }
 
 .daimei{
     font-size: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 0;
+    text-align: center;
 }
 .name{
     font-size: 25px;
     width: 50%;
     float: left;
+    margin-bottom: 30px;
+    text-align: center;
 }
 .ten{
     font-size: 25px;
     width: 50%;
     float: left;
+    margin-bottom: 30px;
+    text-align: center;
 }
 

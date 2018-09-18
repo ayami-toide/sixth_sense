@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="/css/exam.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
-    <title>自動生成テスト</title>
+    <title>英単語テスト</title>
 </head>
 <body>
+
+<script>
+    alert('印刷してペーパーテストを実施しましょう。※フリックが足りない場合はエラーが表示されます。');
+</script>
 <p class="daimei">英単語テスト</p>
 
-<p class="name">　　　　　　　　氏名(　　　　　　　　　)</p><p class="ten">点</p>
+<p class="name">氏名(　　　　　　　　　)</p><p class="ten">　　　　　　点</p>
 
 <table border="1">
     <tr class="exam-tango">
@@ -22,61 +26,61 @@
 
     <tr class="exam-tango">
         <td>1</td>
-        <tr th:object = "${masters1.get(0)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${masters1.get(0)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>2</td>
-        <tr th:object = "${studyings1.get(0)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${studyings1.get(0)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>3</td>
-        <tr th:object = "${masters1.get(1)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${masters1.get(1)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>4</td>
-        <tr th:object = "${studyings1.get(1)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${studyings1.get(1)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>5</td>
-        <tr th:object = "${masters1.get(2)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${masters1.get(2)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>6</td>
-        <tr th:object = "${studyings1.get(2)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${studyings1.get(2)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>7</td>
-        <tr th:object = "${masters1.get(3)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${masters1.get(3)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>8</td>
-        <tr th:object = "${studyings1.get(3)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${studyings1.get(3)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>9</td>
-        <tr th:object = "${masters1.get(4)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${masters1.get(4)}"></td>
         <td>　　　　　　</td>
     </tr>
 
     <tr class="exam-tango">
         <td>10</td>
-        <tr th:object = "${studyings1.get(4)}"><td class="word doing" th:text="*{word}"></td>
+        <td class="word doing" th:text="*{word}" th:object = "${studyings1.get(4)}"></td>
         <td>　　　　　　</td>
     </tr>
 </table>

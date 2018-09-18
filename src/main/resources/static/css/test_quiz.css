@@ -12,7 +12,7 @@ p#PassageArea{
 
 .quiz_zentai{
     width: 350px;
-    height: 460px;
+    height: 100%;
     text-align: center;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
