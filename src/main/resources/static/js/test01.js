@@ -1,7 +1,7 @@
 //-------------------------
 // JSONで表記したPDFの内容
 //-------------------------
-var dd = { content: '/sense/exam.html' };
+var dd = { content: '<img src=../../images/mypage.home.png>' };
 
 //-------------------------
 // ボタンクリックイベント

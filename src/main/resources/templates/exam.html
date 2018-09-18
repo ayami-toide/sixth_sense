@@ -4,156 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>自動生成テスト</title>
-
-    <script type="text/javascript">
-        function ChangeTab(tabname) {
-            // タブメニュー実装
-            document.getElementById('tab1').style.display = 'none';
-            document.getElementById('tab2').style.display = 'none';
-            document.getElementById('tab3').style.display = 'none';
-            // タブメニュー実装
-            document.getElementById(tabname).style.display = 'block';
-        }
-        //</script>
-
-    <style type="text/css">
-        /* ▼ タブメニュー全体の設定 */
-        div.tabbox { margin: 15px 0 0 0; padding: 0px; width:600px; height:200px;}
-        /* ▼ タブ部分のマージンとパディング領域を設定 */
-        p.tabs { margin: 0px; padding: 0px; }
-        p.tabs a {
-            /* ▼ リンクをタブのように見せる */
-            display: block; width: 150px; float: left;
-            margin: 0px 3px 0px 0px; padding: 3px;
-            text-align: center;
-            font-size:12px;
-        }
-        /* ▼ タブごとの配色設定 */
-        p.tabs a.tab1 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 3px solid rgba(170, 0, 0, 0.85);  color: #666; font-weight:600;}
-        p.tabs a.tab2 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 3px solid rgba(0, 170, 0, 0.85);  color: #666; font-weight:600;}
-        p.tabs a.tab3 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 3px solid rgba(0, 0, 170, 0.85);  color: #666; font-weight:600;}
-        p.tabs a:hover {opacity:0.7;filter:alpha(opacity=70);}
-        /* ▼ タブ中身のボックス */
-        div.tab {
-            /* ▼ ボックス共通の装飾 */
-            height: 270px;  clear: left;
-        }
-        /* ▼ 各ボックスの配色設定 */
-        div#tab1 { border: 2px solid #DDD; background-color: #fbfbfb; }
-        div#tab2 { border: 2px solid #DDD; background-color: #fbfbfb; }
-        div#tab3 { border: 2px solid #DDD; background-color: #fbfbfb; }
-        div.tab p { margin: 0.5em; }
-    </style>
-
-    <script src="/js/pdfmake.min.js"></script>
-    <script src="/js/vfs_fonts.js"></script>
-
 </head>
 <body>
-
-
-
-
-
-
-
-    <button id="btn_gen_pdf" type="button">日本語PDF出力</button><br/><br/>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/pdfmake.js"></script>
-    <script src="js/vfs_fonts.js"></script>
-
-    <script>
-
-      var docDefinition;
-      // 初期化処理
-      $(function() {
-        // PDF出力定義
-        pdfMake.fonts = {
-          tekito_font: {
-          normal: 'ipaexm.ttf'
-          }
-        };
-        docDefinition = {
-          pageSize: 'A4',
-          content: [
-            {text: 'This is an sample PDF printed with pdfMake. 日本語のテスト',
-               fontSize: 10,
-              absolutePosition : { x :15,y :15 }
-          }],
-          defaultStyle: {font: 'tekito_font'}
-        };
-
-        $("#btn_gen_pdf").on("click", function(){
-          var _hoge = pdfMake.createPdf(docDefinition);
-          _hoge.getDataUrl(function(result) {
-
-            // PDF生成(Base64エンコードされている)
-            var encPdf = result.replace(/^data:application\/pdf;base64,/, '');
-
-            // "NativeObj"として、WebViewに紐付けられている場合
-            if (NativeObj) {
-              // エンコードされた文字列をアプリ上でデコードし、ファイルを出力
-              var genPdfPath =  NativeObj.generatePdfOnNative(encPdf);
-              console.log("generated:"+genPdfPath);
-            } else {
-            // とりあえず。。。
-              console.log("========");
-              console.log("local log:\n" + encPdf);
-            }
-          });
-        });
-      });
-
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p class="list_title">単語テスト</p>
-    <br></li>
-
-<div class="tabbox">
-
-    <p class="tabs">
-        <a href="#tab1" class="tab1" onclick="ChangeTab('tab1'); return false;">英語→日本語テスト</a>
-        <a href="#tab2" class="tab2" onclick="ChangeTab('tab2'); return false;">日本語→英語テスト</a>
-    </p>
-    <div id="tab1" class="tab">
-        <li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.id}"><tr th:text = "."><tr th:text = "${masters1.word}"><br></tr></div>
-        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "."><tr th:text = "${studyings1.word}"><br></tr></div>
-
-    </div>
-
-    <div id="tab2" class="tab">
-        <li class="done_eigo"><div th:each = " masters1 :${masters1}" th:object="${master1}"><tr th:text = "${masters1.id}"><tr th:text = "."><tr th:text = "${masters1.meaning}"><br></tr></div>
-        <li class="done_eigo"><div th:each = " studyings1 :${studyings1}" th:object="${studying1}"><tr th:text = "${studyings1.id}"><tr th:text = "."><tr th:text = "${studyings1.meaning}"><br></tr></div>
-    </div>
-
-    <div id="tab3" class="tab">
-    </div>
-
-
-
-</div><!-- tabbox -->
-
-<!-- ページを開いた際の最初に表示されるタブの選択 -->
-<script type="text/javascript">
-    ChangeTab('tab1');
-</script>
-
-
-
-
+英語→日本語<br>
+40 kangaroo[名]<br>
+23 eggplant[名]<br>
+3  shake[動]<br>
+21 banana[名]<br>
+52 Australia[名]<br>
+48 meet[動]<br>
+41 horse[名]<br>
+16 spaghetti[名]<br>
+17 steak[名]<br>
+6  swimming[名]<br>
 
 </body>
 </html>
