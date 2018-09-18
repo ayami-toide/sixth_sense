@@ -106,5 +106,9 @@
 
 <li class="done_eigo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.word}"><br></tr></div>
 
+
+    <form>
+        <input type="image" src="/images/mypage/printer.png" width="20" height="20" onclick="window.print();" />
+    </form>
 </body>
 </html>

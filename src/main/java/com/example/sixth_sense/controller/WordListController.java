@@ -115,7 +115,28 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping("test_result/{id}")
+
+    @RequestMapping(value = "test_result/{id}" , method = POST)
+    public String test_result_post(@PathVariable("id") int id,@ModelAttribute LessonSelect lessonSelect, Model model)
+    {
+        lessonSelect.setId(new Integer(0));
+        lessonSelectService.perfect(lessonSelect);
+
+        model.addAttribute("id", id);
+
+        String[] array = {"Great job!", "Excellent!", "Well done!"};
+        List<String> list = Arrays.asList(array);
+        Collections.shuffle(list);
+        String word  = list.get(1);
+        array = (String[])list.toArray(new String[0]);
+
+        model.addAttribute("word",word);
+
+        return "test_result";
+
+
+    }
+    @RequestMapping(value = "test_result/{id}" , method = GET)
     public String test_result(@PathVariable("id") int id,Model model)
     {
 
@@ -233,6 +254,9 @@ public class WordListController {
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("studyings1",wordlistService.findStudying1());
+        model.addAttribute("StudyingWordlists",wordlistService.findStudyingWordlist());
+        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
+        model.addAttribute("notstudieds",wordlistService.findNotStudied());
 
         return "exam";
     }

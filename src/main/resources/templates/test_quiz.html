@@ -32,15 +32,17 @@
     <div class="tugiedisplay" id="tugiedisplay">
 
         <div th:object="${testwords.get(0)}">
-            <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
-                　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
 
+
+            <form th:action="@{/sense/test_question/__${testwords.get(0).id}__/__${testNumber}__}" method="post">
+            　<input type="image" src="/images/test/nextquestion.png"/>　　　　　　　
             </form>
+
         </div>
     </div>
 
     <div class = "resultButtonDisplay" id = "resultButtonDisplay">
-        <form th:action="@{/sense/test_result/{id}(id=${testNumber})}" method="get">
+        <form th:action="@{/sense/test_result/{id}(id=${testNumber})}" method="post">
             　<input type="image" src ="/images/test/finish.png" >　　　　　　　
         </form>
     </div>
@@ -145,22 +147,22 @@
     <div class="test_nihongo">
 
 
-        <div th:each=" word : ${testwords.get(0).getShuffledAnswers()}">
-            <div th:each=" option : ${testwords.get(0)}">
+                <div th:each=" word : ${testwords.get(0).getShuffledAnswers()}">
+                    <div th:each=" option : ${testwords.get(0)}">
 
                 <div th:if="${lastid}">
                     <div th:switch="${word}">
 
-                         <span th:case="${option.meaning}" onClick="changepage(0)">
-                             <div class="nihongo_btn" th:text="${word}"></div>
-                         </span>
+                        <span th:case="${option.meaning}" onClick="changepage(0)">
+                              <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
+                        </span>
+
 
                         <span th:case="*" onClick="changepage(2)">
-                             <div class="nihongo_btn" th:text="${word}" ></div>
-                             <form th:action="@{/sense/test_quiz/}" method="get" />　
+                              <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
+                              <form th:action="@{/sense/test_quiz/}" method="get" />　
                             </form>
-                         </span>
-
+                        </span>
 
                     </div>
                 </div>
@@ -168,15 +170,17 @@
                 <div th:unless="${lastid}">
                     <div th:switch="${word}">
 
-                              <span th:case="${option.meaning}" onClick="changepage(1)">
+                            <span th:case="${option.meaning}" onClick="changepage(1)">
                                   <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
-                              </span>
+                            </span>
 
-                        <span th:case="*" onClick="changepage(2)">
-                                  <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
-                                  <form th:action="@{/sense/test_quiz/}" method="get" />　
-                            </form>
-                        </span>
+
+                            <span th:case="*" onClick="changepage(2)">
+                                      <div class="nihongo_btn" th:text="${word}" onclick="audiobatu_play()"></div>
+                                      <form th:action="@{/sense/test_quiz/}" method="get" />　
+                                </form>
+                            </span>
+
                     </div>
                 </div>
             </div>
@@ -205,6 +209,6 @@
             }
 
         </script>
-    </div>
+ </div>
 </body>
 </html>

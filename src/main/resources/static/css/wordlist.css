@@ -24,6 +24,14 @@ th {
     color: white;
 }
 
+.wordcolumn {
+    border-top-left-radius: 12px;
+}
+
+.lessoncolumn {
+    border-top-right-radius: 12px;
+}
+
 td {
     width: 33%;
 }
