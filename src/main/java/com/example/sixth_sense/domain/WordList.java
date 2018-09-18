@@ -59,6 +59,9 @@ public class WordList {
     @Column(name="test_maru", nullable = false)
     private  Integer test_maru;
 
+    @Column(name="lesson", nullable=false)
+
+
     public Integer getId() {
         return id;
     }
@@ -107,11 +110,16 @@ public class WordList {
         return audio;
     }
 
+
     public Integer getTest_maru() {return test_maru;}
 
     public Integer setId(Integer id) {return  this.id = id;}
 
     public Integer setTest_maru(Integer test_maru) {return  this.test_maru = test_maru ;}
+
+    public String getLesson() {
+        return lesson;
+    }
 
     public List<String> getShuffledAnswers() {
         ArrayList<String> answers = new ArrayList<String>();

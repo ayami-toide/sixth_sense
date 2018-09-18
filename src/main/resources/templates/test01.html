@@ -1,0 +1,110 @@
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- ヘッダー -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="K.Sugi">
+
+    <title>JavaScriptによるPDF作成</title>
+
+    <!-- スタイルシート（現在未使用） -->
+    <style thpe="text/css" media="all">
+        <!-- @import url("./css/hoge.css"); -->
+    </style>
+
+    <!-- スクリプト -->
+    <script type="text/javascript" src="/js/pdfmake.min.js"></script>  <!-- pdfmake -->
+    <script type="text/javascript" src="/js/vfs_fonts.js"></script>    <!-- フォント -->
+</head>
+
+<!-- 本文 -->
+<body>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    //-------------------------
+    // JSONで表記したPDFの内容
+    //-------------------------
+    var dd = { content: ' /[[ ${MasterWordlists}]]/ {}; //' };
+    /*]]>*/
+    //-------------------------
+    // ボタンクリックイベント
+    //-------------------------
+    function pdfOpen() {
+
+        // フォント
+        pdfMake.fonts = {
+            GenShin: {
+                normal:      'GenShinGothic-Normal-Sub.ttf',
+                bold:        'GenShinGothic-Normal-Sub.ttf',
+                italics:     'GenShinGothic-Normal-Sub.ttf',
+                bolditalics: 'GenShinGothic-Normal-Sub.ttf'
+            }
+        }
+
+        // ディフォルトフォントを指定
+        if (!dd['defaultStyle']) {
+            dd['defaultStyle'] = new Object();
+        }
+        dd['defaultStyle']['font'] = 'GenShin';
+
+
+        // ブラウザ名を取得
+        var name = getBrowser();
+
+        // ブラウザことに処理を分岐
+        // IEの場合
+        if (name == 'ie') {
+            pdfMake.createPdf(dd).download('optionalName.pdf');
+
+            // IE以外
+        } else {
+            pdfMake.createPdf(dd).open();
+        }
+    }
+
+    //-------------------------
+    // ブラウザを判定する関数
+    //-------------------------
+    var getBrowser = function() {
+
+        var name = 'unknown';
+
+        // ユーザーエージェントを取得
+        var ua = window.navigator.userAgent.toLowerCase();
+
+        // ieをチェック
+        if (ua.indexOf("msie") != -1 ||
+            ua.indexOf('edge') != -1 ||
+            ua.indexOf('trident/7') != -1) {
+            name = 'ie';
+
+            // ie以外
+        } else if (ua.indexOf('chrome') != -1) {
+            name = 'chrome';
+
+        } else if (ua.indexOf('safari') != -1) {
+            name = 'safari';
+
+        } else if (ua.indexOf('opera') != -1) {
+            name = 'opera';
+
+        } else if (ua.indexOf('firefox') != -1) {
+            name = 'firefox';
+        }
+
+        return name;
+    }
+
+</script>
+
+<!-- ボタン -->
+<form>
+<input type="button" value="test01"  onclick="pdfOpen();"/>
+</form>
+
+<li class="done_eigo"><div th:each = " MasterWordlists :${MasterWordlists}" th:object="${MasterWordlist}"><tr th:text = "${MasterWordlists.word}"><br></tr></div>
+
+</body>
+</html>

@@ -32,6 +32,7 @@ import javax.persistence.*;
             return status;
         }
 
+
         public  Integer getMaru_status(){
             return  maru_status;
         }
