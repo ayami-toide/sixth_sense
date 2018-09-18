@@ -58,6 +58,9 @@
             font-size: 15px;
             margin: 0px;
         }
+        .nizyu-maru-off{
+            color: red;
+        }
 
     </style>
 </head>
@@ -75,10 +78,7 @@
 
 <!--先生の方だよ-->
 <div th:if="${teacherId}">
-    <ul class="setumei">
-        <li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:次回の授業までに受けてね</p></li>
-        <li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できればここも</p></li>
-    </ul>
+    <h1>UNIT SELECT PAGE</h1>
 
     <!--getready-->
     <form th:action="@{/sense/test}" method="get">
@@ -86,32 +86,32 @@
     </form>
 
         <div th:if="${status1.status}==0">
-            <form th:action="@{/sense/unit_select/0}" th:method="put">
+            <form th:action="@{/sense/teacher_unit_select/0}" th:method="put">
                 <div id="nizyu-maru-on" class="nizyu-maru-on">
-                    <input type="image" src="/images/unit_select/beforenimaru.png/" onclick="changeButton(0)">
+                    <input type="submit" value = "-----" onclick="changeButton(0)">
                 </div>
             </form>
         </div>
 
         <div th:if="${status1.status}==1">
-            <form th:action="@{/sense/unit_select0/0}" th:method="put">
+            <form th:action="@{/sense/teacher_unit_select_0/0}" th:method="put">
                 <div id="nizyu-maru-off" class="nizyu-maru-off">
-                    <input type="image" src="/images/unit_select/nimaru.png" onclick="changeButton(2)">
+                    <input type="submit" value="選択中" onclick="changeButton(2)">
                 </div>
             </form>
         </div>
 
         <div th:if="${status1.maru_status}==0">
-            <form th:action="@{/sense/unit_select_maru/0}" th:method="put">
+            <form th:action="@{/sense/teacher_unit_select1/0}" th:method="put">
                 <div id="maru-on" class="maru-on">
-                    <input type = "image" src="/images/unit_select/beforeichimaru.png" onclick="changeButton(1)">
+                    <input type ="submit" value="-----" onclick="changeButton(1)">
                 </div>
             </form>
         </div>
         <div th:if="${status1.maru_status}!=0">
-            <form th:action="@{/sense/unit_select_maru0/0}" th:method="put">
+            <form th:action="@{/sense/teacher_unit_select_1/0}" th:method="put">
                 <div id="maru-off" class="maru-off">
-                    <input type="image" src = "/images/unit_select/ichimaru.png" onclick="changeButton(3)">
+                    <input type="submit" value= "選択中" onclick="changeButton(3)">
                 </div>
             </form>
         </div>
@@ -123,35 +123,33 @@
     </form>
 
         <div th:if="${status2.status}==0">
-            <form th:action="@{/sense/unit_select/1}" th:method="put">
+            <form th:action="@{/sense/teacher_unit_select/1}" th:method="put">
                 <div id="nizyu-maru-on" class="nizyu-maru-on">
-                    <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+                    <input type="submit" value = "----" onclick="changeButton(0)">
                 </div>
             </form>
         </div>
 
         <div th:if="${status2.status}==1">
-            <form th:action="@{/sense/unit_select0/1}" th:method="put">
-                <img src="/images/unit_select/nimaru.png">
+            <form th:action="@{/sense/teacher_unit_select_0/1}" th:method="put">
                 <div id="nizyu-maru-off" class="nizyu-maru-off">
-                    <input type="submit" value = "今日のテストを解除する" onclick="changeButton(2)">
+                    <input type="submit" value = "選択中" onclick="changeButton(2)">
                 </div>
             </form>
         </div>
 
         <div th:if="${status2.maru_status}==0">
-            <form th:action="@{/sense/unit_select_maru/1}" th:method="put">
+            <form th:action="@{/sense/teacher_unit_select1/1}" th:method="put">
                 <div id="maru-on" class="maru-on">
-                    <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+                    <input type = "submit" value="----" onclick="changeButton(1)">
                 </div>
             </form>
         </div>
 
         <div th:if="${status2.maru_status}==1">
-            <form th:action="@{/sense/unit_select_maru0/1}" th:method="put">
-            <img src="/images/unit_select/ichimaru.png">
+            <form th:action="@{/sense/teacher_unit_select_1/1}" th:method="put">
                 <div id="maru-off" class="maru-off">
-                    <input type="submit" value = "次のテストを解除" onclick="changeButton(3)">
+                    <input type="submit" value = "選択中" onclick="changeButton(3)">
                 </div>
             </form>
         </div>
@@ -164,35 +162,33 @@
     </form>
 
     <div th:if="${status3.status}==0">
-        <form th:action="@{/sense/unit_select/2}" th:method="put">
+        <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
             <div id="nizyu-maru-on" class="nizyu-maru-on">
-                <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+                <input type="submit" value = "----" onclick="changeButton(0)">
             </div>
         </form>
     </div>
 
     <div th:if="${status3.status}==1">
-        <form th:action="@{/sense/unit_select0/2}" th:method="put">
-            <img src="/images/unit_select/nimaru.png">
+        <form th:action="@{/sense/teacher_unit_select_0/2}" th:method="put">
             <div id="nizyu-maru-off" class="nizyu-maru-off">
-                <input type="submit" value = "今日のテストを解除する" onclick="changeButton(2)">
+                <input type="submit" value = "選択中" onclick="changeButton(2)">
             </div>
         </form>
     </div>
 
     <div th:if="${status3.maru_status}==0">
-        <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+        <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
             <div id="maru-on" class="maru-on">
-                <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+                <input type = "submit" value="----" onclick="changeButton(1)">
             </div>
         </form>
     </div>
 
     <div th:if="${status3.maru_status}==1">
-        <form th:action="@{/sense/unit_select_maru0/2}" th:method="put">
-            <img src="/images/unit_select/ichimaru.png">
+        <form th:action="@{/sense/teacher_unit_select_1/2}" th:method="put">
             <div id="maru-off" class="maru-off">
-                <input type="submit" value = "次のテストを解除" onclick="changeButton(3)">
+                <input type="submit" value = "選択中" onclick="changeButton(3)">
             </div>
         </form>
     </div>
@@ -203,15 +199,15 @@
         <input type = "submit" value="Lesson3">
     </form>
 
-        <form th:action="@{/sense/unit_select/2}" th:method="put">
+        <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
             <div id="nizyu-maru-on" class="nizyu-maru-on">
-                <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+                <input type="submit" value = "----" onclick="changeButton(0)">
             </div>
         </form>
 
-        <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+        <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
             <div id="maru-on" class="maru-on">
-                <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+                <input type = "submit" value="----" onclick="changeButton(1)">
             </div>
         </form>
     <br>
@@ -221,15 +217,15 @@
         <input type = "submit" value="Lesson4">
     </form>
 
-    <form th:action="@{/sense/unit_select/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
         <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            <input type="submit" value = "----" onclick="changeButton(0)">
         </div>
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
         <div id="maru-on" class="maru-on">
-            <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            <input type = "submit" value="----" onclick="changeButton(1)">
         </div>
     </form>
     <br>
@@ -239,15 +235,15 @@
         <input type = "submit" value="Lesson5">
     </form>
 
-    <form th:action="@{/sense/unit_select/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
         <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            <input type="submit" value = "----" onclick="changeButton(0)">
         </div>
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
         <div id="maru-on" class="maru-on">
-            <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            <input type = "submit" value="----" onclick="changeButton(1)">
         </div>
     </form>
     <br>
@@ -257,15 +253,15 @@
         <input type = "submit" value="Lesson6">
     </form>
 
-    <form th:action="@{/sense/unit_select/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
         <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            <input type="submit" value = "----" onclick="changeButton(0)">
         </div>
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
         <div id="maru-on" class="maru-on">
-            <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            <input type = "submit" value="----" onclick="changeButton(1)">
         </div>
     </form>
     <br>
@@ -275,15 +271,15 @@
         <input type = "submit" value="Lesson7">
     </form>
 
-    <form th:action="@{/sense/unit_select/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
         <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            <input type="submit" value = "----" onclick="changeButton(0)">
         </div>
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
         <div id="maru-on" class="maru-on">
-            <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            <input type = "submit" value="----" onclick="changeButton(1)">
         </div>
     </form>
     <br>
@@ -293,15 +289,15 @@
         <input type = "submit" value="Lesson8">
     </form>
 
-    <form th:action="@{/sense/unit_select/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
         <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            <input type="submit" value = "----" onclick="changeButton(0)">
         </div>
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
         <div id="maru-on" class="maru-on">
-            <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            <input type = "submit" value="----" onclick="changeButton(1)">
         </div>
     </form>
     <br>
@@ -311,15 +307,15 @@
         <input type = "submit" value="Lesson9">
     </form>
 
-    <form th:action="@{/sense/unit_select/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select/2}" th:method="put">
         <div id="nizyu-maru-on" class="nizyu-maru-on">
-            <input type="submit" value = "今日のテストにする" onclick="changeButton(0)">
+            <input type="submit" value = "----" onclick="changeButton(0)">
         </div>
     </form>
 
-    <form th:action="@{/sense/unit_select_maru/2}" th:method="put">
+    <form th:action="@{/sense/teacher_unit_select1/2}" th:method="put">
         <div id="maru-on" class="maru-on">
-            <input type = "submit" value="次のテストにする" onclick="changeButton(1)">
+            <input type = "submit" value="----" onclick="changeButton(1)">
         </div>
     </form>
     <br>

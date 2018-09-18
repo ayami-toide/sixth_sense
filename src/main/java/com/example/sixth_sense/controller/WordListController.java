@@ -227,7 +227,7 @@ public class WordListController {
     }
 
 
-    @PutMapping("unit_select/{id}")
+    @PutMapping("teacher_unit_select/{id}")
     public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -242,7 +242,7 @@ public class WordListController {
         return "unit_select";
     }
 
-    @PutMapping("unit_select0/{id}")
+    @PutMapping("teacher_unit_select_0/{id}")
     public String update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect, Model model){
 
         lessonSelect.setId(id);
@@ -259,7 +259,7 @@ public class WordListController {
     }
 
 
-    @PutMapping("unit_select_maru/{id}")
+    @PutMapping("teacher_unit_select1/{id}")
     public String maru_update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -275,7 +275,7 @@ public class WordListController {
     }
 
 
-    @PutMapping("unit_select_maru0/{id}")
+    @PutMapping("teacher_unit_select_1/{id}")
     public String maru_update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
