@@ -28,7 +28,10 @@ import javax.persistence.*;
             return lesson_id;
         }
 
-        public Integer getStatus() { return status; }
+        public Integer getStatus() {
+            return status;
+        }
+
 
         public  Integer getMaru_status(){
             return  maru_status;

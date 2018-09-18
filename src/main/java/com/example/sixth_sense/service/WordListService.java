@@ -48,7 +48,6 @@ public class WordListService {
 
     }
 
-
         @Transactional
         public List<WordList> findAll(){
 
@@ -144,12 +143,27 @@ public class WordListService {
 
         //Geeee Rina
         @Transactional
-
         public void hatena_increment(String word){
 
             wordListMapper.hatena_increment(word);
         }
 
+        //Riku
+        @Transactional
+        public List<WordList> findTest0(){
+            return wordListMapper.findTest0();
+        }
 
+        //Riku
+        @Transactional
+        public List<WordList> setTest(){
+            return  wordListMapper.setTest();
+        }
+
+        //Riku
+        @Transactional
+        public void test_maru_update(Integer id){
+            wordListMapper.test_maru_update(id);
+        }
 
 }

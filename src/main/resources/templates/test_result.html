@@ -50,48 +50,6 @@
             <tr  th:object = "${testmeanings2}"><td th:text="*{meaning}"></td></tr>
         </div>
 
-        <div class="test_result_tx">
-            <audio id="audio3" >
-                <source th:src="${'/audio/' + testaudios3.audio}">
-            </audio>
-            <script type="text/javascript">
-                function audio3_play() {
-                    audio3.play();
-                }
-            </script>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio3_play()" height="25px" width="25px" >
-            <tr  th:object = "${testwords3}"><td th:text="*{word}"></td></tr>
-            <tr  th:object = "${testmeanings3}"><td th:text="*{meaning}"></td></tr>
-        </div>
-
-        <div class="test_result_tx">
-            <audio id="audio4" >
-                <source th:src="${'/audio/' + testaudios4.audio}">
-            </audio>
-            <script type="text/javascript">
-                function audio4_play() {
-                    audio4.play();
-                }
-            </script>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio4_play()" height="25px" width="25px" >
-            <tr  th:object = "${testwords4}"><td th:text="*{word}"></td></tr>
-            <tr  th:object = "${testmeanings4}"><td th:text="*{meaning}"></td></tr>
-        </div>
-
-        <div class="test_result_tx">
-            <audio id="audio5" >
-                <source th:src="${'/audio/' + testaudios5.audio}">
-            </audio>
-            <script type="text/javascript">
-                function audio5_play() {
-                    audio5.load();
-                    audio5.play();
-                }
-            </script>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio5_play()" height="25px" width="25px" >
-            <tr  th:object = "${testwords5}"><td th:text="*{word}"></td></tr>
-            <tr  th:object = "${testmeanings5}"><td th:text="*{meaning}"></td></tr>
-        </div>
     </div>
 
     <div class="mypage_menu">
