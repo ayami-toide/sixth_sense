@@ -90,6 +90,21 @@ public interface WordListMapper {
     @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
     List<WordList> findMaster2();
 
+    //osanai 9/18
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru && lesson = 'Get Ready' order by rand() LIMIT 5;")
+    List<WordList> findMasterGetReady();
+
+    @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru && lesson = 'Get Ready' order by rand() LIMIT 5")
+    List<WordList> findStudyingGetReady();
+
+    //osanai 9/18
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru && lesson = 'Lesson1' order by rand() LIMIT 5;")
+    List<WordList> findMasterLesson1();
+
+    @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru && lesson = 'Lesson1' order by rand() LIMIT 5")
+    List<WordList> findStudyingLesson1();
+
+
     //Osanai Studying
     @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru order by rand() LIMIT 5")
     List<WordList> findStudying1();
