@@ -26,10 +26,15 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 public class WordListController {
 
     @Autowired
-    WordListService wordlistService;
+    LessonSelectService lessonSelectService;
 
     @Autowired
-    LessonSelectService lessonSelectService;
+    WordListService wordlistService;
+
+
+    @GetMapping("info")
+    public String info(Model model) { return "info"; }
+
 
     @GetMapping("test")
     public String test(Model model){
@@ -64,6 +69,7 @@ public class WordListController {
 
         return "review";
     }
+
 
     @GetMapping("study_index")
     public String study_index(Model model) {
@@ -109,7 +115,28 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping("test_result/{id}")
+
+    @RequestMapping(value = "test_result/{id}" , method = POST)
+    public String test_result_post(@PathVariable("id") int id,@ModelAttribute LessonSelect lessonSelect, Model model)
+    {
+        lessonSelect.setId(new Integer(0));
+        lessonSelectService.perfect(lessonSelect);
+
+        model.addAttribute("id", id);
+
+        String[] array = {"Great job!", "Excellent!", "Well done!"};
+        List<String> list = Arrays.asList(array);
+        Collections.shuffle(list);
+        String word  = list.get(1);
+        array = (String[])list.toArray(new String[0]);
+
+        model.addAttribute("word",word);
+
+        return "test_result";
+
+
+    }
+    @RequestMapping(value = "test_result/{id}" , method = GET)
     public String test_result(@PathVariable("id") int id,Model model)
     {
 
@@ -141,7 +168,7 @@ public class WordListController {
 
         model.addAttribute("id", id);
 
-        String[] array = {"今日もおつかれ", "Excellent", "never give up", "君ならできる"};
+        String[] array = {"Great job!", "Excellent!", "Well done!"};
         List<String> list = Arrays.asList(array);
         Collections.shuffle(list);
         String word  = list.get(1);
@@ -155,6 +182,10 @@ public class WordListController {
 
     @GetMapping("teacher_unit_select")
     public String teacher_unit_select(Model model){
+
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -192,6 +223,8 @@ public class WordListController {
     public String master(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("masters2",wordlistService.findMaster2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
         return "master";
     }
 
@@ -199,6 +232,8 @@ public class WordListController {
     public String unit_select(Model model){
 
         model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
         return "unit_select";
     }
@@ -208,6 +243,9 @@ public class WordListController {
     public String studying(Model model){
         model.addAttribute("studyings1",wordlistService.findStudying1());
         model.addAttribute("studyings2",wordlistService.findStudying2());
+        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
+
         return "studying";
     }
 
@@ -215,7 +253,16 @@ public class WordListController {
     @GetMapping("exam")
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+
         return "exam";
+    }
+
+    //osanai(9/12)
+    @GetMapping("test01")
+    public String test01(Model model){
+        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
+        return "test01";
     }
 
 
@@ -224,6 +271,10 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.update(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -235,6 +286,10 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.update0(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -248,6 +303,10 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.maru_update(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
@@ -260,6 +319,9 @@ public class WordListController {
 
         lessonSelect.setId(id);
         lessonSelectService.maru_update0(lessonSelect);
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
