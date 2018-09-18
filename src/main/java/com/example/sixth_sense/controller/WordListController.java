@@ -140,30 +140,30 @@ public class WordListController {
     public String test_result(@PathVariable("id") int id,Model model)
     {
 
-              int resultId1 = id - 5;
-              model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
-              int resultId2 = id - 4;
-              model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
-              int resultId3 = id - 3;
-              model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
-              int resultId4 = id - 2;
-              model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
-              int resultId5 = id - 1;
-              model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
+        int resultId1 = id - 5;
+        model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
+        int resultId2 = id - 4;
+        model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
+        int resultId3 = id - 3;
+        model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
+        int resultId4 = id - 2;
+        model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
+        int resultId5 = id - 1;
+        model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
 
-              //meaning
-              model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
-              model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
-              model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
-              model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
-              model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
+        //meaning
+        model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
+        model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
+        model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
+        model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
+        model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
-              //audio
-               model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(1)));
-               model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(resultId2)));
-               model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(resultId3)));
-              model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(resultId4)));
-              model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(resultId5)));
+        //audio
+        model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(1)));
+        model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(resultId2)));
+        model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(resultId3)));
+        model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(resultId4)));
+        model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(resultId5)));
 
 
         model.addAttribute("id", id);
