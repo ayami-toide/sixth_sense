@@ -1,4 +1,5 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet" />
 
 
 <!-- ヘッダー -->
@@ -12,6 +13,7 @@
     <style thpe="text/css" media="all">
         <!-- @import url("./css/hoge.css"); -->
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
 
     <!-- スクリプト -->
     <script type="text/javascript" src="/js/pdfmake.min.js"></script>  <!-- pdfmake -->
@@ -20,7 +22,22 @@
 
 <!-- 本文 -->
 <body>
-
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #191970;">
+    <a class="navbar-brand" href="/sense/teacher_page" style="font-family: 'Audiowide', cursive;">
+        Swish
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/sense/teacher_unit_select">Unit Select</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/sense/exam_select">Making Test</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/sense/studentsInfo">Student's Info</a>
+        </li>
+    </ul>
+</nav>
 <script type="text/javascript" th:inline="javascript">
     /*<![CDATA[*/
     //-------------------------
