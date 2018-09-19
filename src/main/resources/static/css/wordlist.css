@@ -6,6 +6,7 @@ body{
 }
 
 .list_title{
+    margin-top:30px;
     font-size: 35px;
     text-align: center;
 }
@@ -107,4 +108,8 @@ table {
     z-index: -1;            /* 重なり調整 */
     width: 200px;           /* 幅指定 */
     left:  -30px;           /* 位置調整 */
+}
+a.homeback>img{
+
+    margin-left:165px;
 }
