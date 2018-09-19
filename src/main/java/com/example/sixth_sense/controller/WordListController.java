@@ -180,17 +180,7 @@ public class WordListController {
 
     }
 
-    @GetMapping("teacher_unit_select")
-    public String teacher_unit_select(Model model){
 
-        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
-        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
-        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
-
-        String teacherId = "teacherId";
-        model.addAttribute("teacherId",teacherId);
-        return "unit_select";
-    }
 
     @GetMapping("teacher_page")
     public String teacher_page(Model model){
@@ -268,6 +258,17 @@ public class WordListController {
         return "test01";
     }
 
+    @GetMapping("teacher_unit_select")
+    public String teacher_unit_select(Model model){
+
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "teacher_unit_select";
+    }
 
     @PutMapping("teacher_unit_select/{id}")
     public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
@@ -281,7 +282,7 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
     @PutMapping("teacher_unit_select_0/{id}")
@@ -296,7 +297,7 @@ public class WordListController {
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
 
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 
@@ -312,7 +313,7 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 
@@ -327,7 +328,7 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 }
