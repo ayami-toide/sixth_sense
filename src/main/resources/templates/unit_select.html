@@ -58,9 +58,6 @@
             font-size: 15px;
             margin: 0px;
         }
-        .nizyu-maru-off{
-            color: red;
-        }
 
     </style>
 </head>
@@ -91,7 +88,7 @@
         <div th:if="${status1.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status1.maru_status}==1" class="box">できればここも！</div><br>
         <div class="box">
-            <form th:action="@{/sense/test}" method="get">
+            <form th:action="@{/sense/test/0}" method="get">
                 <input type = "submit" value="Get Ready">
             </form>
         </div>
@@ -107,7 +104,7 @@
     <div class="a_lesson">
         <div th:if="${status2.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status2.maru_status}==1" class="box">できればここも！</div><br>
-        <form th:action="@{/sense/test}" method="get" class="box">
+        <form th:action="@{/sense/test/1}" method="get" class="box">
             <input type = "submit" value="Lesson1">
         </form>
         <progress class="progress box" min="0" th:attr="max=6" th:value="${status2.perfect}%6"></progress>
@@ -120,9 +117,11 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
+
         <div th:if="${status3.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status3.maru_status}==1" class="box">できればここも！</div><br>
         <form th:action="@{/sense/test}" method="get" class="box">
+
             <input type = "submit" value="Lesson2">
         </form>
         <progress class="progress box" min="0" th:attr="max=4" th:value="${status3.perfect}%4"></progress>
@@ -140,8 +139,10 @@
             <input type = "submit" value="Lesson3">
         </form>
         <progress class="progress box" min="0" th:attr="max=4" th:value="0"></progress>
-
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
@@ -151,7 +152,10 @@
             <input type = "submit" value="Lesson4">
         </form>
         <progress class="progress box" min="0" th:attr="max=100" th:value="0"></progress>
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
@@ -161,7 +165,10 @@
             <input type = "submit" value="Lesson5">
         </form>
         <progress class="progress box" min="0" th:attr="max=4" th:value="0"></progress>
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
@@ -170,7 +177,10 @@
             <input type = "submit" value="Lesson6">
         </form>
         <progress class="progress box" min="0" th:attr="max=40" th:value="0"></progress>
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
@@ -180,7 +190,10 @@
             <input type = "submit" value="Lesson7">
         </form>
         <progress class="progress box" min="0" th:attr="max=4" th:value="0"></progress>
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
@@ -190,7 +203,10 @@
             <input type = "submit" value="Lesson8">
         </form>
         <progress class="progress box" min="0" th:attr="max=100" th:value="0"></progress>
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
@@ -200,7 +216,10 @@
             <input type = "submit" value="Lesson9">
         </form>
         <progress class="progress box" min="0" th:attr="max=100" th:value="0"></progress>
-        <p class="box level_size">Level 1</p>
+        <div class="box level_size" th:text="${status3.perfect}%7"></div>
+        <p class="box level_size">/7</p>
+        <p class="box level_size">Level</p>
+        <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
 </div>
