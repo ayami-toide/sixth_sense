@@ -36,4 +36,7 @@ public interface LessonSelectMapper {
     @Delete("delete from lessonselect where id = #{id}")
     void delete(Long id);
 
+    @Select("select perfect from lessonselect where lesson_id = #{lesson_id}")
+    int findPerfect(int lesson_id);
+
 }
