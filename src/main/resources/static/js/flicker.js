@@ -12,12 +12,12 @@ $(function() {
     //         });
     //     })
     // },1000);
-
-$(function() {
-    $(".wall").click(function() {
-        $(this).remove();
-    });
-})
+//
+// $(function() {
+//     $(".wall").click(function() {
+//         $(this).remove();
+//     });
+// })
 
 $(document).ready(function(){
 
