@@ -42,7 +42,7 @@
     </div>
 
     <div class = "resultButtonDisplay" id = "resultButtonDisplay">
-        <form th:action="@{/sense/test_result/__${testNumber}__/__${UnitId}__}" method="post">
+        <form th:action="@{/sense/test_result/__${testwords.get(0).id}__/__${testNumber}__/__${UnitId}__}" method="post">
             　<input type="image" src ="/images/test/finish.png" >　　　　　　　
         </form>
     </div>

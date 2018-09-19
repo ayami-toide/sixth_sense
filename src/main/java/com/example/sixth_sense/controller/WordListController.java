@@ -2,7 +2,9 @@ package com.example.sixth_sense.controller;
 
 
 import com.example.sixth_sense.domain.LessonSelect;
+import com.example.sixth_sense.domain.Result;
 import com.example.sixth_sense.domain.WordList;
+import com.example.sixth_sense.service.ResultService;
 import com.example.sixth_sense.service.WordListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,8 @@ public class WordListController {
     @Autowired
     WordListService wordlistService;
 
+    @Autowired
+    ResultService resultService;
 
     @GetMapping("info")
     public String info(Model model) { return "info"; }
@@ -95,8 +99,11 @@ public class WordListController {
     }
 
     @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = POST)
-    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute WordList wordlist,Model model){
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute Result result,@ModelAttribute WordList wordlist,Model model){
 
+        result.setId(testNumber);
+        result.setWord_id(id);
+        resultService.result_update(result);
         wordlistService.test_maru_update(new Integer(id));
         model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
@@ -126,9 +133,13 @@ public class WordListController {
     }
 
 
-    @RequestMapping(value = "test_result/{id}/{UnitId}", method = POST)
-    public String test_result_post(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId,@ModelAttribute LessonSelect lessonSelect, Model model)
+    @RequestMapping(value = "test_result/{id}/{testNumber}/{UnitId}", method = POST)
+    public String test_result_post(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute Result result,@ModelAttribute LessonSelect lessonSelect, Model model)
     {
+        result.setId(new Integer(5));
+        result.setWord_id(id);
+        resultService.result_update(result);
+
         lessonSelect.setId(new Integer(0));
         lessonSelectService.perfect(lessonSelect);
 
