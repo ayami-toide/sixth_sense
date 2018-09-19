@@ -10,11 +10,6 @@
 </head>
 <body>
 
-<form>
-    <input type="image" src="/images/mypage/printer.png" width="50" height="50" align="middle" onclick="window.print();" />
-</form>
-<a href="/sense/exam_get_ready2">日本語→英語ver</a>
-
 <script>
     alert('印刷してペーパーテストを実施しましょう。※フリックが足りない場合はエラーが表示されます。');
 </script>
@@ -89,6 +84,85 @@
         <td>　　　　　　</td>
     </tr>
 </table>
+
+
+<p class="daimei">英単語テスト</p>
+
+<p class="name">氏名(　　　　　　　　　)</p><p class="ten">　　　　　　点</p>
+
+<table border="1">
+    <tr class="exam-tango">
+        <th>　</th>
+        <th>英語</th>
+        <th>日本語</th>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>1</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterGetReadys.get(0)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${MasterGetReadys.get(0)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>2</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingGetReadys.get(0)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${StudyingGetReadys.get(0)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>3</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterGetReadys.get(1)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${MasterGetReadys.get(1)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>4</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingGetReadys.get(1)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${StudyingGetReadys.get(1)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>5</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterGetReadys.get(2)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${MasterGetReadys.get(2)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>6</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingGetReadys.get(2)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${StudyingGetReadys.get(2)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>7</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterGetReadys.get(3)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${MasterGetReadys.get(3)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>8</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingGetReadys.get(3)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${StudyingGetReadys.get(3)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>9</td>
+        <td class="word doing" th:text="*{word}" th:object = "${MasterGetReadys.get(4)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${MasterGetReadys.get(4)}"></td>
+    </tr>
+
+    <tr class="exam-tango">
+        <td>10</td>
+        <td class="word doing" th:text="*{word}" th:object = "${StudyingGetReadys.get(4)}"></td>
+        <td class="word doing" th:text="*{meaning}" th:object = "${StudyingGetReadys.get(4)}"></td>
+    </tr>
+</table>
+
+
+<form>
+    <input type="image" src="/images/mypage/printer.png" width="50" height="50" align="middle" onclick="window.print();" />
+</form>
+<a href="/sense/exam_get_ready2">日本語→英語ver</a>
 
 </body>
 </html>

@@ -61,7 +61,6 @@
 </head>
 <body>
 <a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
-<h1 class="title">学習中の単語</h1>
 <div  class= "wall-final">
     <!--<input class="show-modal" type="button" value="フリックした単語一覧">-->
     <br><br>
@@ -75,12 +74,6 @@
 
     <tr th:each="word : ${studyings2}" th:object="${word}">
         <div class="buddy" style="display: block;">
-            <script type="text/javascript">
-                function audio_play() {
-                    var audio = document.getElementById("audio");
-                    audio.play();
-                }
-            </script>
             <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
             <audio><source th:src="${'/audio/'+ word.audio}"></audio>
 
@@ -174,6 +167,12 @@
         </div>
     </tr>
 </div>
+<script type="text/javascript">
+    function audio_play(element) {
+        $(element).parent().find('audio').get(0).play();
+    }
+
+</script>
 
 <!--<div id="modalwin" class="modalwin hide">-->
 <!--<h1>フリックした単語一覧</h1>-->
@@ -202,5 +201,6 @@
 <!--<img class="close_modal" src="/images/study/close.jpeg">-->
 </div>
 <!--</div>-->
+
 </body>
 </html>
