@@ -6,6 +6,7 @@ body{
 }
 
 .list_title{
+    margin-top:30px;
     font-size: 35px;
     text-align: center;
 }
@@ -74,4 +75,9 @@ td.lesson.done{
 table {
     margin: 0px 0px 10px 0px;
     width: 100%;
+}
+
+a.homeback>img{
+
+    margin-left:165px;
 }
