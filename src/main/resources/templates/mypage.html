@@ -93,13 +93,42 @@
 
 </div>
 <div class="mypage_btn">
-    <a href="/sense/study" class="newtango_btn">今日の単語</a><br>
-    <a href="/sense/unit_select" class="oldtango_btn">テスト</a>
+    <a  class="newtango_btn" onclick="audio3_play()">今日の単語</a><br>
+    <a  class="oldtango_btn"onclick="audio4_play()">テスト</a>
 </div>
 <ul class="mypage_menu">
-    <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
-    <li><a href="/sense/wordlist"><img src="/images/mypage/tangolist.png"></a><p>単語リスト</p></li>
-    <li><a href="/sense/review"><img src="/images/mypage/review.png"></a><p>復習</p></li>
+    <li><img src="/images/mypage/home.png" onclick="audio_play()"><p>ホーム</p></li>
+    <li><img src="/images/mypage/tangolist.png" onclick="audio1_play()"><p>単語リスト</p></li>
+    <li><img src="/images/mypage/review.png"onclick="audio2_play()"><p>復習</p></li>
 </ul>
+
+<audio id="audio" >
+    <source src="/audio/pico.mp3">
+</audio>
+<script type="text/javascript">
+    function audio_play() {
+        audio.play();
+        setTimeout(function jump(){ location.href='/sense/mypage/'},500);
+    }
+    function audio1_play() {
+        audio.play();
+        setTimeout(function jump(){ location.href='/sense/wordlist/'},500);
+    }
+    function audio2_play() {
+        audio.play();
+        setTimeout(function jump(){ location.href='/sense/review/'},500);
+    }
+    function audio3_play() {
+        audio.play();
+        setTimeout(function jump(){ location.href='/sense/study/'},500);
+    }
+    function audio4_play() {
+        audio.play();
+        setTimeout(function jump(){ location.href='/sense/unit_select/'},500);
+    }
+
+
+</script>
+
 </body>
 </html>
