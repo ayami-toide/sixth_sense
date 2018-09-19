@@ -1,8 +1,9 @@
 package com.example.sixth_sense.domain;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
-    @Entity
+@Entity
     @Table(name = "lessonselect")
     public class LessonSelect {
 
@@ -21,6 +22,7 @@ import javax.persistence.*;
         private Integer maru_status;
 
         @Column(name = "perfect" , nullable = false)
+
         private Integer perfect;
 
         public  Integer getId(){
@@ -41,6 +43,7 @@ import javax.persistence.*;
 
         public  Integer getPerfect(){ return  perfect;}
 
+
         public void setId(Integer id) {
             this.id = id;
         }
@@ -55,6 +58,7 @@ import javax.persistence.*;
 
         public void setMaru_status(Integer maru_status){ this.maru_status = maru_status; }
 
-        public void setPerfect(Integer perfect){ this.perfect = perfect;}
-
+        public void setPerfect(Integer perfect){
+            this.perfect = perfect;
+        }
     }

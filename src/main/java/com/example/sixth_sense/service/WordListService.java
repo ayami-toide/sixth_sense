@@ -85,8 +85,8 @@ public class WordListService {
         public List<WordList> findMaster1(){ return wordListMapper.findMaster1(); }
 
         //Osanai(9/11) Master
-        @Transactional
-        public List<WordList> findMaster2(){ return wordListMapper.findMaster2(); }
+//        @Transactional
+//        public List<WordList> findMaster2(){ return wordListMapper.findMaster2(); }
 
         //Osanai(9/12) Studying
         @Transactional
@@ -115,6 +115,16 @@ public class WordListService {
 
         @Transactional
         public List<WordList> findStudyingWordlist(){ return wordListMapper.findStudyingWordlist(); }
+
+        //テスト get ready & lesson1
+        @Transactional
+        public List<WordList> findMasterGetReady(){ return wordListMapper.findMasterGetReady(); }
+        @Transactional
+        public List<WordList> findStudyingGetReady(){ return wordListMapper.findStudyingGetReady(); }
+        @Transactional
+        public List<WordList> findMasterLesson1(){ return wordListMapper.findMasterLesson1(); }
+        @Transactional
+        public List<WordList> findStudyingLesson1(){ return wordListMapper.findStudyingLesson1(); }
 
 
     //Osanai

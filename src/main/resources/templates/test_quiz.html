@@ -52,13 +52,12 @@
         <img src="/images/test/over.png">
     </div>
 
-    <div class="container">
+
         <div id="timer"></div>
         <form id="form" class="form-inline">
             <div class="form-group">
             </div>
         </form>
-    </div>
 
 
 
@@ -157,9 +156,9 @@
         <tr  th:object="${testwords.get(0)}">
             <td th:text="*{word}"></td>
         </tr>
-        <div th:text = "${testNumber}"></div>
+        <div class="number"><td th:text = "${testNumber}+'/5'"></div>
     </div>
-    <br><br>
+    <br>
 
     <div class="test_nihongo">
 
@@ -171,7 +170,7 @@
                     <div th:switch="${word}">
 
                         <span th:case="${option.meaning}" onClick="changepage(0)">
-                              <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div><br>
+                              <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
                         </span>
 
 
@@ -188,7 +187,7 @@
                     <div th:switch="${word}">
 
                             <span th:case="${option.meaning}" onClick="changepage(1)">
-                                  <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div><br>
+                                  <div class="nihongo_btn" th:text="${word}" onclick="audio_play()"></div>
                             </span>
 
 
