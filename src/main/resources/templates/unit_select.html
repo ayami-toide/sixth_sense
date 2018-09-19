@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/unit_select.css">
     <script src="/js/style.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Alegreya+Sans+SC" rel="stylesheet">
     <title>Title</title>
     <style>
         .progress{
@@ -41,8 +41,8 @@
             --progressHeight: 20px;
         }
         .progress{
-            --progressColor: #C21858;
-            --progressBgColor: #F8BBD0;
+            --progressColor: #00008B;
+            --progressBgColor: #BAD3FF;
         }
         .box{
             display: inline-block;
@@ -76,8 +76,13 @@
 
 
 <!--生徒の方だよ-->
-<div>
-    <h1>TEST PAGE</h1>
+
+    <div class="head_test-wrap">
+        <h1 class="head_test">
+            単語テスト
+            <span class="head_test-point">Test</span>
+        </h1>
+    </div>
     <!--<ul class="setumei">-->
         <!--<li><a class="setumei_img"><img src="/images/unit_select/nimaru.png"></a><p class="setumei_p">:次回の授業までにうけてね</p></li>-->
         <!--<li><a class="setumei_img"><img src="/images/unit_select/ichimaru.png"></a><p class="setumei_p">:できればここも</p></li>-->
@@ -87,14 +92,10 @@
     <div class="a_lesson">
         <div th:if="${status1.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status1.maru_status}==1" class="box">できればここも！</div><br>
-        <div class="box">
-            <form th:action="@{/sense/test/0}" method="get">
-                <input type = "submit" value="Get Ready">
-            </form>
-        </div>
+        <a class="unit_sub" href="/sense/test/0">GetReady</a>
         <progress class="progress box" min="0" th:attr="max=8" th:value="${status1.perfect}%8"></progress>
-        <p class="box level_size" th:text="${status1.perfect}%8"></p>
-        <p class="box level_size">/8</p>
+        <!--<tr class="box level_size" th:text="${status1.perfect}%8"></tr>-->
+        <!--<tr class="box level_size">/8</tr>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
     </div>
@@ -104,12 +105,10 @@
     <div class="a_lesson">
         <div th:if="${status2.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status2.maru_status}==1" class="box">できればここも！</div><br>
-        <form th:action="@{/sense/test/1}" method="get" class="box">
-            <input type = "submit" value="Lesson1">
-        </form>
+            <a class="unit_sub" href="/sense/test/1">Lesson1</a>
         <progress class="progress box" min="0" th:attr="max=6" th:value="${status2.perfect}%6"></progress>
-        <div class="box level_size" th:text="${status2.perfect}%6"></div>
-        <p class="box level_size">/6</p>
+        <!--<div class="box level_size" th:text="${status2.perfect}%6"></div>-->
+        <!--<p class="box level_size">/6</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status2.perfect}-${status2.perfect}%6)/6" class="box level_size"></p>
     </div>
@@ -120,13 +119,10 @@
 
         <div th:if="${status3.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status3.maru_status}==1" class="box">できればここも！</div><br>
-        <form th:action="@{/sense/test}" method="get" class="box">
-
-            <input type = "submit" value="Lesson2">
-        </form>
+           <a class="unit_sub" href="">Lesson2</a>
         <progress class="progress box" min="0" th:attr="max=4" th:value="${status3.perfect}%4"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%4)/4" class="box level_size"></p>
 
@@ -135,12 +131,11 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson3">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson3</a>
         <progress class="progress box" min="0" th:attr="max=4" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
@@ -148,12 +143,11 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson4">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson4</a>
         <progress class="progress box" min="0" th:attr="max=100" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
@@ -161,24 +155,22 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson5">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson5</a>
         <progress class="progress box" min="0" th:attr="max=4" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
     <p class="line">------------------------------------------</p>
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson6">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson6</a>
         <progress class="progress box" min="0" th:attr="max=40" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
@@ -186,12 +178,11 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson7">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson7</a>
         <progress class="progress box" min="0" th:attr="max=4" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
@@ -199,12 +190,11 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson8">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson8</a>
         <progress class="progress box" min="0" th:attr="max=100" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
@@ -212,17 +202,16 @@
     <p class="line">------------------------------------------</p>
 
     <div class="a_lesson">
-        <form th:action="@{/sense/test}" method="get" class="box">
-            <input type = "submit" value="Lesson9">
-        </form>
+        <br>
+        <a class="unit_sub" href="">Lesson9</a>
         <progress class="progress box" min="0" th:attr="max=100" th:value="0"></progress>
-        <div class="box level_size" th:text="${status3.perfect}%7"></div>
-        <p class="box level_size">/7</p>
+        <!--<div class="box level_size" th:text="${status3.perfect}%7"></div>-->
+        <!--<p class="box level_size">/7</p>-->
         <p class="box level_size">Level</p>
         <p th:text="(${status3.perfect}-${status3.perfect}%7)/7" class="box level_size"></p>
     </div>
 
-</div>
+
 
 
 </body>
