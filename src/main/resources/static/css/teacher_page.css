@@ -14,19 +14,8 @@ body{
 p.teacher_midashi{
     text-align: center;
     font-size: 50px;
+    margin: 10px 0px;
 }
 
-.teacher_btn1{
-    clear: both;
-    font-size: 150px;
-    float: left;
-}
-.teacher_btn2{
-    font-size: 150px;
-    clear: both;
-}
 
-.teacher_page_btn{
-    margin-left: 217px;
-}
 

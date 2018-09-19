@@ -69,10 +69,13 @@
 <div class="mypage_prf">
     <!--<img src="/images/mypage/icon.png">-->
     <div class="dounuts" style="height: 270px; width: 270px;">
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart1"></canvas>
     </div>
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        var ctx = document.getElementById("myChart1").getContext('2d');
+        var master = /*[[${master}]]*/ 'master';
+        var studying = /*[[${studying}]]*/ 'studying';
         var myDoughnutChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
@@ -82,13 +85,14 @@
                     '未学習'
                 ],
                 datasets: [{
-                    data: [10, 20, 30],
+                    data: [master, studying, 70 - master - studying],
                     backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
                 }]
             },
             options: {
             }
         });
+        /*]]>*/
     </script>
 
 </div>

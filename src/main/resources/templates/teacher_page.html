@@ -2,26 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/teacher_page.css">
     <script src="/js/style.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>Teacher Page</title>
 </head>
 <body>
 
 <p class="teacher_midashi">Teacher's Page</p>
-<div class="teacher_page_btn">
-    <a class = "teacher_btn1">
-        <form th:action="@{/sense/teacher_unit_select}" method="get">
-            <input type = "image" src="/images/teacher_page/unit_select.png">
-        </form>
-    </a>
-    <a class="teacher_btn2">
-        <form th:action="@{/sense/exam_select}" method="get">
-            <input type = "image" src="/images/teacher_page/making_test.png">
-        </form>
-    </a>
-</div>
+    <div style="text-align: center;">
+        <a href="/sense/teacher_unit_select"><img src="/images/teacher_page/unit_select.png"></a>
+        <a href="/sense/exam_select"><img src="/images/teacher_page/making_test.png"></a>
+        <a href="/sense/studentsInfo"><img src="/images/teacher_page/students_info.png"></a>
+    </div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </body>
 </html>
