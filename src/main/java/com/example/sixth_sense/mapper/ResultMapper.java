@@ -10,4 +10,7 @@ public interface ResultMapper {
 
     @Update("update result set word_id = #{word_id} where id = #{id}")
     void result_update(Result result);
+
+    @Select("select word_id from result where id = #{id}")
+    Integer findWord(Integer id);
 }
