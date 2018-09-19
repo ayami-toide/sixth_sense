@@ -62,4 +62,18 @@ $(document).ready(function(){
 
 //study.html ここまで//
 
+$(document).ready(function(){
+
+    $(".wall").on("swiperight",function(){
+        $(this).addClass('wall_rotate-left').delay(700).fadeOut(1);
+        $('.buddy').find('.status').remove();
+    });
+
+    $(".wall").on("swipeleft",function(){
+        $(this).addClass('wall_rotate-right').delay(700).fadeOut(1);
+        $('.buddy').find('.status').remove();
+    });
+
+});
+
 
