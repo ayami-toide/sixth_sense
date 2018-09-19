@@ -36,8 +36,10 @@ public class WordListController {
     public String info(Model model) { return "info"; }
 
 
-    @GetMapping("test")
-    public String test(Model model){
+    @GetMapping("test/{id}")
+    public String test(@PathVariable("id") int id, Model model){
+
+        model.addAttribute("UnitId",id);
         return "test";
     }
 
@@ -76,20 +78,27 @@ public class WordListController {
         return "study_index";
     }
 
-    @RequestMapping("test_quiz")
-    public String test_quiz(Model model){
+    @RequestMapping("test_quiz/{UnitId}")
+    public String test_quiz(@PathVariable("UnitId") int id, Model model){
 
+        model.addAttribute("UnitId", id);
         model.addAttribute("testNumber", 1);
-        model.addAttribute("testwords",wordlistService.setTest());
+        if(id == 0) {
+            model.addAttribute("testwords", wordlistService.setTest());
+        }else if(id == 1){
+            model.addAttribute("testwords", wordlistService.setTest1());
+        }else{
+            model.addAttribute("testwords",wordlistService.setTest());
+        }
 
         return "test_quiz";
     }
 
-    @RequestMapping(value = "test_question/{id}/{testNumber}", method = POST)
-    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@ModelAttribute WordList wordlist,Model model){
+    @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = POST)
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute WordList wordlist,Model model){
 
         wordlistService.test_maru_update(new Integer(id));
-
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
 
@@ -101,9 +110,10 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping(value = "test_question/{id}/{testNumber}", method = GET)
-    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber, Model model)
+    @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = GET)
+    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId, Model model)
     {
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
         int TestNumber = testNumber + 1;
@@ -116,12 +126,13 @@ public class WordListController {
     }
 
 
-    @RequestMapping(value = "test_result/{id}" , method = POST)
-    public String test_result_post(@PathVariable("id") int id,@ModelAttribute LessonSelect lessonSelect, Model model)
+    @RequestMapping(value = "test_result/{id}/{UnitId}", method = POST)
+    public String test_result_post(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId,@ModelAttribute LessonSelect lessonSelect, Model model)
     {
         lessonSelect.setId(new Integer(0));
         lessonSelectService.perfect(lessonSelect);
 
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("id", id);
 
         String[] array = {"Great job!", "Excellent!", "Well done!"};
@@ -136,8 +147,8 @@ public class WordListController {
 
 
     }
-    @RequestMapping(value = "test_result/{id}" , method = GET)
-    public String test_result(@PathVariable("id") int id,Model model)
+    @RequestMapping(value = "test_result/{id}/{UnitId}" , method = GET)
+    public String test_result(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId, Model model)
     {
 
         int resultId1 = id - 5;
@@ -176,21 +187,13 @@ public class WordListController {
         model.addAttribute("word",word);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
 
+        model.addAttribute("UnitId",UnitId);
+
         return "test_result";
 
     }
 
-    @GetMapping("teacher_unit_select")
-    public String teacher_unit_select(Model model){
 
-        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
-        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
-        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
-
-        String teacherId = "teacherId";
-        model.addAttribute("teacherId",teacherId);
-        return "unit_select";
-    }
 
     @GetMapping("teacher_page")
     public String teacher_page(Model model){
@@ -222,9 +225,9 @@ public class WordListController {
     @GetMapping("master")
     public String master(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
-        model.addAttribute("masters2",wordlistService.findMaster2());
-        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
-        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
+//        model.addAttribute("masters2",wordlistService.findMaster2());
+//        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+//        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
         return "master";
     }
 
@@ -254,11 +257,47 @@ public class WordListController {
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("studyings1",wordlistService.findStudying1());
-        model.addAttribute("StudyingWordlists",wordlistService.findStudyingWordlist());
-        model.addAttribute("MasterWordlists",wordlistService.findMasterWordlist());
-        model.addAttribute("notstudieds",wordlistService.findNotStudied());
-
         return "exam";
+    }
+
+    @GetMapping("exam2")
+    public String exam2(Model model){
+        model.addAttribute("masters1",wordlistService.findMaster1());
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+        return "exam2";
+    }
+
+    @GetMapping("exam_get_ready")
+    public String exam_get_ready(Model model){
+        model.addAttribute("MasterGetReadys",wordlistService.findMasterGetReady());
+        model.addAttribute("StudyingGetReadys",wordlistService.findStudyingGetReady());
+        return "exam_get_ready";
+    }
+
+    @GetMapping("exam_get_ready2")
+    public String exam_get_ready2(Model model){
+        model.addAttribute("MasterGetReadys",wordlistService.findMasterGetReady());
+        model.addAttribute("StudyingGetReadys",wordlistService.findStudyingGetReady());
+        return "exam_get_ready2";
+    }
+
+    @GetMapping("exam_lesson")
+    public String exam_lesson(Model model){
+        model.addAttribute("MasterLesson1",wordlistService.findMasterLesson1());
+        model.addAttribute("StudyingLesson1",wordlistService.findStudyingLesson1());
+        return "exam_lesson";
+    }
+
+    @GetMapping("exam_lesson2")
+    public String exam_lesson2(Model model){
+        model.addAttribute("MasterLesson1",wordlistService.findMasterLesson1());
+        model.addAttribute("StudyingLesson1",wordlistService.findStudyingLesson1());
+        return "exam_lesson2";
+    }
+
+    @GetMapping("exam_select")
+    public String exam_select(Model model){
+        return "exam_select";
     }
 
     //osanai(9/12)
@@ -268,8 +307,19 @@ public class WordListController {
         return "test01";
     }
 
+    @GetMapping("teacher_unit_select")
+    public String teacher_unit_select(Model model){
 
-    @PutMapping("unit_select/{id}")
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "teacher_unit_select";
+    }
+
+    @PutMapping("teacher_unit_select/{id}")
     public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -278,13 +328,12 @@ public class WordListController {
         model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
         model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
-
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
-    @PutMapping("unit_select0/{id}")
+    @PutMapping("teacher_unit_select_0/{id}")
     public String update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect, Model model){
 
         lessonSelect.setId(id);
@@ -293,15 +342,14 @@ public class WordListController {
         model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
         model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
-
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
 
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 
-    @PutMapping("unit_select_maru/{id}")
+    @PutMapping("teacher_unit_select1/{id}")
     public String maru_update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -313,11 +361,11 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 
-    @PutMapping("unit_select_maru0/{id}")
+    @PutMapping("teacher_unit_select_1/{id}")
     public String maru_update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -328,7 +376,24 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
+    }
+
+    @GetMapping("studentsInfo")
+    public String showStudentsInfo(Model model) {
+        model.addAttribute("master", wordlistService.countMaster());
+        model.addAttribute("studying", wordlistService.countStudying());
+
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+        model.addAttribute("status4",lessonSelectService.findOne(new Integer(4)));
+        model.addAttribute("status5",lessonSelectService.findOne(new Integer(5)));
+        model.addAttribute("status6",lessonSelectService.findOne(new Integer(6)));
+
+
+
+        return "students_info";
     }
 
 }

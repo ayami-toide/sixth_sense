@@ -1,0 +1,62 @@
+label {
+    font-size: 10px;
+}
+
+.graph {
+    width: 90px;
+    display: inline-block;
+}
+
+.testProgress {
+    width: 91px;
+    display: inline-block;
+}
+
+.progress{
+    display: block;
+    appearance: none;
+    border: none;
+}
+.progress{
+    --uiProgressWidth: var(--progressWidth, 100%);
+    --uiProgressHeight: var(--progressHeight, 5px);
+    width: var(--uiProgressWidth);
+    height: var(--uiProgressHeight);
+}
+.progress[value]::-webkit-progress-value{
+    transition: width .4s ease-out;
+}
+.progress{
+    --uiProgressColor: var(--progressColor);
+    --uiProgressBgColor: var(--progressBgColor);
+    background-color: var(--uiProgressColor);
+    color: var(--uiProgressColor);
+}
+.progress[value]::-webkit-progress-bar{
+    background-color: var(--uiProgressBgColor);
+}
+.progress[value]::-webkit-progress-value{
+    background-color: var(--uiProgressColor);
+}
+.progress[value]::-moz-progress-bar{
+    background-color: var(--uiProgressColor);
+}
+.progress{
+    --progressHeight: 4px;
+}
+.progress{
+    --progressColor: #C21858;
+    --progressBgColor: #F8BBD0;
+}
+
+.mypage_prf{
+    text-align: center;
+    width: 211px;
+    height: 211px;
+    margin-top: 10px;
+    float: left;
+}
+.mypage_prf>img{
+    width: 180px;
+    height: 180px;
+}
