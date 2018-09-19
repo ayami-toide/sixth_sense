@@ -15,10 +15,7 @@ $(function() {
 
 $(function() {
     $(".wall").click(function() {
-
-        $('.wall').delay(700).queue(function(){
-            $(this).remove().dequeue();
-        });
+        $(this).remove();
     });
 })
 
