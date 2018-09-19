@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet" />
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/teacher_page.css">
     <script src="/js/style.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
     <title>Teacher Page</title>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #191970;">
+    <a class="navbar-brand" href="/sense/teacher_page" style="font-family: 'Audiowide', cursive;">
+        Swish
+    </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/sense/teacher_unit_select">Unit Select</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/sense/exam_select">Making Test</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/sense/studentsInfo">Student's Info</a>
+            </li>
+        </ul>
+</nav>
 
 <p class="teacher_midashi">Teacher's Page</p>
 <div class="teacher_page_btn">
