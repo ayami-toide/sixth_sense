@@ -1,8 +1,9 @@
 package com.example.sixth_sense.domain;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
-    @Entity
+@Entity
     @Table(name = "lessonselect")
     public class LessonSelect {
 
