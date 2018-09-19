@@ -10,18 +10,14 @@
 </head>
 <body>
 <a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
-<p class="list_title">WORD LIST</p>
+<!--<p class="list_title">単語一覧</p>-->
 
-<p class="list_sub_title">マスターした単語</p>
-
-<table>
-    <tr><th class="wordcolumn">単語</th><th>意味</th><th class="lessoncolumn">Lesson</th></tr>
-    <tr th:each = "obj:${MasterWordlists}" th:object="${obj}">
-        <td class="word done" th:text="*{word}"></td>
-        <td class="meaning done" th:text="*{meaning}"></td>
-        <td class="lesson done" th:text="*{lesson}"></td>
-    </tr>
-</table>
+<div class="head_test-wrap">
+    <h1 class="head_test">
+        単語一覧
+        <span class="head_test-point">Word List</span>
+    </h1>
+</div>
 
 <p class="list_sub_title">学習中の単語</p>
 
@@ -34,6 +30,28 @@
     </tr>
 </table>
 
+
+
+<p class="list_sub_title">マスターした単語</p>
+
+<table>
+    <tr><th class="wordcolumn">単語</th><th>意味</th><th class="lessoncolumn">Lesson</th></tr>
+    <tr th:each = "obj:${MasterWordlists}" th:object="${obj}">
+        <td class="word done" th:text="*{word}"></td>
+        <td class="meaning done" th:text="*{meaning}"></td>
+        <td class="lesson done" th:text="*{lesson}"></td>
+        <script type="text/javascript">
+            function audio_play() {
+                var audio = document.getElementById("audio");
+                audio.play();
+            }
+        </script>
+
+
+    </tr>
+</table>
+
+
 <p class="list_sub_title">未学習の単語</p>
 
 <table>
@@ -44,6 +62,8 @@
         <td class="lesson notyet" th:text="*{lesson}"></td>
     </tr>
 </table>
+
+<a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
 
 </body>
