@@ -18,11 +18,11 @@
     <div class="review_index">
         <div class="review_tango">
             <a href="/sense/master">マスターした単語</a>
-             <tr th:text = "${countMaster}"></tr>
+             <tr th:text = "'('+${countMaster}+')'"></tr>
         </div>
         <div class="review_tango">
             <a href="/sense/studying">学習中の単語</a>
-            <tr th:text = "${countStudying}"></tr>
+            <tr th:text = "'('+${countStudying}+')'"></tr>
         </div>
     </div>
 

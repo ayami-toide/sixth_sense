@@ -25,13 +25,9 @@ div.test_result{
 }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ece764690f6ae72141341421d0e6f9f5cabf8729
-
 .test_text{
     font-family: 'Sawarabi Gothic', sans-serif;
+    font-weight:bold;
     margin:auto;
     font-size: 26px;
     margin-top: 16px;
