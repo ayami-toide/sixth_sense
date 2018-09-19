@@ -49,6 +49,8 @@ public class WordListController {
 
     @GetMapping("mypage")
     public String mypage(Model model){
+        model.addAttribute("master", wordlistService.countMaster());
+        model.addAttribute("studying", wordlistService.countStudying());
         model.addAttribute("count",wordlistService.findCount());
         model.addAttribute("status",wordlistService.findCountStatus());
 
