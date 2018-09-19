@@ -15,13 +15,24 @@
 
     <div class="teststart">
         <form th:action="@{/sense/test_quiz/__${UnitId}__}">
-            　<input type="image" src = "/images/test/start.png">　　　　　　　
+            　<input type="image" src = "/images/test/start.png" >　　　　　　　
         </form>
     </div>
+    <audio id="audio" >
+        <source src="/audio/pico.mp3">
+    </audio>
+    <script type="text/javascript">
+        function audio_play() {
+            audio.play();
+            setTimeout(function jump(){ location.href='/sense/mypage/'},500);
+        }
+     </script>
 
 
-    <ul class="mypage_menu">
-        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
+
+
+        <ul class="mypage_menu">
+        <li><img src="/images/mypage/home.png" onclick="audio_play()"></li>
     </ul>
 
 </body>

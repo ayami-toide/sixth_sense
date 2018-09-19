@@ -110,7 +110,12 @@ public class WordListController {
 
         model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
-        model.addAttribute("testwords",wordlistService.setTest());
+
+        if(UnitId == 0) {
+            model.addAttribute("testwords", wordlistService.setTest());
+        }else if(UnitId == 1) {
+            model.addAttribute("testwords", wordlistService.setTest1());
+        }
 
         int TestNumber = testNumber + 1;
         if(TestNumber % 5 == 0){
@@ -127,6 +132,12 @@ public class WordListController {
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
         int TestNumber = testNumber + 1;
+
+        if(UnitId == 0) {
+            model.addAttribute("testwords", wordlistService.setTest());
+        }else if(UnitId == 1) {
+            model.addAttribute("testwords", wordlistService.setTest1());
+        }
 
         if(TestNumber % 5 == 0){
             String lastid = "last";

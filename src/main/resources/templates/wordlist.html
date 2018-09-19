@@ -9,7 +9,7 @@
     <title>単語一覧</title>
 </head>
 <body>
-<a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
+<a class="modoru" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
 <!--<p class="list_title">単語一覧</p>-->
 
 <div class="head_test-wrap">
@@ -40,12 +40,6 @@
         <td class="word done" th:text="*{word}"></td>
         <td class="meaning done" th:text="*{meaning}"></td>
         <td class="lesson done" th:text="*{lesson}"></td>
-        <script type="text/javascript">
-            function audio_play() {
-                var audio = document.getElementById("audio");
-                audio.play();
-            }
-        </script>
 
 
     </tr>
@@ -63,7 +57,16 @@
     </tr>
 </table>
 
-<a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
+<a class="homeback" ><img src="/images/mypage/home.png" onclick="audio_play()"></a>
+<audio id="audio" >
+    <source src="/audio/pico.mp3">
+</audio>
+<script type="text/javascript">
+    function audio_play() {
+        audio.play();
+        setTimeout(function jump(){ location.href='/sense/mypage/'},500);
+    }
+</script>
 
 
 </body>

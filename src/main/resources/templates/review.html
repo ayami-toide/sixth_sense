@@ -14,20 +14,18 @@
         <span class="head_test-point">Review</span>
     </h1>
 </div>
-
-    <div class="review_index">
-        <div class="review_tango">
-            <a href="/sense/master">マスターした単語</a>
-             <tr th:text = "'('+${countMaster}+')'"></tr>
-        </div>
-        <div class="review_tango">
-            <a href="/sense/studying">学習中の単語</a>
-            <tr th:text = "'('+${countStudying}+')'"></tr>
-        </div>
+<div class="review_index">
+    <div class="review_tango">
+        <a href="/sense/master">マスターした単語</a>
+        <tr th:text = "'('+${countMaster}+')'"></tr>
     </div>
-
-    <ul class="mypage_menu">
-        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
-    </ul>
+    <div class="review_tango">
+        <a href="/sense/studying">学習中の単語</a>
+        <tr th:text = "'('+${countStudying}+')'"></tr>
+    </div>
+</div>
+<ul class="mypage_menu">
+    <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
+</ul>
 </body>
 </html>
