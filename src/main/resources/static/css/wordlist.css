@@ -12,8 +12,8 @@ body{
 }
 
 .list_sub_title {
-    font-size: 25px;
-    padding-left: 20px;
+    font-size: 22px;
+    padding-left: 6px;
     margin-bottom: 10px;
 }
 
@@ -112,4 +112,13 @@ table {
 a.homeback>img{
 
     margin-left:165px;
+}
+
+.list_sub_title:after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: -moz-linear-gradient(to right, midnightblue, transparent);
+    background: -webkit-linear-gradient(to right, midnightblue, transparent);
+    background: linear-gradient(to right, midnightblue, transparent);
 }
