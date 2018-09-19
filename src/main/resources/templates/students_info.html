@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet" />
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #191970;">
+    <a class="navbar-brand" href="/sense/teacher_page" style="font-family: 'Audiowide', cursive;">
+        Swish
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/sense/teacher_unit_select">Unit Select</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/sense/exam_select">Making Test</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/sense/studentsInfo">Student's Info</a>
+        </li>
+    </ul>
+</nav>
 <p class="title">STUDENTS' INFO</p>
 <div>
     <div class="personalInfo col-sm-6 col-md-4">
