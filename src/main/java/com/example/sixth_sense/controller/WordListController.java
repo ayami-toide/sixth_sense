@@ -105,6 +105,7 @@ public class WordListController {
         result.setWord_id(id);
         resultService.result_update(result);
         wordlistService.test_maru_update(new Integer(id));
+
         model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
