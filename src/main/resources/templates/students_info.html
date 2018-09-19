@@ -11,12 +11,17 @@
     <title>Title</title>
 </head>
 <body>
+
+<p class="title">STUDENTS' INFO</p>
+
 <div class="personalInfo col-sm-6 col-md-4">
+    <p class="name">おさっぴ</p>
     <div class="mypage_prf">
         <!--<img src="/images/mypage/icon.png">-->
         <div class="dounuts" style="height: 210px; width: 210px;">
             <canvas id="myChart1"></canvas>
         </div>
+
         <script type="text/javascript" th:inline="javascript">
             /*<![CDATA[*/
             var ctx = document.getElementById("myChart1").getContext('2d');
@@ -44,53 +49,74 @@
     </div>
     <div class="testProgress">
         <div class="graph">
-            <label for="lesson0">Get Ready</label>
-            <progress id="lesson0" class="progress box" min="0" th:attr="max=100" th:value="${status1.perfect}/9*100">50%</progress>
+            <label style="margin: 0px;" for="lesson0">Get Ready</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson0" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status1.perfect}%8">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson1">Lesson 1</label>
-            <progress id="lesson1" class="progress box" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+            <label style="margin: 0px;" for="lesson1">Lesson 1</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status2.perfect}-${status2.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson1" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status2.perfect}%6">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson2">Lesson 2</label>
-            <progress id="lesson2" class="progress box" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+            <label style="margin: 0px;" for="lesson2">Lesson 2</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status3.perfect}-${status3.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson2" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status3.perfect}%4">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson3">Lesson 3</label>
-            <progress id="lesson3" class="progress box" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+            <label style="margin: 0px;" for="lesson3">Lesson 3</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status4.perfect}-${status4.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson3" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status4.perfect}%5">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson4">Lesson 4</label>
-            <progress id="lesson4" class="progress box" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+            <label style="margin: 0px;" for="lesson4">Lesson 4</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status5.perfect}-${status5.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson4" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status5.perfect}%6">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson5">Lesson 5</label>
-            <progress id="lesson5" class="progress box" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+            <label style="margin: 0px;" for="lesson5">Lesson 5</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status6.perfect}-${status6.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson5" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status6.perfect}%5">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson6">Lesson 6</label>
-            <progress id="lesson6" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson6">Lesson 6</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson6" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson7">Lesson 7</label>
-            <progress id="lesson7" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson7">Lesson 7</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson7" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson8">Lesson 8</label>
-            <progress id="lesson8" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson8">Lesson 8</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson8" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson9">Lesson 9 </label>
-            <progress id="lesson9" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson9">Lesson 9 </label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson9" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
     </div>
 </div>
 
 <div class="personalInfo col-sm-6 col-md-4">
+    <p class="name">かざね</p>
     <div class="mypage_prf">
         <!--<img src="/images/mypage/icon.png">-->
-        <div class="dounuts" style="height: 210px; width: 210px;">
-            <canvas id="myChart2"></canvas>
+        <div class="dounuts" style="height: 170px; width: 170px;">
+            <canvas id="myChart2" class="chart"></canvas>
         </div>
         <script type="text/javascript" th:inline="javascript">
             /*<![CDATA[*/
@@ -100,13 +126,9 @@
             var myDoughnutChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: [
-                        'マスター',
-                        '学習中',
-                        '未学習'
-                    ],
+
                     datasets: [{
-                        data: [master, studying, 70 - master - studying],
+                        data: [20, 30, 20],
                         backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
                     }]
                 },
@@ -119,53 +141,74 @@
     </div>
     <div class="testProgress">
         <div class="graph">
-            <label for="lesson0">Get Ready</label>
-            <progress id="lesson0" class="progress box" min="0" th:attr="max=100" th:value="${status1.perfect}/9*100">50%</progress>
+            <label style="margin: 0px;" for="lesson0">Get Ready</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson0" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status1.perfect}%8">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson1">Lesson 1</label>
-            <progress id="lesson1" class="progress box" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+            <label style="margin: 0px;" for="lesson1">Lesson 1</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status2.perfect}-${status2.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson1" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status2.perfect}%6">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson2">Lesson 2</label>
-            <progress id="lesson2" class="progress box" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+            <label style="margin: 0px;" for="lesson2">Lesson 2</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status3.perfect}-${status3.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson2" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status3.perfect}%8">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson3">Lesson 3</label>
-            <progress id="lesson3" class="progress box" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+            <label style="margin: 0px;" for="lesson3">Lesson 3</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status4.perfect}-${status4.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson3" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status4.perfect}%5">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson4">Lesson 4</label>
-            <progress id="lesson4" class="progress box" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+            <label style="margin: 0px;" for="lesson4">Lesson 4</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status5.perfect}-${status5.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson4" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status5.perfect}%6">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson5">Lesson 5</label>
-            <progress id="lesson5" class="progress box" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+            <label style="margin: 0px;" for="lesson5">Lesson 5</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status6.perfect}-${status6.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson5" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status6.perfect}%5">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson6">Lesson 6</label>
-            <progress id="lesson6" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson6">Lesson 6</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson6" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson7">Lesson 7</label>
-            <progress id="lesson7" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson7">Lesson 7</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson7" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson8">Lesson 8</label>
-            <progress id="lesson8" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson8">Lesson 8</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson8" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson9">Lesson 9 </label>
-            <progress id="lesson9" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson9">Lesson 9 </label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson9" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
     </div>
 </div>
 
 <div class="personalInfo col-sm-6 col-md-4">
+    <p class="name">じぃえ</p>
     <div class="mypage_prf">
         <!--<img src="/images/mypage/icon.png">-->
-        <div class="dounuts" style="height: 210px; width: 210px;">
-            <canvas id="myChart3"></canvas>
+        <div class="dounuts" style="height: 170px; width: 170px;">
+            <canvas id="myChart3" class="chart"></canvas>
         </div>
         <script type="text/javascript" th:inline="javascript">
             /*<![CDATA[*/
@@ -175,11 +218,7 @@
             var myDoughnutChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: [
-                        'マスター',
-                        '学習中',
-                        '未学習'
-                    ],
+
                     datasets: [{
                         data: [master, studying, 70 - master - studying],
                         backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
@@ -194,47 +233,345 @@
     </div>
     <div class="testProgress">
         <div class="graph">
-            <label for="lesson0">Get Ready</label>
-            <progress id="lesson0" class="progress box" min="0" th:attr="max=100" th:value="${status1.perfect}/9*100">50%</progress>
+            <label style="margin: 0px;" for="lesson0">Get Ready</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson0" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status1.perfect}/8*100">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson1">Lesson 1</label>
-            <progress id="lesson1" class="progress box" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+            <label style="margin: 0px;" for="lesson1">Lesson 1</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status2.perfect}-${status2.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson1" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson2">Lesson 2</label>
-            <progress id="lesson2" class="progress box" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+            <label style="margin: 0px;" for="lesson2">Lesson 2</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status3.perfect}-${status3.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson2" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson3">Lesson 3</label>
-            <progress id="lesson3" class="progress box" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+            <label style="margin: 0px;" for="lesson3">Lesson 3</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status4.perfect}-${status4.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson3" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson4">Lesson 4</label>
-            <progress id="lesson4" class="progress box" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+            <label style="margin: 0px;" for="lesson4">Lesson 4</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status5.perfect}-${status5.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson4" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson5">Lesson 5</label>
-            <progress id="lesson5" class="progress box" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+            <label style="margin: 0px;" for="lesson5">Lesson 5</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status6.perfect}-${status6.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson5" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson6">Lesson 6</label>
-            <progress id="lesson6" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson6">Lesson 6</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson6" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson7">Lesson 7</label>
-            <progress id="lesson7" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson7">Lesson 7</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson7" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson8">Lesson 8</label>
-            <progress id="lesson8" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson8">Lesson 8</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson8" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
         <div class="graph">
-            <label for="lesson9">Lesson 9 </label>
-            <progress id="lesson9" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+            <label style="margin: 0px;" for="lesson9">Lesson 9 </label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson9" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
         </div>
     </div>
 </div>
+
+<div class="personalInfo col-sm-6 col-md-4">
+    <p class="name">とい</p>
+    <div class="mypage_prf">
+        <!--<img src="/images/mypage/icon.png">-->
+        <div class="dounuts" style="height: 170px; width: 170px;">
+            <canvas id="myChart4" class="chart"></canvas>
+        </div>
+        <script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
+            var ctx = document.getElementById("myChart4").getContext('2d');
+            var master = /*[[${master}]]*/ 'master';
+            var studying = /*[[${studying}]]*/ 'studying';
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+
+                    datasets: [{
+                        data: [master, studying, 70 - master - studying],
+                        backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
+                    }]
+                },
+                options: {
+
+                }
+            });
+            /*]]>*/
+        </script>
+    </div>
+    <div class="testProgress">
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson0">Get Ready</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson0" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status1.perfect}/8*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson1">Lesson 1</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status2.perfect}-${status2.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson1" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson2">Lesson 2</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status3.perfect}-${status3.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson2" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson3">Lesson 3</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status4.perfect}-${status4.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson3" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson4">Lesson 4</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status5.perfect}-${status5.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson4" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson5">Lesson 5</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status6.perfect}-${status6.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson5" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson6">Lesson 6</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson6" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson7">Lesson 7</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson7" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson8">Lesson 8</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson8" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson9">Lesson 9 </label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson9" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+    </div>
+</div>
+
+<div class="personalInfo col-sm-6 col-md-4">
+    <p class="name">りく</p>
+    <div class="mypage_prf">
+        <!--<img src="/images/mypage/icon.png">-->
+        <div class="dounuts" style="height: 170px; width: 170px;">
+            <canvas id="myChart5" class="chart"></canvas>
+        </div>
+        <script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
+            var ctx = document.getElementById("myChart5").getContext('2d');
+            var master = /*[[${master}]]*/ 'master';
+            var studying = /*[[${studying}]]*/ 'studying';
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+
+                    datasets: [{
+                        data: [master, studying, 70 - master - studying],
+                        backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
+                    }]
+                },
+                options: {
+
+                }
+            });
+            /*]]>*/
+        </script>
+    </div>
+    <div class="testProgress">
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson0">Get Ready</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson0" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status1.perfect}/8*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson1">Lesson 1</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status2.perfect}-${status2.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson1" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson2">Lesson 2</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status3.perfect}-${status3.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson2" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson3">Lesson 3</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status4.perfect}-${status4.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson3" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson4">Lesson 4</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status5.perfect}-${status5.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson4" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson5">Lesson 5</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status6.perfect}-${status6.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson5" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson6">Lesson 6</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson6" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson7">Lesson 7</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson7" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson8">Lesson 8</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson8" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson9">Lesson 9 </label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson9" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+    </div>
+</div>
+
+<div class="personalInfo col-sm-6 col-md-4">
+    <p class="name">りな</p>
+    <div class="mypage_prf">
+        <!--<img src="/images/mypage/icon.png">-->
+        <div class="dounuts" style="height: 170px; width: 170px;">
+            <canvas id="myChart6" class="chart"></canvas>
+        </div>
+        <script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
+            var ctx = document.getElementById("myChart6").getContext('2d');
+            var master = /*[[${master}]]*/ 'master';
+            var studying = /*[[${studying}]]*/ 'studying';
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+
+                    datasets: [{
+                        data: [master, studying, 70 - master - studying],
+                        backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
+                    }]
+                },
+                options: {
+
+                }
+            });
+            /*]]>*/
+        </script>
+    </div>
+    <div class="testProgress">
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson0">Get Ready</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status1.perfect}-${status1.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson0" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status1.perfect}/8*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson1">Lesson 1</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status2.perfect}-${status2.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson1" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson2">Lesson 2</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status3.perfect}-${status3.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson2" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson3">Lesson 3</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status4.perfect}-${status4.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson3" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson4">Lesson 4</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status5.perfect}-${status5.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson4" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson5">Lesson 5</label><br>
+            <p class="box level_size">Level</p>
+            <p th:text="(${status6.perfect}-${status6.perfect}%8)/8" class="box level_size"></p>
+            <progress id="lesson5" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson6">Lesson 6</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson6" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson7">Lesson 7</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson7" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson8">Lesson 8</label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson8" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+        <div class="graph">
+            <label style="margin: 0px;" for="lesson9">Lesson 9 </label><br>
+            <p class="box level_size">Level</p>
+            <p class="box level_size">0</p>
+            <progress id="lesson9" class="progress box" style="margin-bottom: 0px;" min="0" th:attr="max=100" value="0">50%</progress>
+        </div>
+    </div>
+</div>
+
+<a class="homeback" href="/sense/mypage"><img src="/images/mypage/home.png"></a>
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
