@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/studentsInfo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="mypage_prf">
+    <!--<img src="/images/mypage/icon.png">-->
+    <div class="dounuts" style="height: 210px; width: 210px;">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var master = /*[[${master}]]*/ 'master';
+        var studying = /*[[${studying}]]*/ 'studying';
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'マスター',
+                    '学習中',
+                    '未学習'
+                ],
+                datasets: [{
+                    data: [master, studying, 70 - master - studying],
+                    backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
+                }]
+            },
+            options: {
+
+            }
+        });
+        /*]]>*/
+    </script>
+</div>
+<div class="testProgress">
+    <div class="graph">
+        <label for="lesson0">Get Ready</label>
+        <progress id="lesson0" class="progress box" min="0" th:attr="max=100" th:value="${status1.perfect}/9*100">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson1">Lesson 1</label>
+        <progress id="lesson1" class="progress box" min="0" th:attr="max=100" th:value="${status2.perfect}/6*100">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson2">Lesson 2</label>
+        <progress id="lesson2" class="progress box" min="0" th:attr="max=100" th:value="${status3.perfect}/8*100">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson3">Lesson 3</label>
+        <progress id="lesson3" class="progress box" min="0" th:attr="max=100" th:value="${status4.perfect}/5*100">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson4">Lesson 4</label>
+        <progress id="lesson4" class="progress box" min="0" th:attr="max=100" th:value="${status5.perfect}/6*100">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson5">Lesson 5</label>
+        <progress id="lesson5" class="progress box" min="0" th:attr="max=100" th:value="${status6.perfect}/5*100">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson6">Lesson 6</label>
+        <progress id="lesson6" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson7">Lesson 7</label>
+        <progress id="lesson7" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson8">Lesson 8</label>
+        <progress id="lesson8" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+    </div>
+    <div class="graph">
+        <label for="lesson9">Lesson 9 </label>
+        <progress id="lesson9" class="progress box" min="0" th:attr="max=100" value="0">50%</progress>
+    </div>
+</div>
+
+</body>
+</html>

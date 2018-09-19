@@ -193,17 +193,7 @@ public class WordListController {
 
     }
 
-    @GetMapping("teacher_unit_select")
-    public String teacher_unit_select(Model model){
 
-        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
-        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
-        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
-
-        String teacherId = "teacherId";
-        model.addAttribute("teacherId",teacherId);
-        return "unit_select";
-    }
 
     @GetMapping("teacher_page")
     public String teacher_page(Model model){
@@ -235,9 +225,9 @@ public class WordListController {
     @GetMapping("master")
     public String master(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
-        model.addAttribute("masters2",wordlistService.findMaster2());
-        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
-        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
+//        model.addAttribute("masters2",wordlistService.findMaster2());
+//        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+//        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
         return "master";
     }
 
@@ -317,8 +307,19 @@ public class WordListController {
         return "test01";
     }
 
+    @GetMapping("teacher_unit_select")
+    public String teacher_unit_select(Model model){
 
-    @PutMapping("unit_select/{id}")
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+
+        String teacherId = "teacherId";
+        model.addAttribute("teacherId",teacherId);
+        return "teacher_unit_select";
+    }
+
+    @PutMapping("teacher_unit_select/{id}")
     public String update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -329,10 +330,10 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
-    @PutMapping("unit_select0/{id}")
+    @PutMapping("teacher_unit_select_0/{id}")
     public String update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect, Model model){
 
         lessonSelect.setId(id);
@@ -341,15 +342,14 @@ public class WordListController {
         model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
         model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
 
-
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
 
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 
-    @PutMapping("unit_select_maru/{id}")
+    @PutMapping("teacher_unit_select1/{id}")
     public String maru_update(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -361,11 +361,11 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
     }
 
 
-    @PutMapping("unit_select_maru0/{id}")
+    @PutMapping("teacher_unit_select_1/{id}")
     public String maru_update0(@PathVariable Integer id, @ModelAttribute LessonSelect lessonSelect,Model model) {
 
         lessonSelect.setId(id);
@@ -376,7 +376,24 @@ public class WordListController {
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
-        return "unit_select";
+        return "teacher_unit_select";
+    }
+
+    @GetMapping("studentsInfo")
+    public String showStudentsInfo(Model model) {
+        model.addAttribute("master", wordlistService.countMaster());
+        model.addAttribute("studying", wordlistService.countStudying());
+
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+        model.addAttribute("status4",lessonSelectService.findOne(new Integer(4)));
+        model.addAttribute("status5",lessonSelectService.findOne(new Integer(5)));
+        model.addAttribute("status6",lessonSelectService.findOne(new Integer(6)));
+
+
+
+        return "students_info";
     }
 
 }
