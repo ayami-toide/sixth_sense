@@ -60,7 +60,7 @@ public class WordList {
     private  Integer test_maru;
 
     @Column(name="lesson", nullable=false)
-    private  String lesson;
+    private String lesson;
 
     public Integer getId() {
         return id;
@@ -94,9 +94,6 @@ public class WordList {
         return status;
     }
 
-    public Integer getPerfect() {
-        return perfect;
-    }
 
     public String getUrl() {
         return url;
@@ -109,7 +106,6 @@ public class WordList {
     public String getAudio() {
         return audio;
     }
-
 
     public Integer getTest_maru() {return test_maru;}
 

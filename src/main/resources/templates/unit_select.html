@@ -367,7 +367,7 @@
         <div th:if="${status1.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status1.maru_status}==1" class="box">できればここも！</div><br>
         <div class="box">
-            <form th:action="@{/sense/test}" method="get">
+            <form th:action="@{/sense/test/0}" method="get">
                 <input type = "submit" value="Get Ready">
             </form>
         </div>
@@ -380,7 +380,7 @@
     <div class="a_lesson">
         <div th:if="${status2.status}==1" class="box">次回の授業までに受けてね！</div>
         <div th:if="${status2.maru_status}==1" class="box">できればここも！</div><br>
-        <form th:action="@{/sense/test}" method="get" class="box">
+        <form th:action="@{/sense/test/1}" method="get" class="box">
             <input type = "submit" value="Lesson1">
         </form>
         <progress class="progress box" min="0" th:attr="max=100" th:value="50">50%</progress>
@@ -392,7 +392,7 @@
     <div class="a_lesson">
         <div th:if="${status3.status}==1" class="box"><img src="/images/unit_select/nimaru.png">次回の授業までに受けてね！</div>
         <div th:if="${status3.maru_status}==1" class="box"><img src="/images/unit_select/ichimaru.png">できればここも！</div><br>
-        <form th:action="@{/sense/test}" method="get" class="box">
+        <form th:action="@{/sense/test/0}" method="get" class="box">
             <input type = "submit" value="Lesson2">
         </form>
         <progress class="progress box" min="0" th:attr="max=100" th:value="10"></progress>

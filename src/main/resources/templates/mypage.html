@@ -17,23 +17,23 @@
         Swishを初めて5日目だよ！
     </div>
 </div>
-        <script type="text/javascript">
-            document.getElementById("view_time").innerHTML = getNow();
+<script type="text/javascript">
+    document.getElementById("view_time").innerHTML = getNow();
 
-            function getNow() {
-                var now = new Date();
-                var year = now.getFullYear();
-                var mon = now.getMonth()+1; //１を足すこと
-                var day = now.getDate();
-                var hour = now.getHours();
-                var min = now.getMinutes();
-                var sec = now.getSeconds();
+    function getNow() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var mon = now.getMonth()+1; //１を足すこと
+        var day = now.getDate();
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
 
-                //出力用
-                var s =  mon + "月" + day + "日" ;
-                return s;
-            }
-        </script>
+        //出力用
+        var s =  mon + "月" + day + "日" ;
+        return s;
+    }
+</script>
 <!--<p class="mypage_swish">Swish</p>-->
 <!--<p class="count_memory"><a class="inf_btn" href="/sense/mypage"><img src="/images/mypage/information.jpg" height="30px" width="37px"></a>　　　　　　　　　　進めた単語数　<tr th:text = "${status}"></tr>回-->
 <!--<br><p class="count_days">継続日数　60日　　　</p>-->
@@ -82,12 +82,12 @@
                     '未学習'
                 ],
                 datasets: [{
-                        data: [10, 20, 30],
-                        backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
-                    }]
+                    data: [10, 20, 30],
+                    backgroundColor: ['#000055', '#75A9FF', '#DCDCDC']
+                }]
             },
             options: {
-        }
+            }
         });
     </script>
 

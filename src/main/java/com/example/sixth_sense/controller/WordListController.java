@@ -36,8 +36,10 @@ public class WordListController {
     public String info(Model model) { return "info"; }
 
 
-    @GetMapping("test")
-    public String test(Model model){
+    @GetMapping("test/{id}")
+    public String test(@PathVariable("id") int id, Model model){
+
+        model.addAttribute("UnitId",id);
         return "test";
     }
 
@@ -76,20 +78,27 @@ public class WordListController {
         return "study_index";
     }
 
-    @RequestMapping("test_quiz")
-    public String test_quiz(Model model){
+    @RequestMapping("test_quiz/{UnitId}")
+    public String test_quiz(@PathVariable("UnitId") int id, Model model){
 
+        model.addAttribute("UnitId", id);
         model.addAttribute("testNumber", 1);
-        model.addAttribute("testwords",wordlistService.setTest());
+        if(id == 0) {
+            model.addAttribute("testwords", wordlistService.setTest());
+        }else if(id == 1){
+            model.addAttribute("testwords", wordlistService.setTest1());
+        }else{
+            model.addAttribute("testwords",wordlistService.setTest());
+        }
 
         return "test_quiz";
     }
 
-    @RequestMapping(value = "test_question/{id}/{testNumber}", method = POST)
-    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@ModelAttribute WordList wordlist,Model model){
+    @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = POST)
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute WordList wordlist,Model model){
 
         wordlistService.test_maru_update(new Integer(id));
-
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
 
@@ -101,9 +110,10 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping(value = "test_question/{id}/{testNumber}", method = GET)
-    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber, Model model)
+    @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = GET)
+    public String test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId, Model model)
     {
+        model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
         int TestNumber = testNumber + 1;
@@ -115,34 +125,56 @@ public class WordListController {
         return "test_quiz" ;
     }
 
-    @RequestMapping("test_result/{id}")
-    public String test_result(@PathVariable("id") int id,Model model)
+
+    @RequestMapping(value = "test_result/{id}/{UnitId}", method = POST)
+    public String test_result_post(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId,@ModelAttribute LessonSelect lessonSelect, Model model)
+    {
+        lessonSelect.setId(new Integer(0));
+        lessonSelectService.perfect(lessonSelect);
+
+        model.addAttribute("UnitId",UnitId);
+        model.addAttribute("id", id);
+
+        String[] array = {"Great job!", "Excellent!", "Well done!"};
+        List<String> list = Arrays.asList(array);
+        Collections.shuffle(list);
+        String word  = list.get(1);
+        array = (String[])list.toArray(new String[0]);
+
+        model.addAttribute("word",word);
+
+        return "test_result";
+
+
+    }
+    @RequestMapping(value = "test_result/{id}/{UnitId}" , method = GET)
+    public String test_result(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId, Model model)
     {
 
-              int resultId1 = id - 5;
-              model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
-              int resultId2 = id - 4;
-              model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
-              int resultId3 = id - 3;
-              model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
-              int resultId4 = id - 2;
-              model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
-              int resultId5 = id - 1;
-              model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
+        int resultId1 = id - 5;
+        model.addAttribute("testwords1",wordlistService.findTestWord(new Long(resultId1)));
+        int resultId2 = id - 4;
+        model.addAttribute("testwords2",wordlistService.findTestWord(new Long(resultId2)));
+        int resultId3 = id - 3;
+        model.addAttribute("testwords3",wordlistService.findTestWord(new Long(resultId3)));
+        int resultId4 = id - 2;
+        model.addAttribute("testwords4",wordlistService.findTestWord(new Long(resultId4)));
+        int resultId5 = id - 1;
+        model.addAttribute("testwords5",wordlistService.findTestWord(new Long(resultId5)));
 
-              //meaning
-              model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
-              model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
-              model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
-              model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
-              model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
+        //meaning
+        model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(resultId1)));
+        model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(resultId2)));
+        model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(resultId3)));
+        model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(resultId4)));
+        model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(resultId5)));
 
-              //audio
-               model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(1)));
-               model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(resultId2)));
-               model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(resultId3)));
-              model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(resultId4)));
-              model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(resultId5)));
+        //audio
+        model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(1)));
+        model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(resultId2)));
+        model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(resultId3)));
+        model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(resultId4)));
+        model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(resultId5)));
 
 
         model.addAttribute("id", id);
@@ -154,6 +186,8 @@ public class WordListController {
         array = (String[])list.toArray(new String[0]);
         model.addAttribute("word",word);
         model.addAttribute("words",wordlistService.findOne(new Long(1)));
+
+        model.addAttribute("UnitId",UnitId);
 
         return "test_result";
 
@@ -233,8 +267,47 @@ public class WordListController {
     public String exam(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
         model.addAttribute("studyings1",wordlistService.findStudying1());
-
         return "exam";
+    }
+
+    @GetMapping("exam2")
+    public String exam2(Model model){
+        model.addAttribute("masters1",wordlistService.findMaster1());
+        model.addAttribute("studyings1",wordlistService.findStudying1());
+        return "exam2";
+    }
+
+    @GetMapping("exam_get_ready")
+    public String exam_get_ready(Model model){
+        model.addAttribute("MasterGetReadys",wordlistService.findMasterGetReady());
+        model.addAttribute("StudyingGetReadys",wordlistService.findStudyingGetReady());
+        return "exam_get_ready";
+    }
+
+    @GetMapping("exam_get_ready2")
+    public String exam_get_ready2(Model model){
+        model.addAttribute("MasterGetReadys",wordlistService.findMasterGetReady());
+        model.addAttribute("StudyingGetReadys",wordlistService.findStudyingGetReady());
+        return "exam_get_ready2";
+    }
+
+    @GetMapping("exam_lesson")
+    public String exam_lesson(Model model){
+        model.addAttribute("MasterLesson1",wordlistService.findMasterLesson1());
+        model.addAttribute("StudyingLesson1",wordlistService.findStudyingLesson1());
+        return "exam_lesson";
+    }
+
+    @GetMapping("exam_lesson2")
+    public String exam_lesson2(Model model){
+        model.addAttribute("MasterLesson1",wordlistService.findMasterLesson1());
+        model.addAttribute("StudyingLesson1",wordlistService.findStudyingLesson1());
+        return "exam_lesson2";
+    }
+
+    @GetMapping("exam_select")
+    public String exam_select(Model model){
+        return "exam_select";
     }
 
     //osanai(9/12)
@@ -253,7 +326,6 @@ public class WordListController {
         model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
         model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
         model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
-
 
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);

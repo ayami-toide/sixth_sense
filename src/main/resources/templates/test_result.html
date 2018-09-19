@@ -20,42 +20,10 @@
 
     </div>
 
-    <div class="test_text">
-        <div class="test_result_tx">
-            <audio th:src="${'/audio/' + testaudios1.audio}" id="audio1" >
-            </audio>
-            <script type="text/javascript">
-                function audio1_play() {
-                    audio1.play();
-                }
-            </script>
-
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio1_play()" height="25px" width="25px" >
-            <tr  th:object = "${testwords1}"><td th:text="*{word}"></td></tr>
-            <tr  th:object = "${testmeanings1}"><td th:text="*{meaning}"></td></tr>
-        </div>
-
-        <div class="test_result_tx">
-            <audio id="audio2">
-                <source th:src="${'/audio/'+ testaudios2.audio}">
-            </audio>
-            <script type="text/javascript">
-                function audio2_play() {
-                    var audio2 = document.getElementById("audio2");
-                    audio2.play();
-                }
-            </script>
-            <input type="image" src="/images/test/saisei.jpg" onclick="audio2_play()" height="25px" width="25px" >
-            <tr  th:object = "${testwords2}"><td th:text="*{word}"></td></tr>
-            <tr  th:object = "${testmeanings2}"><td th:text="*{meaning}"></td></tr>
-        </div>
-
-    </div>
-
     <div class="mypage_menu">
         <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a><p>ホーム</p></li>
 
-<li class="my_menu_t"><form th:action="@{/sense/test_question/{id}(id=${id})}" method="get">
+<li class="my_menu_t"><form th:action="@{/sense/test/__${UnitId}__}" method="get">
     <input type = "image" src="/images/mypage/next.png" ><p>次のテスト</p>
 </form>
 </li>

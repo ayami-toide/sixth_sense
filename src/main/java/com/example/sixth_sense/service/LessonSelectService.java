@@ -41,7 +41,7 @@ public class LessonSelectService {
     }
 
     @Transactional
-    public int findPerfect(int lesson_id) { return lessonSelectMapper.findPerfect(lesson_id); }
+    public void perfect(LessonSelect lessonSelect){ lessonSelectMapper.perfect(lessonSelect);}
 }
 
 

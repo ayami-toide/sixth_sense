@@ -30,6 +30,9 @@ public interface LessonSelectMapper {
     @Update("update lessonselect set maru_status= 0 where lesson_id = #{id}")
     void maru_update0(LessonSelect lessonSelect);
 
+    @Update("update lessonselect set perfect = perfect + 1 where lesson_id = #{id} ")
+    void perfect(LessonSelect lessonSelect);
+
     @Delete("delete from lessonselect where id = #{id}")
     void delete(Long id);
 
