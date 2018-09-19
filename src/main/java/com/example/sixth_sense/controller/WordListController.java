@@ -144,6 +144,33 @@ public class WordListController {
         lessonSelect.setId(new Integer(0));
         lessonSelectService.perfect(lessonSelect);
 
+        int Word1 = resultService.findWord(new Integer(1));
+        int Word2 = resultService.findWord(new Integer(2));
+        int Word3 = resultService.findWord(new Integer(3));
+        int Word4 = resultService.findWord(new Integer(4));
+        int Word5 = resultService.findWord(new Integer(5));
+
+        model.addAttribute("testwords1",wordlistService.findTestWord(new Long(Word1)));
+        model.addAttribute("testwords2",wordlistService.findTestWord(new Long(Word2)));
+        model.addAttribute("testwords3",wordlistService.findTestWord(new Long(Word3)));
+        model.addAttribute("testwords4",wordlistService.findTestWord(new Long(Word4)));
+        model.addAttribute("testwords5",wordlistService.findTestWord(new Long(Word5)));
+
+        //meaning
+        model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(Word1)));
+        model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(Word2)));
+        model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(Word3)));
+        model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(Word4)));
+        model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(Word5)));
+
+        //audio
+        model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(Word1)));
+        model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(Word2)));
+        model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(Word3)));
+        model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(Word4)));
+        model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(Word5)));
+
+
         model.addAttribute("UnitId",UnitId);
         model.addAttribute("id", id);
 
