@@ -17,4 +17,9 @@ public class ResultService {
 
     @Transactional
     public void result_update(Result result){ resultMapper.result_update(result);}
+
+    @Transactional
+    public Integer findWord(Integer id) {
+        return resultMapper.findWord(id);
+    }
 }
