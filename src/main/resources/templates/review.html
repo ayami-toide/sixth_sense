@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/exam_select.css">
+    <link rel="stylesheet" href="/css/review.css">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
     <title>自分の単語力</title>
 </head>
@@ -14,20 +14,18 @@
         <span class="head_test-point">Review</span>
     </h1>
 </div>
-
-    <div class="review_index">
-        <div class="review_tango">
-            <a href="/sense/master">マスターした単語</a>
-             <tr th:text = "'('+${countMaster}+')'"></tr>
-        </div>
-        <div class="review_tango">
-            <a href="/sense/studying">学習中の単語</a>
-            <tr th:text = "'('+${countStudying}+')'"></tr>
-        </div>
+<div class="review_index">
+    <div class="review_tango">
+        <a href="/sense/master">マスターした単語</a>
+        <tr th:text = "'('+${countMaster}+')'"></tr>
     </div>
-
-    <ul class="mypage_menu">
-        <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
-    </ul>
+    <div class="review_tango">
+        <a href="/sense/studying">学習中の単語</a>
+        <tr th:text = "'('+${countStudying}+')'"></tr>
+    </div>
+</div>
+<ul class="mypage_menu">
+    <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
+</ul>
 </body>
 </html>
