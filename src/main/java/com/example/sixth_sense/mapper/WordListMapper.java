@@ -83,12 +83,12 @@ public interface WordListMapper {
     void delete(Long id);
 
     //Osanai Master
-    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru order by rand() LIMIT 5;")
+    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru order by maru + hatena desc")
     List<WordList> findMaster1();
 
     //Osanai Master
-    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
-    List<WordList> findMaster2();
+//    @Select("select * from wordlist where 0.5 < maru / (maru + hatena) && 2 <= maru LIMIT 5 OFFSET 5")
+//    List<WordList> findMaster2();
 
     //Osanai Studying
     @Select("select * from wordlist where 0.5 >= maru / (maru + hatena) && 2 > maru order by rand() LIMIT 5")

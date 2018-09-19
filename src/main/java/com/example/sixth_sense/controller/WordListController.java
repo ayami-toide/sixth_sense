@@ -201,9 +201,9 @@ public class WordListController {
     @GetMapping("master")
     public String master(Model model){
         model.addAttribute("masters1",wordlistService.findMaster1());
-        model.addAttribute("masters2",wordlistService.findMaster2());
-        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
-        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
+//        model.addAttribute("masters2",wordlistService.findMaster2());
+//        model.addAttribute("reviewWords1", wordlistService.findReviewWords1());
+//        model.addAttribute("reviewWords2", wordlistService.findReviewWords2());
         return "master";
     }
 
@@ -305,6 +305,23 @@ public class WordListController {
         String teacherId = "teacherId";
         model.addAttribute("teacherId",teacherId);
         return "unit_select";
+    }
+
+    @GetMapping("studentsInfo")
+    public String showStudentsInfo(Model model) {
+        model.addAttribute("master", wordlistService.countMaster());
+        model.addAttribute("studying", wordlistService.countStudying());
+
+        model.addAttribute("status1",lessonSelectService.findOne(new Integer(1)));
+        model.addAttribute("status2",lessonSelectService.findOne(new Integer(2)));
+        model.addAttribute("status3",lessonSelectService.findOne(new Integer(3)));
+        model.addAttribute("status4",lessonSelectService.findOne(new Integer(4)));
+        model.addAttribute("status5",lessonSelectService.findOne(new Integer(5)));
+        model.addAttribute("status6",lessonSelectService.findOne(new Integer(6)));
+
+
+
+        return "students_info";
     }
 
 }

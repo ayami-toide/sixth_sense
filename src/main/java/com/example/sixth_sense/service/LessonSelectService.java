@@ -40,6 +40,8 @@ public class LessonSelectService {
         lessonSelectMapper.maru_update0(lessonSelect);
     }
 
+    @Transactional
+    public int findPerfect(int lesson_id) { return lessonSelectMapper.findPerfect(lesson_id); }
 }
 
 

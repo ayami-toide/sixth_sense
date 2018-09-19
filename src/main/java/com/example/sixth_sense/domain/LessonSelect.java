@@ -20,6 +20,9 @@ import javax.persistence.*;
         @Column(name = "maru_status", nullable = false)
         private Integer maru_status;
 
+        @Column(name = "perfect", nullable = false)
+        private Integer perfect;
+
         public  Integer getId(){
             return id;
         }
@@ -37,6 +40,10 @@ import javax.persistence.*;
             return  maru_status;
         }
 
+        public  Integer getPerfect(){
+            return perfect;
+        }
+
         public void setId(Integer id) {
             this.id = id;
         }
@@ -51,4 +58,7 @@ import javax.persistence.*;
 
         public  void setMaru_status(Integer maru_status){ this.maru_status = maru_status; }
 
+        public void setPerfect(Integer perfect){
+            this.perfect = perfect;
+        }
     }
