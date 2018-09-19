@@ -2,7 +2,9 @@ package com.example.sixth_sense.controller;
 
 
 import com.example.sixth_sense.domain.LessonSelect;
+import com.example.sixth_sense.domain.Result;
 import com.example.sixth_sense.domain.WordList;
+import com.example.sixth_sense.service.ResultService;
 import com.example.sixth_sense.service.WordListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,8 @@ public class WordListController {
     @Autowired
     WordListService wordlistService;
 
+    @Autowired
+    ResultService resultService;
 
     @GetMapping("info")
     public String info(Model model) { return "info"; }
@@ -95,9 +99,13 @@ public class WordListController {
     }
 
     @RequestMapping(value = "test_question/{id}/{testNumber}/{UnitId}", method = POST)
-    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute WordList wordlist,Model model){
+    public  String post_test_question(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute Result result,@ModelAttribute WordList wordlist,Model model){
 
+        result.setId(testNumber);
+        result.setWord_id(id);
+        resultService.result_update(result);
         wordlistService.test_maru_update(new Integer(id));
+
         model.addAttribute("UnitId",UnitId);
         model.addAttribute("testNumber",testNumber + 1);
         model.addAttribute("testwords",wordlistService.setTest());
@@ -126,11 +134,42 @@ public class WordListController {
     }
 
 
-    @RequestMapping(value = "test_result/{id}/{UnitId}", method = POST)
-    public String test_result_post(@PathVariable("id") int id,@PathVariable("UnitId") int UnitId,@ModelAttribute LessonSelect lessonSelect, Model model)
+    @RequestMapping(value = "test_result/{id}/{testNumber}/{UnitId}", method = POST)
+    public String test_result_post(@PathVariable("id") int id,@PathVariable("testNumber") int testNumber,@PathVariable("UnitId") int UnitId,@ModelAttribute Result result,@ModelAttribute LessonSelect lessonSelect, Model model)
     {
+        result.setId(new Integer(5));
+        result.setWord_id(id);
+        resultService.result_update(result);
+
         lessonSelect.setId(new Integer(0));
         lessonSelectService.perfect(lessonSelect);
+
+        int Word1 = resultService.findWord(new Integer(1));
+        int Word2 = resultService.findWord(new Integer(2));
+        int Word3 = resultService.findWord(new Integer(3));
+        int Word4 = resultService.findWord(new Integer(4));
+        int Word5 = resultService.findWord(new Integer(5));
+
+        model.addAttribute("testwords1",wordlistService.findTestWord(new Long(Word1)));
+        model.addAttribute("testwords2",wordlistService.findTestWord(new Long(Word2)));
+        model.addAttribute("testwords3",wordlistService.findTestWord(new Long(Word3)));
+        model.addAttribute("testwords4",wordlistService.findTestWord(new Long(Word4)));
+        model.addAttribute("testwords5",wordlistService.findTestWord(new Long(Word5)));
+
+        //meaning
+        model.addAttribute("testmeanings1",wordlistService.findTestMeaning(new Long(Word1)));
+        model.addAttribute("testmeanings2",wordlistService.findTestMeaning(new Long(Word2)));
+        model.addAttribute("testmeanings3",wordlistService.findTestMeaning(new Long(Word3)));
+        model.addAttribute("testmeanings4",wordlistService.findTestMeaning(new Long(Word4)));
+        model.addAttribute("testmeanings5",wordlistService.findTestMeaning(new Long(Word5)));
+
+        //audio
+        model.addAttribute("testaudios1",wordlistService.findTestAudio(new Long(Word1)));
+        model.addAttribute("testaudios2",wordlistService.findTestAudio(new Long(Word2)));
+        model.addAttribute("testaudios3",wordlistService.findTestAudio(new Long(Word3)));
+        model.addAttribute("testaudios4",wordlistService.findTestAudio(new Long(Word4)));
+        model.addAttribute("testaudios5",wordlistService.findTestAudio(new Long(Word5)));
+
 
         model.addAttribute("UnitId",UnitId);
         model.addAttribute("id", id);
