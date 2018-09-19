@@ -5,9 +5,20 @@ $(function() {
     });
 });
 
+    // setTimeout(function(){
+    //     $(function() {
+    //         $(".wall").click(function() {\
+    //             $(this).remove();
+    //         });
+    //     })
+    // },1000);
+
 $(function() {
     $(".wall").click(function() {
-        $(this).remove();
+
+        $('.wall').delay(700).queue(function(){
+            $(this).remove().dequeue();
+        });
     });
 })
 
