@@ -5,19 +5,11 @@ $(function() {
     });
 });
 
-    // setTimeout(function(){
-    //     $(function() {
-    //         $(".wall").click(function() {\
-    //             $(this).remove();
-    //         });
-    //     })
-    // },1000);
-//
-$(function() {
-    $(".wall").click(function() {
-        $(this).remove();
-    });
-})
+// $(function() {
+//     $(".wall").click(function() {
+//         $(this).remove();
+//     });
+// })
 
 $(document).ready(function(){
 
@@ -62,18 +54,11 @@ $(document).ready(function(){
 
 //study.html ここまで//
 //
-// $(document).ready(function(){
-//
-//     $(".wall").on("swiperight",function(){
-//         $(this).addClass('wall_rotate-left').delay(700).fadeOut(1);
-//         $('.buddy').find('.status').remove();
-//     });
-//
-//     $(".wall").on("swipeleft",function(){
-//         $(this).addClass('wall_rotate-right').delay(700).fadeOut(1);
-//         $('.buddy').find('.status').remove();
-//     });
-//
-// });
+$(document).ready(function(){
+
+    $(".wall").on("swiperight",function(){
+        $(this).addClass('wall_rotate-left').delay(700).fadeOut(1);
+    });
+});
 
 
