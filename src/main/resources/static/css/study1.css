@@ -165,3 +165,38 @@ a {
 /*}*/
 /*}*/
 
+<<<<<<< HEAD
+=======
+/*!*.wall_buddy {*!*/
+    /*!*z-index: 0;*!*/
+    /*!*display: none;*!*/
+    /*!*background: #ffffff;*!*/
+    /*!*!* border-radius: 10px; *!*!*/
+    /*!*box-shadow: 0 0 0 0 rgba(0,0,0,0.2);*!*/
+    /*!*!* color: #fff; *!*!*/
+    /*!*!* padding: 20px; *!*!*/
+    /*!*width: 370px;*!*/
+    /*!*height: 519px;*!*/
+    /*!*top: 77px;*!*/
+    /*!*!* left: 0px; *!*!*/
+    /*!*position: absolute;*!*/
+    /*!*cursor: hand;*!*/
+    /*!*margin: 10px 3px 20px 5px;*!*/
+/*!*}*!*/
+/*.wall_rotate-left {*/
+    /*transform: rotate(30deg) scale(0.8);*/
+    /*transition: 1.6s;*/
+    /*margin-left: 400px;*/
+    /*cursor: e-resize;*/
+    /*opacity: 0;*/
+    /*z-index: 10;*/
+/*}*/
+/*.wall_rotate-right {*/
+    /*transform: rotate(-30deg) scale(0.8);*/
+    /*transition: 1.6s;*/
+    /*opacity: 0;*/
+    /*margin-left: -400px;*/
+    /*cursor: w-resize;*/
+    /*z-index: 10;*/
+/*}*/
+>>>>>>> 6b39a908f20b7265a11d04bc46009a6836a122e6

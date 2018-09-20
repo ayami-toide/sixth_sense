@@ -9,7 +9,7 @@ label {
 }
 
 .graph {
-    width: 90px;
+    width: 128px;
     display: inline-block;
     margin-bottom: 10px;
 }
@@ -25,7 +25,7 @@ p.box {
 }
 
 .testProgress {
-    width: 278px;
+    width: 400px;
     display: inline-block;
 }
 

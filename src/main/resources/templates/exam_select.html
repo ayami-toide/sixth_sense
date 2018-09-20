@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://java.sun.com/JSP/Page">
+<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/exam_select.css">
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic" rel="stylesheet">
     <title>印刷テスト選択</title>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #191970;">
+    <a class="navbar-brand" href="/sense/teacher_page" style="font-family: 'Audiowide', cursive;">
+        Swish
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/sense/teacher_unit_select">Unit Select</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/sense/exam_select">Making Test</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/sense/studentsInfo">Student's Info</a>
+        </li>
+    </ul>
+</nav>
 <div class="head_test-wrap">
     <h1 class="head_test">
         今まで習った単語の復習
@@ -36,9 +54,6 @@
     </div>
 </div>
 
-<ul class="mypage_menu">
-    <li><a href="/sense/mypage"><img src="/images/mypage/home.png"></a></li>
-</ul>
 
 
 </body>
