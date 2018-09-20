@@ -94,8 +94,8 @@
 
 <div class="newWord1">
 
-    <tr th:each="word : ${studyings1}" th:object="${word}">
-        <div class="buddy" style="display: block;">
+    <div class="buddy" style="display: block;" th:each="word : ${studyings1}" th:object="${word}">
+
             <div class="sample1">
 
 
@@ -116,14 +116,13 @@
 
         </div>
         </div>
-    </tr>
+
     <img src="/images/test/nextquestion.png" class="wall">
 </div>
 
 <div class="reviewWord2">
+    <div class="buddy" style="display: block;" th:each="word : ${reviewWords2}" th:object="${word}">
 
-    <tr th:each="word : ${reviewWords2}" th:object="${word}">
-        <div class="buddy" style="display: block;">
             <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
             <audio><source th:src="${'/audio/'+ word.audio}"></audio>
 
@@ -139,16 +138,15 @@
 
             </div>
 
-        </div>
-    </tr>
+    </div>
+
     <img src="/images/test/nextquestion.png" class="wall">
 </div>
 
 
 <div class="reviewWord1">
+    <div class="buddy" style="display: block;" th:each="word : ${reviewWords1}" th:object="${word}">
 
-    <tr th:each="word : ${reviewWords1}" th:object="${word}">
-        <div class="buddy" style="display: block;">
             <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
             <audio><source th:src="${'/audio/'+ word.audio}"></audio>
 

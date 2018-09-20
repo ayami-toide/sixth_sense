@@ -165,20 +165,3 @@ a {
 /*}*/
 /*}*/
 
-
-.wall_rotate-left {
-    transform: rotate(30deg) scale(0.8);
-    transition: 1.6s;
-    margin-left: 400px;
-    cursor: e-resize;
-    opacity: 0;
-    z-index: 10;
-}
-.wall_rotate-right {
-    transform: rotate(-30deg) scale(0.8);
-    transition: 1.6s;
-    opacity: 0;
-    margin-left: -400px;
-    cursor: w-resize;
-    z-index: 10;
-}

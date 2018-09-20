@@ -86,24 +86,24 @@
 <div class="newWord2">
 
     <div class="buddy" style="display: block;" th:each="word : ${newWords2}" th:object="${word}">
-            <script type="text/javascript">
-                function audio_play() {
-                    var audio = document.getElementById("audio");
-                    audio.play();
-                }
-            </script>
-            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
-            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
-            <div class="sample1">
-                <p class="flick_word" th:text="*{word}"></p>
-                <div class="mask">
+        <script type="text/javascript">
+            function audio_play() {
+                var audio = document.getElementById("audio");
+                audio.play();
+            }
+        </script>
+        <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+        <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+        <div class="sample1">
+            <p class="flick_word" th:text="*{word}"></p>
+            <div class="mask">
 
-                    <img th:src="*{url}">
-                    <p class="flick_word_after" th:text="*{word}"></p>
-                    <p class="caption" th:text="*{meaning}" ></p>
-                </div>
-
+                <img th:src="*{url}">
+                <p class="flick_word_after" th:text="*{word}"></p>
+                <p class="caption" th:text="*{meaning}" ></p>
             </div>
+
+        </div>
     </div>
     <img src="/images/study/next.png" class="wall">
 </div>
@@ -111,19 +111,19 @@
 <div class="newWord1">
 
     <div class="buddy" style="display: block;" th:each="word : ${newWords1}" th:object="${word}">
-            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
-            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
-            <div class="sample1">
+        <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+        <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+        <div class="sample1">
 
-                <p class="flick_word" th:text="*{word}"></p>
-                <div class="mask">
-                    <img th:src="*{url}">
-                    <p class="flick_word_after" th:text="*{word}"></p>
-                    <p class="caption" th:text="*{meaning}" ></p>
-
-                </div>
+            <p class="flick_word" th:text="*{word}"></p>
+            <div class="mask">
+                <img th:src="*{url}">
+                <p class="flick_word_after" th:text="*{word}"></p>
+                <p class="caption" th:text="*{meaning}" ></p>
 
             </div>
+
+        </div>
     </div>
     <img src="/images/study/next.png" class="wall">
 </div>
@@ -131,17 +131,17 @@
 <div class="reviewWord2">
 
     <div class="buddy" style="display: block;" th:each="word : ${reviewWords2}" th:object="${word}">
-            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
-            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
-            <div class="sample1">
-                <p class="flick_word" th:text="*{word}"></p>
-                <div class="mask">
-                    <img th:src="*{url}" >
-                    <p class="flick_word_after" th:text="*{word}"></p>
-                    <p class="caption" th:text="*{meaning}" ></p>
-                </div>
-
+        <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+        <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+        <div class="sample1">
+            <p class="flick_word" th:text="*{word}"></p>
+            <div class="mask">
+                <img th:src="*{url}" >
+                <p class="flick_word_after" th:text="*{word}"></p>
+                <p class="caption" th:text="*{meaning}" ></p>
             </div>
+
+        </div>
     </div>
     <img src="/images/study/next.png" class="wall">
 </div>
@@ -150,18 +150,18 @@
 <div class="reviewWord1">
 
     <div class="buddy" style="display: block;" th:each="word : ${reviewWords1}" th:object="${word}">
-            <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
-            <audio><source th:src="${'/audio/'+ word.audio}"></audio>
-            <div class="sample1">
+        <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
+        <audio><source th:src="${'/audio/'+ word.audio}"></audio>
+        <div class="sample1">
 
-                <p class="flick_word" th:text="*{word}"></p>
-                <div class="mask">
-                    <img th:src="*{url}">
-                    <p class="flick_word_after" th:text="*{word}"></p>
-                    <p class="caption" th:text="*{meaning}" ></p>
-                </div>
-
+            <p class="flick_word" th:text="*{word}"></p>
+            <div class="mask">
+                <img th:src="*{url}">
+                <p class="flick_word_after" th:text="*{word}"></p>
+                <p class="caption" th:text="*{meaning}" ></p>
             </div>
+
+        </div>
     </div>
 
     <img src="/images/study/dousen.png" class="wall">

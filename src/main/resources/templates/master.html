@@ -60,6 +60,7 @@
     </script>
 </head>
 <body>
+
 <a class="homeback" href="/sense/mypage" data-ajax="false"><img src="/images/study/close.jpeg"></a>
 <div  class= "wall-final">
     <!--<input class="show-modal" type="button" value="フリックした単語一覧">-->
@@ -71,6 +72,7 @@
 </div>
 
 <div class="newWord2">
+
         <div class`="buddy" style="display: block;" th:each="word : ${masters1}" th:object="${word}">
             <input class="audioplay" type="image" src="/images/test/saisei.jpg" onclick="audio_play(this)" height="37px" width="32px" >
             <audio><source th:src="${'/audio/'+ word.audio}"></audio>
