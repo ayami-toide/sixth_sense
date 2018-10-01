@@ -1,0 +1,77 @@
+a:link { color: #FFF; }
+a:visited { color: #000000; }
+a:hover { color: #000000; }
+a:active { color: #000000; }
+a:link {text-decoration:none;}
+.head_test {
+    margin:  0;             /* デフォルトCSS打ち消し */
+    position:  relative;    /* 位置調整 */
+    font-weight:  bold;   /* 文字の太さ調整 */
+    margin-bottom: 35px;    /* 周りの余白指定 */
+    font-size: 50px;        /* 文字サイズ指定 */
+    text-align:  center;    /* 文字位置指定 */
+    font-family: 'Sawarabi Gothic', sans-serif;
+    margin-top: 60px;
+}
+.head_test-point {
+    display:  block;        /* ブロック要素にする */
+    font-size:  14px;       /* 文字サイズ指定 */
+    margin-top:  10px;      /* 周りの余白指定 */
+    position:  relative;    /* 位置調整 */
+    width: 140px;           /* 幅指定 */
+    margin: 10px auto 0;    /* 周りの余白指定 */
+    background-color:  #fff; /* 背景色指定 */
+    color: midnightblue;
+}
+.head_test-point:before {
+    content: '';            /* 空の要素を作る */
+    height:  1px;           /* 高さ指定 */
+    background-color:  midnightblue;/* 背景色指定 */
+    position:  absolute;    /* 位置調整 */
+    top: 0;                 /* 位置調整 */
+    bottom:  0;             /* 位置調整 */
+    margin:  auto;          /* 位置調整 */
+    z-index: -1;            /* 重なり調整 */
+    width: 200px;           /* 幅指定 */
+    left:  -30px;           /* 位置調整 */
+}
+input {
+    padding: 38px 78px;
+    border-radius: 46px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #0000CD 0%, #0000CD 100%);
+    background-image: linear-gradient(45deg, #191970 0%, #191970 100%);
+    transition: .4s;
+    /*width: 71px;*/
+    background-color: white;
+    border-color: #191970;
+    border-style: none;
+    margin: 20px;
+    width: 71px;
+    /*height: 43px;*/
+    margin-left: 65px;
+    margin-right: -27px;
+    font-size: 50px;
+    width: 100%;
+}
+.a_lesson{
+    text-align: center;
+}
+.teacher_all{
+}
+.line{
+    text-align: center;
+}
+.unit_sub {
+    list-style: none;
+    display: inline-block;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    font-size: 33px;
+    margin: 58px;
+    margin-right: 0px;
+}
+.unit_sub_title{
+    font-size: 20px;
+}
+

@@ -13,7 +13,7 @@
 <div class="area">
 
     <div class="marquee">
-        おはよう！今日は<span id="view_time"></span>。
+        <span id="view_greeting"></span>今は<span id="view_time"></span>。
         Swishを初めて5日目だよ！
     </div>
 </div>
@@ -30,7 +30,7 @@
         var sec = now.getSeconds();
 
         //出力用
-        var s =  mon + "月" + day + "日" ;
+        var s =  mon + "月" + day + "日" + hour+"時"+min+"分";
         return s;
     }
 </script>
@@ -43,7 +43,7 @@
 
 
 <script type="text/javascript">
-    document.getElementById("view_time").innerHTML = getNow();
+    document.getElementById("view_greeting").innerHTML = getNow();
 
     function getNow() {
         var now = new Date();
@@ -55,8 +55,15 @@
         var sec = now.getSeconds();
 
         //出力用
-        var s =  mon + "月" + day + "日" ;
-        return s;
+        var m =  "おはよう！"
+        var a= "こんにちは！"
+        var e="お疲れ様！"
+       if(hour<12){return m;}
+       else if(hour>=12){
+        return a;}
+        else if(hour>=18){
+            return e;
+       }
     }
 </script>
 
@@ -112,23 +119,23 @@
 <script type="text/javascript">
     function audio_play() {
         audio.play();
-        setTimeout(function jump(){ location.href='/sense/mypage/'},500);
+        setTimeout(function jump(){ location.href='/sense/mypage'},500);
     }
     function audio1_play() {
         audio.play();
-        setTimeout(function jump(){ location.href='/sense/wordlist/'},500);
+        setTimeout(function jump(){ location.href='/sense/wordlist'},500);
     }
     function audio2_play() {
         audio.play();
-        setTimeout(function jump(){ location.href='/sense/review/'},500);
+        setTimeout(function jump(){ location.href='/sense/review'},500);
     }
     function audio3_play() {
         audio.play();
-        setTimeout(function jump(){ location.href='/sense/study/'},500);
+        setTimeout(function jump(){ location.href='/sense/study'},500);
     }
     function audio4_play() {
         audio.play();
-        setTimeout(function jump(){ location.href='/sense/unit_select/'},500);
+        setTimeout(function jump(){ location.href='/sense/unit_select'},500);
     }
 
 
